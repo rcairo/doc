@@ -1,6 +1,6 @@
 = class Cairo::Error
 
-== Object Hierarchy
+== Object Hierarchy follows:
 
 * Object
   * Exception
