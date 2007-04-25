@@ -19,8 +19,8 @@
 #
 
 require 'fileutils'
-
-output_dir = ARGV.shift || "doc"
+require 'optparse'
+require 'ostruct'
 
 #
 # Set targets.
@@ -31,6 +31,27 @@ target_modules = ["Cairo"]
 target_libs.each do |lib|
   require lib
 end
+
+default_output_dir = "doc"
+options = OpenStruct.new
+options.replace = false
+
+opts = OptionParser.new do |opts|
+  opts.banner += " [OUTPUT_DIR]"
+
+  opts.separator ""
+  opts.on("-oDIR", "--output-dir=DIR",
+          "Output into DIR. [#{default_output_dir}]") do |dir|
+    options.output_dir = dir
+  end
+
+  opts.on("--[no-]replace", "Don't merge exist RD.") do |replace|
+    options.replace = replace
+  end
+end
+
+options.output_dir = opts.parse!(ARGV).shift || default_output_dir
+
 
 #################################################################
 # Don't touch below.
@@ -52,17 +73,18 @@ end
 class UpdateRD
   RETURNS = "     * Returns: self"
 
-  def initialize(target_modules, output_dir)
+  def initialize(target_modules, output_dir, replace)
     @target_modules = target_modules
     @output_dir = output_dir
+    @replace = replace
     @target_classes = []
     @current_class = nil
     @indexes = {}
     FileUtils.mkdir_p(@output_dir)
+    @dag = RBBR::MetaInfo::ModuleDAG.full_module_dag
   end
 
   def run
-    @dag = RBBR::MetaInfo::ModuleDAG.full_module_dag
     nest_classes(Object)
     (@dag.roots - [Object]).sort{|x, y| x.inspect <=> y.inspect}.each do |mod|
       nest_classes(mod)
@@ -140,9 +162,12 @@ class UpdateRD
     puts
     target_methods.sort.each do |name, desc|
       puts "--- #{name}"
-      puts
-      puts (desc || default_desc).to_s.rstrip
-      puts
+      method_desc = (desc || default_desc).to_s.rstrip
+      unless method_desc.empty?
+        puts
+        puts method_desc
+        puts
+      end
     end
     method_names
   end
@@ -206,7 +231,7 @@ class UpdateRD
 
   def output_classes
     @target_classes.uniq.sort_by {|x| x.inspect}.each do |klass|
-      read_initial_info(klass)
+      read_initial_info(klass) unless @replace
       File.open(rd_file(klass), "w") do |rd|
         stdout = $stdout
         begin
@@ -335,4 +360,4 @@ class UpdateRD
   end
 end
 
-UpdateRD.new(target_modules, output_dir).run
+UpdateRD.new(target_modules, options.output_dir, options.replace).run
