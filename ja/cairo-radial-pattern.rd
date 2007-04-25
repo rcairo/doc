@@ -13,10 +13,16 @@
 
      * Returns: self
 
+== Instance Methods
+
+--- circles
+
+     * Returns: self
 
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

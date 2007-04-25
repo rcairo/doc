@@ -11,7 +11,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- antialias
@@ -78,10 +77,10 @@
 
      * Returns: self
 
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

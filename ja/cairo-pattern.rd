@@ -11,7 +11,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- __extend__
@@ -58,10 +57,10 @@
 
      * Returns: self
 
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

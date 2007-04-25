@@ -35,10 +35,10 @@
 
      * Returns: self
 
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

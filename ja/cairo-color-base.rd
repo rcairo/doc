@@ -1,55 +1,35 @@
-= class Cairo::Glyph
+= class Cairo::Color::Base
 
 == Object Hierarchy
 
 * Object
-  * Cairo::Glyph
+  * Cairo::Color::Base
 
 == Class Methods
 
---- Cairo::Glyph.new
+--- Cairo::Color::Base.new
 
      * Returns: self
 
 == Instance Methods
 
---- index
+--- a
 
      * Returns: self
 
---- index=
+--- a=
 
      * Returns: self
 
---- set_index
+--- alpha
 
      * Returns: self
 
---- set_x
+--- alpha=
 
      * Returns: self
 
---- set_y
-
-     * Returns: self
-
---- to_s
-
-     * Returns: self
-
---- x
-
-     * Returns: self
-
---- x=
-
-     * Returns: self
-
---- y
-
-     * Returns: self
-
---- y=
+--- assert_in_range
 
      * Returns: self
 

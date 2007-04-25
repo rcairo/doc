@@ -12,17 +12,16 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- set_size
 
      * Returns: self
 
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

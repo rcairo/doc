@@ -1,8 +1,8 @@
-= module Cairo::Context::Circle
+= module Cairo::Context::Blur
 
 == Instance Methods
 
---- circle
+--- pseudo_blur
 
      * Returns: self
 

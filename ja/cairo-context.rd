@@ -7,6 +7,8 @@
 
 == Included Modules
 
+* ((<Cairo::Context::Color|cairo-context-color.rd/module Cairo::Context::Color>))
+* ((<Cairo::Context::Blur|cairo-context-blur.rd/module Cairo::Context::Blur>))
 * ((<Cairo::Context::Path|cairo-context-path.rd/module Cairo::Context::Path>))
 * ((<Cairo::Context::Circle|cairo-context-circle.rd/module Cairo::Context::Circle>))
 * ((<Cairo::Context::Rectangle|cairo-context-rectangle.rd/module Cairo::Context::Rectangle>))
@@ -17,7 +19,6 @@
 --- Cairo::Context.new
 
      * Returns: self
-
 
 == Instance Methods
 
@@ -45,7 +46,15 @@
 
      * Returns: self
 
+--- clip_extents
+
+     * Returns: self
+
 --- clip_preserve
+
+     * Returns: self
+
+--- clip_rectangle_list
 
      * Returns: self
 
@@ -70,6 +79,14 @@
      * Returns: self
 
 --- curve_to
+
+     * Returns: self
+
+--- dash
+
+     * Returns: self
+
+--- dash_count
 
      * Returns: self
 
@@ -277,6 +294,10 @@
 
      * Returns: self
 
+--- scaled_font
+
+     * Returns: self
+
 --- scaled_font=
 
      * Returns: self
@@ -421,10 +442,10 @@
 
      * Returns: self
 
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

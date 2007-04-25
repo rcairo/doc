@@ -1,8 +1,8 @@
-= module Cairo::Context::Circle
+= module Cairo::Context::Color
 
 == Instance Methods
 
---- circle
+--- set_source_color
 
      * Returns: self
 

@@ -12,7 +12,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- dsc_begin_page_setup
@@ -31,10 +30,10 @@
 
      * Returns: self
 
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

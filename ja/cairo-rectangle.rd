@@ -1,39 +1,31 @@
-= class Cairo::Glyph
+= class Cairo::Rectangle
 
 == Object Hierarchy
 
 * Object
-  * Cairo::Glyph
+  * Cairo::Rectangle
 
 == Class Methods
 
---- Cairo::Glyph.new
+--- Cairo::Rectangle.new
 
      * Returns: self
 
 == Instance Methods
 
---- index
+--- height
 
      * Returns: self
 
---- index=
+--- height=
 
      * Returns: self
 
---- set_index
+--- width
 
      * Returns: self
 
---- set_x
-
-     * Returns: self
-
---- set_y
-
-     * Returns: self
-
---- to_s
+--- width=
 
      * Returns: self
 

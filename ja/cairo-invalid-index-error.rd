@@ -1,12 +1,12 @@
-= class Cairo::FileNotFound
+= class Cairo::InvalidIndexError
 
 == Object Hierarchy
 
 * Object
   * Exception
     * StandardError
-      * ((<Cairo::Error|cairo-error.rd/class Cairo::Error>))
-        * Cairo::FileNotFound
+      * ArgumentError
+        * Cairo::InvalidIndexError
 
 == See Also
 

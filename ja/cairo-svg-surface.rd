@@ -24,24 +24,20 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- restrict_to_version
 
      * Returns: self
 
-
 == Constants
 
 --- VERSION_1_1
-
 --- VERSION_1_2
-
-
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

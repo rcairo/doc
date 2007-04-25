@@ -1,87 +1,48 @@
-= class Cairo::Matrix
+= class Cairo::Color::HSV
 
 == Object Hierarchy
 
 * Object
-  * Cairo::Matrix
+  * ((<Cairo::Color::Base|cairo-color-base.rd/class Cairo::Color::Base>))
+    * Cairo::Color::HSV
 
 == Class Methods
 
---- Cairo::Matrix.identity
-
-     * Returns: self
-
---- Cairo::Matrix.new
-
-     * Returns: self
-
---- Cairo::Matrix.rotate
-
-     * Returns: self
-
---- Cairo::Matrix.scale
-
-     * Returns: self
-
---- Cairo::Matrix.translate
+--- Cairo::Color::HSV.new
 
      * Returns: self
 
 == Instance Methods
 
---- *
+--- h
 
      * Returns: self
 
---- clone
+--- h=
 
      * Returns: self
 
---- dup
+--- hue
 
      * Returns: self
 
---- identity!
+--- hue=
 
      * Returns: self
 
---- invert
+--- s
 
      * Returns: self
 
---- invert!
+--- s=
 
      * Returns: self
 
---- matrix_distance
+--- saturation
 
      * Returns: self
 
---- multiply
-
-     * Returns: self
-
---- multiply!
-
-     * Returns: self
-
---- rotate
-
-     * Returns: self
-
---- rotate!
-
-     * Returns: self
-
---- scale
-
-     * Returns: self
-
---- scale!
-
-     * Returns: self
-
---- set
+--- saturation=
 
      * Returns: self
 
@@ -89,19 +50,35 @@
 
      * Returns: self
 
---- to_s
+--- to_ary
 
      * Returns: self
 
---- transform_point
+--- to_cmyk
 
      * Returns: self
 
---- translate
+--- to_hsv
 
      * Returns: self
 
---- translate!
+--- to_rgb
+
+     * Returns: self
+
+--- v
+
+     * Returns: self
+
+--- v=
+
+     * Returns: self
+
+--- value
+
+     * Returns: self
+
+--- value=
 
      * Returns: self
 

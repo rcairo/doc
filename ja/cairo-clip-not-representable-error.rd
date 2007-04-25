@@ -1,4 +1,4 @@
-= class Cairo::SurfaceFinishedError
+= class Cairo::ClipNotRepresentableError
 
 == Object Hierarchy
 
@@ -6,7 +6,7 @@
   * Exception
     * StandardError
       * ((<Cairo::Error|cairo-error.rd/class Cairo::Error>))
-        * Cairo::SurfaceFinishedError
+        * Cairo::ClipNotRepresentableError
 
 == See Also
 

@@ -1,87 +1,64 @@
-= class Cairo::Matrix
+= class Cairo::Color::RGB
 
 == Object Hierarchy
 
 * Object
-  * Cairo::Matrix
+  * ((<Cairo::Color::Base|cairo-color-base.rd/class Cairo::Color::Base>))
+    * Cairo::Color::RGB
 
 == Class Methods
 
---- Cairo::Matrix.identity
-
-     * Returns: self
-
---- Cairo::Matrix.new
-
-     * Returns: self
-
---- Cairo::Matrix.rotate
-
-     * Returns: self
-
---- Cairo::Matrix.scale
-
-     * Returns: self
-
---- Cairo::Matrix.translate
+--- Cairo::Color::RGB.new
 
      * Returns: self
 
 == Instance Methods
 
---- *
+--- b
 
      * Returns: self
 
---- clone
+--- b=
 
      * Returns: self
 
---- dup
+--- blue
 
      * Returns: self
 
---- identity!
+--- blue=
 
      * Returns: self
 
---- invert
+--- g
 
      * Returns: self
 
---- invert!
+--- g=
 
      * Returns: self
 
---- matrix_distance
+--- green
 
      * Returns: self
 
---- multiply
+--- green=
 
      * Returns: self
 
---- multiply!
+--- r
 
      * Returns: self
 
---- rotate
+--- r=
 
      * Returns: self
 
---- rotate!
+--- red
 
      * Returns: self
 
---- scale
-
-     * Returns: self
-
---- scale!
-
-     * Returns: self
-
---- set
+--- red=
 
      * Returns: self
 
@@ -89,19 +66,23 @@
 
      * Returns: self
 
+--- to_ary
+
+     * Returns: self
+
+--- to_cmyk
+
+     * Returns: self
+
+--- to_hsv
+
+     * Returns: self
+
+--- to_rgb
+
+     * Returns: self
+
 --- to_s
-
-     * Returns: self
-
---- transform_point
-
-     * Returns: self
-
---- translate
-
-     * Returns: self
-
---- translate!
 
      * Returns: self
 

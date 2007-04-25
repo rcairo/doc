@@ -12,10 +12,16 @@
 
      * Returns: self
 
+== Instance Methods
+
+--- surface
+
+     * Returns: self
 
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 

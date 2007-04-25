@@ -20,10 +20,22 @@
 
      * Returns: self
 
+--- color_stop_count
+
+     * Returns: self
+
+--- get_color_stop
+
+     * Returns: self
+
+--- get_color_stop_rgba
+
+     * Returns: self
 
 == See Also
 
   * ((<Index|index.rd/Index>))
 
 == ChangeLog
+
 
