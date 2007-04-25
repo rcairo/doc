@@ -50,7 +50,7 @@ class Class
 end
 
 class UpdateRD
-  RETURNS = "\n\n     * Returns: self\n"
+  RETURNS = "     * Returns: self"
 
   def initialize(target_modules, output_dir)
     @target_modules = target_modules
@@ -74,7 +74,7 @@ class UpdateRD
   private
   def class_link(klass)
     link = "#{klass_to_page_name(klass)}/"
-    link << (klass.is_a?(Class) ? "class" : "module")
+    link << (klass.class? ? "class" : "module")
     link << " #{klass.inspect}"
     link
   end
@@ -121,15 +121,30 @@ class UpdateRD
     end
   end
 
-  def put_methods(name, methods, prefix="", postfix="")
-    return if methods.size == 0
-    puts "== " + name
+  def put_methods(title, methods, methods_info=nil, prefix="", postfix="",
+                  default_desc=nil)
+    method_names = []
+    methods_info ||= []
+    method_names = methods_info.collect do |name, desc|
+      name.gsub(/(?:\A.*[\.\#]|\(.*\Z)/, '')
+    end
+    methods -= method_names
+    method_names += methods
+    target_methods = methods_info
+    target_methods += methods.sort.collect do |name|
+      ["#{prefix}#{name}#{postfix}"]
+    end
+    return method_names if target_methods.size == 0
+
+    puts "== " + title
     puts
-    methods.sort.each do |name|
-      puts "--- " + prefix + name + postfix
+    target_methods.sort.each do |name, desc|
+      puts "--- #{name}"
+      puts
+      puts (desc || default_desc).to_s.rstrip
       puts
     end
-    puts ""
+    method_names
   end
 
   def nest_classes(klass)
@@ -153,10 +168,46 @@ class UpdateRD
     end.join("-") + ".rd"
   end
 
+  def rd_file(klass)
+    File.join(@output_dir, klass_to_page_name(klass))
+  end
+
+  def read_entries(component)
+    title, *entries = component.split(/^---\s*.*?/m)
+    entries.collect do |entry|
+      entry.split(/\n+/, 2)
+    end
+  end
+
+  def read_initial_info(klass)
+    return unless File.exists?(rd_file(klass))
+    _, *components = File.read(rd_file(klass)).split(/^=+\s*.*?/m)
+    info = {}
+    components.each do |component|
+      case component
+      when /\A(?:class|module)\s+(.*)/
+        if $1 != klass.inspect
+          return
+        end
+      when /\AClass Methods/
+        info[:class_methods_info] = read_entries(component)
+      when /\AModule Functions/
+        info[:module_functions_info] = read_entries(component)
+      when /\AInstance Methods/
+        info[:instance_methods_info] = read_entries(component)
+      when /\ASee Also/
+        title, info[:see_also] = component.split(/\n+/, 2)
+      when /\AChangeLog/
+        title, info[:change_log] = component.split(/\n+/, 2)
+      end
+    end
+    @indexes[klass].merge!(info)
+  end
+
   def output_classes
     @target_classes.uniq.sort_by {|x| x.inspect}.each do |klass|
-      file_name = klass_to_page_name(klass)
-      File.open(File.join(@output_dir, file_name), "w") do |rd|
+      read_initial_info(klass)
+      File.open(rd_file(klass), "w") do |rd|
         stdout = $stdout
         begin
           $stdout = rd
@@ -177,22 +228,20 @@ class UpdateRD
 
         index.puts "  * ((<#{klass.inspect}|#{class_link(klass)}>))"
 
-        info[:constants].sort.each do |const|
-          next if const.empty?
-          next if @indexes.has_key?(klass.const_get(const))
-          index.puts "  * ((<#{klass.inspect}::#{const}|#{page_name}/#{const}>))"
+        info[:constants].sort.each do |name, desc|
+          next if @indexes.has_key?(klass.const_get(name))
+          index.puts "  * ((<#{klass.inspect}::#{name}|#{page_name}/#{name}>))"
         end
 
-        (info[:class_methods] || info[:module_functions]).sort.each do |method|
-          next if method.empty?
-          link = "#{page_name}/#{klass.inspect}.#{method}"
-          index.puts "  * ((<#{klass.inspect}.#{method}|#{link}>))"
+        methods = info[:class_methods] || info[:module_functions]
+        methods.sort.each do |name, desc|
+          link = "#{page_name}/#{klass.inspect}.#{name}"
+          index.puts "  * ((<#{klass.inspect}.#{name}|#{link}>))"
         end
 
-        info[:instance_methods].sort.each do |method|
-          next if method.empty?
-          link = "#{page_name}/#{method}"
-          index.puts "  * ((<#{klass.inspect}##{method}|#{link}>))"
+        info[:instance_methods].sort.each do |name, desc|
+          link = "#{page_name}/#{name}"
+          index.puts "  * ((<#{klass.inspect}##{name}|#{link}>))"
         end
       end
     end
@@ -221,8 +270,10 @@ class UpdateRD
 
   def put_class_methods(klass)
     methods = klass.methods - klass.superclass.methods + new_methods(klass)
-    put_methods("Class Methods", methods, klass.inspect + ".", RETURNS)
-    @indexes[klass][:class_methods] = methods
+    @indexes[klass][:class_methods] =
+      put_methods("Class Methods", methods,
+                  @indexes[klass][:class_methods_info],
+                  klass.inspect + ".", "", RETURNS)
   end
 
   def put_module_functions(klass)
@@ -231,8 +282,10 @@ class UpdateRD
       methods -= included.methods
     end
     methods -= Object.methods
-    put_methods("Module Functions", methods, klass.inspect + ".", RETURNS)
-    @indexes[klass][:module_functions] = methods
+    @indexes[klass][:module_functions] =
+      put_methods("Module Functions", methods,
+                  @indexes[klass][:module_functions_info],
+                  klass.inspect + ".", "", RETURNS)
   end
 
   def put_instance_methods(klass)
@@ -244,8 +297,9 @@ class UpdateRD
       instance_methods = klass.public_instance_methods(false) - ["initialize"] +
         klass.protected_instance_methods(false)
     end
-    put_methods("Instance Methods", instance_methods, "", RETURNS)
-    @indexes[klass][:instance_methods] = instance_methods
+    @indexes[klass][:instance_methods] =
+      put_methods("Instance Methods", instance_methods,
+                  @indexes[klass][:instance_methods_info], "", "", RETURNS)
   end
 
   def put_constants(klass)
@@ -253,20 +307,31 @@ class UpdateRD
     klass.constants_at.each do |const|
       constants << const unless @indexes.has_key?(klass.const_get(const))
     end
-    put_methods("Constants", constants)
-    @indexes[klass][:constants] = constants
+    @indexes[klass][:constants] =
+      put_methods("Constants", constants, @indexes[klass][:constants_info])
   end
 
   def put_see_also(klass)
     puts "== See Also"
     puts
-    puts "  * ((<Index|index.rd/Index>))"
-    puts
+    see_also = @indexes[klass][:see_also]
+    if see_also
+      puts see_also
+    else
+      puts "  * ((<Index|index.rd/Index>))"
+      puts
+    end
   end
 
   def put_change_log(klass)
     puts "== ChangeLog"
     puts
+    change_log = @indexes[klass][:change_log]
+    if change_log
+      puts change_log
+    else
+      puts
+    end
   end
 end
 
