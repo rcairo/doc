@@ -7,7 +7,7 @@
 
 == Included Modules
 
-* Enumerable
+  * Enumerable
 
 == Instance Methods
 

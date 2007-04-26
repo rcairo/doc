@@ -126,11 +126,11 @@ class UpdateRD
       puts
       included_modules_at.each do |included_mod|
         if @indexes.has_key?(included_mod)
-          mod_text = class_link(included_mod)
+          mod_text = "((<#{included_mod.inspect}>))"
         else
           mod_text = included_mod.inspect
         end
-        puts "* #{mod_text}"
+        puts "  * #{mod_text}"
       end
       puts ""
     end
@@ -141,7 +141,7 @@ class UpdateRD
     method_names = []
     methods_info ||= []
     method_names = methods_info.collect do |name, desc|
-      name.gsub(/(?:\A.*[\.\#]|\(.*\Z)/, '')
+      name.gsub(/(?:\A.*?[\.\#]|\(.*\Z)/, '')
     end
     methods -= method_names
     method_names += methods
@@ -153,15 +153,19 @@ class UpdateRD
 
     puts "== " + title
     puts
+    last_putted = true
     target_methods.each do |name, desc|
+      last_putted = false
       puts "--- #{name}"
       method_desc = (desc || default_desc).to_s.rstrip
       unless method_desc.empty?
         puts
         puts method_desc
         puts
+        last_putted = true
       end
     end
+    puts unless last_putted
     method_names
   end
 

@@ -5,7 +5,6 @@
 
 cairoにはないrcairoでの拡張です。
 
-
 == Object Hierarchy
 
 * Object

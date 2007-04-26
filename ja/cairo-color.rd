@@ -2,7 +2,7 @@
 
 == Included Modules
 
-* ((<Cairo::Color::X11|cairo-color-x11.rd/module Cairo::Color::X11>))
+  * ((<Cairo::Color::X11>))
 
 == Module Functions
 
@@ -203,6 +203,7 @@
 --- WISTERIA
 --- YELLOW
 --- ZINNWALDITE
+
 == See Also
 
   * ((<Index>))

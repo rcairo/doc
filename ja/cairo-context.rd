@@ -7,12 +7,12 @@
 
 == Included Modules
 
-* ((<Cairo::Context::Color|cairo-context-color.rd/module Cairo::Context::Color>))
-* ((<Cairo::Context::Blur|cairo-context-blur.rd/module Cairo::Context::Blur>))
-* ((<Cairo::Context::Path|cairo-context-path.rd/module Cairo::Context::Path>))
-* ((<Cairo::Context::Circle|cairo-context-circle.rd/module Cairo::Context::Circle>))
-* ((<Cairo::Context::Rectangle|cairo-context-rectangle.rd/module Cairo::Context::Rectangle>))
-* ((<Cairo::Context::Quad|cairo-context-quad.rd/module Cairo::Context::Quad>))
+  * ((<Cairo::Context::Color>))
+  * ((<Cairo::Context::Blur>))
+  * ((<Cairo::Context::Path>))
+  * ((<Cairo::Context::Circle>))
+  * ((<Cairo::Context::Rectangle>))
+  * ((<Cairo::Context::Quad>))
 
 == Class Methods
 
