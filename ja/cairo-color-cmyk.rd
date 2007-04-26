@@ -1,6 +1,7 @@
 = class Cairo::Color::CMYK
 
-((*Since 1.5?*)): CMYKで色を表現します。
+((*Since 1.5?*)): CMYK（シアン、マゼンタ、黄色、キー・プレー
+ト）で色を表現します。
 
 cairoにはないrcairoでの拡張です。
 
