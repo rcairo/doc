@@ -1,5 +1,10 @@
 = module Cairo::Color::X11
 
+((*Since 1.5?*)): X11で定義されている色を
+((<Cairo::Color::RGB>))オブジェクトにしたものの集まりです。
+
+cairoにはないrcairoでの拡張です。
+
 == Constants
 
 --- ALICE_BLUE
@@ -141,10 +146,12 @@
 --- WHITE_SMOKE
 --- YELLOW
 --- YELLOW_GREEN
+
 == See Also
 
+  * ((<Cairo::Color::RGB>))
   * ((<Index>))
 
 == ChangeLog
 
-
+  * 2007-04-26: kou: スタート。
