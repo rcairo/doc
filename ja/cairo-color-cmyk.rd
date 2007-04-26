@@ -1,5 +1,10 @@
 = class Cairo::Color::CMYK
 
+((*Since 1.5?*)): CMYKで色を表現します。
+
+cairoにはないrcairoでの拡張です。
+
+
 == Object Hierarchy
 
 * Object
@@ -8,100 +13,108 @@
 
 == Class Methods
 
---- Cairo::Color::CMYK.new
+--- Cairo::Color::CMYK.new(c, m, y, k, a=1.0)
 
-     * Returns: self
+    CMYKで表現した色を生成します。
+
+     * c: シアン
+     * m: マゼンタ
+     * y: 黄色
+     * k: キー・プレート（黒）
+     * a: アルファ値
+     * Returns: 生成した色
 
 == Instance Methods
 
+--- cyan
 --- c
 
-     * Returns: self
+     シアンの値を返します。
 
---- c=
+     * Returns: シアンの値
 
-     * Returns: self
+--- cyan=(value)
+--- c=(value)
 
---- cyan
+     シアンの値を設定します。
 
-     * Returns: self
-
---- cyan=
-
-     * Returns: self
-
---- k
-
-     * Returns: self
-
---- k=
-
-     * Returns: self
-
---- key_plate
-
-     * Returns: self
-
---- key_plate=
-
-     * Returns: self
-
---- m
-
-     * Returns: self
-
---- m=
-
-     * Returns: self
+     * value: 新しいシアンの値
 
 --- magenta
+--- m
 
-     * Returns: self
+     マゼンタの値を返します。
 
---- magenta=
+     * Returns: マゼンタの値
 
-     * Returns: self
+--- magenta=(value)
+--- m=(value)
+
+     シアンの値を設定します。
+
+     * value: 新しいマゼンタの値
+
+--- yellow
+--- y
+
+     黄色の値を返します。
+
+     * Returns: 黄色の値
+
+--- yellow=(value)
+--- y=(value)
+
+     黄色の値を設定します。
+
+     * value: 新しい黄色の値
+
+--- key_plate
+--- k
+
+     キー・プレートの値を返します。
+
+     * Returns: キー・プレートの値
+
+--- key_plate=(value)
+--- k=(value)
+
+     キー・プレートの値を設定します。
+
+     * value: 新しいキー・プレートの値
 
 --- to_a
-
-     * Returns: self
-
 --- to_ary
 
-     * Returns: self
+     [cyan, magenta, yellow, key_plate, alpha]を返します。
+
+     * Returns: シアン、マゼンタ、黄色、キー・プレート、アル
+       ファ値の配列
 
 --- to_cmyk
 
-     * Returns: self
+     複製を返します。
+
+     * Returns: 自分自身の複製
 
 --- to_hsv
 
-     * Returns: self
+     HSV形式に変換した色を返します。
+
+     * Returns: ((<Cairo::Color::HSV>))オブジェクト
 
 --- to_rgb
 
-     * Returns: self
+     RGB形式に変換した色を返します。
 
---- y
-
-     * Returns: self
-
---- y=
-
-     * Returns: self
-
---- yellow
-
-     * Returns: self
-
---- yellow=
-
-     * Returns: self
+     * Returns: ((<Cairo::Color::RGB>))オブジェクト
 
 == See Also
 
+  * ((<Cairo::Color::Base>))
+  * ((<Cairo::Color::RGB>))
+  * ((<Cairo::Color::HSV>))
   * ((<Index>))
 
 == ChangeLog
 
-
+  * 2007-04-26: kou: スタート。
