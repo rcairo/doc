@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Pattern|cairo-pattern.rd/class Cairo::Pattern>))
+  * ((<Cairo::Pattern>))
     * Cairo::SurfacePattern
 
 == Class Methods
@@ -20,7 +20,7 @@
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * ((<Index>))
 
 == ChangeLog
 

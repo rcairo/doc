@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Color::Base|cairo-color-base.rd/class Cairo::Color::Base>))
+  * ((<Cairo::Color::Base>))
     * Cairo::Color::CMYK
 
 == Class Methods
@@ -100,7 +100,7 @@
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * ((<Index>))
 
 == ChangeLog
 

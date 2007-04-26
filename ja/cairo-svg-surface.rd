@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Surface|cairo-surface.rd/class Cairo::Surface>))
+  * ((<Cairo::Surface>))
     * Cairo::SVGSurface
 
 == Class Methods
@@ -36,7 +36,7 @@
 --- VERSION_1_2
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * ((<Index>))
 
 == ChangeLog
 

@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Surface|cairo-surface.rd/class Cairo::Surface>))
+  * ((<Cairo::Surface>))
     * Cairo::PDFSurface
 
 == Class Methods
@@ -20,7 +20,7 @@
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * ((<Index>))
 
 == ChangeLog
 

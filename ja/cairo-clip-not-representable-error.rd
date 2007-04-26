@@ -8,13 +8,13 @@
 * Object
   * Exception
     * StandardError
-      * ((<Cairo::Error|cairo-error.rd/class Cairo::Error>))
+      * ((<Cairo::Error>))
         * Cairo::ClipNotRepresentableError
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
-  * ((<Cairo::Context#clip_rectangle_list|cairo-context.rd/clip_rectangle_list>))
+  * ((<Index>))
+  * ((<Cairo::Context#clip_rectangle_list>))
 
 == ChangeLog
 

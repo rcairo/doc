@@ -3,8 +3,8 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Pattern|cairo-pattern.rd/class Cairo::Pattern>))
-    * ((<Cairo::GradientPattern|cairo-gradient-pattern.rd/class Cairo::GradientPattern>))
+  * ((<Cairo::Pattern>))
+    * ((<Cairo::GradientPattern>))
       * Cairo::RadialPattern
 
 == Class Methods
@@ -21,7 +21,7 @@
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * ((<Index>))
 
 == ChangeLog
 
