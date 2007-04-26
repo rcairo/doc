@@ -14,36 +14,31 @@ cairoにはないrcairoでの拡張です。
 
 == Class Methods
 
---- Cairo::Color::Base.new
+--- Cairo::Color::Base.new(alpha)
 
-     * Returns: self
+     普通は使いません。
 
 == Instance Methods
 
+--- alpha
 --- a
 
-     * Returns: self
+     アルファ値を返します。
 
---- a=
-
-     * Returns: self
-
---- alpha
-
-     * Returns: self
+     * Returns: アルファ値
 
 --- alpha=
+--- a=
 
-     * Returns: self
-
---- assert_in_range
-
-     * Returns: self
+     アルファ値を設定します。
 
 == See Also
 
+  * ((<Cairo::Color::RGB>))
+  * ((<Cairo::Color::CMYK>))
+  * ((<Cairo::Color::HSV>))
   * ((<Index>))
 
 == ChangeLog
 
-
+  * 2007-04-26: kou: スタート。

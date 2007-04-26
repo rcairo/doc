@@ -292,7 +292,6 @@
   * ((<Cairo::Color::Base#a=>))
   * ((<Cairo::Color::Base#alpha>))
   * ((<Cairo::Color::Base#alpha=>))
-  * ((<Cairo::Color::Base#assert_in_range>))
   * ((<Cairo::Color::CMYK>))
   * ((<Cairo::Color::CMYK.new>))
   * ((<Cairo::Color::CMYK#c>))
