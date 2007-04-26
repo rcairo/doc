@@ -59,19 +59,12 @@ options.output_dir = opts.parse!(ARGV).shift || default_output_dir
 #################################################################
 require 'rbbr/metainfo'
 
-class Module
-  def class?
-    false
-  end
-end
-
-class Class
-  def class?
-    true
-  end
-end
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'rd-lib'
 
 class UpdateRD
+  include RDLib
+
   RETURNS = "     * Returns: self"
 
   def initialize(target_modules, output_dir, replace)
@@ -95,13 +88,6 @@ class UpdateRD
   end
 
   private
-  def class_link(klass)
-    link = "#{klass_to_page_name(klass)}/"
-    link << (klass.class? ? "class" : "module")
-    link << " #{klass.inspect}"
-    link
-  end
-
   def put_classmodule_info(mod)
     if mod.class?
       puts "= class #{mod.inspect}"
@@ -124,9 +110,10 @@ class UpdateRD
       end
       depth = 0
       while sp = superclasses.pop
-        sp_text = sp.inspect
         if @indexes.has_key?(sp) and sp != mod
-          sp_text = "((<#{sp_text}|#{class_link(sp)}>))"
+          sp_text = "((<#{sp.inspect}>))"
+        else
+          sp_text = sp.inspect
         end
         puts "#{' ' * 2 * depth}* #{sp_text}"
         depth += 1
@@ -139,7 +126,7 @@ class UpdateRD
       puts
       included_modules_at.each do |included_mod|
         if @indexes.has_key?(included_mod)
-          mod_text = "((<#{included_mod.inspect}|#{class_link(included_mod)}>))"
+          mod_text = class_link(included_mod)
         else
           mod_text = included_mod.inspect
         end
@@ -189,14 +176,6 @@ class UpdateRD
     @dag.arc(klass).each do |subklass|
       nest_classes(subklass)
     end
-  end
-
-  def klass_to_page_name(klass)
-    klass.inspect.split(/::/).collect do |component|
-      component.split(/([A-Z][^A-Z]+|[A-Z]+(?=[A-Z][^A-Z]))/).reject do |sub|
-        sub.empty?
-      end.join("-").downcase
-    end.join("-") + ".rd"
   end
 
   def rd_file(klass)
@@ -255,24 +234,20 @@ class UpdateRD
       index.puts "= Index"
       index.puts
       @indexes.sort_by {|klass, info| klass.inspect}.each do |klass, info|
-        page_name = klass_to_page_name(klass)
-
-        index.puts "  * ((<#{klass.inspect}|#{class_link(klass)}>))"
+        index.puts "  * ((<#{klass.inspect}>))"
 
         info[:constants].sort.each do |name, desc|
           next if @indexes.has_key?(klass.const_get(name))
-          index.puts "  * ((<#{klass.inspect}::#{name}|#{page_name}/#{name}>))"
+          index.puts "  * ((<#{klass.inspect}::#{name}>))"
         end
 
         methods = info[:class_methods] || info[:module_functions]
         methods.sort.each do |name, desc|
-          link = "#{page_name}/#{klass.inspect}.#{name}"
-          index.puts "  * ((<#{klass.inspect}.#{name}|#{link}>))"
+          index.puts "  * ((<#{klass.inspect}.#{name}>))"
         end
 
         info[:instance_methods].sort.each do |name, desc|
-          link = "#{page_name}/#{name}"
-          index.puts "  * ((<#{klass.inspect}##{name}|#{link}>))"
+          index.puts "  * ((<#{klass.inspect}\##{name}>))"
         end
       end
     end
@@ -349,7 +324,7 @@ class UpdateRD
     if see_also
       puts see_also
     else
-      puts "  * ((<Index|index.rd/Index>))"
+      puts "  * ((<Index>))"
       puts
     end
   end
