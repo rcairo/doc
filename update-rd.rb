@@ -18,6 +18,7 @@
 # the terms of the Ruby Distribute License.
 #
 
+require 'English'
 require 'fileutils'
 require 'optparse'
 require 'ostruct'
@@ -107,7 +108,12 @@ class UpdateRD
     else
       puts "= module #{mod.inspect}"
     end
-    puts ""
+    puts
+    if @indexes[mod][:description]
+      puts @indexes[mod][:description]
+      puts
+    end
+
     if mod.class? and Object != mod
       puts "== Object Hierarchy"
       puts
@@ -211,9 +217,9 @@ class UpdateRD
     components.each do |component|
       case component
       when /\A(?:class|module)\s+(.*)/
-        if $1 != klass.inspect
-          return
-        end
+        return if $1 != klass.inspect
+        description = $POSTMATCH.strip
+        info[:description] = description unless description.empty?
       when /\AClass Methods/
         info[:class_methods_info] = read_entries(component)
       when /\AModule Functions/

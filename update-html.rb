@@ -2,6 +2,7 @@
 
 if ARGV.size < 1
   puts "Usage: #{$0} RD_DIR"
+  exit 1
 end
 
 rd_dir = ARGV.shift
