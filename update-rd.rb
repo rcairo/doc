@@ -153,7 +153,7 @@ class UpdateRD
 
     puts "== " + title
     puts
-    target_methods.sort.each do |name, desc|
+    target_methods.each do |name, desc|
       puts "--- #{name}"
       method_desc = (desc || default_desc).to_s.rstrip
       unless method_desc.empty?
@@ -297,7 +297,6 @@ class UpdateRD
   def put_instance_methods(klass)
     if klass.class?
       instance_methods = klass.public_instance_methods(false) +
-        klass.private_instance_methods(false) - ["initialize"] +
         klass.protected_instance_methods(false)
     else
       instance_methods = klass.public_instance_methods(false) - ["initialize"] +
