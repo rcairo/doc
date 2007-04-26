@@ -1,18 +1,93 @@
 = module Cairo::Color
 
+((*Since 1.5?*)): 色をパースする機能と、有名な色の
+((<Cairo::Color::RGB>))オブジェクトを提供するモジュールです。
+
+cairoにはないrcairoでの拡張です。
+
 == Included Modules
 
   * ((<Cairo::Color::X11>))
 
 == Module Functions
 
---- Cairo::Color.parse
+--- Cairo::Color.parse([r, g, b, a=1.0])
+--- Cairo::Color.parse([:rgb, r, g, b, a=1.0])
+--- Cairo::Color.parse([:rgba, r, g, b, a=1.0])
 
-     * Returns: self
+    RGB形式の色を生成します。
 
---- Cairo::Color.parse_hex_color
+     * Returns: ((<Cairo::Color::RGB>))オブジェクト
 
-     * Returns: self
+--- Cairo::Color.parse([:cmyk, c, m, y, k, a=1.0])
+--- Cairo::Color.parse([:cmyka, c, m, y, k, a=1.0])
+
+    CMYK形式の色を生成します。
+
+     * Returns: ((<Cairo::Color::CMYK>))オブジェクト
+
+--- Cairo::Color.parse([:hsv, h, s, v, a=1.0])
+--- Cairo::Color.parse([:hsva, h, s, v, a=1.0])
+
+    HSV形式の色を生成します。
+
+     * Returns: ((<Cairo::Color::HSV>))オブジェクト
+
+--- Cairo::Color.parse("#RGB")
+--- Cairo::Color.parse("#RGBA")
+--- Cairo::Color.parse("#RRGGBB")
+--- Cairo::Color.parse("#RRGGBBAA")
+--- Cairo::Color.parse("#RRRRGGGGBBBB")
+--- Cairo::Color.parse("#RRRRGGGGBBBBAAAA")
+
+    16進数の文字列で表現されたRGB形式から対応する色を生成し
+    ます。"#"からはじまるのに、上記以外のフォーマットの場合
+    はArgumentErrorが発生します。
+
+     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+
+--- Cairo::Color.parse(color_name, robust=false)
+
+    名前から色を生成します。使える色の名前は
+    ((<Cairo::Color>))モジュールに定義されている定数名と対応
+    します。大文字小文字、"-"や"_"や空白は区別されません。
+
+    例えば、((<Cairo::Color::PEACH_YELLOW>))を使いたい場合は
+    以下のどの書き方でも有効です。
+
+       Cairo::Color.parse(:peach_yellow)
+       Cairo::Color.parse("peach-yellow")
+       Cairo::Color.parse("peach yellow")
+       Cairo::Color.parse("Peach Yellow")
+       Cairo::Color.parse("PEACH_YELLOW")
+       Cairo::Color.parse("PEACH     Yellow")
+
+     * color_name: 色の名前。文字列またはシンボル。
+     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+
+--- Cairo::Color.parse(color)
+
+    色（((<Cairo::Color::Base>))のサブクラスのオブジェクト）
+    を指定した場合は、その色の複製を返します。
+
+     * color: ((<Cairo::Color::Base>))のサブクラスのオブジェクト
+     * Returns: colorの複製
+
+--- Cairo::Color.parse(value, robust=false)
+
+    robustがtrueの場合はArgumentErrorが発生します。そうでな
+    い場合は、valueをそのまま返します。
+
+     * value: 上記以外のオブジェクト
+     * Returns: value
+
+--- Cairo::Color.parse_hex_color(value)
+
+    "#..."形式のRGB値から色を生成する。
+    Cairo::Color.parseを使ってください。
+
+     * value: "#..."形式の文字列
+     * Returns: ((<Cairo::Color::RGB>))オブジェクト
 
 == Constants
 
@@ -206,8 +281,13 @@
 
 == See Also
 
+  * ((<Cairo::Color::RGB>))
+  * ((<Cairo::Color::CMYK>))
+  * ((<Cairo::Color::HSV>))
+  * ((<Cairo::Color::X11>))
   * ((<Index>))
 
 == ChangeLog
 
+  * 2007-04-26: kou: スタート。
 
