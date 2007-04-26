@@ -144,7 +144,7 @@ class UpdateRD
       name.gsub(/(?:\A.*?[\.\#]|\(.*\Z)/, '')
     end
     methods -= method_names
-    method_names += methods
+    method_names = (method_names + methods).uniq
     target_methods = methods_info
     target_methods += methods.sort.collect do |name|
       ["#{prefix}#{name}#{postfix}"]
