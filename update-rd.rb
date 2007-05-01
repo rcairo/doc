@@ -80,7 +80,7 @@ class UpdateRD
 
   def run
     nest_classes(Object)
-    (@dag.roots - [Object]).sort{|x, y| x.inspect <=> y.inspect}.each do |mod|
+    (@dag.roots - [Object]).sort_by {|x| x.inspect}.each do |mod|
       nest_classes(mod)
     end
     output_classes
@@ -124,7 +124,7 @@ class UpdateRD
     unless included_modules_at.empty?
       puts "== Included Modules"
       puts
-      included_modules_at.each do |included_mod|
+      included_modules_at.sort_by {|x| x.inspect}.each do |included_mod|
         if @indexes.has_key?(included_mod)
           mod_text = "((<#{included_mod.inspect}>))"
         else
