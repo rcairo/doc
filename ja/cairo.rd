@@ -6,6 +6,10 @@
 
      * Returns: self
 
+--- Cairo.normalize_const_name
+
+     * Returns: self
+
 == Constants
 
 --- ANTIALIAS_DEFAULT

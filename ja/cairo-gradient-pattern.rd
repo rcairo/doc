@@ -32,6 +32,10 @@
 
      * Returns: self
 
+--- get_color_stop_color
+
+     * Returns: self
+
 == See Also
 
   * ((<Index>))
