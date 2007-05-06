@@ -1,5 +1,36 @@
 = class Cairo::Context
 
+Cairo::Contextはrcairoで描画するときに使用する主要なオブジェ
+クトです。rcairoで描画するためには、まず、描画対象となるサー
+フェスを設定したCairo::Contextを作ります。それから、描画オプ
+ションを設定し、((<Cairo::Context#move_to>))、
+((<Cairo::Context#line_to>))などで形を作り、その形を
+((<Cairo::Context#stroke>))か((<Cairo::Context#fill>))で描画
+します。
+
+Cairo::Contextの持っている描画情報は
+((<Cairo::Context#save>))でスタックに積むことができます。そ
+のため、現在の状態を失うことなく描画情報を安全に変更できます。
+((<Cairo::Context#restore>))を呼べば保存した状態を復元するこ
+とができます。
+
+  context.save
+  ...
+  context.restore
+
+よりRubyらしく書くなら、ブロックつきで
+((<Cairo::Context#save>))を使用します。
+
+  context.save do
+    ...
+  end
+
+この場合は、ブロックを抜けた時点で自動的に
+((<Cairo::Context#restore>))が呼び出されます。
+
+Cairo::Contextには、いくつかrcairoが拡張している機能もありま
+す。
+
 == Object Hierarchy
 
 * Object
@@ -7,30 +38,66 @@
 
 == Included Modules
 
-  * ((<Cairo::Context::Color>))
   * ((<Cairo::Context::Blur>))
-  * ((<Cairo::Context::Path>))
   * ((<Cairo::Context::Circle>))
+  * ((<Cairo::Context::Color>))
+  * ((<Cairo::Context::Path>))
   * ((<Cairo::Context::Rectangle>))
-  * ((<Cairo::Context::Quad>))
 
 == Class Methods
 
---- Cairo::Context.new
+--- Cairo::Context.new(target)
 
-     * Returns: self
+    全ての状態がデフォルト値に設定され、描画対象のサーフェス
+    が((|target|))に設定された新しい((<Cairo::Context>))を作
+    成します。描画対象のサーフェスはバックエンド依存の方法で
+    作成します。例えば、画像用のサーフェスは
+    ((<Cairo::ImageSurface.new>))で作成し、PDF用のサーフェス
+    は((<Cairo::PDFSurface.new>))で作成します。
+
+     * target: 描画対象のサーフェス
+       （((<Cairo::ImageSurface>))など）
+     * Returns: ((<Cairo::Context>))
 
 == Instance Methods
 
 --- antialias
 
-     * Returns: self
+    現在設定されている、形状に対するアンチエイリアスのモード
+    を返します。これは((<Cairo::Context#antialias=>))で設定で
+    きます。
 
---- antialias=
+     * Returns: Cairo::ANTIALIAS_*のどれか
 
-     * Returns: self
+--- antialias=(antialias)
+--- set_antialias(antialias)
 
---- append_path
+    形状を描画するために使われるラスタライザ（cairoで使われ
+    ているベクタベースの描画情報をラスタ（画素）ベースの描画
+    情報に変換する機能）のアンチエイリアスのモードを設定しま
+    す。この値はヒントとして使われます。あるバックエンドでは
+    ある値をサポートしているかもしれませんが、別のバックエン
+    ドではその値をサポートしていないかもしれません。現在のと
+    ころ、どのバックエンドも((<Cairo::ANTIALIAS_SUBPIXEL>))
+    をサポートしていません。
+
+    このオプションはテキストのレンダリングには影響を与えない
+    ことに注意してください。テキストのレンダリングには代わり
+    に((<Cairo::FontOptions#antialias=>))を見てください。
+
+     * antialias: :defaultや:noneなどCairo::ANTIALIAS_*から
+       「Cairo::ANTIALIAS_」をのぞいた部分。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "default"のように指定することもできます。
+
+--- append_path(path)
+
+    ((|path|))を現在のパス上に追加します。((|path|))は
+    ((<Cairo::Context#copy_path>))または
+    ((<Cairo::Context#copy_path_flat>))で取得します。
+
+
+    Append the path onto the current path. The path may be either the return value from one of cairo_copy_path() or cairo_copy_path_flat() or it may be constructed manually. See cairo_path_t for details on how the path data structure should be initialized, and note that path->status must be initialized to CAIRO_STATUS_SUCCESS.
 
      * Returns: self
 
@@ -303,10 +370,6 @@
      * Returns: self
 
 --- select_font_face
-
-     * Returns: self
-
---- set_antialias
 
      * Returns: self
 
