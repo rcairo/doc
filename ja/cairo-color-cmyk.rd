@@ -100,20 +100,20 @@ cairoにはないrcairoでの拡張です。
 
      HSV形式に変換した色を返します。
 
-     * Returns: ((<Cairo::Color::HSV>))オブジェクト
+     * Returns: Cairo::Color::HSVオブジェクト
 
 --- to_rgb
 
      RGB形式に変換した色を返します。
 
-     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+     * Returns: Cairo::Color::RGBオブジェクト
 
 == See Also
 
-  * ((<Cairo::Color::Base>))
-  * ((<Cairo::Color::RGB>))
-  * ((<Cairo::Color::HSV>))
-  * ((<Index>))
+  * Cairo::Color::Base
+  * Cairo::Color::RGB
+  * Cairo::Color::HSV
+  * Index
 
 == ChangeLog
 

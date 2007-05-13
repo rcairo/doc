@@ -77,7 +77,7 @@ cairoにはないrcairoでの拡張です。
 
      CMYK形式に変換した色を返します。
 
-     * Returns: ((<Cairo::Color::CMYK>))オブジェクト
+     * Returns: Cairo::Color::CMYKオブジェクト
 
 --- to_hsv
 
@@ -89,14 +89,14 @@ cairoにはないrcairoでの拡張です。
 
      RGB形式に変換した色を返します。
 
-     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+     * Returns: Cairo::Color::RGBオブジェクト
 
 == See Also
 
-  * ((<Cairo::Color::Base>))
-  * ((<Cairo::Color::RGB>))
-  * ((<Cairo::Color::CMYK>))
-  * ((<Index>))
+  * Cairo::Color::Base
+  * Cairo::Color::RGB
+  * Cairo::Color::CMYK
+  * Index
 
 == ChangeLog
 

@@ -17,8 +17,8 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Context::Path>))
-  * ((<Index>))
+  * Cairo::Context::Path
+  * Index
 
 == ChangeLog
 

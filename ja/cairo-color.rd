@@ -1,13 +1,13 @@
 = module Cairo::Color
 
 ((*Since 1.5?*)): 色をパースする機能と、有名な色の
-((<Cairo::Color::RGB>))オブジェクトを提供するモジュールです。
+Cairo::Color::RGBオブジェクトを提供するモジュールです。
 
 cairoにはないrcairoでの拡張です。
 
 == Included Modules
 
-  * ((<Cairo::Color::X11>))
+  * Cairo::Color::X11
 
 == Module Functions
 
@@ -17,21 +17,21 @@ cairoにはないrcairoでの拡張です。
 
     RGB形式の色を生成します。
 
-     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+     * Returns: Cairo::Color::RGBオブジェクト
 
 --- Cairo::Color.parse([:cmyk, c, m, y, k, a=1.0])
 --- Cairo::Color.parse([:cmyka, c, m, y, k, a=1.0])
 
     CMYK形式の色を生成します。
 
-     * Returns: ((<Cairo::Color::CMYK>))オブジェクト
+     * Returns: Cairo::Color::CMYKオブジェクト
 
 --- Cairo::Color.parse([:hsv, h, s, v, a=1.0])
 --- Cairo::Color.parse([:hsva, h, s, v, a=1.0])
 
     HSV形式の色を生成します。
 
-     * Returns: ((<Cairo::Color::HSV>))オブジェクト
+     * Returns: Cairo::Color::HSVオブジェクト
 
 --- Cairo::Color.parse("#RGB")
 --- Cairo::Color.parse("#RGBA")
@@ -44,15 +44,15 @@ cairoにはないrcairoでの拡張です。
     ます。"#"からはじまるのに、上記以外のフォーマットの場合
     はArgumentErrorが発生します。
 
-     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+     * Returns: Cairo::Color::RGBオブジェクト
 
 --- Cairo::Color.parse(color_name, robust=false)
 
     名前から色を生成します。使える色の名前は
-    ((<Cairo::Color>))モジュールに定義されている定数名と対応
+    Cairo::Colorモジュールに定義されている定数名と対応
     します。大文字小文字、"-"や"_"や空白は区別されません。
 
-    例えば、((<Cairo::Color::PEACH_YELLOW>))を使いたい場合は
+    例えば、Cairo::Color::PEACH_YELLOWを使いたい場合は
     以下のどの書き方でも有効です。
 
        Cairo::Color.parse(:peach_yellow)
@@ -63,14 +63,14 @@ cairoにはないrcairoでの拡張です。
        Cairo::Color.parse("PEACH     Yellow")
 
      * color_name: 色の名前。文字列またはシンボル。
-     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+     * Returns: Cairo::Color::RGBオブジェクト
 
 --- Cairo::Color.parse(color)
 
-    色（((<Cairo::Color::Base>))のサブクラスのオブジェクト）
+    色（Cairo::Color::Baseのサブクラスのオブジェクト）
     を指定した場合は、その色の複製を返します。
 
-     * color: ((<Cairo::Color::Base>))のサブクラスのオブジェクト
+     * color: Cairo::Color::Baseのサブクラスのオブジェクト
      * Returns: colorの複製
 
 --- Cairo::Color.parse(value, robust=false)
@@ -87,7 +87,7 @@ cairoにはないrcairoでの拡張です。
     Cairo::Color.parseを使ってください。
 
      * value: "#..."形式の文字列
-     * Returns: ((<Cairo::Color::RGB>))オブジェクト
+     * Returns: Cairo::Color::RGBオブジェクト
 
 == Constants
 
@@ -281,11 +281,11 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Color::RGB>))
-  * ((<Cairo::Color::CMYK>))
-  * ((<Cairo::Color::HSV>))
-  * ((<Cairo::Color::X11>))
-  * ((<Index>))
+  * Cairo::Color::RGB
+  * Cairo::Color::CMYK
+  * Cairo::Color::HSV
+  * Cairo::Color::X11
+  * Index
 
 == ChangeLog
 

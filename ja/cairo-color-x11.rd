@@ -1,7 +1,7 @@
 = module Cairo::Color::X11
 
 ((*Since 1.5?*)): X11で定義されている色を
-((<Cairo::Color::RGB>))オブジェクトにしたものの集まりです。
+Cairo::Color::RGBオブジェクトにしたものの集まりです。
 
 cairoにはないrcairoでの拡張です。
 
@@ -149,8 +149,8 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Color::RGB>))
-  * ((<Index>))
+  * Cairo::Color::RGB
+  * Index
 
 == ChangeLog
 

@@ -13,8 +13,8 @@
 
 == See Also
 
-  * ((<Index>))
-  * ((<Cairo::Context#clip_rectangle_list>))
+  * Cairo::Context#clip_rectangle_list
+  * Index
 
 == ChangeLog
 

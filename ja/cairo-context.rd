@@ -3,15 +3,15 @@
 Cairo::Contextはrcairoで描画するときに使用する主要なオブジェ
 クトです。rcairoで描画するためには、まず、描画対象となるサー
 フェスを設定したCairo::Contextを作ります。それから、描画オプ
-ションを設定し、((<Cairo::Context#move_to>))、
-((<Cairo::Context#line_to>))などで形を作り、その形を
-((<Cairo::Context#stroke>))か((<Cairo::Context#fill>))で描画
+ションを設定し、Cairo::Context#move_to、
+Cairo::Context#line_toなどで形を作り、その形を
+Cairo::Context#strokeかCairo::Context#fillで描画
 します。
 
 Cairo::Contextの持っている描画情報は
-((<Cairo::Context#save>))でスタックに積むことができます。そ
+Cairo::Context#saveでスタックに積むことができます。そ
 のため、現在の状態を失うことなく描画情報を安全に変更できます。
-((<Cairo::Context#restore>))を呼べば保存した状態を復元するこ
+Cairo::Context#restoreを呼べば保存した状態を復元するこ
 とができます。
 
   context.save
@@ -19,14 +19,14 @@ Cairo::Contextの持っている描画情報は
   context.restore
 
 よりRubyらしく書くなら、ブロックつきで
-((<Cairo::Context#save>))を使用します。
+Cairo::Context#saveを使用します。
 
   context.save do
     ...
   end
 
 この場合は、ブロックを抜けた時点で自動的に
-((<Cairo::Context#restore>))が呼び出されます。
+Cairo::Context#restoreが呼び出されます。
 
 Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 す。
@@ -38,33 +38,33 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 == Included Modules
 
-  * ((<Cairo::Context::Blur>))
-  * ((<Cairo::Context::Circle>))
-  * ((<Cairo::Context::Color>))
-  * ((<Cairo::Context::Path>))
-  * ((<Cairo::Context::Rectangle>))
+  * Cairo::Context::Blur
+  * Cairo::Context::Circle
+  * Cairo::Context::Color
+  * Cairo::Context::Path
+  * Cairo::Context::Rectangle
 
 == Class Methods
 
 --- Cairo::Context.new(target)
 
     全ての状態がデフォルト値に設定され、描画対象のサーフェス
-    が((|target|))に設定された新しい((<Cairo::Context>))を作
+    が((|target|))に設定された新しいCairo::Contextを作
     成します。描画対象のサーフェスはバックエンド依存の方法で
     作成します。例えば、画像用のサーフェスは
-    ((<Cairo::ImageSurface.new>))で作成し、PDF用のサーフェス
-    は((<Cairo::PDFSurface.new>))で作成します。
+    Cairo::ImageSurface.newで作成し、PDF用のサーフェス
+    はCairo::PDFSurface.newで作成します。
 
      * target: 描画対象のサーフェス
-       （((<Cairo::ImageSurface>))など）
-     * Returns: ((<Cairo::Context>))
+       （Cairo::ImageSurfaceなど）
+     * Returns: Cairo::Context
 
 == Instance Methods
 
 --- antialias
 
     現在設定されている、形状に対するアンチエイリアスのモード
-    を返します。これは((<Cairo::Context#antialias=>))で設定で
+    を返します。これはCairo::Context#antialias=で設定で
     きます。
 
      * Returns: Cairo::ANTIALIAS_*のどれか
@@ -78,12 +78,12 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
     す。この値はヒントとして使われます。あるバックエンドでは
     ある値をサポートしているかもしれませんが、別のバックエン
     ドではその値をサポートしていないかもしれません。現在のと
-    ころ、どのバックエンドも((<Cairo::ANTIALIAS_SUBPIXEL>))
+    ころ、どのバックエンドもCairo::ANTIALIAS_SUBPIXEL
     をサポートしていません。
 
     このオプションはテキストのレンダリングには影響を与えない
     ことに注意してください。テキストのレンダリングには代わり
-    に((<Cairo::FontOptions#antialias=>))を見てください。
+    にCairo::FontOptions#antialias=を見てください。
 
      * antialias: :defaultや:noneなどCairo::ANTIALIAS_*から
        「Cairo::ANTIALIAS_」をのぞいた部分。大文字小文字は関
@@ -93,13 +93,11 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 --- append_path(path)
 
     ((|path|))を現在のパス上に追加します。((|path|))は
-    ((<Cairo::Context#copy_path>))または
-    ((<Cairo::Context#copy_path_flat>))で取得します。
+    Cairo::Context#copy_pathまたは
+    Cairo::Context#copy_path_flatで取得します。あるい
+    は、Cairo::Path.newで一から作成することもできます。
 
-
-    Append the path onto the current path. The path may be either the return value from one of cairo_copy_path() or cairo_copy_path_flat() or it may be constructed manually. See cairo_path_t for details on how the path data structure should be initialized, and note that path->status must be initialized to CAIRO_STATUS_SUCCESS.
-
-     * Returns: self
+     * path: Cairo::Pathオブジェクト
 
 --- arc
 
@@ -507,7 +505,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 == See Also
 
-  * ((<Index>))
+  * Index
 
 == ChangeLog
 

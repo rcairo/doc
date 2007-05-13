@@ -1,6 +1,6 @@
 = module Cairo::Context::Rectangle
 
-四角いパスに関する便利なメソッドを((<Cairo::Context>))に提供
+四角いパスに関する便利なメソッドをCairo::Contextに提供
 するモジュールです。
 
 cairoにはないrcairoでの拡張です。
@@ -25,8 +25,8 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Context>))
-  * ((<Index>))
+  * Cairo::Context
+  * Index
 
 == ChangeLog
 

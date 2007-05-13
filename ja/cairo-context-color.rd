@@ -1,6 +1,6 @@
 = module Cairo::Context::Color
 
-色に関する便利なメソッドを((<Cairo::Context>))に提供するモ
+色に関する便利なメソッドをCairo::Contextに提供するモ
 ジュールです。
 
 cairoにはないrcairoでの拡張です。
@@ -10,15 +10,15 @@ cairoにはないrcairoでの拡張です。
 --- set_source_color(color)
 
      ソースの色を((|color|))にします。
-     ((<Cairo::Context#set_source_rgba>))よりも便利です。
+     Cairo::Context#set_source_rgbaよりも便利です。
 
-     * color: ((<Cairo::Color.parse>))でパースできるオブジェ
+     * color: Cairo::Color.parseでパースできるオブジェ
        クト
 
 == See Also
 
-  * ((<Cairo::Context>))
-  * ((<Index>))
+  * Cairo::Context
+  * Index
 
 == ChangeLog
 

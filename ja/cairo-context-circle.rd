@@ -1,6 +1,6 @@
 = module Cairo::Context::Circle
 
-円に関する便利なメソッドを((<Cairo::Context>))に提供するモ
+円に関する便利なメソッドをCairo::Contextに提供するモ
 ジュールです。
 
 cairoにはないrcairoでの拡張です。
@@ -19,8 +19,8 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Context>))
-  * ((<Index>))
+  * Cairo::Context
+  * Index
 
 == ChangeLog
 

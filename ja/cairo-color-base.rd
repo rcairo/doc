@@ -2,7 +2,7 @@
 
 ((*Since 1.5?*)): 簡単に色を扱うためのクラスです。RGBで指定し
 ていたものはすべてこのクラスのオブジェクトで指定する事もでき
-ます。実際に使うときは((<Cairo::Color::RGB>))などこのクラスの
+ます。実際に使うときはCairo::Color::RGBなどこのクラスの
 サブクラスを使います。
 
 cairoにはないrcairoでの拡張です。
@@ -36,10 +36,10 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Color::RGB>))
-  * ((<Cairo::Color::CMYK>))
-  * ((<Cairo::Color::HSV>))
-  * ((<Index>))
+  * Cairo::Color::RGB
+  * Cairo::Color::CMYK
+  * Cairo::Color::HSV
+  * Index
 
 == ChangeLog
 

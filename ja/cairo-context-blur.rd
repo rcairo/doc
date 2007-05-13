@@ -18,8 +18,8 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Context>))
-  * ((<Index>))
+  * Cairo::Context
+  * Index
 
 == ChangeLog
 

@@ -1,6 +1,6 @@
 = module Cairo::Context::Path
 
-パスに関する便利なメソッドを((<Cairo::Context>))に提供するモ
+パスに関する便利なメソッドをCairo::Contextに提供するモ
 ジュールです。実験的なものでAPIは変更される可能性があります。
 
 cairoにはないrcairoでの拡張です。
@@ -30,7 +30,7 @@ cairoにはないrcairoでの拡張です。
      ((|path|))の各点をブロックで変換します。Array#collectの
      ようなものです。以下は、パスを縦横それぞれ2倍の大きさに
      する実用的ではない例です。（こういうときは
-     ((<Cairo::Context#scale>))を使いましょう。）
+     Cairo::Context#scaleを使いましょう。）
 
        transformed_path = cr.transform_path(cr.copy_path) do |x, y|
          [x * 2, y * 2]
@@ -45,8 +45,8 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Context>))
-  * ((<Index>))
+  * Cairo::Context
+  * Index
 
 == ChangeLog
 

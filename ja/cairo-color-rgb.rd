@@ -77,13 +77,13 @@ cairoにはないrcairoでの拡張です。
 
      CMYK形式に変換した色を返します。
 
-     * Returns: ((<Cairo::Color::CMYK>))オブジェクト
+     * Returns: Cairo::Color::CMYKオブジェクト
 
 --- to_hsv
 
      HSV形式に変換した色を返します。
 
-     * Returns: ((<Cairo::Color::HSV>))オブジェクト
+     * Returns: Cairo::Color::HSVオブジェクト
 
 --- to_rgb
 
@@ -104,10 +104,10 @@ cairoにはないrcairoでの拡張です。
 
 == See Also
 
-  * ((<Cairo::Color::Base>))
-  * ((<Cairo::Color::CMYK>))
-  * ((<Cairo::Color::HSV>))
-  * ((<Index>))
+  * Cairo::Color::Base
+  * Cairo::Color::CMYK
+  * Cairo::Color::HSV
+  * Index
 
 == ChangeLog
 
