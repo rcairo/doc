@@ -21,7 +21,7 @@
 
 == See Also
 
-  * ((<Index>))
+  * Index
 
 == ChangeLog
 
