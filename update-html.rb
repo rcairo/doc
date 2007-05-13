@@ -14,7 +14,7 @@ Dir.chdir(rd_dir) do
   Dir["*.rd"].each do |rd|
     rdc = "#{rd}c"
     unless system(rd_compiler, rd, rdc)
-      puts "filed to compile #{rd}"
+      puts "failed to compile #{rd}"
       exit 1
     end
 

@@ -13,7 +13,27 @@ require 'cairo'
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rd-lib'
 
-compiled_rd = File.read(rd).gsub(/\(\(<(.*?)>\)\)/) do |link|
+section = nil
+cairo_signature_re = /\bCairo(?:::[A-Z][\w\d_]+)*(?:[#.][\w\d_]+(?:[=?]|\b)|\b)/
+auto_linked_rd = File.open(rd).collect do |line|
+  case line
+  when /^---/
+    line
+  when /^=+\s+(.*)\s+$/
+    section = $1
+    line
+  else
+    line.gsub(/(\(\(<)?(#{cairo_signature_re}|Index)/) do |signature|
+      if $1 or section == "Object Hierarchy" or signature[-1, 1] == "_"
+        signature
+      else
+        "((<#{signature}>))"
+      end
+    end
+  end
+end.join
+
+compiled_rd = auto_linked_rd.gsub(/\(\(<(.*?)>\)\)/) do |link|
   link_content = $1
   case link_content
   when "Index"

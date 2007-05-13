@@ -125,12 +125,7 @@ class UpdateRD
       puts "== Included Modules"
       puts
       included_modules_at.sort_by {|x| x.inspect}.each do |included_mod|
-        if @indexes.has_key?(included_mod)
-          mod_text = "((<#{included_mod.inspect}>))"
-        else
-          mod_text = included_mod.inspect
-        end
-        puts "  * #{mod_text}"
+        puts "  * #{included_mod.inspect}"
       end
       puts ""
     end
@@ -238,20 +233,20 @@ class UpdateRD
       index.puts "= Index"
       index.puts
       @indexes.sort_by {|klass, info| klass.inspect}.each do |klass, info|
-        index.puts "  * ((<#{klass.inspect}>))"
+        index.puts "  * #{klass.inspect}"
 
         info[:constants].sort.each do |name, desc|
           next if @indexes.has_key?(klass.const_get(name))
-          index.puts "  * ((<#{klass.inspect}::#{name}>))"
+          index.puts "  * #{klass.inspect}::#{name}"
         end
 
         methods = info[:class_methods] || info[:module_functions]
         methods.sort.each do |name, desc|
-          index.puts "  * ((<#{klass.inspect}.#{name}>))"
+          index.puts "  * #{klass.inspect}.#{name}"
         end
 
         info[:instance_methods].sort.each do |name, desc|
-          index.puts "  * ((<#{klass.inspect}\##{name}>))"
+          index.puts "  * #{klass.inspect}\##{name}"
         end
       end
     end
@@ -279,7 +274,12 @@ class UpdateRD
   end
 
   def put_class_methods(klass)
-    methods = klass.methods - klass.superclass.methods + new_methods(klass)
+    methods = klass.methods - klass.superclass.methods
+    singleton_class = (class << klass; self; end)
+    singleton_class.ancestors.each do |ancestor|
+      methods -= ancestor.instance_methods
+    end
+    methods += new_methods(klass)
     @indexes[klass][:class_methods] =
       put_methods("Class Methods", methods,
                   @indexes[klass][:class_methods_info],
@@ -327,7 +327,7 @@ class UpdateRD
     if see_also
       puts see_also
     else
-      puts "  * ((<Index>))"
+      puts "  * Index"
       puts
     end
   end
