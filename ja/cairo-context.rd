@@ -180,28 +180,62 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
     範囲はグラフィック状態の一部なので、Cairo::Context#saveと
     Cairo::Context#restoreの間（あるいはCairo::Context#save
     のブロックの中）でCairo::Context#clipを呼ぶことで一時的
-    に切り取り範囲を制限することができます。他の切り取り範囲
-    の領域を増やす唯一の方法はCairo::Context#reset_clipです。
+    に切り取り範囲を制限することができます。これ以外の、切り
+    取り範囲の領域を増やす唯一の方法は
+    Cairo::Context#reset_clipです。
 
 --- clip_extents
 
-     * Returns: self
+     現在の切り取り範囲を含む最小の箱（バウンディングボックス）
+     をユーザ座標で計算します。
+
+     * Returns: (({[x1, y1, x2, y2]}))
+       * x1: 切り取り範囲の左
+       * y1: 切り取り範囲の上
+       * x2: 切り取り範囲の右
+       * y2: 切り取り範囲の下
 
 --- clip_preserve
 
-     * Returns: self
+     Cairo::Context#clipと違ってパスを消去しません。他は
+     Cairo::Context#cilpと同じです。
 
 --- clip_rectangle_list
 
-     * Returns: self
+     現在の切り取り範囲をユーザ座標の四角の配列として返しま
+     す。
+
+     切り取り範囲がユーザ座標の四角の配列として表現できない
+     場合はCairo::ClipNotRepresentableが発生します。
+
+     * Returns: ユーザ座標の四角の配列として表現した現在の切
+       り取り範囲。Cairo::Rectangleの配列。
 
 --- close_path
 
-     * Returns: self
+     現在の点から現在のサブパスの最初の点（一番最後に
+     Cairo::Context#move_toに渡した点）までの線分を追加し、
+     このサブパスを閉じます。Cairo::Context#close_pathの後は
+     現在の点はサブパスの結合終点（？FIXME: joined endpoint）
+     にあります。
+
+     ストロークの場合、Cairo::Context#close_pathの振舞は単純
+     に同等の座標（サブパスの最初の点）で
+     Cairo::Context#line_toを呼んだときとは異なります。閉じ
+     られたサブパスが描かれるときは、サブパスの最後にはキャッ
+     プ（ふた、線分の端の点のこと）はありません。代わりに、サ
+     ブパスの最初と最後を結ぶ線の結合があります。
+
+     もしCairo::Context#close_patbを呼ぶ前に現在の点がない場
+     合は、何も起こりません。
 
 --- copy_page
 
-     * Returns: self
+     複数のページをサポートしているバックエンドのために、現
+     在のページを発行します。しかし、現在のページの内容は消
+     去せずに、次のページのために保持します。発行後は空のペー
+     ジにしたい場合はCairo::Context#show_pageを使ってくださ
+     い。
 
 --- copy_path
 
