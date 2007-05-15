@@ -136,7 +136,7 @@ class UpdateRD
     method_names = []
     methods_info ||= []
     method_names = methods_info.collect do |name, desc|
-      name.gsub(/(?:\A\S*?[\.\#]|\(.*\Z)/, '')
+      name.gsub(/(?:\A\S*?[\.\#]|\(.*\Z|\s*\{.*\Z)/, '')
     end
     methods -= method_names
     method_names = (method_names + methods).uniq
