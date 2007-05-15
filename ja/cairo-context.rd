@@ -88,7 +88,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * antialias: :defaultや:noneなどCairo::ANTIALIAS_*から
        「Cairo::ANTIALIAS_」をのぞいた部分。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
-       "default"のように指定することもできます。
+       "default"のように指定することもできます。もちろん、
+       Cairo::ANTIALIAS_*を指定することもできます。
 
 --- append_path(path)
 
@@ -414,43 +415,105 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      現在の塗りつぶし規則を返します。塗りつぶし規則は
      Cairo::Context#set_fill_ruleで設定します。
 
-     * Returns: Cairo::FILL_RULE_*
+     * Returns: Cairo::FILL_RULE_*（Cairo::FILL_RULE_WINDING
+       など）
 
---- fill_rule=
+--- fill_rule=(fill_rule)
+--- set_fill_rule(fill_rule)
 
-     * Returns: self
+     コンテキスト中の現在の塗りつぶしルールを設定します。塗
+     りつぶし規則は領域が複雑な（自身で交差している可能性のあ
+     る）パスの内側にあるか外側にあるかを判断するために使わ
+     れます。現在の塗りつぶし規則はCairo::Context#fillと
+     Cairo::Context#clipの両方に影響を与えます。有効な塗りつ
+     ぶし規則のそれぞれの意味の詳細は
+     Cairo::FILL_RULE_*（Cairo::FILL_RULE_WINDINGなど）
+     を見てください。
+
+     * fill_rule: :windingや:even_oddなどCairo::FILL_RULE_*
+       から「Cairo::FILL_RULE_」をのぞいた部分。大文字小文字
+       は関係ありません。また、シンボルではなくて文字列で
+       "winding"のように指定することもできます。もちろん、
+       Cairo::FILL_RULE_*を指定することもできます。
 
 --- font_extents
 
-     * Returns: self
+     現在選択しているフォントの範囲を返します。
+
+     * Returns: Cairo::FontExtentsオブジェクト
 
 --- font_face
 
-     * Returns: self
+     現在のフォントフェイスを返します。
 
---- font_face=
+     メモリがたりない場合はNoMemoryError例外が発生します。
 
-     * Returns: self
+     * Returns: 現在のCairo::FontFaceオブジェクト。
+
+--- font_face=(font_face)
+--- set_font_face(font_face)
+
+     コンテキストの現在のCairo::FontFaceオブジェクトを
+     ((|font_face|))で置き換えます。
+
+     * font_face: Cairo::FontFaceオブジェクト。(({nil}))の場
+       合はデフォルトのフォントに戻します。
 
 --- font_matrix
 
-     * Returns: self
+     現在のフォント用行列を返します。
+     Cairo::Context#set_font_matrixも見てください。
 
---- font_matrix=
+     * Returns: フォント用行列をCairo::Matrixオブジェクトで
+       返します。
 
-     * Returns: self
+--- font_matrix=(matrix)
+--- set_font_matrix(matrix)
+
+     ((|matrix|))を現在のフォント用行列に設定します。フォン
+     ト用行列はフォントのデザイン空間（この空間ではemの四角
+     は1単位 x 1単位です）からユーザ空間への変換方法になりま
+     す。通常は単純な拡大・縮小が使われます
+     （Cairo::Context#set_font_sizeを見てください）。しかし、
+     フォントを剪断（斜めに傾ける）したり長さの異なる平行な
+     ふたつの軸に対して（？FIXME）伸縮させたりなど、複雑なフォ
+     ント用行列を使うこともできます。
+
+     * matrix: 現在のフォントに適用する変換行列
 
 --- font_options
 
-     * Returns: self
+     Cairo::Context#set_font_optionsで設定したフォント描画オ
+     プションを返します。返されるオプションにはコンテキスト
+     の下にあるサーフェスから得られたオプションは含まれませ
+     ん。つまり、このオプションはそのまま
+     Cairo::Context#set_font_optionsに渡すことができます。
 
---- font_options=
+     * Returns: Cairo::FontOptionsオブジェクト
 
-     * Returns: self
+--- font_options=(options)
+--- set_font_options(options)
 
---- font_size=
+     コンテキストにフォント描画オプションを設定します。描画
+     オプションはコンテキストの下にあるサーフェスから得たオ
+     プションとマージされます。つまり、もし、((|options|))が
+     （Cairo::ANTIALIAS_DEFAULTのような）デフォルト値を持っ
+     ている場合は、サーフェスから得た値を使います。
 
-     * Returns: self
+     * options: Cairo::FontOptionsオブジェクト
+
+--- font_size=(size)
+--- set_font_size(size)
+
+     現在のフォント用行列を((|size|))倍に拡大する行列に設定
+     します。以前にCairo::Context#set_font_sizeあるいは
+     Cairo::Context#set_font_matrixで設定したフォント用行列
+     は置き換えられます。((|size|))のフォントサイズはユーザ
+     空間の単位になります。（より正確にいうと、この行列はフォ
+     ントのem正方形をユーザ空間での((|size|)) x ((|size|))の
+     正方形にします。）
+
+     * size: ユーザ空間の単位での新しいフォントサイズ
 
 --- glyph_extents
 
@@ -609,26 +672,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: self
 
 --- set_dash
-
-     * Returns: self
-
---- set_fill_rule
-
-     * Returns: self
-
---- set_font_face
-
-     * Returns: self
-
---- set_font_matrix
-
-     * Returns: self
-
---- set_font_options
-
-     * Returns: self
-
---- set_font_size
 
      * Returns: self
 
