@@ -186,8 +186,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- clip_extents
 
-     現在の切り取り範囲を含む最小の箱（バウンディングボックス）
-     をユーザ座標で計算します。
+     現在の切り取り範囲を含む最小の箱（バウンディングボック
+     ス、境界線で作った四角）をユーザ座標で計算します。
 
      * Returns: (({[x1, y1, x2, y2]}))
        * x1: 切り取り範囲の左
@@ -239,51 +239,182 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- copy_path
 
-     * Returns: self
+     現在のパスのコピーを作成しCairo::Pathオブジェクトとして
+     返します。
+
+     以下の場合は例外が発生します。
+
+       (1) パスをコピーするために十分なメモリがない場合は
+           NoMemoryError例外が発生します。
+
+       (2) すでに例外が発生したことのあるCairo::Contextに対
+           して呼び出した場合は、最後に発生した例外と同じ例
+           外が発生します。
+
+     * Returns: 現在のパスのコピー。
 
 --- copy_path_flat
 
-     * Returns: self
+     平坦にした現在のパスのコピーを作成しCairo::Pathオブジェ
+     クトとして返します。
+
+     Cairo::Context#copy_pathとほとんど同じです。違いはパス
+     中のすべての曲線が区分的に線形な近似値で近似されること
+     です（確実に現在の許容値内にします）。つまり、結果には
+     ひとつもCairo::PATH_CURVE_TOが無いことが保証されます。
+     Cairo::PATH_CURVE_TOはCairo::PATH_LINE_TOに置き換えられ
+     ます。
+
+     * Returns: 平坦にした現在のパスのコピー。
 
 --- current_point
 
-     * Returns: self
+     現在のパスの現在の点を返します。概念上はこれまでにパス
+     が到達した最後の点になります。
 
---- curve_to
+     現在の点はユーザ空間座標システムで返されます。もし、現
+     在の点が定義されていないときは(({[0, 0]}))を返します。
 
-     * Returns: self
+     多くのパス構築メソッドは現在の点を変更します。各メソッ
+     ドがどのように現在の点に影響を与えるかの詳細は以下を見
+     てください。
+
+       * Cairo::Context#new_path
+       * Cairo::Context#move_to
+       * Cairo::Context#line_to
+       * Cairo::Context#curve_to
+       * Cairo::Context#arc
+       * Cairo::Context#rel_move_to
+       * Cairo::Context#rel_line_to
+       * Cairo::Context#rel_curve_to
+       * Cairo::Context#rel_arc
+       * Cairo::Context#text_path
+#       * Cairo::Context#stroke_to_path
+
+     * Returns: (({[x, y]})):
+       * x: 現在の点のX座標
+       * y: 現在の点のY座標
+
+--- curve_to(x1, y1, x2, y2, x3, y3)
+
+     現在の点から(((|x3|)), ((|y3|)))（ユーザ空間座標）までの
+     3次のベジエスプライン曲線をパスに追加します。制御点には
+     (((|x1|)), ((|y1|)))と(((|x2|)), ((|y2|)))を使います。
+     このメソッドを呼び出した後は現在の点は(((|x3|)),
+     ((|y3|)))になります。
+
+     もし、呼び出し前に現在の点が無い場合は、事前に
+     (({context.move_to(x1, y1}))が呼ばれたように動きます。
+
+     * x1: 最初の制御点のX座標
+     * y1: 最初の制御点のY座標
+     * x2: 2番目の制御点のX座標
+     * y2: 2番目の制御点のY座標
+     * x3: 曲線の終点のX座標
+     * y3: 曲線の終点のY座標
 
 --- dash
 
-     * Returns: self
+     現在のダッシュの配列を返します。
+
+     * Returns: (({[dashes, offset]})):
+       * dashes: ダッシュの配列
+       * offset: オフセット
 
 --- dash_count
 
-     * Returns: self
+     ダッシュの配列の長さを返します。（ダッシュが使われてい
+     ない場合は0）
 
---- device_to_user
+     Cairo::Context#set_dashとCairo::Context#dashも見てくだ
+     さい。
 
-     * Returns: self
+     * Returns: ダッシュの配列の長さ。ダッシュの配列が設定さ
+       れていない場合は0。
 
---- device_to_user_distance
+--- device_to_user(x, y)
 
-     * Returns: self
+     装置空間からユーザ空間へ座標を変換します。与えられた点
+     に現在の変換行列（CTM）の逆行列を乗じて変換します。
 
---- fill
+     * x: 装置空間のX座標
+     * y: 装置空間のY座標
+     * Returns: (({[user_x, user_y]})):
+       * user_x: ユーザ空間に変換されたX座標
+       * user_y: ユーザ空間に変換されたY座標
 
-     * Returns: self
+--- device_to_user_distance(dx, dy)
+
+     装置空間からユーザ空間へ距離ベクトルを変換します。この
+     メソッドはCairo::Context#device_to_userに似ています。違
+     いはCTMの逆行列の平行移動成分が無視されるということです。
+
+     * dx: 装置空間の距離ベクトルのX座標
+     * dy: 装置空間の距離ベクトルのY座標
+     * Returns: (({[user_dx, user_dy]})):
+       * user_dx: ユーザ空間に変換された距離ベクトルのX座標
+       * user_dy: ユーザ空間に変換された距離ベクトルのY座標
+
+--- fill(preserve=false)
+--- fill(preserve=false) {|self| ...}
+
+     現在の塗りつぶし規則にしたがって現在のパスを塗りつぶす
+     描画操作です。（塗りつぶす前に各サブパスは暗黙のうちに
+     閉じられます。）((|preserve|))が偽の場合は
+     Cairo::Context#fillを呼び出した後、現在のパスがコンテキ
+     ストから消去されます。
+
+     ブロックを指定した場合は、Cairo::Context#new_pathで新し
+     いパスをはじめてからブロックを呼び出します。以下のよう
+     に使います。
+
+       context.fill do
+         context.rectangle(20, 20, 40, 40)
+       end
+
+     これは以下と等価です。
+
+       context.new_path
+       context.rectangle(20, 20, 40, 40)
+       context.fill
+
+
+     Cairo::Context#set_fill_ruleと
+     Cairo::Context#fill_preserveも見てください。
+
+     * preserve: 真の場合はパスを消去しない
 
 --- fill_extents
 
-     * Returns: self
+     現在のパスと塗りつぶしパラメータでCairo::Context#fillを
+     呼び出したときに影響がある範囲を覆うユーザ空間のバウン
+     ディングボックスを計算します。現在のパスが空なら空の四
+     角(0,0, 0,0)を返します。サーフェスの大きさと切り取り領
+     域は関係ありません。
+
+     Cairo::Context#fill、Cairo::Context#set_fill_rule、
+     Cairo::Context#fill_preserveも見てください。
+
+     * Returns: (({[x1, y1, x2, y2]})):
+       * x1: バウンディングボックスの左
+       * y1: バウンディングボックスの上
+       * x2: バウンディングボックスの右
+       * y2: バウンディングボックスの下
 
 --- fill_preserve
+--- fill_preserve {|self| ...}
 
-     * Returns: self
+     Cairo::Context#fillを以下のように呼び出すことと同じです。
+
+       context.fill(true)
+       context.fill(true) { ... }
 
 --- fill_rule
 
-     * Returns: self
+     現在の塗りつぶし規則を返します。塗りつぶし規則は
+     Cairo::Context#set_fill_ruleで設定します。
+
+     * Returns: Cairo::FILL_RULE_*
 
 --- fill_rule=
 
