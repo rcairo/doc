@@ -99,17 +99,89 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * path: Cairo::Pathオブジェクト
 
---- arc
+--- arc(center_x, center_y, radius, angle1, angle2)
 
-     * Returns: self
+     現在のパス上に指定された半径の円弧を追加します。円弧の
+     中心は(((|center_x|)), ((|center_y|)))で、角度
+     ((|angle1|))からはじまり、角度が増える方向に
+     ((|angle2|))まで進みます。もし((|angle2|))が
+     ((|angle1|))よりも小さい場合は((|angle1|))より大きくな
+     るまで(({2 * Math::PI}))を足します。
 
---- arc_negative
+     もし現在の点があるなら、最初の線分は現在の点と円弧の開
+     始点がつながるようにパスに追加されます。
 
-     * Returns: self
+
+     角度の単位はラジアンです。角度0.0は（ユーザ空間で）正の
+     X軸方向になります。角度(({Math::PI / 2}))（90度）は（ユー
+     ザ空間で）正のY軸方向になります。角度は（ユーザ空間で）
+     正のX軸方向から正のY軸方向に増加します。つまり、デフォル
+     トの変換行列では角度は時計回り方向に増加します。
+
+     （度数をラジアンに変換するには(({度数 * (Math::PI /
+     180)}))を使ってください。）
+
+     このメソッドは角度が増加する方向の円弧を描きます。角度
+     が減少する方向の円弧を描きたい場合は
+     Cairo::Context#arc_negativeを見てください。
+
+     円弧はユーザ空間の円になります。楕円を描くためにはX方向
+     とY方向の値が異なった変換行列で拡大・縮小してください。
+     例えば、((|x|)), ((|y|)), ((|width|)), ((|height|))の箱
+     の中に楕円を描く場合は以下のようになります。
+
+       context.save do
+         context.translate(x + width / 2.0, y + height / 2.0)
+         context.scale(width / 2.0, height / 2.0)
+         context.arc(0.0, 0.0, 1.0, 0.0, 2 * Math::PI)
+       end
+
+     * center_x: 円弧の中心のX座標
+     * center_y: 円弧の中心のY座標
+     * radius: 円弧の半径
+     * angle1: 開始角度（ラジアン）
+     * angle2: 終端角度（ラジアン）
+
+--- arc_negative(center_x, center_y, radius, angle1, angle2)
+
+     現在のパス上に指定された半径の円弧を追加します。円弧の
+     中心は(((|center_x|)), ((|center_y|)))で、角度
+     ((|angle1|))からはじまり、角度が減る方向に
+     ((|angle2|))まで進みます。もし((|angle2|))が
+     ((|angle1|))よりも大きい場合は((|angle1|))より小さくな
+     るまで(({2 * Math::PI}))を引きます。
+
+     詳しくはCairo::Context#arcを見てください。このメソッド
+     との違いはふたつの角度の間にある円弧の方向だけです。
+
+     * center_x: 円弧の中心のX座標
+     * center_y: 円弧の中心のY座標
+     * radius: 円弧の半径
+     * angle1: 開始角度（ラジアン）
+     * angle2: 終端角度（ラジアン）
 
 --- clip
 
-     * Returns: self
+    現在の切り取り範囲と現在のパスから作る範囲の両方に含まれ
+    ている範囲が新しい切り取り範囲になります（intersect、交
+    差）。現在のパスの範囲は、現在の塗りつぶし規則
+    （Cairo::Context#set_fill_ruleを見てください）にしたがっ
+    てCairo::Context#fillで塗りつぶされる箇所になります。
+
+    Cairo::Context#clipのあとは、コンテキストから現在のパス
+    は消去されます。
+
+    現在の切り取り範囲は全ての描画操作に影響します。現在の切
+    り取り範囲の外にあるサーフェスへの全ての変更は効果的に隠
+    されます（マスクされます）。
+
+    Cairo::Context#clipは切り取り範囲を小さくすることしかで
+    きません。決して大きくなりません。しかし、現在の切り取り
+    範囲はグラフィック状態の一部なので、Cairo::Context#saveと
+    Cairo::Context#restoreの間（あるいはCairo::Context#save
+    のブロックの中）でCairo::Context#clipを呼ぶことで一時的
+    に切り取り範囲を制限することができます。他の切り取り範囲
+    の領域を増やす唯一の方法はCairo::Context#reset_clipです。
 
 --- clip_extents
 
