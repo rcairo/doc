@@ -1,5 +1,7 @@
 = class Cairo::FileNotFound
 
+ファイルが見付からないときに発生する例外です。
+
 == Object Hierarchy
 
 * Object
