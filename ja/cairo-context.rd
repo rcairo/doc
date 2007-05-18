@@ -207,7 +207,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      す。
 
      切り取り範囲がユーザ座標の四角の配列として表現できない
-     場合はCairo::ClipNotRepresentableが発生します。
+     場合はCairo::ClipNotRepresentableErrorが発生します。
 
      * Returns: ユーザ座標の四角の配列として表現した現在の切
        り取り範囲。Cairo::Rectangleの配列。
@@ -831,24 +831,119 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        Cairo::OPERATOR_*を指定することもできます。
 
 --- paint
+--- paint(alpha)
 
      現在のソースを現在の切り取り範囲全体に塗る描画操作です。
+     ((|alpha|))を指定すると、指定したアルファ値で塗られます。
 
---- pop_group
+     * alpha: アルファ値。0（透明）〜1（不透明）の間。
 
-     * Returns: self
+--- pop_group(to_source=false)
+
+     Cairo::Context#push_groupではじめた出力先の変更を終了し
+     ます。グループに実行した全ての描画操作の結果を含んだ新
+     しいパターンを返します。
+
+     Cairo::Context#pop_groupはCairo::Context#restoreを呼び
+     出します（Cairo::Context#push_groupが呼び出した
+     Cairo::Context#saveに対応します）。グループ内で行ったグ
+     ラフィックス状態の変更はグループの外側には見えません。
+
+     ((|to_source|))が真の場合は以下と同じ動作になります。
+
+       group = context.pop_group(false)
+       context.set_source(group)
+
+     * to_source: グループをコンテキストのソースに設定するか
+       どうか。
+     * Returns: ((|to_source|))が真の場合は(({nil}))。偽の場
+       合は新しく作られた（サーフェス）パターン。パターンは
+       グループに実行した全ての描画操作の結果を含んでいます。
 
 --- pop_group_to_source
 
-     * Returns: self
+     以下と同じです。詳しくはCairo::Context#pop_groupを見て
+     ください。
 
---- push_group
+       context.pop_group(true)
 
-     * Returns: self
+--- push_group(context=nil, pop_to_source=true) {|self| ...}
 
---- rectangle
+     一時的にグループとして知られている中間サーフェスに描画
+     の出力先を変更します。出力先の変更は
+     Cairo::Context#pop_groupでグループを終了するまで続きま
+     す。Cairo::Context#pop_groupはグループに対する全ての描
+     画の結果をパターンとして返します（パターンオブジェクト
+     そのものを返すか、ソースパターンに設定します）。
 
-     * Returns: self
+     グループ機能は中間合成を行うのに便利です。グループの一
+     般的な使いかたのひとつは、グループの中に不透明なオブジェ
+     クトを描画し、その結果を本当の描画先上に透明度つきで混
+     ぜ合わせるというものです。
+
+     グループは任意の深さで入れ子にすることができます。この
+     ためには釣り合いの取れたCairo::Context#push_groupと
+     Cairo::Context#pop_groupのペアを使います。各push/popは
+     新しい対象グループをスタックの上に置くあるいは取り除き
+     ます。
+
+     Cairo::Context#push_groupはCairo:Context#saveを呼ぶので、
+     いかなるグラフィックス状態の変更もグループの外には見え
+     ません。（Cairo::Context#pop_groupは
+     Cairo::Context#restoreを呼びます。）
+
+     デフォルトでは中間グループの中身の種類は
+     Cairo::CONTENT_COLOR_ALPHAになります。他の種類を選ぶに
+     は((|content|))を指定します。
+
+     ブロックを指定すると、ブロックを抜けた時点で自動的に
+     Cairo::Context#pop_groupを呼び出します。
+     ((|pop_to_group|))が真または(({nil}))の場合は、ポップし
+     たときにグループをソースに設定します。
+
+     以下は、描きの下にある塗りを見せることなく、半透明の塗
+     りと描きを行う例です。（グループを使わずに半透明を指定
+     して塗り・描きを行うと半透明で描いた縁の部分が透けて、
+     その下にある塗りつぶした部分が見えてしまいます。）
+
+       context.push_group do
+         context.set_source(fill_pattern)
+         context.fill(true)
+         context.set_source(stroke_pattern)
+         context.stroke
+       end
+       context.paint(alpha)
+
+     * context: :colorや:color_alphaなどCairo::CONTENT_*から
+       「Cairo::CONTENT_」をのぞいた部分。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "color"のように指定することもできます。もちろん、
+       Cairo::CONTENT_*を指定することもできます。
+
+     * pop_to_source: 真あるいは(({nil}))ならブロックを抜け
+       るときに(({context.pop_group(false)}))ではなく、
+       (({context.pop_group(true)}))を使います（違いは
+       Cairo::Context#pop_groupを見てください）。ブロックが指
+       定されていない場合は何の影響もありません。
+
+--- rectangle(x, y, width, height)
+
+     指定された大きさの閉じた四角いサブパスを現在のパスに追
+     加します。四角はユーザ空間座標で(((|x|)), ((|y|)))の位
+     置に作られます。
+
+     論理的には以下と等しいです。
+
+        context.move_to(x, y)
+        context.rel_line_to(width, 0)
+        context.rel_line_to(0, height)
+        context.rel_line_to(-width, 0)
+        context.close_path
+
+     * x: 四角の左上の点のX座標
+     * y: 四角の左上の点のY座標
+     * width: 四角の幅
+     * height: 四角の高さ
 
 --- rel_curve_to
 
