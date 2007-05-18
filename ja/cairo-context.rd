@@ -609,8 +609,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: 点が内側にあれば(({true}))。外にあれば
        (({false}))。
 
-     * Returns: self
-
 --- line_cap
 
      Cairo::Context#set_line_capで設定した現在のラインキャッ
@@ -634,7 +632,11 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      で参照されますが、パスを作っているときはまったく影響を
      与えません。
 
-     * line_cap: Cairo::LINE_CAP_*
+     * line_cap: :roundや:buttなどCairo::LINE_CAP_*から
+       「Cairo::LINE_CAP_」をのぞいた部分。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "round"のように指定することもできます。もちろん、
+       Cairo::LINE_CAP_*を指定することもできます。
 
 --- line_join
 
@@ -659,7 +661,11 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      で参照されますが、パスを作っているときはまったく影響を
      与えません。
 
-     * line_join: Cairo::LINE_JOIN_*
+     * line_join: :roundや:bevelなどCairo::LINE_JOIN_*から
+       「Cairo::LINE_JOIN_」をのぞいた部分。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "round"のように指定することもできます。もちろん、
+       Cairo::LINE_JOIN_*を指定することもできます。
 
 --- line_to(x, y)
 
@@ -711,49 +717,120 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * width: 線幅
 
---- mask
+--- mask(pattern)
+--- mask(surface, x, y)
 
-     * Returns: self
+     ((|pattern|))（または((|surface|))）のアルファチャンネル
+     をマスクとして使って現在のソースを塗る描画操作です。
+     （((|pattern|))（または((|surface|))）の不透明部分（ア
+     ルファチャンネルが0より大きい部分）を現在のソースで塗り
+     ます。透明な部分（アルファチャンネルが0の部分）は塗られ
+     ません。）
+
+     * pattern: Cairo::Patternをスーパークラスに持つオブジェ
+       クト
+
+     * surface: Cairo::Surfaceをスーパークラスに持つオブジェ
+       クト
+     * x: ((|surface|))を置く基点のX座標
+     * y: ((|surface|))を置く基点のY座標
 
 --- matrix
 
-     * Returns: self
+     現在の変換行列（CTM）を返します。
 
---- matrix=
+     * Returns: Cairo::Matrixオブジェクト
 
-     * Returns: self
+--- matrix=(matrix)
+--- set_matrix(matrix)
+
+     現在の変換行列（CTM）を((|matrix|))に変更します。
+
+     * matrix: Cairo::Matrixオブジェクト
 
 --- miter_limit
 
-     * Returns: self
+     Cairo::Context#set_miter_limitで設定した現在の留め継ぎ
+     限界を返します。
 
---- miter_limit=
+     * Returns: 留め継ぎ限界値
 
-     * Returns: self
+--- miter_limit=(limit)
 
---- move_to
+     コンテキストの中に現在の留め継ぎ限界を設定します。
 
-     * Returns: self
+     現在の結合点スタイルがCairo::LINE_JOIN_MITERの場合は
+     （Cairo::Context#est_line_joinを見てください）、線分を
+     留め継ぎの代わりに斜角で結合するべきかどうかを判断
+     するために設定した留め継ぎ限界を使います。
+
+       留め継ぎ:
+         \__/
+       斜角:
+         \/
+
+      cairoは留め継ぎの長さを線幅で割ります。その結果が留め
+      継ぎ限界よりも大きい場合は、斜角スタイルを使います。
+
+     他の描きパラメータと同じように、現在の留め継ぎ限界は
+     Cairo::Context#stroke,
+     Cairo::Context#stroke_extents
+#     , Cairo::Context#stroke_to_path
+     で参照されますが、パスを作っているときはまったく影響を
+     与えません。
+
+     * limit: 留め継ぎ限界
+
+--- move_to(x, y)
+
+     新しいサブパスを始めます。呼び出した後は現在の点は
+     (((|x|)), ((|y|)))になります。
+
+     * x: 新しい位置のX座標
+     * y: 新しい位置のY座標
 
 --- new_path
 
-     * Returns: self
+     現在のパスを消去します。呼び出した後はパスも現在の点も
+     なくなります。
 
 --- new_sub_path
 
-     * Returns: self
+      新しいサブパスを始めます。既存のパスには影響を与えない
+      ことに注意してください。呼び出した後は現在の点はなくな
+      ります。
+
+      多くの場合、この呼び出しは必要ありません。なぜなら新し
+      いサブパスの多くはCairo::Context#move_toで始めるからで
+      す。
+
+      Cairo::Context#new_sub_pathは新しいサブパスを
+      Cairo::Context#arcで始める場合に特に役立ちます。これは
+      物事を簡単にします。もう手動でCairo::Context#move_toを
+      呼び出すための円弧の初期座標を計算する必要がないのです。
 
 --- operator
 
-     * Returns: self
+     現在の合成操作を返します。
 
---- operator=
+     * Returns: Cairo::OPERATOR_OVERなどCairo::OPERATOR_*の
+       どれか。
 
-     * Returns: self
+--- operator=(operator)
+
+     全ての描画操作で使われる合成操作を設定します。利用可能
+     な各合成操作の意味の詳細はCairo::OPERATOR_*（例えば
+     Cairo::OPERATOR_OVER）を見てください。
+
+     * operator: :overや:sourceなどCairo::OPERATOR_*から
+       「Cairo::OPERATOR_」をのぞいた部分。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "over"のように指定することもできます。もちろん、
+       Cairo::OPERATOR_*を指定することもできます。
 
 --- paint
 
-     * Returns: self
+     現在のソースを現在の切り取り範囲全体に塗る描画操作です。
 
 --- pop_group
 
@@ -816,10 +893,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: self
 
 --- set_dash
-
-     * Returns: self
-
---- set_matrix
 
      * Returns: self
 
