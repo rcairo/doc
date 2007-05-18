@@ -320,7 +320,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * Returns: (({[dashes, offset]})):
        * dashes: ダッシュの配列
-       * offset: オフセット
+       * offset: 補正値
 
 --- dash_count
 
@@ -867,6 +867,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
        context.pop_group(true)
 
+--- push_group(context=nil)
 --- push_group(context=nil, pop_to_source=true) {|self| ...}
 
      一時的にグループとして知られている中間サーフェスに描画
@@ -945,37 +946,125 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * width: 四角の幅
      * height: 四角の高さ
 
---- rel_curve_to
+--- rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3)
 
-     * Returns: self
+     Cairo::Context#curve_toの相対座標版です。全ての
+     値は現在の点からの相対的な値になります。現在の点から相
+     対点(((|dx3|)), ((|dy3|)))（(現在の点のX座標 +
+     ((|dx3|)), 現在の点のY座標 + ((|dy3|)))の点のこと）まで
+     の3次のベジエスプライン曲線をパスに追加します。制御点に
+     は相対点(((|dx1|)), ((|dy1|)))と(((|dx2|)), ((|dy2|)))
+     を使います。呼び出した後は現在の点は相対点(((|dx3|)),
+     ((|dy3|)))になります。
 
---- rel_line_to
+     現在の点を(((|x|)), ((|y|)))とすると以下のふたつは論理
+     的に等しいです。
 
-     * Returns: self
+       context.rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3)
+       context.curve_to(x + dx1, y + dy1,
+                        x + dx2, y + dy2,
+                        x + dx3, y + dy3)
 
---- rel_move_to
+     現在の点がない場合はCairo::NoCurrentPointErrorが発生し
+     ます。
 
-     * Returns: self
+     * dx1: 最初の制御点のX方向の補正値
+     * dy1: 最初の制御点のY方向の補正値
+     * dx2: 2番目の制御点のX方向の補正値
+     * dy2: 2番目の制御点のY方向の補正値
+     * dx3: 曲線の終点のX方向の補正値
+     * dy3: 曲線の終点のY方向の補正値
+
+--- rel_line_to(dx, dy)
+
+     Cairo::Context#line_toの相対座標版です。現在の点から相
+     対点(((|dx|)), ((|dy|)))（(現在の点のX座標 +
+     ((|dx|)), 現在の点のY座標 + ((|dy|)))の点のこと）までの
+     線分を追加します。相対点はユーザ空間を用います。呼び出
+     した後は現在の点は相対点(((|dx|)), ((|dy|)))になります。
+
+     現在の点を(((|x|)), ((|y|)))とすると、以下のふたつは論
+     理的に等しいです。
+
+       context.rel_line_to(dx, dy)
+       context.line_to(x + dx, y + dy)
+
+     現在の点がない場合はCairo::NoCurrentPointErrorが発生し
+     ます。
+
+     * dx: 新しい線分の終点のX方向の補正値
+     * dy: 新しい線分の終点のY方向の補正値
+
+--- rel_move_to(dx, dy)
+
+     新しいサブパスを始めます。呼び出した後は現在の点は相
+     対点(((|dx|)), ((|dy|)))（(現在の点のX座標 +
+     ((|dx|)), 現在の点のY座標 + ((|dy|)))の点のこと）になり
+     ます。
+
+     現在の点を(((|x|)), ((|y|)))とすると、以下のふたつは論
+     理的に等しいです。
+
+       context.rel_move_to(dx, dy)
+       context.move_to(x + dx, y + dy)
+
+     現在の点がない場合はCairo::NoCurrentPointErrorが発生し
+     ます。
+
+     * dx: 新しい位置のX方向の補正値
+     * dy: 新しい位置のY方向の補正値
 
 --- reset_clip
 
-     * Returns: self
+     現在の切り取り領域を元のなにも制限されていない状態に戻
+     します。つまり、切り取り領域を対象サーフェスを含む無限
+     に大きな形に設定するということです。もし無限を理解する
+     ことが難しいなら、切り取り領域を対象サーフェスの境界と
+     まったく同じ大きさに設定しなおすと考えても同じことです。
+
+     コードを再利用可能にしたいなら、
+     Cairo::Context#reset_clipを呼ばないように注意してくださ
+     い。そうしないとCairo::Context#clipを呼んでいる高レベル
+     なコードが予期しない結果になるでしょう。一時的に切り取
+     り領域を制限するより堅牢な方法はCairo::Context#saveと
+     Cairo::Context#restoreでCairo::Context#clipを囲むことで
+     す。
 
 --- restore
 
-     * Returns: self
+     ひとつ前のCairo::Context#saveで保存した状態を復元します。
+     復元された状態はスタックから削除されます。
 
---- rotate
+--- rotate(angle)
 
-     * Returns: self
+     ((|angle|))ラジアンだけユーザ空間の軸を回転するように、
+     現在の変換行列（CTM）を変更します。すでに存在するユーザ
+     空間の変換のあとに軸の回転を行います。正の角度の回転方向
+     は正のX軸から正のY軸に向かう方向です。
+
+     * angle: ユーザ空間の軸を回転させる角度（ラジアン）
 
 --- save
+--- save {|self| ...}
 
-     * Returns: self
+     現在の状態のコピーを作成し、保存された状態の内部スタッ
+     クに保存します。Cairo::Context#restoreが呼ばれたときは、
+     保存された状態を復元します。複数のCairo::Context#saveと
+     Cairo::Context#restoreが入れ子にできます。各
+     Cairo::Context#restoreは対応するCairo::Context#saveが保
+     存した状態を復元します。
 
---- scale
+     ブロックを指定した場合はブロックを抜けるときに自動的に
+     Cairo::Context#restoreを呼び出します。
 
-     * Returns: self
+--- scale(sx, sy)
+
+     ユーザ空間のX軸とY軸をそれぞれ((|sx|))と((|sy|))で拡大す
+     るように現在の変換行列を変更します。すでに存在するユー
+     ザ空間の変換のあとに軸の拡大を行います。
+
+     * sx: X方向の拡大率
+     * sy: Y方向の拡大率
 
 --- scaled_font
 
