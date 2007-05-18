@@ -515,57 +515,201 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * size: ユーザ空間の単位での新しいフォントサイズ
 
---- glyph_extents
+--- glyph_extents(glyphs)
 
-     * Returns: self
+     グリフの範囲を返します。範囲はグリフをインクで塗る部分
+     を囲む（ユーザ空間での）四角を示しています。（グリフは
+     Cairo::Context#show_glyphsで描画できます。）さらに、
+     範囲（Cairo::TextExtents）の((|x_advance|))と
+     ((|y_advance|))の値はCairo::Context#show_glyphsが進める
+     現在の点の合計を示しています。
+     （Cairo::Context#show_glyphsはグリフを描画すると、描画
+     した分だけ現在の点を進めます。）
 
---- glyph_path
+     空白のグリフは四角のサイズ（extents.widthと
+     extents.height）に貢献しないことに注意してください。
 
-     * Returns: self
+     * glyphs: Cairo::Glyphの配列
+     * Returns: グリフの範囲をCairo::TextExtentsオブジェクト
+       として返します。
+
+--- glyph_path(glyphs)
+
+     現在のパスにグリフの閉じたパスを追加します。
+     生成されたパスを塗りつぶすと、
+     Cairo::Context#show_glyphsのような効果を実現できます。
+
+     * glyphs: 表示するグリフ（Cairo::Glyph）の配列
 
 --- group_target
 
-     * Returns: self
+     一番最後に呼んだCairo::Context#push_groupまたは
+     Cairo::Context#push_with_contentではじまった現在のグルー
+     プ用の対象サーフェスを返します。
+
+     もし全てのグループ描画ブロックの外で呼んだ場合は
+     (({nil}))を返します。（つまり、最後のつりあった
+     Cairo::Context#pop_groupあるいは
+     Cairo::Context#pop_group_to_surfaceのあとに(({nil}))が
+     返ります。（そんなことあるかなぁ））
+
+     * Returns: 対象グループサーフェス。もしなければ
+       (({nil}))。
 
 --- identity_matrix
 
-     * Returns: self
+     現在の変換行列（CTM）をリセットして単位行列にします。つ
+     まり、ユーザ空間と装置空間の軸が揃い、1ユーザ空間単位は
+     1装置空間単位に変換されます。
 
---- in_fill?
+--- in_fill?(x, y)
+--- in_fill?(x, y) {|self| ...}
 
-     * Returns: self
+     指定された点がCairo::Context#fill操作で影響がある範囲の
+     中にあるかどうかをテストします。その際、現在のパスと現
+     在の塗りつぶしパラメータが使われます。サーフェスの面積
+     と切り取り範囲は関係ありません。
 
---- in_stroke?
+     ブロックを指定するとブロックを抜けた時点の状態をテスト
+     します。ブロックを指定するとパスが消去されることに注意
+     してください。
+
+     以下のメソッドも見てください。
+       * Cairo::Context#fill
+       * Cairo::Context#set_fill_rule
+       * Cairo::Context#fill_preserve
+
+     * x: テストする点のX座標
+     * y: テストする点のY座標
+     * Returns: 点が内側にあれば(({true}))。外にあれば
+       (({false}))。
+
+--- in_stroke?(x, y)
+--- in_stroke?(x, y) {|self| ...}
+
+     指定された点がCairo::Context#stroke操作で影響がある範囲
+     の中にあるかどうかをテストします。その際、現在のパスと
+     現在の描きパラメータが使われます。サーフェスの面積と切り
+     取り範囲は関係ありません。
+
+     ブロックを指定するとブロックを抜けた時点の状態をテスト
+     します。ブロックを指定するとパスが消去されることに注意
+     してください。
+
+     以下のメソッドも見てください。
+       * Cairo::Context#stroke
+       * Cairo::Context#set_line_with
+       * Cairo::Context#set_line_join
+       * Cairo::Context#set_line_cap
+       * Cairo::Context#set_dash
+       * Cairo::Context#stroke_preserve
+
+     * x: テストする点のX座標
+     * y: テストする点のY座標
+     * Returns: 点が内側にあれば(({true}))。外にあれば
+       (({false}))。
 
      * Returns: self
 
 --- line_cap
 
-     * Returns: self
+     Cairo::Context#set_line_capで設定した現在のラインキャッ
+     プスタイル（終点を描画する方法）を返します。
 
---- line_cap=
+     * Returns: 現在のラインキャップスタイル。
+       Cairo::LINE_CAP_ROUNDなどCairo::LINE_CAP_*のどれか。
 
-     * Returns: self
+--- line_cap=(line_cap)
+--- set_line_cap(line_cap)
+
+     コンテキスト中の現在のラインキャップスタイルを設定しま
+     す。どのようにラインキャップスタイルが描画されるかは
+     Cairo::LINE_CAP_ROUNDなどCairo::LINE_CAP_*を見てくださ
+     い。
+
+     他の描きパラメータと同じように、現在のラインキャップスタ
+     イルはCairo::Context#stroke,
+     Cairo::Context#stroke_extents
+#     , Cairo::Context#stroke_to_path
+     で参照されますが、パスを作っているときはまったく影響を
+     与えません。
+
+     * line_cap: Cairo::LINE_CAP_*
 
 --- line_join
 
-     * Returns: self
+     Cairo::Context#set_line_joinで設定した現在の結合点スタ
+     イル（線分中の点を描画する方法）を返します。
 
---- line_join=
+     * Returns: 現在の結合点スタイル。
+       Cairo::LINE_JOIN_ROUNDなどCairo::LINE_JOIN_*のどれか。
 
-     * Returns: self
+--- line_join=(line_join)
+--- set_line_join(line_join)
 
---- line_to
+     コンテキスト中の現在の結合点スタイルを設定します。どの
+     ように結合点スタイルが描画されるかは
+     Cairo::LINE_JOIN_ROUNDなどCairo::LINE_JOIN_*を見てくだ
+     さい。
 
-     * Returns: self
+     他の描きパラメータと同じように、現在の結合点スタイルは
+     Cairo::Context#stroke,
+     Cairo::Context#stroke_extents
+#     , Cairo::Context#stroke_to_path
+     で参照されますが、パスを作っているときはまったく影響を
+     与えません。
+
+     * line_join: Cairo::LINE_JOIN_*
+
+--- line_to(x, y)
+
+     現在の点からユーザ空間座標で(((|x|)), ((|y|)))の点まで
+     の線分をパスに追加します。呼び出した後は現在の点は
+     (((|x|)), ((|y|)))になります。
+
+     呼び出す前に現在の点がない場合は、呼び出し前に
+     (({context.move_to(x, y)}))としたように振る舞います。
+
+     * x: 新しい線分の終点のX座標
+     * y: 新しい線分の終点のY座標
 
 --- line_width
 
-     * Returns: self
+     Cairo::Context#set_line_widthで設定した値と正確に同じ現
+     在の線幅を返します。この値はたとえ
+     Cairo::Context#set_line_widthと
+     Cairo::Context#line_widthの呼び出しの間にCTMを変えたと
+     しても変わりません。
 
---- line_width=
+     * Returns: 現在の線幅。
 
-     * Returns: self
+--- line_width=(width)
+--- set_line_width(width)
+
+     コンテキスト中の現在の線幅を設定します。線幅の値はユー
+     ザ空間での丸いペンの直径を指定します。（にもかかわらず
+     装置空間でのペンはふつうは楕円です。これはCTMによる拡
+     大・縮小・剪断・回転のためです。）
+
+     注: 上記の説明でユーザ空間とCTMにふれたとき、ユーザ空間
+     とCTMは描き操作のときに影響があり、
+     Cairo::Context#set_line_widthのときには影響がないといい
+     ました。もっとも単純な使用法はふたつの空間を等しくする
+     ことです。つまり、もしCairo::Context#set_line_widthと描
+     き操作の間にCTMを変更しなければ、単純にユーザ空間の値を
+     Cairo::Context#set_line_widthに渡すことができ、この注は
+     無視することができます。
+
+     他の描きパラメータと同じように、現在の線幅は
+     Cairo::Context#stroke,
+     Cairo::Context#stroke_extents
+#     , Cairo::Context#stroke_to_path
+     で参照されますが、パスを作っているときはまったく影響を
+     与えません。
+
+     デフォルトの線幅は(({2.0}))です。
+
+     * width: 線幅
 
 --- mask
 
@@ -672,18 +816,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: self
 
 --- set_dash
-
-     * Returns: self
-
---- set_line_cap
-
-     * Returns: self
-
---- set_line_join
-
-     * Returns: self
-
---- set_line_width
 
      * Returns: self
 
