@@ -756,6 +756,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: 留め継ぎ限界値
 
 --- miter_limit=(limit)
+--- set_miter_limit(limit)
 
      コンテキストの中に現在の留め継ぎ限界を設定します。
 
@@ -817,6 +818,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        どれか。
 
 --- operator=(operator)
+--- set_operator(operator)
 
      全ての描画操作で使われる合成操作を設定します。利用可能
      な各合成操作の意味の詳細はCairo::OPERATOR_*（例えば
@@ -893,14 +895,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: self
 
 --- set_dash
-
-     * Returns: self
-
---- set_miter_limit
-
-     * Returns: self
-
---- set_operator
 
      * Returns: self
 
