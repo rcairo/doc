@@ -982,6 +982,30 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * Returns: self
 
+--- circle
+
+     * Returns: self
+
+--- map_path_onto
+
+     * Returns: self
+
+--- pseudo_blur
+
+     * Returns: self
+
+--- rounded_rectangle
+
+     * Returns: self
+
+--- set_source_color
+
+     * Returns: self
+
+--- transform_path
+
+     * Returns: self
+
 == See Also
 
   * Index

@@ -164,8 +164,12 @@ class UpdateRD
     method_names
   end
 
+  def target_module?(mod)
+    /(#{@target_modules.join("|")})/ =~ mod.inspect
+  end
+
   def nest_classes(klass)
-    if /(#{@target_modules.join("|")})/ =~ klass.inspect
+    if target_module?(klass)
       unless @indexes.has_key?(klass)
         @target_classes << klass
         @indexes[klass] = {}
@@ -305,6 +309,12 @@ class UpdateRD
     else
       instance_methods = klass.public_instance_methods(false) - ["initialize"] +
         klass.protected_instance_methods(false)
+    end
+    klass.included_modules.each do |mod|
+      if target_module?(mod)
+        instance_methods += mod.public_instance_methods(false) +
+          mod.protected_instance_methods(false)
+      end
     end
     @indexes[klass][:instance_methods] =
       put_methods("Instance Methods", instance_methods,

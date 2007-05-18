@@ -502,6 +502,7 @@
   * Cairo::Context#append_path
   * Cairo::Context#arc
   * Cairo::Context#arc_negative
+  * Cairo::Context#circle
   * Cairo::Context#clip
   * Cairo::Context#clip_extents
   * Cairo::Context#clip_preserve
@@ -542,6 +543,7 @@
   * Cairo::Context#line_to
   * Cairo::Context#line_width
   * Cairo::Context#line_width=
+  * Cairo::Context#map_path_onto
   * Cairo::Context#mask
   * Cairo::Context#matrix
   * Cairo::Context#matrix=
@@ -555,6 +557,7 @@
   * Cairo::Context#paint
   * Cairo::Context#pop_group
   * Cairo::Context#pop_group_to_source
+  * Cairo::Context#pseudo_blur
   * Cairo::Context#push_group
   * Cairo::Context#rectangle
   * Cairo::Context#rel_curve_to
@@ -563,6 +566,7 @@
   * Cairo::Context#reset_clip
   * Cairo::Context#restore
   * Cairo::Context#rotate
+  * Cairo::Context#rounded_rectangle
   * Cairo::Context#save
   * Cairo::Context#scale
   * Cairo::Context#scaled_font
@@ -583,6 +587,7 @@
   * Cairo::Context#set_operator
   * Cairo::Context#set_scaled_font
   * Cairo::Context#set_source
+  * Cairo::Context#set_source_color
   * Cairo::Context#set_source_rgb
   * Cairo::Context#set_source_rgba
   * Cairo::Context#set_tolerance
@@ -599,6 +604,7 @@
   * Cairo::Context#tolerance
   * Cairo::Context#tolerance=
   * Cairo::Context#transform
+  * Cairo::Context#transform_path
   * Cairo::Context#translate
   * Cairo::Context#user_to_device
   * Cairo::Context#user_to_device_distance
