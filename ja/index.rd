@@ -96,6 +96,11 @@
   * Cairo::VERSION
   * Cairo.bindings_version
   * Cairo.normalize_const_name
+  * Cairo::Antialias
+  * Cairo::Antialias::DEFAULT
+  * Cairo::Antialias::GRAY
+  * Cairo::Antialias::NONE
+  * Cairo::Antialias::SUBPIXEL
   * Cairo::ClipNotRepresentableError
   * Cairo::Color
   * Cairo::Color::ALICE_BLUE
@@ -495,6 +500,10 @@
   * Cairo::Color::X11::WHITE_SMOKE
   * Cairo::Color::X11::YELLOW
   * Cairo::Color::X11::YELLOW_GREEN
+  * Cairo::Content
+  * Cairo::Content::ALPHA
+  * Cairo::Content::COLOR
+  * Cairo::Content::COLOR_ALPHA
   * Cairo::Context
   * Cairo::Context.new
   * Cairo::Context#antialias
@@ -620,7 +629,22 @@
   * Cairo::Context::Rectangle
   * Cairo::Context::Rectangle#rounded_rectangle
   * Cairo::Error
+  * Cairo::Extend
+  * Cairo::Extend::NONE
+  * Cairo::Extend::PAD
+  * Cairo::Extend::REFLECT
+  * Cairo::Extend::REPEAT
   * Cairo::FileNotFound
+  * Cairo::FillRule
+  * Cairo::FillRule::EVEN_ODD
+  * Cairo::FillRule::WINDING
+  * Cairo::Filter
+  * Cairo::Filter::BEST
+  * Cairo::Filter::BILINEAR
+  * Cairo::Filter::FAST
+  * Cairo::Filter::GAUSSIAN
+  * Cairo::Filter::GOOD
+  * Cairo::Filter::NEAREST
   * Cairo::FontExtents
   * Cairo::FontExtents#ascent
   * Cairo::FontExtents#descent
@@ -648,6 +672,23 @@
   * Cairo::FontOptions#set_subpixel_order
   * Cairo::FontOptions#subpixel_order
   * Cairo::FontOptions#subpixel_order=
+  * Cairo::FontSlant
+  * Cairo::FontSlant::ITALIC
+  * Cairo::FontSlant::NORMAL
+  * Cairo::FontSlant::OBLIQUE
+  * Cairo::FontType
+  * Cairo::FontType::ATSUI
+  * Cairo::FontType::FT
+  * Cairo::FontType::TOY
+  * Cairo::FontType::WIN32
+  * Cairo::FontWeight
+  * Cairo::FontWeight::BOLD
+  * Cairo::FontWeight::NORMAL
+  * Cairo::Format
+  * Cairo::Format::A1
+  * Cairo::Format::A8
+  * Cairo::Format::ARGB32
+  * Cairo::Format::RGB24
   * Cairo::Glyph
   * Cairo::Glyph.new
   * Cairo::Glyph#index
@@ -668,6 +709,16 @@
   * Cairo::GradientPattern#get_color_stop
   * Cairo::GradientPattern#get_color_stop_color
   * Cairo::GradientPattern#get_color_stop_rgba
+  * Cairo::HintMetrics
+  * Cairo::HintMetrics::DEFAULT
+  * Cairo::HintMetrics::OFF
+  * Cairo::HintMetrics::ON
+  * Cairo::HintStyle
+  * Cairo::HintStyle::DEFAULT
+  * Cairo::HintStyle::FULL
+  * Cairo::HintStyle::MEDIUM
+  * Cairo::HintStyle::NONE
+  * Cairo::HintStyle::SLIGHT
   * Cairo::ImageSurface
   * Cairo::ImageSurface.from_png
   * Cairo::ImageSurface.new
@@ -688,6 +739,14 @@
   * Cairo::InvalidStatusError
   * Cairo::InvalidStringError
   * Cairo::InvalidVisualError
+  * Cairo::LineCap
+  * Cairo::LineCap::BUTT
+  * Cairo::LineCap::ROUND
+  * Cairo::LineCap::SQUARE
+  * Cairo::LineJoin
+  * Cairo::LineJoin::BEVEL
+  * Cairo::LineJoin::MITER
+  * Cairo::LineJoin::ROUND
   * Cairo::LinearPattern
   * Cairo::LinearPattern.new
   * Cairo::LinearPattern#points
@@ -718,6 +777,21 @@
   * Cairo::Matrix#translate!
   * Cairo::NoCurrentPointError
   * Cairo::NullPointerError
+  * Cairo::Operator
+  * Cairo::Operator::ADD
+  * Cairo::Operator::ATOP
+  * Cairo::Operator::CLEAR
+  * Cairo::Operator::DEST
+  * Cairo::Operator::DEST_ATOP
+  * Cairo::Operator::DEST_IN
+  * Cairo::Operator::DEST_OUT
+  * Cairo::Operator::DEST_OVER
+  * Cairo::Operator::IN
+  * Cairo::Operator::OUT
+  * Cairo::Operator::OVER
+  * Cairo::Operator::SATURATE
+  * Cairo::Operator::SOURCE
+  * Cairo::Operator::XOR
   * Cairo::PDFSurface
   * Cairo::PDFSurface.new
   * Cairo::PDFSurface#set_size
@@ -728,6 +802,10 @@
   * Cairo::PSSurface#dsc_comment
   * Cairo::PSSurface#set_size
   * Cairo::Path
+  * Cairo::Path::CLOSE_PATH
+  * Cairo::Path::CURVE_TO
+  * Cairo::Path::LINE_TO
+  * Cairo::Path::MOVE_TO
   * Cairo::Path.new
   * Cairo::Path#[]
   * Cairo::Path#arc
@@ -759,6 +837,11 @@
   * Cairo::PathData#to_a
   * Cairo::PathData#to_ary
   * Cairo::PathData#type
+  * Cairo::PathDataType
+  * Cairo::PathDataType::CLOSE_PATH
+  * Cairo::PathDataType::CURVE_TO
+  * Cairo::PathDataType::LINE_TO
+  * Cairo::PathDataType::MOVE_TO
   * Cairo::Pattern
   * Cairo::Pattern.new
   * Cairo::Pattern#__extend__
@@ -772,6 +855,11 @@
   * Cairo::Pattern#set_filter
   * Cairo::Pattern#set_matrix
   * Cairo::Pattern#type
+  * Cairo::PatternType
+  * Cairo::PatternType::LINEAR
+  * Cairo::PatternType::RADIAL
+  * Cairo::PatternType::SOLID
+  * Cairo::PatternType::SURFACE
   * Cairo::PatternTypeMismatchError
   * Cairo::Point
   * Cairo::Point.new
@@ -802,6 +890,9 @@
   * Cairo::SVGSurface.versions
   * Cairo::SVGSurface.versions_as_string
   * Cairo::SVGSurface#restrict_to_version
+  * Cairo::SVGVersion
+  * Cairo::SVGVersion::VERSION_1_1
+  * Cairo::SVGVersion::VERSION_1_2
   * Cairo::ScaledFont
   * Cairo::ScaledFont.new
   * Cairo::ScaledFont#ctm
@@ -816,6 +907,12 @@
   * Cairo::SolidPattern.new
   * Cairo::SolidPattern#color
   * Cairo::SolidPattern#rgba
+  * Cairo::SubpixelOrder
+  * Cairo::SubpixelOrder::BGR
+  * Cairo::SubpixelOrder::DEFAULT
+  * Cairo::SubpixelOrder::RGB
+  * Cairo::SubpixelOrder::VBGR
+  * Cairo::SubpixelOrder::VRGB
   * Cairo::Surface
   * Cairo::Surface#clone
   * Cairo::Surface#content
@@ -834,6 +931,19 @@
   * Cairo::SurfacePattern
   * Cairo::SurfacePattern.new
   * Cairo::SurfacePattern#surface
+  * Cairo::SurfaceType
+  * Cairo::SurfaceType::BEOS
+  * Cairo::SurfaceType::DIRECTFB
+  * Cairo::SurfaceType::GLITZ
+  * Cairo::SurfaceType::IMAGE
+  * Cairo::SurfaceType::OS2
+  * Cairo::SurfaceType::PDF
+  * Cairo::SurfaceType::PS
+  * Cairo::SurfaceType::QUARTZ
+  * Cairo::SurfaceType::SVG
+  * Cairo::SurfaceType::WIN32
+  * Cairo::SurfaceType::XCB
+  * Cairo::SurfaceType::XLIB
   * Cairo::SurfaceTypeMismatchError
   * Cairo::TextExtents
   * Cairo::TextExtents#height
