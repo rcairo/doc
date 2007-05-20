@@ -967,6 +967,22 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * height: 四角の高さ
 --- save {|self| ...}
 
+--- rounded_rectangle(x, y, width, height, x_radius, y_radius=nil)
+
+     Cairo::Context#rectangleとの違いは、四角の角が丸みを帯
+     びているということです。X方向へは半径((|x_radius|))の円
+     弧で丸い角を作り、Y方向へは半径((|y_radius|))の円で丸い
+     角を作ります。((|y_radius|))を省略した場合は
+     ((|x_radius|))と同じ値が用いられます。つまり、X方向・Y
+     方向ともに同じ分だけ丸みを帯びます。
+
+     * x: 四角の左上の点のX座標
+     * y: 四角の左上の点のY座標
+     * width: 四角の幅
+     * height: 四角の高さ
+     * x_radius: X方向の角の丸み
+     * y_radius: Y方向の角の丸み
+
 --- rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3)
 
      Cairo::Context#curve_toの相対座標版です。全ての
@@ -1143,22 +1159,20 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      色とアルファ値は0から1までの浮動小数点です。もし、この範
      囲におさまらなかった場合は強制的にこの範囲におさめます。
 
+     より簡単に色を指定したい場合は
+     Cairo::Context#set_source_colorを使ってください。
+
      * red: 色の赤の部分
      * green: 色の緑の部分
      * blue: 色の青の部分
      * alpha: 色のアルファチャンネルの部分
 
---- set_tolerance(tolerance)
+--- set_source_color(color)
 
-     パスを台形に変換するときに使う許容値を設定します。パス
-     の円弧の部分は、元のパスとポリゴン近似の最大偏差が
-     ((|tolerance|))より小さくなるまで再分割されます。デフォ
-     ルト値は0.1です。大きな値はよりパフォーマンスがよくなる
-     でしょうし、小さい値ならよりより見栄えになるでしょう。
-     （デフォルト値0.1から減らしてもそれほど見栄えは改善され
-     ないでしょう。）
+     Cairo::Color.parseで認識できる形式でソースパターンの色
+     を指定します。
 
-     * tolerance: 装置単位（普通はピクセル）での許容値。
+     * color: Cairo::Color.parseが認識できる色。
 
 --- show_glyphs(glyphs)
 
@@ -1318,57 +1332,130 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * Returns: テキストの範囲を示すCairo::TextExtentsオブジェ
        クト。
 
---- text_path
+--- text_path(utf8)
 
-     * Returns: self
+     テキストの閉じたパスを現在のパスに追加します。生成され
+     たを塗りつぶすとCairo::Context#show_textと同じような効
+     果が得られます。
+
+     テキストの変換と配置はCairo::Context#show_textと同じよ
+     うに行われます。
+
+     Cairo::Context#show_textのように、呼び出した後、現在の点
+     は同じように次のグリフを配置したときに基準にする点に移
+     動します。つまり、現在の点は最後のグリフが進めた値で相殺
+     された最後のグリフの基準点となります。（？FIXME）このた
+     め、現在の点を設定しないで複数の
+     Cairo::Context#text_pathを連続で呼び出せるようになりま
+     す。
+
+     注: Cairo::Context#text_pathはcairoの設計者がおもちゃの
+     テキストAPIと呼んでいるものの一部です。短いデモや簡単な
+     プログラムには便利ですが、真剣にテキストを使おうとして
+     いるアプリケーションには適していないでしょう。cairoの本
+     当のテキスト表示APIはCairo::Context#glyph_pathを見てく
+     ださい。
+
+     * utf8: UTF-8で符号化れたテキスト。
 
 --- tolerance
 
-     * Returns: self
+     Cairo::Context#set_toleranceで設定した現在の許容値を返します。
 
---- tolerance=
+     * Returns: 現在の許容値。
 
-     * Returns: self
+--- tolerance=(tolerance)
+--- set_tolerance(tolerance)
 
---- transform
+     パスを台形に変換するときに使う許容値を設定します。パス
+     の円弧の部分は、元のパスとポリゴン近似の最大偏差が
+     ((|tolerance|))より小さくなるまで再分割されます。デフォ
+     ルト値は0.1です。大きな値はよりパフォーマンスがよくなる
+     でしょうし、小さい値ならよりより見栄えになるでしょう。
+     （デフォルト値0.1から減らしてもそれほど見栄えは改善され
+     ないでしょう。）
 
-     * Returns: self
+     * tolerance: 装置単位（普通はピクセル）での許容値。
 
---- translate
+--- transform(matrix)
 
-     * Returns: self
+     追加の変換として((|matrix|))を適用して現在の変換行列
+     （CTM）を変更します。ユーザ空間の新しい変換はすべての既
+     存の変換の後に行われます。
 
---- user_to_device
+--- transform_path(path) {|x, y| ...}
 
-     * Returns: self
+     ((|path|))のそれぞれの点(((|x|)), ((|y|)))をブロックに
+     渡しパスを変換します。ブロックが返した変換後の点を集め
+     た新しいパスを返します。
 
---- user_to_device_distance
+     * Returns: 変換された新しいCairo::Pathオブジェクト。
 
-     * Returns: self
+--- translate(tx, ty)
 
---- circle
+     ユーザ空間の基準点を(((|tx|)), ((|ty|)))に動かすことに
+     より現在の変換行列（CTM）を変更します。この補正値
+     （(((|tx|)), ((|ty|)))）はCairo::Context#translateを適
+     用する前のCTMにしたがってユーザ空間座標として解釈されま
+     す。言い替えると、ユーザ空間の基準点の移動はすべての既
+     存の変換の後に行われます。
 
-     * Returns: self
+     * tx: X方向への移動量
+     * ty: Y方向への移動量
 
---- map_path_onto
+--- user_to_device(x, y)
 
-     * Returns: self
+     ユーザ空間から装置空間へ座標を変換します。変換は与え
+     られた点に現在の変換行列（CTM）を乗じることによって行わ
+     れます。
 
---- pseudo_blur
+     * x: ユーザ空間座標のX値
+     * y: ユーザ空間座標のY値
+     * Returns: (({[dx, dy]}))
+       * dx: 装置空間座標のX値
+       * dy: 装置空間座標のY値
 
-     * Returns: self
+--- user_to_device_distance(dx, dy)
 
---- rounded_rectangle
+     ユーザ空間から装置空間へ距離ベクトルを変換します。
+     Cairo::Context#user_to_deviceに似ていますが、(((|dx|)),
+     ((|dy|)))を変換するときにCTMの移動成分は無視されます。
 
-     * Returns: self
+     * dx: ユーザ空間の距離ベクトルのX値
+     * dy: ユーザ空間の距離ベクトルのY値
+     * Returns: (({[ddx, ddy]}))
+       * ddx: 装置空間の距離ベクトルのX値
+       * ddy: 装置空間の距離ベクトルのY値
 
---- set_source_color
+--- circle(center_x, center_y, radius)
 
-     * Returns: self
+     現在のパスに円状のパスを追加するための便利なメソッドで
+     す。以下のようにCairo::Context#arcを呼び出したのと同じ
+     です。
 
---- transform_path
+       context.arc(center_x, center_y, radius, 0, 2 * Math::PI)
 
-     * Returns: self
+     * center_x: 円の中心のX座標
+     * center_y: 円の中心のY座標
+     * radius: 円の半径
+
+--- map_path_onto(path)
+
+    現在のパスを((|path|))上に配置します。パスに沿ってテキス
+    トを配置するということができるようになります。
+
+     * path: 現在のパスを配置するときに基準とするパス。
+
+--- pseudo_blur(radius=3) {|self| ...}
+
+     注意: このメソッドは実験的なもので削除されたり変更され
+     たりする可能性があります。
+
+     ブロック内で描画した内容に対して、擬似的に「ぼかし」効
+     果を実現します。
+
+     * radius: ぼかすときにどのくらい隣の描画内容を利用する
+       かのパラメータ。
 
 == See Also
 
@@ -1376,4 +1463,4 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 == ChangeLog
 
-
+  * 2007-05-19: kou: 初期バージョン完成。
