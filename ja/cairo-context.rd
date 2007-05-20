@@ -161,29 +161,46 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * angle1: 開始角度（ラジアン）
      * angle2: 終端角度（ラジアン）
 
---- clip
+--- clip(preserve=false)
+--- clip(preserve=false) {|self| ...}
 
-    現在の切り取り範囲と現在のパスから作る範囲の両方に含まれ
-    ている範囲が新しい切り取り範囲になります（intersect、交
-    差）。現在のパスの範囲は、現在の塗りつぶし規則
-    （Cairo::Context#set_fill_ruleを見てください）にしたがっ
-    てCairo::Context#fillで塗りつぶされる箇所になります。
+     現在の切り取り範囲と現在のパスから作る範囲の両方に含まれ
+     ている範囲が新しい切り取り範囲になります（intersect、交
+     差）。現在のパスの範囲は、現在の塗りつぶし規則
+     （Cairo::Context#set_fill_ruleを見てください）にしたがっ
+     てCairo::Context#fillで塗りつぶされる箇所になります。
 
-    Cairo::Context#clipのあとは、コンテキストから現在のパス
-    は消去されます。
+     ((|preserve|))が偽の場合、Cairo::Context#clipのあとは、
+     コンテキストから現在のパスは消去されます。
 
-    現在の切り取り範囲は全ての描画操作に影響します。現在の切
-    り取り範囲の外にあるサーフェスへの全ての変更は効果的に隠
-    されます（マスクされます）。
+     現在の切り取り範囲は全ての描画操作に影響します。現在の切
+     り取り範囲の外にあるサーフェスへの全ての変更は効果的に隠
+     されます（マスクされます）。
 
-    Cairo::Context#clipは切り取り範囲を小さくすることしかで
-    きません。決して大きくなりません。しかし、現在の切り取り
-    範囲はグラフィック状態の一部なので、Cairo::Context#saveと
-    Cairo::Context#restoreの間（あるいはCairo::Context#save
-    のブロックの中）でCairo::Context#clipを呼ぶことで一時的
-    に切り取り範囲を制限することができます。これ以外の、切り
-    取り範囲の領域を増やす唯一の方法は
-    Cairo::Context#reset_clipです。
+     Cairo::Context#clipは切り取り範囲を小さくすることしかで
+     きません。決して大きくなりません。しかし、現在の切り取り
+     範囲はグラフィック状態の一部なので、Cairo::Context#saveと
+     Cairo::Context#restoreの間（あるいはCairo::Context#save
+     のブロックの中）でCairo::Context#clipを呼ぶことで一時的
+     に切り取り範囲を制限することができます。これ以外の、切り
+     取り範囲の領域を増やす唯一の方法は
+     Cairo::Context#reset_clipです。
+
+     ブロックを指定した場合は、Cairo::Context#new_pathで新し
+     いパスをはじめてからブロックを呼び出します。以下のよう
+     に使います。
+
+       context.clip do
+         context.rectangle(20, 20, 40, 40)
+       end
+
+     これは以下と等価です。
+
+       context.new_path
+       context.rectangle(20, 20, 40, 40)
+       context.clip
+
+     * preserve: 真の場合はパスを消去しない
 
 --- clip_extents
 
@@ -197,9 +214,12 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        * y2: 切り取り範囲の下
 
 --- clip_preserve
+--- clip_preserve {|self| ...}
 
-     Cairo::Context#clipと違ってパスを消去しません。他は
-     Cairo::Context#cilpと同じです。
+     Cairo::Context#clipを以下のように呼び出すことと同じです。
+
+       context.clip(true)
+       context.clip(true) { ... }
 
 --- clip_rectangle_list
 
@@ -380,8 +400,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        context.fill
 
 
-     Cairo::Context#set_fill_ruleと
-     Cairo::Context#fill_preserveも見てください。
+     Cairo::Context#set_fill_ruleも見てください。
 
      * preserve: 真の場合はパスを消去しない
 
@@ -393,8 +412,9 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      角(0,0, 0,0)を返します。サーフェスの大きさと切り取り領
      域は関係ありません。
 
-     Cairo::Context#fill、Cairo::Context#set_fill_rule、
-     Cairo::Context#fill_preserveも見てください。
+     以下も見てください。
+       * Cairo::Context#fill
+       * Cairo::Context#set_fill_rule
 
      * Returns: (({[x1, y1, x2, y2]})):
        * x1: バウンディングボックスの左
@@ -945,6 +965,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * y: 四角の左上の点のY座標
      * width: 四角の幅
      * height: 四角の高さ
+--- save {|self| ...}
 
 --- rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3)
 
@@ -1072,63 +1093,201 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- scaled_font=
 
-     * Returns: self
+     それぞれのonの部分は、その部分がサブパスでわかれて
+     いるようにキャップを持つことになります。特に、パスに沿っ
+     て丸・四角を分散させるために
+     Cairo::LINE_CAP_ROUND/Cairo::LINE_CAP_SQUAREを設定して
+     0.0の長さのonを使う場合は有効です。
 
 --- select_font_face
 
-     * Returns: self
+     もし((|dashes|))が(({nil}))または空配列ならダッシュは無
+     効になります。
 
 --- set_dash
 
-     * Returns: self
+     もし、((|dashes|))のなかに負の値がある、またはすべての
+     値が0の場合はCairo::InvalidDashErrorが発生します。
 
---- set_scaled_font
+     * dashes: on/offになる描きの部分の長さを交互に指定する
+       配列。つまり、(({[描く長さ, 描かない長さ, 描く長さ,
+       描かない長さ, ...]}))という配列です。(({nil}))または
+       (({[]}))を指定するとダッシュは無効になります。数値を
+       指定することと(({[数値]}))を指定することは同じことで
+       す。
+     * offset: ダッシュパターンを描きを始めるべき位置を補正
+       する値。
 
-     * Returns: self
+--- set_source(source)
 
---- set_source
+    コンテキストのソースパターンを((|source|))に設定します。
+    このパターンは新しいソースパターンを指定するまでその後の
+    すべての描画操作に使われます。
 
-     * Returns: self
+    注: パターンの変換行列はCairo::Context#set_sourceを使っ
+    た時点のユーザ空間の効果に固定されます。これは、さらに現
+    在の変換行列を変更してもソースパターンには影響はないとい
+    うことです。Cairo::Pattern#set_matrixを見てください。
 
---- set_source_rgb
+     * source: 今後の描画操作で仕様するCairo::Patternオブジェ
+       クト。
 
-     * Returns: self
+--- set_source_rgb(red, green, blue)
+--- set_source_rgba(red, green, blue, alpha=1.0)
 
---- set_source_rgba
+     コンテキストのソースパターンの色を指定します。
+     ((|alpha|))を指定することによって半透明にすることもでき
+     ます。この色は新しいソースパターンが設定されるまで、この
+     後の全ての描画操作に使われます。
 
-     * Returns: self
+     色とアルファ値は0から1までの浮動小数点です。もし、この範
+     囲におさまらなかった場合は強制的にこの範囲におさめます。
 
---- set_tolerance
+     * red: 色の赤の部分
+     * green: 色の緑の部分
+     * blue: 色の青の部分
+     * alpha: 色のアルファチャンネルの部分
 
-     * Returns: self
+--- set_tolerance(tolerance)
 
---- show_glyphs
+     パスを台形に変換するときに使う許容値を設定します。パス
+     の円弧の部分は、元のパスとポリゴン近似の最大偏差が
+     ((|tolerance|))より小さくなるまで再分割されます。デフォ
+     ルト値は0.1です。大きな値はよりパフォーマンスがよくなる
+     でしょうし、小さい値ならよりより見栄えになるでしょう。
+     （デフォルト値0.1から減らしてもそれほど見栄えは改善され
+     ないでしょう。）
 
-     * Returns: self
+     * tolerance: 装置単位（普通はピクセル）での許容値。
+
+--- show_glyphs(glyphs)
+
+     グリフの配列から形を生成する描画操作です。描画には現在の
+     フォントフェイス、フォントサイズ（フォント用変換行列）、
+     フォントオプションを使います。
+
+     * glyphs: Cairo::Glyphの配列。
 
 --- show_page
 
-     * Returns: self
+     現在のページを発行して消去します。これは複数ページをサポー
+     トしているバックエンドのためです。もし、現在のページを
+     消去したくないのであればCairo::Context#copy_pageを使っ
+     てください。
 
---- show_text
+--- show_text(utf8)
 
-     * Returns: self
+     UTF-8文字列から形を生成する描画操作です。描画には現在の
+     フォントフェイス、フォントサイズ（フォント用変換行列）、
+     フォントオプションを使います。
+
+     このメソッドははじめにテキストの文字列のためのグリフ一
+     式を計算します。最初のグリフは現在の点を基準に配置され
+     ます。それ以降のグリフの基準は前のグリフが進めた基準点
+     からの補正値になります。（？FIXME）
+
+     呼び出した後は現在の点は同じように次のグリフを配置した
+     ときに基準にする点に移動します。つまり、現在の点は最後
+     のグリフが進めた値で相殺された最後のグリフの基準点とな
+     ります。（？FIXME）これはひとつの論理的な文字列を複数の
+     Cairo::Context#show_textで簡単に表示できるようにします。
+
+     注: Cairo::Context#show_textはcairoの設計者がおもちゃの
+     テキストAPIと呼んでいるものの一部です。短いデモや簡単な
+     プログラムには便利ですが、真剣にテキストを使おうとして
+     いるアプリケーションには適していないでしょう。cairoの本
+     当のテキスト表示APIはCairo::Context#show_glyphsを見てく
+     ださい。
+
+     * utf8: UTF-8でエンコードされたテキスト。
 
 --- source
 
-     * Returns: self
+     現在のソースパターンを返します。
 
---- stroke
+     * Returns: Cairo::Patternオブジェクト。
 
-     * Returns: self
+--- stroke(preserve=false)
+--- stroke(preserve=false) {|self| ...}
+
+     現在のパスを現在の線幅、結合点、キャップ、ダッシュの設
+     定にしたがって描く描画操作です。((|preserve|))が偽の場
+     合は呼び出した後は現在のパスは消去されます。以下も見て
+     ください。
+
+       * Cairo::Context#set_line_width
+       * Cairo::Context#set_line_join
+       * Cairo::Context#set_line_cap
+       * Cairo::Context#set_dash
+
+     ブロックを指定した場合は、Cairo::Context#new_pathで新し
+     いパスをはじめてからブロックを呼び出します。以下のよう
+     に使います。
+
+       context.stroke do
+         context.rectangle(20, 20, 40, 40)
+       end
+
+     これは以下と等価です。
+
+       context.new_path
+       context.rectangle(20, 20, 40, 40)
+       context.stroke
+
+     注: 退化した（？FIXME）線分とサブパスは特別扱いされ、便
+     利な結果を提供します。それらはふたつの異なった状況にな
+     ります。
+
+       (1) Cairo::Context#set_dashで設定された長さ0のon線分。
+           もし、キャップスタイルがCairo::LINE_CAP_ROUNDか
+           Cairo::LINE_CAP_SQUAREならそれらの線分はそれぞれ
+           丸い点あるいは四角として描画されます。
+           Cairo::LINE_CAP_SQUAREの場合は四角の方向はその下
+           にあるパスの方向によって決まります。
+
+       (2) Cairo::Context#move_toとその後の
+           Cairo::Context#close_pathあるいは最初の
+           Cairo::Context#move_toと同じ座標に対する1回以上の
+           Cairo::Context#line_toで作られたサブパス。キャッ
+           プスタイルがCairo::LINE_CAP_ROUNDならサブパスは丸
+           い点として描画されるでしょう。
+           Cairo::LINE_CAP_SQUAREの場合は退化したサブパスは
+           全く描画されないことに注意してください。（なぜな
+           ら正しい向きが決定できないから。）
+
+     Cairo::LINE_CAP_BUTTなら退化した線分やサブパスの場合は
+     何も描画されません。
+
+     * preserve: 真の場合はパスを消去しない
 
 --- stroke_extents
 
-     * Returns: self
+     現在のパスと描きパラメータでCairo::Context#strokeを呼び
+     出したときに影響がある範囲を覆うユーザ空間のバウンディ
+     ングボックスを計算します。現在のパスが空なら空の四
+     角(0,0, 0,0)を返します。サーフェスの大きさと切り取り領
+     域は関係ありません。
+
+     以下も見てください。
+       * Cairo::Context#cairo_stroke
+       * Cairo::Context#set_line_width
+       * Cairo::Context#set_line_join
+       * Cairo::Context#set_line_cap
+       * Cairo::Context#set_dash
+
+     * Returns: (({[x1, y1, x2, y2]})):
+       * x1: バウンディングボックスの左
+       * y1: バウンディングボックスの上
+       * x2: バウンディングボックスの右
+       * y2: バウンディングボックスの下
 
 --- stroke_preserve
+--- stroke_preserve {|self| ...}
 
-     * Returns: self
+     Cairo::Context#strokeを以下のように呼び出すことと同じです。
+
+       context.stroke(true)
+       context.stroke(true) { ... }
 
 --- target
 
