@@ -161,6 +161,10 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * angle1: 開始角度（ラジアン）
      * angle2: 終端角度（ラジアン）
 
+--- circle(center_x, center_y, radius)
+
+     Cairo::Context::Circle#circleを見てください。
+
 --- clip(preserve=false)
 --- clip(preserve=false) {|self| ...}
 
@@ -951,7 +955,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      指定された大きさの閉じた四角いサブパスを現在のパスに追
      加します。四角はユーザ空間座標で(((|x|)), ((|y|)))の位
-     置に作られます。
+     置に作られます。角を丸くしたい場合は
+     Cairo::Context#rounded_rectangleを使ってください。
 
      論理的には以下と等しいです。
 
@@ -969,19 +974,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- rounded_rectangle(x, y, width, height, x_radius, y_radius=nil)
 
-     Cairo::Context#rectangleとの違いは、四角の角が丸みを帯
-     びているということです。X方向へは半径((|x_radius|))の円
-     弧で丸い角を作り、Y方向へは半径((|y_radius|))の円で丸い
-     角を作ります。((|y_radius|))を省略した場合は
-     ((|x_radius|))と同じ値が用いられます。つまり、X方向・Y
-     方向ともに同じ分だけ丸みを帯びます。
-
-     * x: 四角の左上の点のX座標
-     * y: 四角の左上の点のY座標
-     * width: 四角の幅
-     * height: 四角の高さ
-     * x_radius: X方向の角の丸み
-     * y_radius: Y方向の角の丸み
+     Cairo::Context::Rectangle#rounded_rectangleを見てくださ
+     い。
 
 --- rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3)
 
@@ -1169,10 +1163,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- set_source_color(color)
 
-     Cairo::Color.parseで認識できる形式でソースパターンの色
-     を指定します。
-
-     * color: Cairo::Color.parseが認識できる色。
+     Cairo::Context::Color#set_source_colorを見てください。
 
 --- show_glyphs(glyphs)
 
@@ -1385,11 +1376,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- transform_path(path) {|x, y| ...}
 
-     ((|path|))のそれぞれの点(((|x|)), ((|y|)))をブロックに
-     渡しパスを変換します。ブロックが返した変換後の点を集め
-     た新しいパスを返します。
-
-     * Returns: 変換された新しいCairo::Pathオブジェクト。
+     Cairo::Context::Path#transform_pathを見てください。
 
 --- translate(tx, ty)
 
@@ -1427,35 +1414,13 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        * ddx: 装置空間の距離ベクトルのX値
        * ddy: 装置空間の距離ベクトルのY値
 
---- circle(center_x, center_y, radius)
-
-     現在のパスに円状のパスを追加するための便利なメソッドで
-     す。以下のようにCairo::Context#arcを呼び出したのと同じ
-     です。
-
-       context.arc(center_x, center_y, radius, 0, 2 * Math::PI)
-
-     * center_x: 円の中心のX座標
-     * center_y: 円の中心のY座標
-     * radius: 円の半径
-
 --- map_path_onto(path)
 
-    現在のパスを((|path|))上に配置します。パスに沿ってテキス
-    トを配置するということができるようになります。
-
-     * path: 現在のパスを配置するときに基準とするパス。
+     Cairo::Context::Path#map_path_ontoを見てください。
 
 --- pseudo_blur(radius=3) {|self| ...}
 
-     注意: このメソッドは実験的なもので削除されたり変更され
-     たりする可能性があります。
-
-     ブロック内で描画した内容に対して、擬似的に「ぼかし」効
-     果を実現します。
-
-     * radius: ぼかすときにどのくらい隣の描画内容を利用する
-       かのパラメータ。
+     Cairo::Context::Blur#pseudo_blurを見てください。
 
 == See Also
 

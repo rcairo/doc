@@ -7,14 +7,15 @@ cairoにはないrcairoでの拡張です。
 
 == Instance Methods
 
---- circle(x, y, radius)
+--- circle(center_x, center_y, radius)
 
-     現在のパスに円を追加します。以下と同じです。
+     現在のパスに円を追加します。以下のように
+     Cairo::Context#arcを呼び出したのと同じです。
 
-       arc(x, y, radius, 0, 2 * Math::PI)
+       context.arc(center_x, center_y, radius, 0, 2 * Math::PI)
 
-     * x: 円の中心のx座標
-     * y: 円の中心のy座標
+     * center_x: 円の中心のx座標
+     * center_y: 円の中心のy座標
      * radius: 円の半径
 
 == See Also
