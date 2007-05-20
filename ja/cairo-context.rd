@@ -63,40 +63,42 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- antialias
 
-    現在設定されている、形状に対するアンチエイリアスのモード
-    を返します。これはCairo::Context#antialias=で設定で
-    きます。
+     現在設定されている、形状に対するアンチエイリアスのモード
+     を返します。これはCairo::Context#antialias=で設定で
+     きます。
 
-     * Returns: Cairo::ANTIALIAS_*のどれか
+     * Returns: Cairo::Antialiasに定義されている定数のどれか。
 
 --- antialias=(antialias)
 --- set_antialias(antialias)
 
-    形状を描画するために使われるラスタライザ（cairoで使われ
-    ているベクタベースの描画情報をラスタ（画素）ベースの描画
-    情報に変換する機能）のアンチエイリアスのモードを設定しま
-    す。この値はヒントとして使われます。あるバックエンドでは
-    ある値をサポートしているかもしれませんが、別のバックエン
-    ドではその値をサポートしていないかもしれません。現在のと
-    ころ、どのバックエンドもCairo::ANTIALIAS_SUBPIXEL
-    をサポートしていません。
+     形状を描画するために使われるラスタライザ（cairoで使われ
+     ているベクタベースの描画情報をラスタ（画素）ベースの描画
+     情報に変換する機能）のアンチエイリアスのモードを設定しま
+     す。この値はヒントとして使われます。あるバックエンドでは
+     ある値をサポートしているかもしれませんが、別のバックエン
+     ドではその値をサポートしていないかもしれません。現在のと
+     ころ、どのバックエンドもCairo::Antialias::SUBPIXEL
+     をサポートしていません。
 
-    このオプションはテキストのレンダリングには影響を与えない
-    ことに注意してください。テキストのレンダリングには代わり
-    にCairo::FontOptions#antialias=を見てください。
+     このオプションはテキストのレンダリングには影響を与えない
+     ことに注意してください。テキストのレンダリングには代わり
+     にCairo::FontOptions#antialias=を見てください。
 
-     * antialias: :defaultや:noneなどCairo::ANTIALIAS_*から
-       「Cairo::ANTIALIAS_」をのぞいた部分。大文字小文字は関
+     * antialias: :defaultや:noneなどCairo::Antialiasに定義
+       されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
-       Cairo::ANTIALIAS_*を指定することもできます。
+       Cairo::Antialiasに定義されている定数を指定するこ
+       ともできます。
+
 
 --- append_path(path)
 
-    ((|path|))を現在のパス上に追加します。((|path|))は
-    Cairo::Context#copy_pathまたは
-    Cairo::Context#copy_path_flatで取得します。あるい
-    は、Cairo::Path.newで一から作成することもできます。
+     ((|path|))を現在のパス上に追加します。((|path|))は
+     Cairo::Context#copy_pathまたは
+     Cairo::Context#copy_path_flatで取得します。あるい
+     は、Cairo::Path.newで一から作成することもできます。
 
      * path: Cairo::Pathオブジェクト
 
@@ -286,8 +288,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      Cairo::Context#copy_pathとほとんど同じです。違いはパス
      中のすべての曲線が区分的に線形な近似値で近似されること
      です（確実に現在の許容値内にします）。つまり、結果には
-     ひとつもCairo::PATH_CURVE_TOが無いことが保証されます。
-     Cairo::PATH_CURVE_TOはCairo::PATH_LINE_TOに置き換えられ
+     ひとつもCairo::Path::CURVE_TOが無いことが保証されます。
+     Cairo::Path::CURVE_TOはCairo::Path::LINE_TOに置き換えられ
      ます。
 
      * Returns: 平坦にした現在のパスのコピー。
@@ -439,8 +441,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      現在の塗りつぶし規則を返します。塗りつぶし規則は
      Cairo::Context#set_fill_ruleで設定します。
 
-     * Returns: Cairo::FILL_RULE_*（Cairo::FILL_RULE_WINDING
-       など）
+     * Returns: Cairo::FillRuleに定義されている定数のどれか。
 
 --- fill_rule=(fill_rule)
 --- set_fill_rule(fill_rule)
@@ -451,14 +452,14 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      れます。現在の塗りつぶし規則はCairo::Context#fillと
      Cairo::Context#clipの両方に影響を与えます。有効な塗りつ
      ぶし規則のそれぞれの意味の詳細は
-     Cairo::FILL_RULE_*（Cairo::FILL_RULE_WINDINGなど）
-     を見てください。
+     Cairo::FillRuleを見てください。
 
-     * fill_rule: :windingや:even_oddなどCairo::FILL_RULE_*
-       から「Cairo::FILL_RULE_」をのぞいた部分。大文字小文字
-       は関係ありません。また、シンボルではなくて文字列で
-       "winding"のように指定することもできます。もちろん、
-       Cairo::FILL_RULE_*を指定することもできます。
+     * fill_rule: :windingや:even_oddなどCairo::FillRuleに定
+       義されている定数名と同じもの。大文字小文字は関係あり
+       ません。また、シンボルではなくて文字列で"winding"のよ
+       うに指定することもできます。もちろん、
+       Cairo::FillRuleに定義されている定数を指定すること
+       もできます。
 
 --- font_extents
 
@@ -521,7 +522,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      コンテキストにフォント描画オプションを設定します。描画
      オプションはコンテキストの下にあるサーフェスから得たオ
      プションとマージされます。つまり、もし、((|options|))が
-     （Cairo::ANTIALIAS_DEFAULTのような）デフォルト値を持っ
+     （Cairo::Antialias::DEFAULTのような）デフォルト値を持っ
      ている場合は、サーフェスから得た値を使います。
 
      * options: Cairo::FontOptionsオブジェクト
@@ -639,15 +640,14 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      プスタイル（終点を描画する方法）を返します。
 
      * Returns: 現在のラインキャップスタイル。
-       Cairo::LINE_CAP_ROUNDなどCairo::LINE_CAP_*のどれか。
+       Cairo::LineCapに定義されている定数のどれか。
 
 --- line_cap=(line_cap)
 --- set_line_cap(line_cap)
 
      コンテキスト中の現在のラインキャップスタイルを設定しま
      す。どのようにラインキャップスタイルが描画されるかは
-     Cairo::LINE_CAP_ROUNDなどCairo::LINE_CAP_*を見てくださ
-     い。
+     Cairo::LineCapを見てください。
 
      他の描きパラメータと同じように、現在のラインキャップスタ
      イルはCairo::Context#stroke,
@@ -656,11 +656,11 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      で参照されますが、パスを作っているときはまったく影響を
      与えません。
 
-     * line_cap: :roundや:buttなどCairo::LINE_CAP_*から
-       「Cairo::LINE_CAP_」をのぞいた部分。大文字小文字は関
-       係ありません。また、シンボルではなくて文字列で
-       "round"のように指定することもできます。もちろん、
-       Cairo::LINE_CAP_*を指定することもできます。
+     * line_cap: :roundや:buttなどCairo::LineCapに定義されて
+       いる定数名と同じもの。大文字小文字は関係ありません。
+       また、シンボルではなくて文字列で"round"のように指定す
+       ることもできます。もちろん、
+       Cairo::LineCapに定義されている定数を指定することもできます。
 
 --- line_join
 
@@ -668,15 +668,14 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      イル（線分中の点を描画する方法）を返します。
 
      * Returns: 現在の結合点スタイル。
-       Cairo::LINE_JOIN_ROUNDなどCairo::LINE_JOIN_*のどれか。
+       Cairo::LineJoinに定義されている定数のどれか。
 
 --- line_join=(line_join)
 --- set_line_join(line_join)
 
      コンテキスト中の現在の結合点スタイルを設定します。どの
      ように結合点スタイルが描画されるかは
-     Cairo::LINE_JOIN_ROUNDなどCairo::LINE_JOIN_*を見てくだ
-     さい。
+     Cairo::LineJoinを見てください。
 
      他の描きパラメータと同じように、現在の結合点スタイルは
      Cairo::Context#stroke,
@@ -685,11 +684,12 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      で参照されますが、パスを作っているときはまったく影響を
      与えません。
 
-     * line_join: :roundや:bevelなどCairo::LINE_JOIN_*から
-       「Cairo::LINE_JOIN_」をのぞいた部分。大文字小文字は関
+     * line_join: :roundや:bevelなどCairo::LineJoinに定義さ
+       れている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "round"のように指定することもできます。もちろん、
-       Cairo::LINE_JOIN_*を指定することもできます。
+       Cairo::LineJoinに定義されている定数を指定することもで
+       きます。
 
 --- line_to(x, y)
 
@@ -784,7 +784,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      コンテキストの中に現在の留め継ぎ限界を設定します。
 
-     現在の結合点スタイルがCairo::LINE_JOIN_MITERの場合は
+     現在の結合点スタイルがCairo::LineJoin::MITERの場合は
      （Cairo::Context#est_line_joinを見てください）、線分を
      留め継ぎの代わりに斜角で結合するべきかどうかを判断
      するために設定した留め継ぎ限界を使います。
@@ -838,21 +838,20 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      現在の合成操作を返します。
 
-     * Returns: Cairo::OPERATOR_OVERなどCairo::OPERATOR_*の
-       どれか。
+     * Returns: Cairo::OperatorOverに定義されている定数のど
+       れか。
 
 --- operator=(operator)
 --- set_operator(operator)
 
      全ての描画操作で使われる合成操作を設定します。利用可能
-     な各合成操作の意味の詳細はCairo::OPERATOR_*（例えば
-     Cairo::OPERATOR_OVER）を見てください。
+     な各合成操作の意味の詳細はCairo::Operatorを見てください。
 
-     * operator: :overや:sourceなどCairo::OPERATOR_*から
-       「Cairo::OPERATOR_」をのぞいた部分。大文字小文字は関
-       係ありません。また、シンボルではなくて文字列で
-       "over"のように指定することもできます。もちろん、
-       Cairo::OPERATOR_*を指定することもできます。
+     * operator: :overや:sourceなどCairo::Operatorに定義され
+       ている定数名と同じもの。大文字小文字は関係ありません。
+       また、シンボルではなくて文字列で"over"のように指定す
+       ることもできます。もちろん、Cairo::Operatorに定義され
+       ている定数を指定することもできます。
 
 --- paint
 --- paint(alpha)
@@ -918,7 +917,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      Cairo::Context#restoreを呼びます。）
 
      デフォルトでは中間グループの中身の種類は
-     Cairo::CONTENT_COLOR_ALPHAになります。他の種類を選ぶに
+     Cairo::Content::COLOR_ALPHAになります。他の種類を選ぶに
      は((|content|))を指定します。
 
      ブロックを指定すると、ブロックを抜けた時点で自動的に
@@ -939,11 +938,11 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        end
        context.paint(alpha)
 
-     * context: :colorや:color_alphaなどCairo::CONTENT_*から
-       「Cairo::CONTENT_」をのぞいた部分。大文字小文字は関
-       係ありません。また、シンボルではなくて文字列で
-       "color"のように指定することもできます。もちろん、
-       Cairo::CONTENT_*を指定することもできます。
+     * context: :colorや:color_alphaなどCairo::Contentに定義
+       されている定数名と同じもの。大文字小文字は関係ありま
+       せん。また、シンボルではなくて文字列で"color"のように
+       指定することもできます。もちろん、Cairo::Contentに定
+       義されている定数を指定することもできます。
 
      * pop_to_source: 真あるいは(({nil}))ならブロックを抜け
        るときに(({context.pop_group(false)}))ではなく、
@@ -1106,7 +1105,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      それぞれのonの部分は、その部分がサブパスでわかれて
      いるようにキャップを持つことになります。特に、パスに沿っ
      て丸・四角を分散させるために
-     Cairo::LINE_CAP_ROUND/Cairo::LINE_CAP_SQUAREを設定して
+     Cairo::LineCap::ROUND/Cairo::LineCap::SQUAREを設定して
      0.0の長さのonを使う場合は有効です。
 
 --- select_font_face
@@ -1244,23 +1243,23 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      ります。
 
        (1) Cairo::Context#set_dashで設定された長さ0のon線分。
-           もし、キャップスタイルがCairo::LINE_CAP_ROUNDか
-           Cairo::LINE_CAP_SQUAREならそれらの線分はそれぞれ
+           もし、キャップスタイルがCairo::LineCap::ROUNDか
+           Cairo::Line::Cap::SQUAREならそれらの線分はそれぞれ
            丸い点あるいは四角として描画されます。
-           Cairo::LINE_CAP_SQUAREの場合は四角の方向はその下
+           Cairo::Line::Cap::SQUAREの場合は四角の方向はその下
            にあるパスの方向によって決まります。
 
        (2) Cairo::Context#move_toとその後の
            Cairo::Context#close_pathあるいは最初の
            Cairo::Context#move_toと同じ座標に対する1回以上の
            Cairo::Context#line_toで作られたサブパス。キャッ
-           プスタイルがCairo::LINE_CAP_ROUNDならサブパスは丸
+           プスタイルがCairo::Line::Cap::ROUNDならサブパスは丸
            い点として描画されるでしょう。
-           Cairo::LINE_CAP_SQUAREの場合は退化したサブパスは
+           Cairo::Line::Cap::SQUAREの場合は退化したサブパスは
            全く描画されないことに注意してください。（なぜな
            ら正しい向きが決定できないから。）
 
-     Cairo::LINE_CAP_BUTTなら退化した線分やサブパスの場合は
+     Cairo::LineCap::BUTTなら退化した線分やサブパスの場合は
      何も描画されません。
 
      * preserve: 真の場合はパスを消去しない
@@ -1428,4 +1427,5 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 == ChangeLog
 
+  * 2007-05-20: kou: 定数の扱いについて更新。
   * 2007-05-19: kou: 初期バージョン完成。
