@@ -550,8 +550,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      extents.height）に貢献しないことに注意してください。
 
      * glyphs: Cairo::Glyphの配列
-     * Returns: グリフの範囲をCairo::TextExtentsオブジェクト
-       として返します。
+     * Returns: グリフの範囲を示すCairo::TextExtentsオブジェ
+       クト。
 
 --- glyph_path(glyphs)
 
@@ -1199,7 +1199,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      当のテキスト表示APIはCairo::Context#show_glyphsを見てく
      ださい。
 
-     * utf8: UTF-8でエンコードされたテキスト。
+     * utf8: UTF-8で符号化れたテキスト。
 
 --- source
 
@@ -1291,11 +1291,32 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- target
 
-     * Returns: self
+     Cairo::Context.newに渡されたコンテキストの対象とするサー
+     フェスを返します。
 
---- text_extents
+     * Returns: 対象のサーフェス。Cairo::Surfaceのサブクラス
+       のオブジェクト。
 
-     * Returns: self
+--- text_extents(utf8)
+
+     テキストの範囲を返します。範囲はテキストをインクで塗る
+     部分（テキストが描画される部分）を囲む（ユーザ空間での）
+     示しています。さらに、範囲（Cairo::TextExtents）の
+     ((|x_advance|))と((|y_advance|))の値は
+     Cairo::Context#show_glyphsが進める現在の点の合計を示し
+     ています。（Cairo::Context#show_textはテキストを描画す
+     ると、描画した分だけ現在の点を進めます。）
+
+     空白文字は四角のサイズ（extents.widthとextents.height）
+     に貢献しないことに注意してください。空白文字は非空白文
+     字の位置を変更することにより間接的に貢献しています。特
+     に、テキストの最後の空白文字は四角のサイズには影響を与
+     えませんが、((|x_advance|))と((|y_advance|))の値には影
+     響を与えます。
+
+     * utf8: UTF-8で符号化されたテキスト。
+     * Returns: テキストの範囲を示すCairo::TextExtentsオブジェ
+       クト。
 
 --- text_path
 
