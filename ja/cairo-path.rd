@@ -1,5 +1,9 @@
 = class Cairo::Path
 
+パスを持つオブジェクトです。Cairo::Context#copy_pathあるいは
+Cairo::Context#copy_path_flatで取得できます。また、
+Cairo::Context#append_pathの入力値としても使えます。
+
 == Object Hierarchy
 
 * Object
@@ -13,92 +17,110 @@
 
 --- Cairo::Path.new
 
-     * Returns: self
+     新しくパスを生成します。
+
+     * Returns: Cairo::Pathオブジェクト。
 
 == Instance Methods
 
---- []
+--- [](index)
 
-     * Returns: self
+     ((|index|))番目のパスデータを返します。((|index|))番目
+     のパスデータがない場合は(({nil}))を返します。
 
---- arc
+     * Returns: Cairo::PathDataオブジェクトまたは(({nil}))。
 
-     * Returns: self
+--- arc(center_x, center_y, radius, angle1, angle2)
 
---- arc_negative
+     Cairo::Context#arcを見てください。
 
-     * Returns: self
+--- arc_negative(center_x, center_y, radius, angle1, angle2)
 
---- circle
+     Cairo::Context#arc_negativeを見てください。
 
-     * Returns: self
+--- circle(center_x, center_y, radius)
+
+     Cairo::Context#circleを見てください。
 
 --- close
 
-     * Returns: self
+     Cairo::Context#close_pathを見てください。
 
---- curve_to
+--- curve_to(x1, y1, x2, y2, x3, y3)
 
-     * Returns: self
+     Cairo::Context#curve_toを見てください。
 
---- each
+--- each {|data| ...}
 
-     * Returns: self
+    各パスデータ毎にブロックを呼び出します。
 
 --- empty?
 
-     * Returns: self
+     ひとつもパスデータがない場合は真を返します。
 
---- length
+     * Returns: パスデータがない場合は(({true}))、そうでない
+       場合は(({false}))。
 
-     * Returns: self
+--- line_to(x, y)
 
---- line_to
+     Cairo::Context#line_toを見てください。
 
-     * Returns: self
+--- move_to(x, y)
 
---- move_to
-
-     * Returns: self
+     Cairo::Context#move_toを見てください。
 
 --- new_path
 
-     * Returns: self
+     Cairo::Context#new_pathを見てください。
 
 --- new_sub_path
 
-     * Returns: self
+     Cairo::Context#new_sub_pathを見てください。
 
---- rectangle
+--- rectangle(x, y, width, height)
 
-     * Returns: self
+     Cairo::Context#rectangleを見てください。
 
---- rel_curve_to
+--- rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3)
 
-     * Returns: self
+     Cairo::Context#rel_curve_toを見てください。
 
---- rel_line_to
+--- rel_line_to(dx, dy)
 
-     * Returns: self
+     Cairo::Context#rel_line_toを見てください。
 
---- rel_move_to
+--- rel_move_to(dx, dy)
 
-     * Returns: self
+     Cairo::Context#rel_move_toを見てください。
 
---- rounded_rectangle
+--- rounded_rectangle(x, y, width, height, x_radius, y_radius=nil)
 
-     * Returns: self
+     Cairo::Context#rounded_rectangleを見てください。
 
 --- size
+--- length
 
-     * Returns: self
+     持っているパスデータの数を返します。
+
+     * Returns: パスデータの数。
 
 == Constants
 
 --- CLOSE_PATH
+
+     Cairo::PathDataType::CLOSE_PATHを見てください。
+
 --- CURVE_TO
+
+     Cairo::PathDataType::CURVE_TOを見てください。
+
 --- LINE_TO
+
+     Cairo::PathDataType::LINE_TOを見てください。
+
 --- MOVE_TO
+
+     Cairo::PathDataType::MOVE_TOを見てください。
 
 == See Also
 
@@ -106,4 +128,4 @@
 
 == ChangeLog
 
-
+  * 2007-05-22: kou: スタート。

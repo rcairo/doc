@@ -68,16 +68,13 @@ Cairo::PathCurveTo, Cairo::PathClosePathでしょう。
      * Returns: Cairo::Pointの配列。
 
 --- to_a
+--- to_ary
 
     配列化します。
 
      * Returns: (({[type, points]}))
        * type: 操作の種類。
        * points: Cairo::Pointの配列。
-
---- to_ary
-
-    Cairo::PathData#to_aの別名です。
 
 --- type
 
