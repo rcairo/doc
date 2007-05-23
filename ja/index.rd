@@ -735,7 +735,6 @@
   * Cairo::Matrix#identity!
   * Cairo::Matrix#invert
   * Cairo::Matrix#invert!
-  * Cairo::Matrix#matrix_distance
   * Cairo::Matrix#multiply
   * Cairo::Matrix#multiply!
   * Cairo::Matrix#rotate
@@ -743,11 +742,30 @@
   * Cairo::Matrix#scale
   * Cairo::Matrix#scale!
   * Cairo::Matrix#set
+  * Cairo::Matrix#set_x0
+  * Cairo::Matrix#set_xx
+  * Cairo::Matrix#set_xy
+  * Cairo::Matrix#set_y0
+  * Cairo::Matrix#set_yx
+  * Cairo::Matrix#set_yy
   * Cairo::Matrix#to_a
   * Cairo::Matrix#to_s
+  * Cairo::Matrix#transform_distance
   * Cairo::Matrix#transform_point
   * Cairo::Matrix#translate
   * Cairo::Matrix#translate!
+  * Cairo::Matrix#x0
+  * Cairo::Matrix#x0=
+  * Cairo::Matrix#xx
+  * Cairo::Matrix#xx=
+  * Cairo::Matrix#xy
+  * Cairo::Matrix#xy=
+  * Cairo::Matrix#y0
+  * Cairo::Matrix#y0=
+  * Cairo::Matrix#yx
+  * Cairo::Matrix#yx=
+  * Cairo::Matrix#yy
+  * Cairo::Matrix#yy=
   * Cairo::NoCurrentPointError
   * Cairo::NullPointerError
   * Cairo::Operator
