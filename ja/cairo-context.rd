@@ -92,7 +92,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        Cairo::Antialiasに定義されている定数を指定するこ
        ともできます。
 
-
 --- append_path(path)
 
      ((|path|))を現在のパス上に追加します。((|path|))は

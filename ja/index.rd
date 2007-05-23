@@ -25,10 +25,6 @@
   * Cairo::FONT_SLANT_ITALIC
   * Cairo::FONT_SLANT_NORMAL
   * Cairo::FONT_SLANT_OBLIQUE
-  * Cairo::FONT_TYPE_ATSUI
-  * Cairo::FONT_TYPE_FT
-  * Cairo::FONT_TYPE_TOY
-  * Cairo::FONT_TYPE_WIN32
   * Cairo::FONT_WEIGHT_BOLD
   * Cairo::FONT_WEIGHT_NORMAL
   * Cairo::FORMAT_A1
@@ -70,27 +66,11 @@
   * Cairo::PATH_CURVE_TO
   * Cairo::PATH_LINE_TO
   * Cairo::PATH_MOVE_TO
-  * Cairo::PATTERN_TYPE_LINEAR
-  * Cairo::PATTERN_TYPE_RADIAL
-  * Cairo::PATTERN_TYPE_SOLID
-  * Cairo::PATTERN_TYPE_SURFACE
   * Cairo::SUBPIXEL_ORDER_BGR
   * Cairo::SUBPIXEL_ORDER_DEFAULT
   * Cairo::SUBPIXEL_ORDER_RGB
   * Cairo::SUBPIXEL_ORDER_VBGR
   * Cairo::SUBPIXEL_ORDER_VRGB
-  * Cairo::SURFACE_TYPE_BEOS
-  * Cairo::SURFACE_TYPE_DIRECTFB
-  * Cairo::SURFACE_TYPE_GLITZ
-  * Cairo::SURFACE_TYPE_IMAGE
-  * Cairo::SURFACE_TYPE_OS2
-  * Cairo::SURFACE_TYPE_PDF
-  * Cairo::SURFACE_TYPE_PS
-  * Cairo::SURFACE_TYPE_QUARTZ
-  * Cairo::SURFACE_TYPE_SVG
-  * Cairo::SURFACE_TYPE_WIN32
-  * Cairo::SURFACE_TYPE_XCB
-  * Cairo::SURFACE_TYPE_XLIB
   * Cairo::SVG_VERSION_1_1
   * Cairo::SVG_VERSION_1_2
   * Cairo::VERSION
@@ -653,7 +633,6 @@
   * Cairo::FontExtents#max_y_advance
   * Cairo::FontExtents#to_s
   * Cairo::FontFace
-  * Cairo::FontFace#type
   * Cairo::FontOptions
   * Cairo::FontOptions.new
   * Cairo::FontOptions#antialias
@@ -676,11 +655,6 @@
   * Cairo::FontSlant::ITALIC
   * Cairo::FontSlant::NORMAL
   * Cairo::FontSlant::OBLIQUE
-  * Cairo::FontType
-  * Cairo::FontType::ATSUI
-  * Cairo::FontType::FT
-  * Cairo::FontType::TOY
-  * Cairo::FontType::WIN32
   * Cairo::FontWeight
   * Cairo::FontWeight::BOLD
   * Cairo::FontWeight::NORMAL
@@ -854,12 +828,6 @@
   * Cairo::Pattern#set_extend
   * Cairo::Pattern#set_filter
   * Cairo::Pattern#set_matrix
-  * Cairo::Pattern#type
-  * Cairo::PatternType
-  * Cairo::PatternType::LINEAR
-  * Cairo::PatternType::RADIAL
-  * Cairo::PatternType::SOLID
-  * Cairo::PatternType::SURFACE
   * Cairo::PatternTypeMismatchError
   * Cairo::Point
   * Cairo::Point.new
@@ -902,7 +870,6 @@
   * Cairo::ScaledFont#font_options
   * Cairo::ScaledFont#glyph_extents
   * Cairo::ScaledFont#text_extents
-  * Cairo::ScaledFont#type
   * Cairo::SolidPattern
   * Cairo::SolidPattern.new
   * Cairo::SolidPattern#color
@@ -925,25 +892,11 @@
   * Cairo::Surface#mark_dirty
   * Cairo::Surface#set_device_offset
   * Cairo::Surface#set_fallback_resolution
-  * Cairo::Surface#type
   * Cairo::Surface#write_to_png
   * Cairo::SurfaceFinishedError
   * Cairo::SurfacePattern
   * Cairo::SurfacePattern.new
   * Cairo::SurfacePattern#surface
-  * Cairo::SurfaceType
-  * Cairo::SurfaceType::BEOS
-  * Cairo::SurfaceType::DIRECTFB
-  * Cairo::SurfaceType::GLITZ
-  * Cairo::SurfaceType::IMAGE
-  * Cairo::SurfaceType::OS2
-  * Cairo::SurfaceType::PDF
-  * Cairo::SurfaceType::PS
-  * Cairo::SurfaceType::QUARTZ
-  * Cairo::SurfaceType::SVG
-  * Cairo::SurfaceType::WIN32
-  * Cairo::SurfaceType::XCB
-  * Cairo::SurfaceType::XLIB
   * Cairo::SurfaceTypeMismatchError
   * Cairo::TextExtents
   * Cairo::TextExtents#height

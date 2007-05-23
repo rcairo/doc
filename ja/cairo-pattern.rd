@@ -53,10 +53,6 @@
 
      * Returns: self
 
---- type
-
-     * Returns: self
-
 == See Also
 
   * Index
