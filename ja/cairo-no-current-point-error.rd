@@ -1,5 +1,7 @@
 = class Cairo::NoCurrentPointError
 
+現在の点が定義されていないときに発生します。
+
 == Object Hierarchy
 
 * Object
@@ -14,4 +16,4 @@
 
 == ChangeLog
 
-
+  * 2007-05-21: kou: スタート。

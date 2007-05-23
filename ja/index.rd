@@ -680,7 +680,6 @@
   * Cairo::GradientPattern#add_color_stop_rgb
   * Cairo::GradientPattern#add_color_stop_rgba
   * Cairo::GradientPattern#color_stop_count
-  * Cairo::GradientPattern#get_color_stop
   * Cairo::GradientPattern#get_color_stop_color
   * Cairo::GradientPattern#get_color_stop_rgba
   * Cairo::HintMetrics
