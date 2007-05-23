@@ -208,6 +208,8 @@ class UpdateRD
         info[:module_functions_info] = read_entries(component)
       when /\AInstance Methods/
         info[:instance_methods_info] = read_entries(component)
+      when /\AConstants/
+        info[:constants_info] = read_entries(component)
       when /\ASee Also/
         title, info[:see_also] = component.split(/\n+/, 2)
       when /\AChangeLog/

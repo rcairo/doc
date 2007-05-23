@@ -1,4 +1,4 @@
-= module Cairo::Hint Style
+= module Cairo::HintStyle
 
 フォントの輪郭に対する指示の種類を指定します。指示とは結果の
 外観を向上させるために輪郭をピクセルの格子に合わせる処理です。

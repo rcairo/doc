@@ -19,8 +19,6 @@ rcairoではCairo::FontFaceの生成をサポートしていません。
 * Object
   * Cairo::FontFace
 
-== Instance Methods
-
 == See Also
 
   * Index
