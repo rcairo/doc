@@ -1,5 +1,7 @@
 = class Cairo::SurfacePattern
 
+サーフェスを使ったパターンです。
+
 == Object Hierarchy
 
 * Object
@@ -8,15 +10,22 @@
 
 == Class Methods
 
---- Cairo::SurfacePattern.new
+--- Cairo::SurfacePattern.new(surface)
 
-     * Returns: self
+     指定された((|surface|))用のパターンを生成します。
+
+     * surface: Cairo::Surfaceのサブクラスのオブジェクト。
+
+     * Returns: 新しく生成したCairo::SurfacePatternオブジェ
+       クト。
 
 == Instance Methods
 
 --- surface
 
-     * Returns: self
+     パターンが使っているサーフェスを返します。
+
+     * Returns: Cairo::Surfaceのサブクラスのオブジェクト。
 
 == See Also
 
@@ -24,4 +33,4 @@
 
 == ChangeLog
 
-
+  * 2007-05-23: kou: スタート。

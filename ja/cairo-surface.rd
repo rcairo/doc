@@ -1,5 +1,14 @@
 = class Cairo::Surface
 
+画像を表します。描画操作の対象となったり他のサーフェス上に描
+画するときのソースになったりします。サーフェスに描画するため
+には、Cairo::Context.newに対象にしたいサーフェスを渡してコン
+テキストを作ります。
+
+サーフェスには異なる描画バックエンドのために異なる種類があり
+ます。例えば、Cairo::ImageSurface.newはメモリ上にビットマッ
+プ画像を作ります。
+
 == Object Hierarchy
 
 * Object
@@ -8,52 +17,140 @@
 == Instance Methods
 
 --- clone
+--- dup
 
-     * Returns: self
+     例外NotImplementedErrorが発生します。
 
 --- content
 
-     * Returns: self
+     サーフェスが色・アルファ情報を持っているかを示す内容の
+     種類を返します。Cairo::Contentを見てください。
 
---- create_similar
+     * Returns: Cairo::Contentに定義されている定数のどれか。
 
-     * Returns: self
+--- create_similar(content, width, height)
+
+     ((|self|))とできるだけ互換性のある新しいサーフェスを生
+     成します。例えば、新しいサーフェスは((|self|))と同じフォー
+     ルバック解像度とフォントオプションを持っています。通常、
+     新しいサーフェスはできるだけ((|self|))と同じバックエンド
+     を使います。
+
+     最初はサーフェスの内容はすべて0です。（透明度を持ってい
+     れば透明、そうでなければ黒です。）
+
+     * content: :colorや:color_alphaなどCairo::Contentに定義
+       されている定数名と同じもの。大文字小文字は関係ありま
+       せん。また、シンボルではなくて文字列で"color"のように
+       指定することもできます。もちろん、Cairo::Contentに定
+       義されている定数を指定することもできます。
+     * width: 新しいサーフェスの幅（装置空間単位）
+     * height: 新しいサーフェスの高さ（装置空間単位）
+
+     * Returns: 新しく生成したサーフェス。
 
 --- device_offset
 
-     * Returns: self
+     前にCairo::Surface#set_device_offsetで設定した装置補正
+     値を返します。
 
---- dup
-
-     * Returns: self
+     * Returns: (({[x_offset, y_offset]}))
+       * x_offset: X方向の補正値（装置空間単位）
+       * y_offset: Y方向の補正値（装置空間単位）
 
 --- finish
 
-     * Returns: self
+     サーフェスを終了し、全ての外部資源を開放します。このメ
+     ソッドを呼んだ後は、サーフェスに対して何の操作もできま
+     せん。描画操作は効果がなく、代わりに例外
+     Cairo::SurfaceFinishedErrorが発生します。
+
+     rcairoではサーフェスがGCされると自動的に
+     Cairo::Surface#finishが呼ばれます。
 
 --- flush
 
-     * Returns: self
+     サーフェスに対する保留中の描画を行い、さらにcairoが持っ
+     ている一時的な変更をサーフェスの状態に還元します。この
+     メソッドはcairo経由での描画から直接その出力先のAPIを使っ
+     ての描画に切り替える前に呼ばなければ行けません。もし、
+     サーフェスが直接アクセスをサポートしていない場合はこの
+     メソッドはなにもしません。
 
 --- font_options
 
-     * Returns: self
+     サーフェスのデフォルトフォント描画オプションを返します。
+     画面サーフェスから正しいサブピクセル並びを取得すること
+     もできます。戻り値はCairo::ScaledFont.newの引数に使うこ
+     ともできます。
+
+     * Returns: Cairo::FontOptionsオブジェクト。
 
 --- mark_dirty
 
-     * Returns: self
+     cairoにcairo以外の方法でサーフェスへの描画が終わったこ
+     とを教えます。また、キャッシュしている範囲を再読み込み
+     する必要があることも教えます。事前に
+     Cairo::Surface#flushを呼ぶ必要があります。
 
---- set_device_offset
+--- set_device_offset(x_offset, y_offset)
 
-     * Returns: self
+     サーフェスに描画するときにCTMで決定する装置座標に補正値
+     を追加します。このメソッドは例えばこんなサーフェスを作
+     りたいときに使えます。それは画面上のサーフェスの一部と
+     して描かれているものを画面上にはない別のサーフェスに転
+     送するサーフェスです。ある意味で、これは完全にcairoの
+     APIのユーザには見えないところです。
+     Cairo::Context#transformで変換を設定することでは十分で
+     はありません。なぜならCairo::Context#device_to_userのよ
+     うなメソッドが隠れた補正値を外に出してしまうからです。
 
---- set_fallback_resolution
+     補正値はソースパターンとしてサーフェスを使ってサーフェ
+     スを描画したときにも影響があることに注意してください。
 
-     * Returns: self
+     * x_offset: X方向の補正値（装置空間単位）
+     * y_offset: Y方向の補正値（装置空間単位）
 
---- write_to_png
+--- set_fallback_resolution(x_pixels_per_inch, y_pixels_per_inch)
 
-     * Returns: self
+     画像フォールバックのときの水平方向と垂直方向の解像度の
+     設定。
+
+     バックエンドではネイティブにサポートしていない特定の操
+     作では、cairoは画像に対して描画操作を行い、その画像を出
+     力に重ねるというフォールバックを行います。ネイティブで
+     ベクトル系のバックエンドでは、このメソッドはその画像フォー
+     ルバックのときに設定した解像度を使います。（大きな値だ
+     と画像が詳細になりますが、ファイルサイズが大きくなりま
+     す。）
+
+     ネイティブでベクトル系のバックエンドの例はPostScript,
+     PDF, SVGバックエンドです。,
+
+     ネイティブでラスタ系のバックエンドでは、画像フォールバッ
+     クは可能ですが、常にネイティブの装置解像度で実行されま
+     す。そのため、ラスタ系のバックエンドではこのメソッドは
+     意味がありません。
+
+     注: フォールバック解像度はページを完成させるとき
+     （Cairo::Context#show_pageかCairo::Context#copy_page）に
+     使います。そのため、現在は各ページにひとつのフォールバッ
+     ク解像度しか効果がありません。
+
+     * x_pixels_per_inch: 水平方向の1インチあたりのピクセル
+       数の設定
+     * y_pixels_per_inch: 垂直方向の1インチあたりのピクセル
+       数の設定
+
+--- write_to_png(stream)
+--- write_to_png(filename)
+
+     サーフェスの内容をPNG画像として書き出します。
+
+     引数がwriteメソッドを持っている場合はそのオブジェクトの
+     writeメソッドを使ってPNG画像を出力します。形式のデータを
+     取得します。ない場合は引数をファイル名として扱い、その
+     ファイルへPNG画像を出力します。
 
 == See Also
 
@@ -61,4 +158,4 @@
 
 == ChangeLog
 
-
+  * 2007-05-23: kou: スタート。
