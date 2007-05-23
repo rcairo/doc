@@ -1,5 +1,7 @@
 = class Cairo::Rectangle
 
+四角を表します。
+
 == Object Hierarchy
 
 * Object
@@ -7,43 +9,66 @@
 
 == Class Methods
 
---- Cairo::Rectangle.new
+--- Cairo::Rectangle.new(x, y, width, height)
 
-     * Returns: self
+     指定した大きさの四角を作ります。
+
+     * x: 四角の左側のX座標
+     * y: 四角の上側のY座標
+     * width: 四角の幅
+     * height: 四角の高さ
+
+     * Returns: 新しく作ったCairo::Rectangleオブジェクト。
 
 == Instance Methods
 
 --- height
 
-     * Returns: self
+     四角の高さを返します。
 
---- height=
+     * Returns: 高さ
 
-     * Returns: self
+--- height=(height)
+
+     四角の高さを設定します。
+
+     * height: 高さ
 
 --- width
 
-     * Returns: self
+     四角の幅を返します。
 
---- width=
+     * Returns: 幅
 
-     * Returns: self
+--- width=(width)
+
+     四角の幅を設定します。
+
+     * width: 幅
 
 --- x
 
-     * Returns: self
+     四角の左側のX座標を返します。
 
---- x=
+     * Returns: X座標
 
-     * Returns: self
+--- x=(x)
+
+     四角の左側のX座標を設定します。
+
+     * x: X座標
 
 --- y
 
-     * Returns: self
+     四角の左側のY座標を返します。
 
---- y=
+     * Returns: Y座標
 
-     * Returns: self
+--- y=(y)
+
+     四角の左側のY座標を設定します。
+
+     * y: Y座標
 
 == See Also
 
@@ -51,4 +76,4 @@
 
 == ChangeLog
 
-
+  * 2007-05-22: kou: スタート。

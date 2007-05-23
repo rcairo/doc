@@ -4,11 +4,20 @@
 
 --- Cairo.bindings_version
 
-     * Returns: self
+     rcairoのバージョンを以下のフォーマットの文字列で返しま
+     す。
+
+       メジャー番号.マイナー番号.マイクロ番号
+
+     以下のようにタグが付くこともあります。
+
+       メジャー番号.マイナー番号.マイクロ番号-タグ
+
+     * Returns: rcairoのバージョン
 
 --- Cairo.normalize_const_name
 
-     * Returns: self
+     内部で使っているメソッドです。
 
 == Constants
 
@@ -17,7 +26,16 @@
 --- ANTIALIAS_NONE
 --- ANTIALIAS_SUBPIXEL
 --- BINDINGS_VERSION
+
+     rcairoのバージョンを示す(({[major, minor, micro,
+     tag]}))という配列です。((|tag|))は(({nil}))のことがあり
+     ます。
+
 --- BUILD_VERSION
+
+     rcairoをビルドするのに使用したcairoのバージョンを示す
+     (({[major, minor, micro]}))という配列です。
+
 --- CONTENT_ALPHA
 --- CONTENT_COLOR
 --- CONTENT_COLOR_ALPHA
@@ -57,8 +75,20 @@
 --- LINE_JOIN_MITER
 --- LINE_JOIN_ROUND
 --- MAJOR_VERSION
+
+     現在rcairoと一緒に使用しているcairoのメジャーバージョン
+     を示す整数です。
+
 --- MICRO_VERSION
+
+     現在rcairoと一緒に使用しているcairoのマイナーバージョン
+     を示す整数です。
+
 --- MINOR_VERSION
+
+     現在rcairoと一緒に使用しているcairoのマイクロバージョン
+     を示す整数です。
+
 --- OPERATOR_ADD
 --- OPERATOR_ATOP
 --- OPERATOR_CLEAR
@@ -86,10 +116,13 @@
 --- SVG_VERSION_1_2
 --- VERSION
 
+     現在rcairoと一緒に使用しているcairoのバージョンを示す
+     (({[major, minor, micro]}))という配列です。
+
 == See Also
 
   * Index
 
 == ChangeLog
 
-
+  * 2007-05-22: kou: スタート。
