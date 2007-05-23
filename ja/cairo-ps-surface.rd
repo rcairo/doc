@@ -34,7 +34,7 @@ PostScriptを生成するサーフェスです。
      * height_in_points: ポイントで指定した高さ。（1ポイント =
        1/72.0インチ）
 
-     * Returns: 生成したCairo::PostScriptSurfaceオブジェクト。
+     * Returns: 生成したCairo::PSSurfaceオブジェクト。
 
 == Instance Methods
 

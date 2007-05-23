@@ -1,6 +1,6 @@
 = class Cairo::InvalidStatusError
 
-不正なCairo::Statusを設定したときに発生します。
+不正な状態を設定したときに発生します。
 
 rcairoでは発生しないはずです。
 

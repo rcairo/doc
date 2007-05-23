@@ -37,7 +37,7 @@
      * version: "1_1"や"1_2"などCairo::SVGVersionに定義
        されている定数名から「VERSION_」をのぞいたもの。"_"の
        代わりに"."を使って"1.1"や"1.2"と書くともできます。も
-       ちろん、Cairo::SVGVerionに定義されている定数を指定す
+       ちろん、Cairo::SVGVersionに定義されている定数を指定す
        ることもできます。
      * Returns: ((|version|))の文字列表現
 
@@ -67,7 +67,7 @@
      * version: "1_1"や"1_2"などCairo::SVGVersionに定義
        されている定数名から「VERSION_」をのぞいたもの。"_"の
        代わりに"."を使って"1.1"や"1.2"と書くともできます。も
-       ちろん、Cairo::SVGVerionに定義されている定数を指定す
+       ちろん、Cairo::SVGVersionに定義されている定数を指定す
        ることもできます。
 
 == Constants

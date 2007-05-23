@@ -29,7 +29,7 @@
      * point2: 2番目の制御点
      * point3: 曲線の終点
 
-     * Returns: Cairo::PathDataCurveToオブジェクト。
+     * Returns: Cairo::PathCurveToオブジェクト。
 
 == See Also
 

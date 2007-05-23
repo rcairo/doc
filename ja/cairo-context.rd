@@ -837,8 +837,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      現在の合成操作を返します。
 
-     * Returns: Cairo::OperatorOverに定義されている定数のど
-       れか。
+     * Returns: Cairo::Operatorに定義されている定数のどれか。
 
 --- operator=(operator)
 --- set_operator(operator)
@@ -1243,18 +1242,18 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
        (1) Cairo::Context#set_dashで設定された長さ0のon線分。
            もし、キャップスタイルがCairo::LineCap::ROUNDか
-           Cairo::Line::Cap::SQUAREならそれらの線分はそれぞれ
+           Cairo::LineCap::SQUAREならそれらの線分はそれぞれ
            丸い点あるいは四角として描画されます。
-           Cairo::Line::Cap::SQUAREの場合は四角の方向はその下
+           Cairo::LineCap::SQUAREの場合は四角の方向はその下
            にあるパスの方向によって決まります。
 
        (2) Cairo::Context#move_toとその後の
            Cairo::Context#close_pathあるいは最初の
            Cairo::Context#move_toと同じ座標に対する1回以上の
            Cairo::Context#line_toで作られたサブパス。キャッ
-           プスタイルがCairo::Line::Cap::ROUNDならサブパスは丸
+           プスタイルがCairo::LineCap::ROUNDならサブパスは丸
            い点として描画されるでしょう。
-           Cairo::Line::Cap::SQUAREの場合は退化したサブパスは
+           Cairo::LineCap::SQUAREの場合は退化したサブパスは
            全く描画されないことに注意してください。（なぜな
            ら正しい向きが決定できないから。）
 
