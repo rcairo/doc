@@ -1,5 +1,9 @@
 = class Cairo::Point
 
+点を表します。
+
+rcairoの拡張です。
+
 == Object Hierarchy
 
 * Object
@@ -7,31 +11,44 @@
 
 == Class Methods
 
---- Cairo::Point.new
+--- Cairo::Point.new(x, y)
 
-     * Returns: self
+     点(((|x|)), ((|y|)))を生成します。
+
+     * x: 点のX座標
+     * y: 点のY座標
+     * Returns: 点。
 
 == Instance Methods
 
---- distance
+--- distance(other)
 
-     * Returns: self
+     ((|self|))と((|other|))との距離を計算します。
+
+     * other: Cairo::Pointオブジェクト
+     * Returns: 距離。
 
 --- to_a
-
-     * Returns: self
-
 --- to_ary
 
-     * Returns: self
+     配列貸します。
+
+     * Returns: (({[x, y]}))
+       * x: 点のX座標
+       * y: 点のY座標
+
 
 --- x
 
-     * Returns: self
+     点のX座標を返します。
+
+     * Returns: X座標。
 
 --- y
 
-     * Returns: self
+     点のY座標を返します。
+
+     * Returns: Y座標。
 
 == See Also
 
@@ -39,4 +56,4 @@
 
 == ChangeLog
 
-
+  * 2007-05-22: kou: スタート。
