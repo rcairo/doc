@@ -9,8 +9,10 @@ Cairo::Context#set_font_faceを使います。サイズとフォント用行
 Cairo::Context#set_font_matrixで指定します。
 
 フォントフェイスには多くの種類が有り、使用しているフォントバッ
-クエンドに依存します。フォントフェイスの種類は
-Cairo::FontFace#typeで取得できます。
+クエンドに依存します。フォントフェイスの種類はクラスでわかり
+ます。
+
+rcairoではCairo::FontFaceの生成をサポートしていません。
 
 == Object Hierarchy
 
@@ -18,14 +20,6 @@ Cairo::FontFace#typeで取得できます。
   * Cairo::FontFace
 
 == Instance Methods
-
---- type
-
-     フォントフェイスを作成するためにバックエンドが使ってい
-     る種類を返します。利用可能な種類はCairo::FONT_TYPE_FT
-     などCairo::FONT_TYPE_*になります。
-
-     * Returns: フォントフェイスの種類。
 
 == See Also
 
