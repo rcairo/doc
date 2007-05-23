@@ -817,6 +817,10 @@
   * Cairo::Path#rel_move_to
   * Cairo::Path#rounded_rectangle
   * Cairo::Path#size
+  * Cairo::PathClosePath
+  * Cairo::PathClosePath.new
+  * Cairo::PathCurveTo
+  * Cairo::PathCurveTo.new
   * Cairo::PathData
   * Cairo::PathData.new
   * Cairo::PathData#close_path?
@@ -833,6 +837,10 @@
   * Cairo::PathDataType::CURVE_TO
   * Cairo::PathDataType::LINE_TO
   * Cairo::PathDataType::MOVE_TO
+  * Cairo::PathLineTo
+  * Cairo::PathLineTo.new
+  * Cairo::PathMoveTo
+  * Cairo::PathMoveTo.new
   * Cairo::Pattern
   * Cairo::Pattern.new
   * Cairo::Pattern#__extend__
