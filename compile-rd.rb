@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
 if ARGV.size < 2
-  puts "Usage: #{$0} RD COMPILED_RD"
+  puts "Usage: #{$0} RD COMPILED_RD [LANG]"
   exit 1
 end
 
-rd, rdc, = ARGV
+rd, rdc, lang, = ARGV
 
 require 'English'
 require 'cairo'
@@ -13,19 +13,46 @@ require 'cairo'
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rd-lib'
 
+begin
+  require lang
+  def _(msg_id)
+    MESSAGE[msg_id] || msg_id
+  end
+rescue LoadError
+  def _(msg_id)
+    msg_id
+  end
+end
+
 section = nil
 cairo_signature_re =
   /\bCairo(?:::[A-Z][\w\d_]+)*(?:[#.][\[_@\w\d]*(?:[=?!_*+\-\]]|\b)|\b)/
+in_pre = false
 auto_linked_rd = File.open(rd).collect do |line|
   case line
+  when /^#\s*(\S*)\s*/ #
+    pragma = $1
+    case pragma
+    when "start-pre"
+      in_pre = true
+    when "end-pre"
+      in_pre = false
+    end
+    line
   when /^---/
     line
   when /^=+\s+(.*)\s+$/
     section = $1
-    line
+    if /\A(class|module) (.+)\z/ =~ section
+      type, klass = $1, $2
+      line.gsub(section, _("#{type} %s") % klass)
+    else
+      line.gsub(section, _(section))
+    end
   else
     line.gsub(/(\(\(<)?(#{cairo_signature_re}|Index)/) do |signature|
-      if $1 or section == "Object Hierarchy"
+      link_markup = $1
+      if link_markup or section == "Object Hierarchy" or in_pre
         signature
       else
         "((<#{signature}>))"
@@ -38,7 +65,7 @@ compiled_rd = auto_linked_rd.gsub(/\(\(<(.*?)>\)\)/) do |link|
   link_content = $1
   case link_content
   when "Index"
-    RDLib.index_link
+    RDLib.index_link(_("Index"))
   when /URL:/, /\|/
     link
   when /\./

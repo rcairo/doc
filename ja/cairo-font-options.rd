@@ -3,14 +3,8 @@
 フォントを描画するときに使われる全てのオプションを含んだオブ
 ジェクトです。
 
-Cairo::FontOptionsのそれぞれの機能は以下のようなメソッドで設
-定できます。
-
-  Cairo::FontOptions#機能名
-  Cairo::FontOptions#set_機能名
-
-例えば、Cairo::FontOptions#antialiasや
-Cairo::FontOptions#set_antialiasです。
+Cairo::FontOptionsのそれぞれの機能は、Cairo::FontOptions#antialias
+やCairo::FontOptions#set_antialiasのようにアクセスできます。
 
 将来、新しい機能がCairo::FontOptionsに追加されるかもしれませ
 ん。
@@ -126,7 +120,7 @@ Cairo::FontOptions#set_antialiasです。
 
      ((|other|))のデフォルトではないオプションを((|self|))に
      マージします。破壊的な動作になります。この操作は
-     ((|other|))をCairo::Operation::OVERで((|self|))の上に合
+     ((|other|))をCairo::Operator::OVERで((|self|))の上に合
      成したのと同じように考えることができます。
 
      * Returns: self

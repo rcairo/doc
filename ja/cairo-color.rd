@@ -55,12 +55,14 @@ cairoにはないrcairoでの拡張です。
     例えば、Cairo::Color::PEACH_YELLOWを使いたい場合は
     以下のどの書き方でも有効です。
 
+# start-pre
        Cairo::Color.parse(:peach_yellow)
        Cairo::Color.parse("peach-yellow")
        Cairo::Color.parse("peach yellow")
        Cairo::Color.parse("Peach Yellow")
        Cairo::Color.parse("PEACH_YELLOW")
        Cairo::Color.parse("PEACH     Yellow")
+# end-pre
 
      * color_name: 色の名前。文字列またはシンボル。
      * Returns: Cairo::Color::RGBオブジェクト

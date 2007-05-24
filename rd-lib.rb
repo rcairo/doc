@@ -41,7 +41,8 @@ module RDLib
     "((<#{klass.inspect}##{name}|#{link}>))"
   end
 
-  def index_link
-    "((<Index|index.rd/Index>))"
+  def index_link(label=nil)
+    label ||= "Index"
+    "((<#{label}|index.rd/#{label}>))"
   end
 end
