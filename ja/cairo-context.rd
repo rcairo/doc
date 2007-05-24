@@ -1102,8 +1102,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * Returns: 現在のCairo::ScaledFont
 
---- scaled_font=(scaled_font)
---- set_scaled_font(scaled_font)
+--- scaled_font=(font)
+--- set_scaled_font(font)
 
      現在のフォントフェイス、フォント用行列、フォントオプショ
      ンを指定した((|font|))の値で置き換えます。いくつかの変
@@ -1113,7 +1113,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      * font: Cairo::ScaledFontオブジェクト
 
---- select_font_face
+--- select_font_face(family, slant=nil, weight=nil)
 
      単純化したフォント名、傾き、重みの説明からフォントファ
      ミリーとスタイルを選択します。このメソッドは単純なフォ
@@ -1143,7 +1143,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        (({nil}))の場合はデフォルト値として
        Cairo::FontWeight::NORMALが使われます。
 
---- set_dash(dashes)
+--- set_dash(dashes, offset=0)
 
      Cairo::Context#strokeで使われるダッシュのパターンを設定
      します。ダッシュのパターンは正の値の配列として
@@ -1158,8 +1158,16 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      Cairo::LineCap::ROUND/Cairo::LineCap::SQUAREを設定して
      0.0の長さのonを使う場合は有効です。
 
+     注: 長さの値は描きのときに評価されたユーザ空間の単位で
+     す。つまり、Cairo::Context#set_dashのときにユーザ空間を
+     合わせる必要はありません。
+
      もし((|dashes|))が(({nil}))または空配列ならダッシュは無
      効になります。
+
+     もし、((|dashes|))が数値、あるいはひとつの数値だけを含
+     む配列の場合は対照的なパターンであるとみなされ、onとoff
+     の部分が指定されたサイズで交互に繰り返されます。
 
      もし、((|dashes|))のなかに負の値がある、またはすべての
      値が0の場合はCairo::InvalidDashErrorが発生します。
