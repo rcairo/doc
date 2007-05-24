@@ -645,12 +645,14 @@
   * Cairo::FontOptions#hint_style
   * Cairo::FontOptions#hint_style=
   * Cairo::FontOptions#merge
+  * Cairo::FontOptions#merge!
   * Cairo::FontOptions#set_antialias
   * Cairo::FontOptions#set_hint_metrics
   * Cairo::FontOptions#set_hint_style
   * Cairo::FontOptions#set_subpixel_order
   * Cairo::FontOptions#subpixel_order
   * Cairo::FontOptions#subpixel_order=
+  * Cairo::FontOptions#update
   * Cairo::FontSlant
   * Cairo::FontSlant::ITALIC
   * Cairo::FontSlant::NORMAL

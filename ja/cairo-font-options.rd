@@ -35,7 +35,7 @@ Cairo::FontOptions#set_antialiasです。
 
      アンチエイリアスのモードを返します。
 
-     * Returns: Cairo::ANTIALIAS_*のどれか。
+     * Returns: Cairo::Antialiasに定義されている定数のどれか。
 
 --- antialias=(antialias)
 --- set_antialias(antialias)
@@ -44,11 +44,12 @@ Cairo::FontOptions#set_antialiasです。
      描画するときに使われるアンチエイリアスの種類を指定しま
      す。
 
-     * antialias: :defaultや:noneなどCairo::ANTIALIAS_*から
-       「Cairo::ANTIALIAS_」をのぞいた部分。大文字小文字は関
+     * antialias: :defaultや:noneなどCairo::Antialiasに定義
+       されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
-       Cairo::ANTIALIAS_*を指定することもできます。
+       Cairo::Antialiasに定義されている定数を指定するこ
+       ともできます。
 
 --- dup
 
@@ -72,50 +73,87 @@ Cairo::FontOptions#set_antialiasです。
 --- hint_metrics
 
      メトリクスのヒントモードを返します。詳細は
-     Cairo::HINT_METRICS_DEFAULTなどCairo::HINT_METRICS_*を
-     見てください。
+     Cairo::HintMetricsを見てください。
 
-     * Returns: Cairo::HINT_METRICS_*のどれか。
+     * Returns: Cairo::HintMetricsに定義されている定数のどれか。
 
---- hint_metrics=
+--- hint_metrics=(hint_metrics)
+--- set_hint_metrics(hint_metrics)
 
-     * Returns: self
+     メトリクスのヒントモードを設定します。これはメトリック
+     スを装置単位の整数値に量子化するかどうかを制御します。
+
+     * hint_metrics: :defaultや:onなどCairo::HintMetricsに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "default"のように指定することもできます。もちろん、
+       Cairo::HintMetricsに定義されている定数を指定するこ
+       ともできます。
 
 --- hint_style
 
-     * Returns: self
+     フォントの輪郭のヒントスタイルを返します。詳細は
+     Cairo::HintStyleを見てください。
 
---- hint_style=
+     * Returns: Cairo::HintStyleに定義されている定数のどれか。
 
-     * Returns: self
+--- hint_style=(hint_style)
+--- set_hint_style(hint_style)
 
---- merge
+     フォントの輪郭のヒントスタイルを設定します。これはフォ
+     ントの輪郭をピクセルの格子に合わせるかどうか、忠実さや
+     コントラストを最適化するかどうかなどを制御します。詳細は
+     Cairo::HintStyleを見てください。
 
-     * Returns: self
+     * hint_style: :defaultや:noneなどCairo::HintStyleに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "default"のように指定することもできます。もちろん、
+       Cairo::HintStyleに定義されている定数を指定するこ
+       ともできます。
 
---- set_antialias
+--- merge(other)
 
-     * Returns: self
+     Cairo::FontOptions#merge!を以下のように使うのと同じです。
 
---- set_hint_metrics
+       options.dup.merge!(other)
 
-     * Returns: self
+     * Returns: ((|self|))に((|other|))をマージした新しい
+       Cairo::FontOptionsオブジェクト。
 
---- set_hint_style
+--- merge!(other)
+--- update(other)
 
-     * Returns: self
-
---- set_subpixel_order
+     ((|other|))のデフォルトではないオプションを((|self|))に
+     マージします。破壊的な動作になります。この操作は
+     ((|other|))をCairo::Operation::OVERで((|self|))の上に合
+     成したのと同じように考えることができます。
 
      * Returns: self
 
 --- subpixel_order
 
-     * Returns: self
+     サブピクセルの並びかたを返します。詳細は
+     Cairo::SubpixelOrderを見てください。
 
---- subpixel_order=
+     * Returns: Cairo::SubpixelOrderに定義されている定数のど
+       れか。
 
-     * Returns: self
+--- subpixel_order=(subpixel_order)
+--- set_subpixel_order(subpixel_order)
+
+     サブピクセルの並びかたを設定します。サブピクセルの並び
+     かたは、アンチエイリアスモードを
+     Cairo::Antialias::SUBPIXELに設定しディスプレイ装置に描
+     画するときの各ピクセルの色要素の順番を指定します。詳細は
+     Cairo::SubpixelOrderを見てください。
+
+     * subpixel_order: :defaultや:rgbなど
+       Cairo::SubpixelOrderに定義されている定数名と同じもの。
+       大文字小文字は関係ありません。また、シンボルではなく
+       て文字列で"default"のように指定することもできます。も
+       ちろん、Cairo::SubpixelOrderに定義されている定数を指定
+       することもできます。
 
 == See Also
 
@@ -123,4 +161,4 @@ Cairo::FontOptions#set_antialiasです。
 
 == ChangeLog
 
-
+  * 2007-05-24: kou: スタート。

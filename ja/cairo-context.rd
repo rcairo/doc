@@ -967,7 +967,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      * y: 四角の左上の点のY座標
      * width: 四角の幅
      * height: 四角の高さ
---- save {|self| ...}
 
 --- rounded_rectangle(x, y, width, height, x_radius, y_radius=nil)
 
@@ -1096,9 +1095,62 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- scaled_font
 
-     * Returns: self
+     コンテキストに現在設定されているCairo::ScaledFontを返し
+     ます。
 
---- scaled_font=
+     メモリがたりない場合はNoMemoryError例外が発生します。
+
+     * Returns: 現在のCairo::ScaledFont
+
+--- scaled_font=(scaled_font)
+--- set_scaled_font(scaled_font)
+
+     現在のフォントフェイス、フォント用行列、フォントオプショ
+     ンを指定した((|font|))の値で置き換えます。いくつかの変
+     換をのぞいて、コンテキストの現在のCTMは((|font|))のCTM
+     と同じであるべきです。((|font|))のCTMには
+     Cairo::ScaledFont#ctmでアクセスできます。
+
+     * font: Cairo::ScaledFontオブジェクト
+
+--- select_font_face
+
+     単純化したフォント名、傾き、重みの説明からフォントファ
+     ミリーとスタイルを選択します。このメソッドは単純なフォ
+     ントが必要なアプリケーションだけが使うことを意図してい
+     ます。つまり、cairoはシステムで利用可能な全てのフォント
+     の一覧を返すなどというような操作は提供しません。多くの
+     アプリケーションはcairoに加えてより包括的なフォント処理
+     とテキスト配置ライブラリを使う必要があるでしょう。
+
+
+     * family: UTF-8で符号化されたフォントファミリー名
+       （"Sans"など）
+
+     * slant: フォントの傾き。:normalや:italicなど
+       Cairo::FontSlantに定義されている定数名と同じもの。
+       大文字小文字は関係ありません。また、シンボル
+       ではなくて文字列で"normal"のように指定することもでき
+       ます。もちろん、Cairo::FontSlantに定義されている定数
+       を指定することもできます。(({nil}))の場合はデフォルト
+       値としてCairo::FontSlant::NORMALが使われます。
+
+     * weight: フォントの重み。:normalや:boldなど
+       Cairo::FontWeightに定義されている定数名と同じもの。
+       大文字小文字は関係ありません。また、シンボルではなく
+       て文字列で"normal"のように指定することもできます。も
+       ちろん、Cairo::FontWeightを指定することもできます。
+       (({nil}))の場合はデフォルト値として
+       Cairo::FontWeight::NORMALが使われます。
+
+--- set_dash(dashes)
+
+     Cairo::Context#strokeで使われるダッシュのパターンを設定
+     します。ダッシュのパターンは正の値の配列として
+     ((|dashes|))で指定します。それぞれの値は描かれるときに
+     交互にon/offになる部分（線を描く部分と描かない部分）の
+     長さを表します。((|offset|))は描きが始まるときのパター
+     ンの補正値を指定します。
 
      それぞれのonの部分は、その部分がサブパスでわかれて
      いるようにキャップを持つことになります。特に、パスに沿っ
@@ -1106,12 +1158,8 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      Cairo::LineCap::ROUND/Cairo::LineCap::SQUAREを設定して
      0.0の長さのonを使う場合は有効です。
 
---- select_font_face
-
      もし((|dashes|))が(({nil}))または空配列ならダッシュは無
      効になります。
-
---- set_dash
 
      もし、((|dashes|))のなかに負の値がある、またはすべての
      値が0の場合はCairo::InvalidDashErrorが発生します。
