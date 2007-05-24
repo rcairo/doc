@@ -14,7 +14,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rd-lib'
 
 section = nil
-cairo_signature_re = /\bCairo(?:::[A-Z][\w\d_]+)*(?:[#.][\w\d_]+(?:[=?]|\b)|\b)/
+cairo_signature_re =
+  /\bCairo(?:::[A-Z][\w\d_]+)*(?:[#.][\[_@\w\d]*(?:[=?!_*+\-\]]|\b)|\b)/
 auto_linked_rd = File.open(rd).collect do |line|
   case line
   when /^---/
@@ -24,7 +25,7 @@ auto_linked_rd = File.open(rd).collect do |line|
     line
   else
     line.gsub(/(\(\(<)?(#{cairo_signature_re}|Index)/) do |signature|
-      if $1 or section == "Object Hierarchy" or signature[-1, 1] == "_"
+      if $1 or section == "Object Hierarchy"
         signature
       else
         "((<#{signature}>))"
