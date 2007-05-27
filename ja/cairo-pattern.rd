@@ -86,7 +86,9 @@ Cairo::SolidPatternは単色のパターンを作ります。
      例えば、2倍の大きさのパターンを作りたいとしたら、以下が
      正しいコードです。
 
+# start-pre
        pattern.matrix = Cairo::Matrix.scale(0.5, 0.5)
+# end-pre
 
      一方、上記のコードで0.5ではなく2.0を使うとパターンは半
      分の大きさになります。
