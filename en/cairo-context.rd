@@ -7,17 +7,17 @@
 
 == Included Modules
 
-* ((<Cairo::Context::Path|cairo-context-path.rd/module Cairo::Context::Path>))
-* ((<Cairo::Context::Circle|cairo-context-circle.rd/module Cairo::Context::Circle>))
-* ((<Cairo::Context::Rectangle|cairo-context-rectangle.rd/module Cairo::Context::Rectangle>))
-* ((<Cairo::Context::Quad|cairo-context-quad.rd/module Cairo::Context::Quad>))
+  * Cairo::Context::Blur
+  * Cairo::Context::Circle
+  * Cairo::Context::Color
+  * Cairo::Context::Path
+  * Cairo::Context::Rectangle
 
 == Class Methods
 
 --- Cairo::Context.new
 
      * Returns: self
-
 
 == Instance Methods
 
@@ -41,11 +41,23 @@
 
      * Returns: self
 
+--- circle
+
+     * Returns: self
+
 --- clip
 
      * Returns: self
 
+--- clip_extents
+
+     * Returns: self
+
 --- clip_preserve
+
+     * Returns: self
+
+--- clip_rectangle_list
 
      * Returns: self
 
@@ -70,6 +82,14 @@
      * Returns: self
 
 --- curve_to
+
+     * Returns: self
+
+--- dash
+
+     * Returns: self
+
+--- dash_count
 
      * Returns: self
 
@@ -185,6 +205,10 @@
 
      * Returns: self
 
+--- map_path_onto
+
+     * Returns: self
+
 --- mask
 
      * Returns: self
@@ -237,6 +261,10 @@
 
      * Returns: self
 
+--- pseudo_blur
+
+     * Returns: self
+
 --- push_group
 
      * Returns: self
@@ -269,11 +297,19 @@
 
      * Returns: self
 
+--- rounded_rectangle
+
+     * Returns: self
+
 --- save
 
      * Returns: self
 
 --- scale
+
+     * Returns: self
+
+--- scaled_font
 
      * Returns: self
 
@@ -345,6 +381,10 @@
 
      * Returns: self
 
+--- set_source_color
+
+     * Returns: self
+
 --- set_source_rgb
 
      * Returns: self
@@ -409,6 +449,10 @@
 
      * Returns: self
 
+--- transform_path
+
+     * Returns: self
+
 --- translate
 
      * Returns: self
@@ -421,10 +465,10 @@
 
      * Returns: self
 
-
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

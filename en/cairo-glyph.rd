@@ -11,7 +11,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- index
@@ -54,10 +53,10 @@
 
      * Returns: self
 
-
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

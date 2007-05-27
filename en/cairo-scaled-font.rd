@@ -11,7 +11,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- ctm
@@ -42,14 +41,10 @@
 
      * Returns: self
 
---- type
-
-     * Returns: self
-
-
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

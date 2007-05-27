@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Pattern|cairo-pattern.rd/class Cairo::Pattern>))
+  * ((<Cairo::Pattern>))
     * Cairo::GradientPattern
 
 == Instance Methods
@@ -20,10 +20,22 @@
 
      * Returns: self
 
+--- color_stop_count
+
+     * Returns: self
+
+--- get_color_stop_color
+
+     * Returns: self
+
+--- get_color_stop_rgba
+
+     * Returns: self
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

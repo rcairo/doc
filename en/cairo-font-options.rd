@@ -11,7 +11,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- antialias
@@ -54,6 +53,10 @@
 
      * Returns: self
 
+--- merge!
+
+     * Returns: self
+
 --- set_antialias
 
      * Returns: self
@@ -78,10 +81,14 @@
 
      * Returns: self
 
+--- update
+
+     * Returns: self
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

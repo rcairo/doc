@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Surface|cairo-surface.rd/class Cairo::Surface>))
+  * ((<Cairo::Surface>))
     * Cairo::ImageSurface
 
 == Class Methods
@@ -15,7 +15,6 @@
 --- Cairo::ImageSurface.new
 
      * Returns: self
-
 
 == Instance Methods
 
@@ -39,10 +38,10 @@
 
      * Returns: self
 
-
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

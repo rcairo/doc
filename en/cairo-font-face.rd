@@ -5,16 +5,10 @@
 * Object
   * Cairo::FontFace
 
-== Instance Methods
-
---- type
-
-     * Returns: self
-
-
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

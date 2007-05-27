@@ -27,7 +27,6 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- *
@@ -51,10 +50,6 @@
      * Returns: self
 
 --- invert!
-
-     * Returns: self
-
---- matrix_distance
 
      * Returns: self
 
@@ -86,11 +81,39 @@
 
      * Returns: self
 
+--- set_x0
+
+     * Returns: self
+
+--- set_xx
+
+     * Returns: self
+
+--- set_xy
+
+     * Returns: self
+
+--- set_y0
+
+     * Returns: self
+
+--- set_yx
+
+     * Returns: self
+
+--- set_yy
+
+     * Returns: self
+
 --- to_a
 
      * Returns: self
 
 --- to_s
+
+     * Returns: self
+
+--- transform_distance
 
      * Returns: self
 
@@ -106,10 +129,58 @@
 
      * Returns: self
 
+--- x0
+
+     * Returns: self
+
+--- x0=
+
+     * Returns: self
+
+--- xx
+
+     * Returns: self
+
+--- xx=
+
+     * Returns: self
+
+--- xy
+
+     * Returns: self
+
+--- xy=
+
+     * Returns: self
+
+--- y0
+
+     * Returns: self
+
+--- y0=
+
+     * Returns: self
+
+--- yx
+
+     * Returns: self
+
+--- yx=
+
+     * Returns: self
+
+--- yy
+
+     * Returns: self
+
+--- yy=
+
+     * Returns: self
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

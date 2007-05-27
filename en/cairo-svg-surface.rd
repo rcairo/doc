@@ -3,7 +3,7 @@
 == Object Hierarchy
 
 * Object
-  * ((<Cairo::Surface|cairo-surface.rd/class Cairo::Surface>))
+  * ((<Cairo::Surface>))
     * Cairo::SVGSurface
 
 == Class Methods
@@ -24,24 +24,21 @@
 
      * Returns: self
 
-
 == Instance Methods
 
 --- restrict_to_version
 
      * Returns: self
 
-
 == Constants
 
 --- VERSION_1_1
-
 --- VERSION_1_2
-
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

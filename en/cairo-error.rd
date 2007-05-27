@@ -1,6 +1,6 @@
 = class Cairo::Error
 
-== Object Hierarchy follows:
+== Object Hierarchy
 
 * Object
   * Exception
@@ -9,7 +9,8 @@
 
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 

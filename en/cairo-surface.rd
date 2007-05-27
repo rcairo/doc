@@ -51,18 +51,14 @@
 
      * Returns: self
 
---- type
-
-     * Returns: self
-
 --- write_to_png
 
      * Returns: self
 
-
 == See Also
 
-  * ((<Index|index.rd/Index>))
+  * Index
 
 == ChangeLog
+
 
