@@ -1257,7 +1257,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      当のテキスト表示APIはCairo::Context#show_glyphsを見てく
      ださい。
 
-     * utf8: UTF-8で符号化れたテキスト。
+     * utf8: UTF-8で符号化されたテキスト。
 
 --- source
 
