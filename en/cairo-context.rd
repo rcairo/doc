@@ -12,6 +12,7 @@
   * Cairo::Context::Color
   * Cairo::Context::Path
   * Cairo::Context::Rectangle
+  * Cairo::Context::Triangle
 
 == Class Methods
 
@@ -462,6 +463,10 @@
      * Returns: self
 
 --- user_to_device_distance
+
+     * Returns: self
+
+--- triangle
 
      * Returns: self
 

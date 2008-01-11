@@ -595,6 +595,7 @@
   * Cairo::Context#transform
   * Cairo::Context#transform_path
   * Cairo::Context#translate
+  * Cairo::Context#triangle
   * Cairo::Context#user_to_device
   * Cairo::Context#user_to_device_distance
   * Cairo::Context::Blur
@@ -608,6 +609,8 @@
   * Cairo::Context::Path#transform_path
   * Cairo::Context::Rectangle
   * Cairo::Context::Rectangle#rounded_rectangle
+  * Cairo::Context::Triangle
+  * Cairo::Context::Triangle#triangle
   * Cairo::Error
   * Cairo::Extend
   * Cairo::Extend::NONE
@@ -863,6 +866,8 @@
   * Cairo::Point#to_ary
   * Cairo::Point#x
   * Cairo::Point#y
+  * Cairo::QuartzSurface
+  * Cairo::QuartzSurface#cg_context
   * Cairo::RadialPattern
   * Cairo::RadialPattern.new
   * Cairo::RadialPattern#circles
@@ -933,4 +938,7 @@
   * Cairo::TextExtents#x_bearing
   * Cairo::TextExtents#y_advance
   * Cairo::TextExtents#y_bearing
+  * Cairo::Win32Surface
+  * Cairo::Win32Surface#hdc
+  * Cairo::Win32Surface#image
   * Cairo::WriteError
