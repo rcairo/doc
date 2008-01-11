@@ -11,6 +11,7 @@ require 'English'
 require 'cairo'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'cairo-dummy'
 require 'rd-lib'
 
 begin
