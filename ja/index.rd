@@ -866,6 +866,9 @@
   * Cairo::Point#to_ary
   * Cairo::Point#x
   * Cairo::Point#y
+  * Cairo::QuartzSurface
+  * Cairo::QuartzSurface.new
+  * Cairo::QuartzSurface#cg_context
   * Cairo::RadialPattern
   * Cairo::RadialPattern.new
   * Cairo::RadialPattern#circles
@@ -936,4 +939,8 @@
   * Cairo::TextExtents#x_bearing
   * Cairo::TextExtents#y_advance
   * Cairo::TextExtents#y_bearing
+  * Cairo::Win32Surface
+  * Cairo::Win32Surface.new
+  * Cairo::Win32Surface#hdc
+  * Cairo::Win32Surface#image
   * Cairo::WriteError

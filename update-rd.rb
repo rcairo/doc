@@ -26,7 +26,7 @@ require 'ostruct'
 #
 # Set targets.
 #
-target_libs = ["cairo"]
+target_libs = ["cairo", "cairo-dummy"]
 target_modules = ["Cairo"]
 
 target_libs.each do |lib|

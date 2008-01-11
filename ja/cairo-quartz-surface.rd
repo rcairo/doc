@@ -20,8 +20,6 @@
 
      * Returns: CG context
 
-== Constants
-
 == See Also
 
   * ((<Index>))

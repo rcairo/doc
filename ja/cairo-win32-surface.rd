@@ -26,8 +26,6 @@
 
      * Returns: image
 
-== Constants
-
 == See Also
 
   * ((<Index>))
