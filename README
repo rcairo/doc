@@ -4,14 +4,14 @@
 
 == How to start for new language
 
-Generate templates by mkrd.rb:
+Generate templates by update-rd.rb:
 
-  % ruby mkrd.rb LANGUAGE_NAME
+  % ruby update-rd.rb LANGUAGE_NAME
 
 For example, to generate templates for Japanese, type the
 following:
 
-  % ruby mkrd.rb ja
+  % ruby update-rd.rb ja
 
 == How to generate HTML from RD
 
