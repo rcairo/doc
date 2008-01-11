@@ -43,6 +43,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
   * Cairo::Context::Color
   * Cairo::Context::Path
   * Cairo::Context::Rectangle
+  * Cairo::Context::Triangle
 
 == Class Methods
 
@@ -1474,6 +1475,10 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 --- pseudo_blur(radius=3) {|self| ...}
 
      Cairo::Context::Blur#pseudo_blurを見てください。
+
+--- triangle
+
+     * Returns: self
 
 == See Also
 

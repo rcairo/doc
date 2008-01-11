@@ -595,6 +595,7 @@
   * Cairo::Context#transform
   * Cairo::Context#transform_path
   * Cairo::Context#translate
+  * Cairo::Context#triangle
   * Cairo::Context#user_to_device
   * Cairo::Context#user_to_device_distance
   * Cairo::Context::Blur
@@ -608,6 +609,8 @@
   * Cairo::Context::Path#transform_path
   * Cairo::Context::Rectangle
   * Cairo::Context::Rectangle#rounded_rectangle
+  * Cairo::Context::Triangle
+  * Cairo::Context::Triangle#triangle
   * Cairo::Error
   * Cairo::Extend
   * Cairo::Extend::NONE
