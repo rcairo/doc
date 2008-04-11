@@ -1,22 +1,18 @@
-= class Cairo::Win32Surface
+= class Cairo::QuartzImageSurface
 
 == Object Hierarchy
 
 * Object
   * ((<Cairo::Surface>))
-    * Cairo::Win32Surface
+    * Cairo::QuartzImageSurface
 
 == Class Methods
 
---- Cairo::Win32Surface.new
+--- Cairo::QuartzImageSurface.new
 
      * Returns: self: ((*FIXME*))
 
 == Instance Methods
-
---- hdc
-
-     * Returns: self: ((*FIXME*))
 
 --- image
 

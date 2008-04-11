@@ -1,24 +1,20 @@
-= class Cairo::Win32Surface
+= class Cairo::Win32PrintingSurface
 
 == Object Hierarchy
 
 * Object
   * ((<Cairo::Surface>))
-    * Cairo::Win32Surface
+    * Cairo::Win32PrintingSurface
 
 == Class Methods
 
---- Cairo::Win32Surface.new
+--- Cairo::Win32PrintingSurface.new
 
      * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- hdc
-
-     * Returns: self: ((*FIXME*))
-
---- image
 
      * Returns: self: ((*FIXME*))
 

@@ -6,6 +6,12 @@
   * ((<Cairo::Surface>))
     * Cairo::QuartzSurface
 
+== Class Methods
+
+--- Cairo::QuartzSurface.new
+
+     * Returns: self: ((*FIXME*))
+
 == Instance Methods
 
 --- cg_context
