@@ -61,3 +61,9 @@ pre
   margin-left: 1em;
   font: monospace;
 }
+
+em
+{
+  color: #cb2327;
+  font-weight: bold;
+}
