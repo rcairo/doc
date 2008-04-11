@@ -2,6 +2,23 @@
 
 画像データのメモリ上のフォーマットを特定するために使われます。
 
+== Module Functions
+
+--- Cairo::Format.stride_for_width(format, width)
+
+     ((*Since 1.6*)): cairo中の高速化したイメージ描画処理の
+     すべての整列要求を考慮したストライド値を返します。以下
+     のように使います。
+
+       stride = Cairo::Format.stride_for_width(format, width)
+       data = "\0" * stride * height
+       surface = Cairo::ImageSurface.create(data, format, width, height, stride)
+
+     format: Cairo::Format::*のどれか。
+     width: Cairo::ImageSurfaceの作成に使いたい幅。
+     Returns: 与えられたformatとwidthに適切なストライド値。
+     不正なformatや大きすぎるwidthを与えた場合は-1。
+
 == Constants
 
 --- A1
@@ -38,4 +55,5 @@
 
 == ChangeLog
 
+  * 2008-04-11: kou: 1.6.0対応。
   * 2007-05-20: kou: スタート。

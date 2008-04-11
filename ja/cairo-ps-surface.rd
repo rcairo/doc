@@ -160,10 +160,51 @@ PostScriptを生成するサーフェスです。
      * height_in_points: ポイントで指定した新しい高さ。（1ポ
        イント = 1/72.0インチ）
 
+--- eps?
+
+     ((*Since 1.6*)): このPostScriptサーフェスがEncapsulated
+     PostScriptを出力するかどうかを返します。
+
+     * Returns: EPSフォーマットのPostScriptを出力する場合はtrue
+
+--- eps=(eps)
+
+     ((*Since 1.6*)): ((|eps|))がtrueならこのPostScriptサーフェ
+     スはEncapsulated PostScriptを出力します。
+
+     このメソッドは現在のページで実行するすべての描画操作よ
+     りも前に呼び出してください。これを行うもっとも簡単な方
+     法はサーフェスを作った直後にこのメソッドを呼び出すこと
+     です。Encapsulated PostScriptファイルは1ページしか含む
+     ことができません。
+
+     * Returns: ((|eps|))
+
+--- set_eps(eps)
+
+     ((*Since 1.6*)): Cairo::PSSurface#eps=と同じです。
+
+     * Returns: self
+
+--- restrict_to_level(level)
+
+     ((*Since 1.6*)): 生成するPostScriptファイルのレベルを制
+     限します。ここで使用できるレベルの一覧は
+     Cairo::PSLevel#listで得られます。
+
+     このメソッドはこのサーフェスへ実行するすべての描画操作
+     よりも前にだけ呼び出してください。これを実行するもっと
+     も簡単な方法はサーフェスを作った直後にこのメソッドを呼
+     び出すことです。
+
+     * level: PostScriptのレベル（Cairo::PSLevel）
+
 == See Also
 
   * Index
+  * Cairo::PSLevel
 
 == ChangeLog
 
+  * 2008-04-11: kou: 1.6対応。
   * 2007-05-22: kou: スタート。

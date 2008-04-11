@@ -6,7 +6,7 @@ Microsoft Windows用のサーフェスです。Windowsのウィジェットに
 == Object Hierarchy
 
 * Object
-  * Cairo::Surface
+  * ((<Cairo::Surface>))
     * Cairo::Win32Surface
 
 == Class Methods

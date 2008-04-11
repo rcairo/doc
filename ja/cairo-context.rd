@@ -1476,9 +1476,51 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
      Cairo::Context::Blur#pseudo_blurを見てください。
 
---- triangle
+--- triangle(x1, y1, x2, y2, x3, y3)
 
-     * Returns: self
+     Cairo::Context::Triangle#triangleを見てください。
+
+--- has_current_point?
+--- have_current_point?
+
+     ((*Since 1.6*)): 現在のパス上に現在の点が定義されている
+     かを返します。「現在の点」の詳細は
+     Cairo::Context#current_pointを見てください。
+
+     * Returns: 現在の点が定義されているかどうかの真偽値
+
+--- path_extents
+
+     ((*Since 1.6*)): 現在のパス上の点を服務ユーザ空間座標の
+     バウンディングボックスを計算します。もし、現在のパスが空
+     であれば空の長方形((0,0), (0,0))を返します。ストロー
+     クのパラメータ、塗りつぶし規則、サーフェスの大きさ、ク
+     リップされた範囲は考慮しません。
+
+     Cairo::Context#fill_extentsと
+     Cairo::Context#stroke_extentsは、対応
+     する描画操作で「インクが塗られる」範囲だけを返します。
+
+     Cairo::Context#path_extentsの結果は
+     線の太さがほぼ0.0で、Cairo::LINE_CAP_ROUNDの時の
+     Cairo::Context#stroke_extentsの境界と等しくなるように定
+     義されています。（ただし、線の太さが0.0の時に
+     Cairo::Context#stroke_extentsが返す空の長方形には決して
+     なりません。）
+
+     厳密に言うと、以下のような領域のないサブパスは結果の範
+     囲に影響します。（以下の両方のメソッド呼び出しの座標が
+     同じ場合も含む）
+
+       context.move_to(...)
+       context.line_to(...)
+
+     しかし、Cairo::Context#move_toだけの場合は
+     Cairo::Context#path_extentsの結果には影響がありません。
+
+     * Returns: パスを含むバウンディングボックス。左上の頂点
+       が(x1, y1)で右下の頂点が(x2, y2)の長方形を表す配列:
+       [x1, y1, x2, y2]
 
 == See Also
 
@@ -1486,5 +1528,6 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 == ChangeLog
 
+  * 2008-04-11: kou: 1.6.0対応。
   * 2007-05-20: kou: 定数の扱いについて更新。
   * 2007-05-19: kou: 初期バージョン完成。
