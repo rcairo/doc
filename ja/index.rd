@@ -961,7 +961,8 @@
   * Cairo::Point#x
   * Cairo::Point#y
   * Cairo::QuartzImageSurface
-  * Cairo::QuartzImageSurface#hdc
+  * Cairo::QuartzImageSurface.new
+  * Cairo::QuartzImageSurface#image
   * Cairo::QuartzSurface
   * Cairo::QuartzSurface.new
   * Cairo::QuartzSurface#cg_context
@@ -1041,6 +1042,7 @@
   * Cairo::TextExtents#y_advance
   * Cairo::TextExtents#y_bearing
   * Cairo::Win32PrintingSurface
+  * Cairo::Win32PrintingSurface.new
   * Cairo::Win32PrintingSurface#hdc
   * Cairo::Win32Surface
   * Cairo::Win32Surface.new
