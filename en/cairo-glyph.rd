@@ -9,49 +9,49 @@
 
 --- Cairo::Glyph.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- index
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- index=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_index
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_x
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_y
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_s
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

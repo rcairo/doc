@@ -9,81 +9,81 @@
 
 --- Cairo::FontOptions.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- antialias
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- antialias=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- dup
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- eql?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hash
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hint_metrics
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hint_metrics=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hint_style
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hint_style=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- merge
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- merge!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_antialias
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_hint_metrics
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_hint_style
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_subpixel_order
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- subpixel_order
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- subpixel_order=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- update
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

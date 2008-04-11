@@ -18,457 +18,469 @@
 
 --- Cairo::Context.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- antialias
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- antialias=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- append_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- arc
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- arc_negative
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- circle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- clip
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- clip_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- clip_preserve
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- clip_rectangle_list
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- close_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- copy_page
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- copy_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- copy_path_flat
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- current_point
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- curve_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- dash
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- dash_count
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- device_to_user
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- device_to_user_distance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- fill
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- fill_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- fill_preserve
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- fill_rule
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- fill_rule=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_face
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_face=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_matrix=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_options
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_options=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_size=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- glyph_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- glyph_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- group_target
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
+
+--- has_current_point?
+
+     * Returns: self: ((*FIXME*))
+
+--- have_current_point?
+
+     * Returns: self: ((*FIXME*))
 
 --- identity_matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- in_fill?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- in_stroke?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_cap
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_cap=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_join
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_join=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_width
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_width=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- map_path_onto
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- mask
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- matrix=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- miter_limit
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- miter_limit=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- move_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- new_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- new_sub_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- operator
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- operator=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- paint
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
+
+--- path_extents
+
+     * Returns: self: ((*FIXME*))
 
 --- pop_group
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- pop_group_to_source
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- pseudo_blur
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- push_group
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rectangle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rel_curve_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rel_line_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rel_move_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- reset_clip
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- restore
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rotate
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rounded_rectangle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- save
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- scale
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- scaled_font
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- scaled_font=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- select_font_face
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_antialias
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_dash
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_fill_rule
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_font_face
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_font_matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_font_options
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_font_size
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_line_cap
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_line_join
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_line_width
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_miter_limit
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_operator
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_scaled_font
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_source
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_source_color
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_source_rgb
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_source_rgba
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_tolerance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- show_glyphs
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- show_page
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- show_text
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- source
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- stroke
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- stroke_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- stroke_preserve
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- target
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- text_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- text_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- tolerance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- tolerance=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- transform
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- transform_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- translate
 
-     * Returns: self
-
---- user_to_device
-
-     * Returns: self
-
---- user_to_device_distance
-
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- triangle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
+
+--- user_to_device
+
+     * Returns: self: ((*FIXME*))
+
+--- user_to_device_distance
+
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

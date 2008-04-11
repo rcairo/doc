@@ -4,11 +4,11 @@
 
 --- map_path_onto
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- transform_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

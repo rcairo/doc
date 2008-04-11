@@ -9,49 +9,49 @@
 
 --- Cairo::Pattern.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- __extend__
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- extend
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- extend=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- filter
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- filter=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- matrix=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_extend
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_filter
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

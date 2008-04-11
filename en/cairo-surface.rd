@@ -9,51 +9,59 @@
 
 --- clone
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- content
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
+
+--- copy_page
+
+     * Returns: self: ((*FIXME*))
 
 --- create_similar
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- device_offset
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- dup
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- finish
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- flush
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_options
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- mark_dirty
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_device_offset
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_fallback_resolution
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
+
+--- show_page
+
+     * Returns: self: ((*FIXME*))
 
 --- write_to_png
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

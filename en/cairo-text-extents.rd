@@ -9,31 +9,31 @@
 
 --- height
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_s
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- width
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x_advance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x_bearing
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y_advance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y_bearing
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

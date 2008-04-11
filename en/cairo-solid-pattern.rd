@@ -10,17 +10,17 @@
 
 --- Cairo::SolidPattern.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- color
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rgba
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

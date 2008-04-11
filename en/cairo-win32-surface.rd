@@ -10,11 +10,11 @@
 
 --- hdc
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- image
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

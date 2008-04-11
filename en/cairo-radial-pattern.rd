@@ -11,13 +11,13 @@
 
 --- Cairo::RadialPattern.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- circles
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

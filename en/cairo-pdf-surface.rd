@@ -10,13 +10,13 @@
 
 --- Cairo::PDFSurface.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- set_size
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

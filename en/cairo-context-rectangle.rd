@@ -4,7 +4,7 @@
 
 --- rounded_rectangle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

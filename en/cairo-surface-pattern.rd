@@ -10,13 +10,13 @@
 
 --- Cairo::SurfacePattern.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- surface
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

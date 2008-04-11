@@ -10,77 +10,77 @@
 
 --- Cairo::Color::HSV.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- h
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- h=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hue
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- hue=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- s
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- s=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- saturation
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- saturation=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_ary
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_cmyk
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_hsv
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_rgb
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- v
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- v=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- value
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- value=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

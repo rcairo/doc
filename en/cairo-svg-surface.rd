@@ -10,25 +10,25 @@
 
 --- Cairo::SVGSurface.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::SVGSurface.version_to_string
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::SVGSurface.versions
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::SVGSurface.versions_as_string
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- restrict_to_version
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Constants
 

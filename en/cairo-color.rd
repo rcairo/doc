@@ -8,11 +8,11 @@
 
 --- Cairo::Color.parse
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::Color.parse_hex_color
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Constants
 

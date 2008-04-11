@@ -4,7 +4,7 @@
 
 --- pseudo_blur
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

@@ -13,85 +13,85 @@
 
 --- Cairo::Path.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- []
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- arc
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- arc_negative
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- circle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- close
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- curve_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- each
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- empty?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- length
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- move_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- new_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- new_sub_path
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rectangle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rel_curve_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rel_line_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rel_move_to
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rounded_rectangle
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- size
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Constants
 

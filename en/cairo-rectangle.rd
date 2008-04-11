@@ -9,41 +9,41 @@
 
 --- Cairo::Rectangle.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- height
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- height=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- width
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- width=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

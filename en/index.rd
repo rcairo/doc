@@ -522,6 +522,8 @@
   * Cairo::Context#glyph_extents
   * Cairo::Context#glyph_path
   * Cairo::Context#group_target
+  * Cairo::Context#has_current_point?
+  * Cairo::Context#have_current_point?
   * Cairo::Context#identity_matrix
   * Cairo::Context#in_fill?
   * Cairo::Context#in_stroke?
@@ -544,6 +546,7 @@
   * Cairo::Context#operator
   * Cairo::Context#operator=
   * Cairo::Context#paint
+  * Cairo::Context#path_extents
   * Cairo::Context#pop_group
   * Cairo::Context#pop_group_to_source
   * Cairo::Context#pseudo_blur
@@ -668,6 +671,7 @@
   * Cairo::Format::A8
   * Cairo::Format::ARGB32
   * Cairo::Format::RGB24
+  * Cairo::Format.stride_for_width
   * Cairo::Glyph
   * Cairo::Glyph.new
   * Cairo::Glyph#index
@@ -715,6 +719,7 @@
   * Cairo::InvalidPopGroupError
   * Cairo::InvalidRestoreError
   * Cairo::InvalidStatusError
+  * Cairo::InvalidStrideError
   * Cairo::InvalidStringError
   * Cairo::InvalidVisualError
   * Cairo::LineCap
@@ -791,12 +796,101 @@
   * Cairo::PDFSurface
   * Cairo::PDFSurface.new
   * Cairo::PDFSurface#set_size
+  * Cairo::PSLevel
+  * Cairo::PSLevel::LEVEL_2
+  * Cairo::PSLevel::LEVEL_3
+  * Cairo::PSLevel.list
+  * Cairo::PSLevel.names
   * Cairo::PSSurface
   * Cairo::PSSurface.new
   * Cairo::PSSurface#dsc_begin_page_setup
   * Cairo::PSSurface#dsc_begin_setup
   * Cairo::PSSurface#dsc_comment
+  * Cairo::PSSurface#eps=
+  * Cairo::PSSurface#eps?
+  * Cairo::PSSurface#restrict_to_level
+  * Cairo::PSSurface#set_eps
   * Cairo::PSSurface#set_size
+  * Cairo::Paper
+  * Cairo::Paper::A0
+  * Cairo::Paper::A0_LANDSCAPE
+  * Cairo::Paper::A1
+  * Cairo::Paper::A10
+  * Cairo::Paper::A10_LANDSCAPE
+  * Cairo::Paper::A1_LANDSCAPE
+  * Cairo::Paper::A2
+  * Cairo::Paper::A2_LANDSCAPE
+  * Cairo::Paper::A3
+  * Cairo::Paper::A3_LANDSCAPE
+  * Cairo::Paper::A4
+  * Cairo::Paper::A4_LANDSCAPE
+  * Cairo::Paper::A5
+  * Cairo::Paper::A5_LANDSCAPE
+  * Cairo::Paper::A6
+  * Cairo::Paper::A6_LANDSCAPE
+  * Cairo::Paper::A7
+  * Cairo::Paper::A7_LANDSCAPE
+  * Cairo::Paper::A8
+  * Cairo::Paper::A8_LANDSCAPE
+  * Cairo::Paper::A9
+  * Cairo::Paper::A9_LANDSCAPE
+  * Cairo::Paper::B0
+  * Cairo::Paper::B0_LANDSCAPE
+  * Cairo::Paper::B1
+  * Cairo::Paper::B10
+  * Cairo::Paper::B10_LANDSCAPE
+  * Cairo::Paper::B1_LANDSCAPE
+  * Cairo::Paper::B2
+  * Cairo::Paper::B2_LANDSCAPE
+  * Cairo::Paper::B3
+  * Cairo::Paper::B3_LANDSCAPE
+  * Cairo::Paper::B4
+  * Cairo::Paper::B4_LANDSCAPE
+  * Cairo::Paper::B5
+  * Cairo::Paper::B5_LANDSCAPE
+  * Cairo::Paper::B6
+  * Cairo::Paper::B6_LANDSCAPE
+  * Cairo::Paper::B7
+  * Cairo::Paper::B7_LANDSCAPE
+  * Cairo::Paper::B8
+  * Cairo::Paper::B8_LANDSCAPE
+  * Cairo::Paper::B9
+  * Cairo::Paper::B9_LANDSCAPE
+  * Cairo::Paper::JAPANESE_POSTCARD
+  * Cairo::Paper::JAPANESE_POSTCARD_LANDSCAPE
+  * Cairo::Paper::LEGAL
+  * Cairo::Paper::LEGAL_LANDSCAPE
+  * Cairo::Paper::LETTER
+  * Cairo::Paper::LETTER_LANDSCAPE
+  * Cairo::Paper::TABLOID
+  * Cairo::Paper::TABLOID_LANDSCAPE
+  * Cairo::Paper.default_unit
+  * Cairo::Paper.default_unit=
+  * Cairo::Paper.new
+  * Cairo::Paper.parse
+  * Cairo::Paper.register_unit_resolver
+  * Cairo::Paper.resolve_unit
+  * Cairo::Paper#==
+  * Cairo::Paper#height
+  * Cairo::Paper#height=
+  * Cairo::Paper#name
+  * Cairo::Paper#name=
+  * Cairo::Paper#size
+  * Cairo::Paper#to_s
+  * Cairo::Paper#unit
+  * Cairo::Paper#unit=
+  * Cairo::Paper#width
+  * Cairo::Paper#width=
+  * Cairo::Paper::ParseError
+  * Cairo::Paper::UnknownPaperName
+  * Cairo::Paper::UnknownPaperName.new
+  * Cairo::Paper::UnknownPaperName#name
+  * Cairo::Paper::UnknownUnit
+  * Cairo::Paper::UnknownUnit.new
+  * Cairo::Paper::UnknownUnit#unit
+  * Cairo::Paper::UnrecognizedPaperDescription
+  * Cairo::Paper::UnrecognizedPaperDescription.new
+  * Cairo::Paper::UnrecognizedPaperDescription#description
   * Cairo::Path
   * Cairo::Path::CLOSE_PATH
   * Cairo::Path::CURVE_TO
@@ -893,6 +987,8 @@
   * Cairo::SVGVersion
   * Cairo::SVGVersion::VERSION_1_1
   * Cairo::SVGVersion::VERSION_1_2
+  * Cairo::SVGVersion.list
+  * Cairo::SVGVersion.names
   * Cairo::ScaledFont
   * Cairo::ScaledFont.new
   * Cairo::ScaledFont#ctm
@@ -915,6 +1011,7 @@
   * Cairo::Surface
   * Cairo::Surface#clone
   * Cairo::Surface#content
+  * Cairo::Surface#copy_page
   * Cairo::Surface#create_similar
   * Cairo::Surface#device_offset
   * Cairo::Surface#dup
@@ -924,12 +1021,14 @@
   * Cairo::Surface#mark_dirty
   * Cairo::Surface#set_device_offset
   * Cairo::Surface#set_fallback_resolution
+  * Cairo::Surface#show_page
   * Cairo::Surface#write_to_png
   * Cairo::SurfaceFinishedError
   * Cairo::SurfacePattern
   * Cairo::SurfacePattern.new
   * Cairo::SurfacePattern#surface
   * Cairo::SurfaceTypeMismatchError
+  * Cairo::TempFileError
   * Cairo::TextExtents
   * Cairo::TextExtents#height
   * Cairo::TextExtents#to_s

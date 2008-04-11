@@ -4,11 +4,11 @@
 
 --- Cairo.bindings_version
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo.normalize_const_name
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Constants
 

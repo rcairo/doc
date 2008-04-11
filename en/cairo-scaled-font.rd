@@ -9,37 +9,37 @@
 
 --- Cairo::ScaledFont.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- ctm
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_face
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_matrix
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- font_options
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- glyph_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- text_extents
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

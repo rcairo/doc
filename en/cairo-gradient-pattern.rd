@@ -10,27 +10,27 @@
 
 --- add_color_stop
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- add_color_stop_rgb
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- add_color_stop_rgba
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- color_stop_count
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- get_color_stop_color
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- get_color_stop_rgba
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

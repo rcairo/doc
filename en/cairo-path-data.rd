@@ -13,45 +13,45 @@
 
 --- Cairo::PathData.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- close_path?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- curve_to?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- each
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- line_to?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- move_to?
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- points
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_ary
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- type
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

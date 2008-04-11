@@ -10,93 +10,93 @@
 
 --- Cairo::Color::CMYK.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- c
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- c=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- cyan
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- cyan=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- k
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- k=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- key_plate
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- key_plate=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- m
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- m=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- magenta
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- magenta=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_ary
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_cmyk
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_hsv
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_rgb
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- yellow
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- yellow=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

@@ -10,33 +10,33 @@
 
 --- Cairo::ImageSurface.from_png
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::ImageSurface.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- data
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- format
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- height
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- stride
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- width
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

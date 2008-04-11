@@ -9,25 +9,25 @@
 
 --- Cairo::Color::Base.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- a=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- alpha
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- alpha=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

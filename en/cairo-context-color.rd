@@ -4,7 +4,7 @@
 
 --- set_source_color
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

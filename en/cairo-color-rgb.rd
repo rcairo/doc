@@ -10,81 +10,81 @@
 
 --- Cairo::Color::RGB.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- b
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- b=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- blue
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- blue=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- g
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- g=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- green
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- green=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- r
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- r=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- red
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- red=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_ary
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_cmyk
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_hsv
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_rgb
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_s
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

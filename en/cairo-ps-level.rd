@@ -1,19 +1,19 @@
-= module Cairo::SVGVersion
+= module Cairo::PSLevel
 
 == Module Functions
 
---- Cairo::SVGVersion.list
+--- Cairo::PSLevel.list
 
      * Returns: self: ((*FIXME*))
 
---- Cairo::SVGVersion.names
+--- Cairo::PSLevel.names
 
      * Returns: self: ((*FIXME*))
 
 == Constants
 
---- VERSION_1_1
---- VERSION_1_2
+--- LEVEL_2
+--- LEVEL_3
 
 == See Also
 

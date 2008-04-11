@@ -9,29 +9,29 @@
 
 --- Cairo::Point.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- distance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_ary
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

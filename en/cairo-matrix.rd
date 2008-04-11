@@ -9,173 +9,173 @@
 
 --- Cairo::Matrix.identity
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::Matrix.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::Matrix.rotate
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::Matrix.scale
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- Cairo::Matrix.translate
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- *
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- clone
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- dup
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- identity!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- invert
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- invert!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- multiply
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- multiply!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rotate
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- rotate!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- scale
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- scale!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_x0
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_xx
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_xy
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_y0
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_yx
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- set_yy
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_a
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_s
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- transform_distance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- transform_point
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- translate
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- translate!
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x0
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- x0=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- xx
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- xx=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- xy
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- xy=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y0
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- y0=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- yx
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- yx=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- yy
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- yy=
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

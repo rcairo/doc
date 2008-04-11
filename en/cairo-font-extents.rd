@@ -9,27 +9,27 @@
 
 --- ascent
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- descent
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- height
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- max_x_advance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- max_y_advance
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 --- to_s
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

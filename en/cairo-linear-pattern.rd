@@ -11,13 +11,13 @@
 
 --- Cairo::LinearPattern.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == Instance Methods
 
 --- points
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

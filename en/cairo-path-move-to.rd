@@ -10,7 +10,7 @@
 
 --- Cairo::PathMoveTo.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 

@@ -10,7 +10,7 @@
 
 --- Cairo::PathClosePath.new
 
-     * Returns: self
+     * Returns: self: ((*FIXME*))
 
 == See Also
 
