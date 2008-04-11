@@ -65,7 +65,7 @@ require 'rd-lib'
 class UpdateRD
   include RDLib
 
-  RETURNS = "     * Returns: self"
+  RETURNS = "     * Returns: self: ((*FIXME*))"
 
   def initialize(target_modules, output_dir, replace)
     @target_modules = target_modules
