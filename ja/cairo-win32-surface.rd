@@ -1,7 +1,7 @@
 = class Cairo::Win32Surface
 
-Microsoft Windows用のサーフェスです。Windowsのウィジェットに
-描画するために使用します。
+((*Since 1.4*)): Microsoft Windows用のサーフェスです。
+Windowsのウィジェットに描画するために使用します。
 
 == Object Hierarchy
 

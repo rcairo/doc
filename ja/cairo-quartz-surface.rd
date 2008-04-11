@@ -1,5 +1,7 @@
 = class Cairo::QuartzSurface
 
+((*Since 1.4*))
+
 == Object Hierarchy
 
 * Object

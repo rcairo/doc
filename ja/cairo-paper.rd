@@ -166,108 +166,211 @@ cairoにはないrcairoの拡張です。
 == Constants
 
 --- A0
+
      A0の用紙
+
 --- A0_LANDSCAPE
+
      A0横置きの用紙
+
 --- A1
+
      A1の用紙
+
 --- A1_LANDSCAPE
+
      A1横置きの用紙
+
 --- A2
+
      A2の用紙
+
 --- A2_LANDSCAPE
+
      A2横置きの用紙
+
 --- A3
+
      A3の用紙
+
 --- A3_LANDSCAPE
+
      A3横置きの用紙
+
 --- A4
+
      A4の用紙
+
 --- A4_LANDSCAPE
+
      A4横置きの用紙
+
 --- A5
+
      A5の用紙
+
 --- A5_LANDSCAPE
+
      A5横置きの用紙
+
 --- A6
+
      A6の用紙
+
 --- A6_LANDSCAPE
+
      A6横置きの用紙
+
 --- A7
+
      A7の用紙
+
 --- A7_LANDSCAPE
+
      A7横置きの用紙
+
 --- A8
+
      A8の用紙
+
 --- A8_LANDSCAPE
+
      A8横置きの用紙
+
 --- A9
+
      A9の用紙
+
 --- A9_LANDSCAPE
+
      A9横置きの用紙
+
 --- A10
+
      A10の用紙
+
 --- A10_LANDSCAPE
+
      A10横置きの用紙
+
 --- B0
+
      B0の用紙
+
 --- B0_LANDSCAPE
+
      B0横置きの用紙
+
 --- B1
+
      B1の用紙
+
 --- B1_LANDSCAPE
+
      B1横置きの用紙
+
 --- B2
+
      B2の用紙
+
 --- B2_LANDSCAPE
+
      B2横置きの用紙
+
 --- B3
+
      B3の用紙
+
 --- B3_LANDSCAPE
+
      B3横置きの用紙
+
 --- B4
+
      B4の用紙
+
 --- B4_LANDSCAPE
+
      B4横置きの用紙
+
 --- B5
+
      B5の用紙
+
 --- B5_LANDSCAPE
+
      B5横置きの用紙
+
 --- B6
+
      B6の用紙
+
 --- B6_LANDSCAPE
+
      B6横置きの用紙
+
 --- B7
+
      B7の用紙
+
 --- B7_LANDSCAPE
+
      B7横置きの用紙
+
 --- B8
+
      B8の用紙
+
 --- B8_LANDSCAPE
+
      B8横置きの用紙
+
 --- B9
+
      B9の用紙
+
 --- B9_LANDSCAPE
+
      B9横置きの用紙
+
 --- B10
+
      B10の用紙
+
 --- B10_LANDSCAPE
+
      B10横置きの用紙
+
 --- JAPANESE_POSTCARD
+
      日本の官製はがき
+
 --- JAPANESE_POSTCARD_LANDSCAPE
+
      日本の官製はがきの横置き
+
 --- LEGAL
+
      法律文書用サイズ
+
 --- LEGAL_LANDSCAPE
+
      法律文書用サイズの横置き
+
 --- LETTER
+
      便箋
+
 --- LETTER_LANDSCAPE
+
      便箋の横置き
+
 --- TABLOID
+
      新聞
+
 --- TABLOID_LANDSCAPE
+
      新聞の横置き
 
 == See Also

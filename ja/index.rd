@@ -807,6 +807,7 @@
   * Cairo::PSSurface#dsc_begin_setup
   * Cairo::PSSurface#dsc_comment
   * Cairo::PSSurface#eps=
+  * Cairo::PSSurface#eps?
   * Cairo::PSSurface#restrict_to_level
   * Cairo::PSSurface#set_eps
   * Cairo::PSSurface#set_size
@@ -959,6 +960,8 @@
   * Cairo::Point#to_ary
   * Cairo::Point#x
   * Cairo::Point#y
+  * Cairo::QuartzImageSurface
+  * Cairo::QuartzImageSurface#hdc
   * Cairo::QuartzSurface
   * Cairo::QuartzSurface.new
   * Cairo::QuartzSurface#cg_context
@@ -1037,6 +1040,8 @@
   * Cairo::TextExtents#x_bearing
   * Cairo::TextExtents#y_advance
   * Cairo::TextExtents#y_bearing
+  * Cairo::Win32PrintingSurface
+  * Cairo::Win32PrintingSurface#hdc
   * Cairo::Win32Surface
   * Cairo::Win32Surface.new
   * Cairo::Win32Surface#hdc
