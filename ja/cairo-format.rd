@@ -6,13 +6,15 @@
 
 --- Cairo::Format.stride_for_width(format, width)
 
-     ((*Since 1.6*)): cairo中の高速化したイメージ描画処理の
-     すべての整列要求を考慮したストライド値を返します。以下
+     ((*Since 1.6*)): cairoの最適化したイメージ描画処理での
+     すべての調整要求を考慮したストライド値を返します。以下
      のように使います。
 
+# start-pre
        stride = Cairo::Format.stride_for_width(format, width)
        data = "\0" * stride * height
        surface = Cairo::ImageSurface.create(data, format, width, height, stride)
+# end-pre
 
      format: Cairo::Format::*のどれか。
      width: Cairo::ImageSurfaceの作成に使いたい幅。
