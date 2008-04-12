@@ -13,17 +13,8 @@ require 'cairo'
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'cairo-dummy'
 require 'rd-lib'
-
-begin
-  require lang
-  def _(msg_id)
-    MESSAGE[msg_id] || msg_id
-  end
-rescue LoadError
-  def _(msg_id)
-    msg_id
-  end
-end
+require 'i18n'
+load_message(lang)
 
 section = nil
 cairo_signature_re =

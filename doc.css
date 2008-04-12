@@ -67,3 +67,25 @@ em
   color: #cb2327;
   font-weight: bold;
 }
+
+div.header,
+div.footer
+{
+  background: #ffeeee;
+  border: solid 1px #ffaaaa;
+}
+
+div.header ul,
+div.footer ul
+{
+  padding-left: 1em;
+}
+
+div.header ul li,
+div.footer ul li
+{
+  display: inline;
+  background: #eeeeee;
+  border: solid 1px #aaaaaa;
+  padding: 0.5em 1em;
+}

@@ -8,8 +8,12 @@ end
 rd_dir = ARGV.shift
 lang = File.basename(rd_dir)
 
-rd_compiler = File.join(File.expand_path(File.dirname(__FILE__)),
-                        "compile-rd.rb")
+base_dir = File.expand_path(File.dirname(__FILE__))
+rd_compiler = File.join(base_dir, "compile-rd.rb")
+
+$LOAD_PATH.unshift(base_dir)
+require 'i18n'
+load_message(lang)
 
 Dir.chdir(rd_dir) do
   Dir["*.rd"].each do |rd|
@@ -27,5 +31,33 @@ Dir.chdir(rd_dir) do
                 "-o", File.basename(rd, ".rd"), rdc,
                ]
     system(*commands)
+
+    menus = <<-EOM
+  <ul>
+    <li><a href="./">#{_("Index")}</a></li>
+  </ul>
+EOM
+    html = File.basename(rd, ".rd") + ".html"
+    html_content = File.read(html)
+    html_content = html_content.gsub(/<(\/?)body>/) do
+      if $1.nil?
+        <<-EOH
+<body>
+<div class="header">
+#{menus}
+</div>
+EOH
+      else
+        <<-EOF
+<div class="footer">
+#{menus}
+</div>
+</body>
+EOF
+      end
+    end
+    File.open(html, "w") do |f|
+      f.print(html_content)
+    end
   end
 end
