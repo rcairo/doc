@@ -335,11 +335,9 @@ class UpdateRD
   def put_see_also(klass)
     puts "== See Also"
     puts
-    see_also = @indexes[klass][:see_also]
-    if see_also
+    see_also = (@indexes[klass][:see_also] || '').rstrip
+    unless see_also.empty?
       puts see_also
-    else
-      puts "  * Index"
       puts
     end
   end
