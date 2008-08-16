@@ -60,6 +60,16 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        （Cairo::ImageSurfaceなど）
      * Returns: Cairo::Context
 
+--- Cairo::Context.new(target) {|context| ...}
+
+     ((*Since 1.8*))ブロック無しでCairo::Context.newを呼び出
+     した場合と異なるのは、ブロックが終了した時点で
+     Cairo::Context#destroyが呼ばれることです。
+
+     * target: 描画対象のサーフェス
+       （Cairo::ImageSurfaceなど）
+     * context: Cairo::Context
+
 == Instance Methods
 
 --- antialias
@@ -1522,12 +1532,80 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
        が(x1, y1)で右下の頂点が(x2, y2)の長方形を表す配列:
        [x1, y1, x2, y2]
 
+--- destroy
+
+     ((*Since 1.8*)): Cairo::Contextを破棄します。この
+     Cairo::Contextはもう使えません。
+
+     通常はRubyのGC時に破棄されるので、このメソッドを意識す
+     る必要はありません。Quartzバックエンドを使っているGTK+
+     のGtk::Drawable#create_cairo_contextを使っている場合な
+     ど、Cairo::ContextまたはこのCairo::Contextが対象として
+     いるCairo::Surfaceを明示的に破棄したい場合に利用します。
+
+     Cairo::Context.newをブロック付きで呼ぶことも検討してみ
+     てください。
+
+--- has_show_text_glyphs?
+--- have_show_text_glyphs?
+
+     ((*Since 1.8*)): 対象のサーフェスが
+     Cairo::Context#show_text_glyphsをサポートしているかどう
+     かを返します。つまり、Cairo::Context#show_text_glyphsが
+     指定したテキストとクラスタデータを実際に使うかどうかで
+     す。
+
+     注: もし、このメソッドが(({false}))を返しても、
+     Cairo::Context#show_text_glyphsは成功します。単に
+     Cairo::Context#show_glyphsと同じように動きます。このメ
+     ソッドは対象のサーフェスが
+     Cairo::Context#show_text_glyphsをサポートしていない場合
+     にUTF-8のテキストとクラスタの対応を計算するコストを避け
+     るために利用できます。
+
+     * Returns: 対象のサーフェスが
+       Cairo::Context#show_text_glyphsをサポートしている場合
+       は(({true}))。そうでない場合は(({false}))。
+
+--- show_text_glyphs(utf8, glyphs, clusters, backward)
+
+     ((*Since 1.8*)): Cairo::Context#show_glyphsのような表示
+     効果があります。もし、対象のサーフェスが対応していれば、
+     出力に表示するグリフのために、指定されたテキストと埋め
+     込まれたテキストへのクラスタ対応を使います。
+
+     ((|utf8|))と((|glyphs|))の対応は((|clusters|))で指定し
+     ます。各クラスタはたくさんのテキスト（バイト）とグリフ
+     を含みます。隣接しているクラスタは((|utf8|))と
+     ((|glyphs|))隣接している範囲を含みます。すべてのクラス
+     タを集めるとすべての((|utf8|))と((|glyphs|))を含むべき
+     です。
+
+     最初のクラスタは常に((|utf8|))の最初のバイトを含みます。
+     もし、((|backward|))が(({false}))なら、最初のクラスタは
+     最初の((|glyphs|))も含みます。(({true}))の場合は
+     ((|glyphs|))の最後を含み、続くクラスタは後ろ向きに進み
+     ます。
+
+     妥当なクラスタのための制約はCairo::TextClusterを見てく
+     ださい。
+
+     * utf8: UTF-8で符号化されたString
+     * glyphs: 表示するCairo::Glyphの配列
+     * clusters: クラスタ対応情報（Cairo::TextCluster）の配
+       列
+     * backward: テキストからグリフへの対応が後ろ方向かどう
+       か
+
 == See Also
 
   * Index
+  * Cairo::Surface
+  * Cairo::TextCluster
 
 == ChangeLog
 
+  * 2008-08-16: kou: 1.7.4対応。
   * 2008-04-11: kou: 1.6.0対応。
   * 2007-05-20: kou: 定数の扱いについて更新。
   * 2007-05-19: kou: 初期バージョン完成。
