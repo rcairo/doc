@@ -12,6 +12,7 @@ Cairo::UserFontFaceを継承して、そのクラスにコールバック用の�
 名はinitです。引数は同じです。以下は継承する例です。
 render_glyph以外は定義しなくてもかまいません。
 
+# start-pre
   class CustomUserFontFace < Cairo::UserFontFace
     def init(scaled_font, context, font_extents)
     end
@@ -25,6 +26,7 @@ render_glyph以外は定義しなくてもかまいません。
     def unicode_to_glyph(scaled_font, unicode)
     end
   end
+# end-pre
 
 == Object Hierarchy
 
