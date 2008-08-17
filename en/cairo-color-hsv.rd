@@ -84,8 +84,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

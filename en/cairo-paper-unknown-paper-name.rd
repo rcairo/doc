@@ -23,8 +23,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

@@ -206,8 +206,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

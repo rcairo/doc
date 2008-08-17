@@ -7,8 +7,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

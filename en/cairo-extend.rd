@@ -9,8 +9,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

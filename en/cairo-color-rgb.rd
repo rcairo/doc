@@ -88,8 +88,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

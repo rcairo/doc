@@ -102,8 +102,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

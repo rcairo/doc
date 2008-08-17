@@ -20,8 +20,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

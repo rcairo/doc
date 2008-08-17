@@ -37,13 +37,19 @@
 
      * Returns: self: ((*FIXME*))
 
+--- scale_matrix
+
+     * Returns: self: ((*FIXME*))
+
 --- text_extents
 
      * Returns: self: ((*FIXME*))
 
-== See Also
+--- text_to_glyphs
 
-  * Index
+     * Returns: self: ((*FIXME*))
+
+== See Also
 
 == ChangeLog
 

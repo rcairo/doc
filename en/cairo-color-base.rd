@@ -31,8 +31,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

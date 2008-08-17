@@ -14,8 +14,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

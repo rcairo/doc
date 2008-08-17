@@ -8,8 +8,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

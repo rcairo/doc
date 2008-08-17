@@ -55,8 +55,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

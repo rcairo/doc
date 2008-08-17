@@ -33,6 +33,10 @@
 
      * Returns: self: ((*FIXME*))
 
+--- ==
+
+     * Returns: self: ((*FIXME*))
+
 --- clone
 
      * Returns: self: ((*FIXME*))
@@ -178,8 +182,6 @@
      * Returns: self: ((*FIXME*))
 
 == See Also
-
-  * Index
 
 == ChangeLog
 

@@ -23,11 +23,19 @@
 
      * Returns: self: ((*FIXME*))
 
+--- destroy
+
+     * Returns: self: ((*FIXME*))
+
 --- device_offset
 
      * Returns: self: ((*FIXME*))
 
 --- dup
+
+     * Returns: self: ((*FIXME*))
+
+--- fallback_resolution
 
      * Returns: self: ((*FIXME*))
 
@@ -64,8 +72,6 @@
      * Returns: self: ((*FIXME*))
 
 == See Also
-
-  * Index
 
 == ChangeLog
 

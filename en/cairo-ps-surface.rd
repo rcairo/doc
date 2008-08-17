@@ -48,8 +48,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

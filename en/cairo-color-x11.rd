@@ -144,8 +144,6 @@
 
 == See Also
 
-  * Index
-
 == ChangeLog
 
 

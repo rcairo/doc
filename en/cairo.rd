@@ -6,7 +6,15 @@
 
      * Returns: self: ((*FIXME*))
 
+--- Cairo.exit_application
+
+     * Returns: self: ((*FIXME*))
+
 --- Cairo.normalize_const_name
+
+     * Returns: self: ((*FIXME*))
+
+--- Cairo.satisfied_version?
 
      * Returns: self: ((*FIXME*))
 
@@ -50,6 +58,11 @@
 --- HINT_STYLE_MEDIUM
 --- HINT_STYLE_NONE
 --- HINT_STYLE_SLIGHT
+--- LCD_FILTER_DEFAULT
+--- LCD_FILTER_FIR3
+--- LCD_FILTER_FIR5
+--- LCD_FILTER_INTRA_PIXEL
+--- LCD_FILTER_NONE
 --- LINE_CAP_BUTT
 --- LINE_CAP_ROUND
 --- LINE_CAP_SQUARE
@@ -87,8 +100,6 @@
 --- VERSION
 
 == See Also
-
-  * Index
 
 == ChangeLog
 
