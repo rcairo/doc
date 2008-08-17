@@ -38,7 +38,8 @@ Cairo::ScaledFontにはフォントバックエンドに依存したいくつか
 
 --- ctm
 
-     ((|self|))を生成するときに指定したCTMを返します。
+     ((|self|))を生成するときに指定したCTM（現在の変換行列）
+     を返します。
 
      * Returns: Cairo::Matrixオブジェクト。
 
@@ -108,10 +109,45 @@ Cairo::ScaledFontにはフォントバックエンドに依存したいくつか
      * Returns: テキストの範囲を示すCairo::TextExtentsオブジェ
        クト。
 
+--- scale_matrix
+
+     ((*Since 1.8*)): 拡大・縮小用の行列を返します。拡大・縮
+     小用行列は、このCairo::ScaledFontのフォント行列と現在の
+     変換行列（CTM）の積です。つまり、フォント空間から装置空
+     間へ変換する（写像する・mapする）行列です。
+
+     * Returns: 拡大・縮小用の行列。
+
+--- text_to_glyphs(x, y, utf8)
+
+     ((*Since 1.8*)): UTF-8のテキストをグリフの配列とクラス
+     タ対応に変換します。これらは後でこのCairo::ScaledFontを
+     使って描画するときに使うことができます。
+
+     どのようにクラスタ対応情報が入力のUTF-8のテキストと出力
+     のグリフを対応付けるかの詳細については
+     Cairo::Context#show_text_glyphsを見てください。
+
+     同じCairo::ScaledFontを使う場合は、戻り値はそのまま
+     Cairo::Context#show_text_glyphsや
+     Cairo::Context#show_glyphsなど関連するメソッドで使うこ
+     とができます。
+
+     * Returns: (({[glyphs, clusters, backward]}))
+       * glyphs: グリフ（Cairo::Glyph）の配列。
+       * clusters: クラスタ対応情報（Cairo::TextCluster）の
+         配列。
+       * backward: テキストとグリフの対応が後ろ向きかどうか
+         の真偽値。
+
 == See Also
 
   * Index
+  * Cairo::Context
+  * Cairo::Glyph
+  * Cairo::TextCluster
 
 == ChangeLog
 
+  * 2008-08-17: kou: 1.7.4対応。
   * 2007-05-23: kou: スタート。
