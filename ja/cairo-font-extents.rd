@@ -17,6 +17,20 @@
 * Object
   * Cairo::FontExtents
 
+== Class Methods
+
+--- Cairo::FontExtents.new
+
+     ((*Since rcairo 1.7*)): 新しくCairo::FontExtentsオブジェ
+     クトを生成します。以下のように値が設定されています。
+       * ascent: 1.0
+       * descent: 0.0
+       * height: 1.0
+       * max_x_advance: 1.0
+       * max_y_advance: 0.0
+
+     * Returns: 新しく生成されたCairo::FontExtentsオブジェクト。
+
 == Instance Methods
 
 --- ascent
@@ -28,6 +42,13 @@
      ントデザイナの意図を表現するために取り出します。
 
      * Returns: フォントがベースラインより上に広げる距離。
+
+--- ascent=(ascent)
+--- set_ascent(ascent)
+
+    ((*Since rcairo 1.7*))
+
+     * ascent: フォントがベースラインより上に広げる距離。
 
 --- descent
 
@@ -41,6 +62,13 @@
 
      * Returns: フォントがベースラインより下に広げる距離。
 
+--- descent=(descent)
+--- set_descent(descent)
+
+    ((*Since rcairo 1.7*))
+
+     * descent: フォントがベースラインより下に広げる距離。
+
 --- height
 
      指定したフォントでテキストの連続的な線を設定したときに
@@ -52,12 +80,26 @@
 
      * Returns: 高さ
 
+--- height=(height)
+--- set_height(height)
+
+    ((*Since rcairo 1.7*))
+
+     * height: 高さ
+
 --- max_x_advance
 
      X方向の最大の距離。基点はフォントの中の全てのグリフによっ
      進化します。
 
      * Returns: X方向の最大の距離。
+
+--- max_x_advance=(max_x_advance)
+--- set_max_x_advance(max_x_advance)
+
+    ((*Since rcairo 1.7*))
+
+     * max_x_advance: X方向の最大の距離。
 
 --- max_y_advance
 
@@ -67,14 +109,23 @@
 
      * Returns: Y方向の最大の距離。
 
+--- max_y_advance=(max_y_advance)
+--- set_max_y_advance(max_y_advance)
+
+    ((*Since rcairo 1.7*))
+
+     * max_y_advance: Y方向の最大の距離。
+
 --- to_s
 
-     * Returns: self
+     * Returns: このCairo::FontExtentsの文字列表現。
 
 == See Also
 
   * Index
+  * Cairo::UserFontFace#on_init
 
 == ChangeLog
 
+  * 2008-08-17: kou: rcairo 1.7対応
   * 2007-04-16: kou: スタート

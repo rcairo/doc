@@ -8,18 +8,27 @@ Cairo::Antialias::SUBPIXELアンチエイリアスモードでLCD（液晶ディ
 == Constants
 
 --- DEFAULT
+
      フォントバックエンドと対象装置のデフォルトLCDフィルタを
      使います。
+
 --- FIR3
+
      周辺3x3ピクセル（あってる？FIXME: with a 3x3 kernel）で
      有限インパルス応答フィルタ（FIRフィルタ）を使います。
+
 --- FIR5
+
      周辺5x5ピクセル（あってる？FIXME: with a 5x5 kernel）で
      有限インパルス応答フィルタ（FIRフィルタ）を使います。
+
 --- INTRA_PIXEL
+
      ピクセル内フィルタ（あってる？FIXME: intra-pixel filter）
      を使います。
+
 --- NONE
+
      LCDフィルタを実行しません。
 
 == See Also

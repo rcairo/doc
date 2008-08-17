@@ -13,23 +13,48 @@
 * Object
   * Cairo::TextExtents
 
+== Class Methods
+
+--- Cairo::TextExtents.new
+
+     ((*Since rcairo 1.7*)): 新しくCairo::TextExtentsオブジェ
+     クトを生成します。以下のように値が設定されています。
+       * x_bearing: 0.0
+       * y_bearing: -1.0
+       * width: 0.0
+       * height: 1.0
+       * x_advance: 1.0
+       * y_advance: 0.0
+
+     * Returns: 新しく生成されたCairo::TextExtentsオブジェクト。
+
 == Instance Methods
 
 --- height
+
+     表示されるグリフの高さを返します。
+
+     * Returns: 高さ
+
+--- height=(height)
+--- set_height(height)
+
+     ((*Since rcairo 1.7*))
+
+     * height: 高さ
+
+--- width
 
      表示されるグリフの幅を返します。
 
      * Returns: 幅
 
---- to_s
+--- width=(width)
+--- set_width(width)
 
-     * Returns: Cairo::TextExtentsの文字列表現
+     ((*Since rcairo 1.7*))
 
---- width
-
-     表示されるグリフの高さを返します。
-
-     * Returns: 高さ
+     * width: 幅
 
 --- x_advance
 
@@ -37,13 +62,12 @@
 
      * Returns: X方向に進める距離
 
---- x_bearing
+--- x_advance=(x_advance)
+--- set_x_advance(x_advance)
 
-     表示するグリフのもっとも左側の部分の基点からの水平方
-     向の距離を返します。グリフが完全に基点より右にある場合
-     は正の値です。
+     ((*Since rcairo 1.7*))
 
-     * Returns: 基点からの水平方向の距離
+     * x_advance: X方向に進める距離
 
 --- y_advance
 
@@ -53,6 +77,28 @@
 
      * Returns: Y方向に進める距離
 
+--- y_advance=(y_advance)
+--- set_y_advance(y_advance)
+
+     ((*Since rcairo 1.7*))
+
+     * y_advance: Y方向に進める距離
+
+--- x_bearing
+
+     表示するグリフのもっとも左側の部分の基点からの水平方
+     向の距離を返します。グリフが完全に基点より右にある場合
+     は正の値です。
+
+     * Returns: 基点からの水平方向の距離
+
+--- x_bearing=(x_bearing)
+--- set_x_bearing(x_bearing)
+
+     ((*Since rcairo 1.7*))
+
+     * x_bearing: 基点からの水平方向の距離
+
 --- y_bearing
 
      表示するグリフのもっとも左側の部分の基点からの垂直方
@@ -61,10 +107,23 @@
 
      * Returns: 基点からの垂直方向の距離
 
+--- y_bearing=(y_bearing)
+--- set_y_bearing(y_bearing)
+
+     ((*Since rcairo 1.7*))
+
+     * y_bearing: 基点からの垂直方向の距離
+
+--- to_s
+
+     * Returns: Cairo::TextExtentsの文字列表現
+
 == See Also
 
   * Index
+  * Cairo::UserFontFace#on_render_glyph
 
 == ChangeLog
 
+  * 2008-08-17: kou: rcairo 1.7対応。
   * 2007-05-22: kou: スタート
