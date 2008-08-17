@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 MESSAGE = {
   "class %s" => "%sクラス",
   "module %s" => "%sモジュール",
@@ -10,4 +12,6 @@ MESSAGE = {
   "See Also" => "参考",
   "ChangeLog" => "変更履歴",
   "Index" => "索引",
+  "Returns" => "戻り値",
+  "Block returns" => "ブロックの戻り値",
 }

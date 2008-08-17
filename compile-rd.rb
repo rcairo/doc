@@ -42,7 +42,10 @@ auto_linked_rd = File.open(rd).collect do |line|
       line.gsub(section, _(section))
     end
   else
-    line.gsub(/(\(\(<)?(#{cairo_signature_re}|Index)/) do |signature|
+    line = line.gsub(/\*\s*(Returns|Block returns)\s*:\s*/) do
+      "* #{_($1)}: "
+    end
+    line.gsub(/(\(\(<(?:[^|]+\|)?)?(#{cairo_signature_re}|Index)/) do |signature|
       link_markup = $1
       if link_markup or section == "Object Hierarchy" or in_pre
         signature
@@ -53,13 +56,8 @@ auto_linked_rd = File.open(rd).collect do |line|
   end
 end.join
 
-compiled_rd = auto_linked_rd.gsub(/\(\(<(.*?)>\)\)/) do |link|
-  link_content = $1
+def resolve_link(link_content)
   case link_content
-  when "Index"
-    RDLib.index_link(_("Index"))
-  when /URL:/, /\|/
-    link
   when /\./
     klass_name = $PREMATCH
     method_name = $POSTMATCH
@@ -81,7 +79,28 @@ compiled_rd = auto_linked_rd.gsub(/\(\(<(.*?)>\)\)/) do |link|
       RDLib.constant_link(klass, const)
     end
   else
+    nil
+  end
+end
+
+compiled_rd = auto_linked_rd.gsub(/\(\(<(.*?)>\)\)/) do |link|
+  link_content = $1
+  case link_content
+  when "Index"
+    RDLib.index_link(_("Index"))
+  when /URL:/
     link
+  when /\|/
+    label = $PREMATCH
+    link_content = $POSTMATCH
+    resolved_link = resolve_link(link_content)
+    if resolved_link.nil?
+      link
+    else
+      resolved_link.sub(/\A(\(\(<)(?:[^|]+\|)?/, "\\1#{label}|")
+    end
+  else
+    resolve_link(link_content) || link
   end
 end
 
