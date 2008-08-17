@@ -302,10 +302,21 @@
      * tx: X方向の平行移動量。
      * ty: Y方向の平行移動量。
 
+--- ==(other)
+
+     ((*Since rcairo 1.7*)): ((|other|))がCairo::Matrixオブ
+     ジェクトで、xx, yx, xy, yy, x0, y0それぞれが(({==}))だっ
+     た場合に(({true}))を返します。
+
+     * other: 比較対象のオブジェクト。
+     * Returns: (({self}))と(({other}))が等しければ
+     (({true}))、そうでなければ(({false}))。
+
 == See Also
 
   * Index
 
 == ChangeLog
 
+  * 2008-08-17: kou: rcairo 1.7対応。
   * 2007-05-21: kou: スタート。
