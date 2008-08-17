@@ -202,7 +202,7 @@ render_glyph以外は定義しなくてもかまいません。
        （Cairo::ScaledFont）
      * utf8: UTF-8で符号化されたテキスト
      * data: 変換結果を保存するオブジェクト
-     （Cairo::UserFontFace::TextToGlyphsData）
+       （Cairo::UserFontFace::TextToGlyphsData）
 
 --- on_unicode_to_glyph {|scaled_font, unicode| ...}
 
