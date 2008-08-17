@@ -19,6 +19,34 @@
 
      内部で使っているメソッドです。
 
+--- Cairo.exit_application(exception, exit_status)
+
+     ((*Since rcairo 1.7*)): C言語レベルからのコールバックか
+     ら実行されるRubyで実行する処理（例えば
+     Cairo::UserFontFace#init）の最中に例外が発生した場合は、
+     それ以降の処理を安全に継続できる保証がありません。その
+     ため、rcairoではこのメソッドを呼び出してアプリケーショ
+     ンを終了させます。
+
+     デフォルトではexceptionを出力し、exit(exit_status)で終了
+     します。必要な処理がある場合はこのメソッドを上書きして
+     ください。
+
+     * exception: 発生した例外。
+     * exit_status: 終了ステータス。
+
+--- Cairo.satisfied_version?(major, minor, micro=nil)
+
+     ((*Since rcairo 1.7*)): ビルドしたcairoのバージョンが指
+     定したバージョン以上かどうかを返します。
+
+     * major: メジャーバージョン
+     * minor: マイナーバージョン
+     * micro: マイクロバージョン
+     * Returns: ビルドしたcairoのバージョンが指定したバージョ
+       ン以上なら(({true}))を、そうでない場合は(({false}))を
+       返します。
+
 == Constants
 
 --- ANTIALIAS_DEFAULT
@@ -119,10 +147,17 @@
      現在rcairoと一緒に使用しているcairoのバージョンを示す
      (({[major, minor, micro]}))という配列です。
 
+--- LCD_FILTER_DEFAULT
+--- LCD_FILTER_FIR3
+--- LCD_FILTER_FIR5
+--- LCD_FILTER_INTRA_PIXEL
+--- LCD_FILTER_NONE
+
 == See Also
 
   * Index
 
 == ChangeLog
 
+  * 2008-08-17: kou: rcairo 1.7対応。
   * 2007-05-22: kou: スタート。
