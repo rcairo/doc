@@ -1,6 +1,6 @@
 = module Cairo::FontSlant
 
-フォントフェイスの傾斜の種類を指定します。
+フォントフェイスの傾きの種類を指定します。
 
 == Constants
 
