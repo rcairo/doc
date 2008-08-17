@@ -113,7 +113,7 @@
 
 --- fallback_resolution
 
-     ((*Since 1.8*)): Cairo::Surface#set_fallback_resolution
+     ((*Since 1.7*)): Cairo::Surface#set_fallback_resolution
      で設定した代替解像度を返します。もし、まだ設定されていな
      い場合はデフォルトの代替解像度を返します。
 
@@ -179,7 +179,7 @@
 
 --- destroy
 
-     ((*Since 1.8*)): Cairo::Surfaceを破棄します。この
+     ((*Since 1.7*)): Cairo::Surfaceを破棄します。この
      Cairo::Surfaceはもう使えません。
 
      通常はRubyのGC時に破棄されるので、このメソッドを意識す

@@ -1,6 +1,6 @@
 = class Cairo::UserFontFace::TextToGlyphsData
 
-((*Since 1.8*)): Cairo::UserFontFace#on_text_to_glyphsコール
+((*Since 1.7*)): Cairo::UserFontFace#on_text_to_glyphsコール
 バックに渡されるデータです。
 Cairo::UserFontFace::TextToGlyphsData#glyphs=,
 Cairo::UserFontFace::TextToGlyphsData#clusters=,
@@ -28,7 +28,7 @@ Cairo::UserFontFace::TextToGlyphsData#need_backward?でわかりま
 
 --- Cairo::UserFontFace::TextToGlyphsData.new(need_glyphs, need_clusters, need_backward)
 
-     ((*Since 1.8*)): 新しく
+     ((*Since 1.7*)): 新しく
      Cairo::UserFontFace::TextToGlyphsDataオブジェクトを生成
      します。このオブジェクトは
      Cairo::UserFontFace#on_text_to_glyphsコールバック中で生
@@ -46,21 +46,21 @@ Cairo::UserFontFace::TextToGlyphsData#need_backward?でわかりま
 
 --- backward?
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: クラスタ対応情報が後ろ向きに進むなら
        (({true}))、そうでない場合は(({false}))
 
 --- backward=(backward)
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * backward: クラスタ対応情報が後ろ向きに進むかどうかの
        真偽値
 
 --- need_backward?
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: クラスタ対応情報が後ろ向きに進むかどうかを計
        算する必要があるなら(({true}))、そうでない場合は
@@ -68,42 +68,42 @@ Cairo::UserFontFace::TextToGlyphsData#need_backward?でわかりま
 
 --- clusters
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: (({[cluster, ...]}))
        * cluster: Cairo::TextClusterオブジェクト。
 
 --- clusters=(clusters)
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * clusters: (({[cluster, ...]}))
        * cluster: Cairo::TextClusterオブジェクト。
 
 --- need_clusters?
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: クラスタ対応情報を計算する必要があるなら
        (({true}))、そうでない場合は(({false}))。
 
 --- glyphs
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: (({[glyph, ...]}))
        * glyph: Cairo::Glyphオブジェクト。
 
 --- glyphs=(glyphs)
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * glyphs: (({[glyph, ...]}))
        * glyph: Cairo::Glyphオブジェクト。
 
 --- need_glyphs?
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: グリフを計算する必要があるなら(({true}))、そ
        うでない場合は(({false}))。

@@ -1,6 +1,6 @@
 = class Cairo::UserFontFace
 
-((*Since 1.8*)): ユーザが独自のフォントを使うためのフォント
+((*Since 1.7*)): ユーザが独自のフォントを使うためのフォント
 フェイス。
 
 on_XXXメソッドでコールバックを登録する方法と
@@ -36,7 +36,7 @@ render_glyph以外は定義しなくてもかまいません。
 
 --- Cairo::UserFontFace.new
 
-     ((*Since 1.8*)): 新しくCario::UserFontFaceオブジェクト
+     ((*Since 1.7*)): 新しくCario::UserFontFaceオブジェクト
      を生成します。
 
      オブジェクトを生成したら、on_XXXメソッドでコールバック
@@ -54,7 +54,7 @@ render_glyph以外は定義しなくてもかまいません。
 
 --- on_init {|scaled_font, context, font_extents| ...}
 
-     ((*Since 1.8*)): 拡大・縮小したフォントを初期化するコー
+     ((*Since 1.7*)): 拡大・縮小したフォントを初期化するコー
      ルバックを登録します。このコールバックは省略可能です。
 
      ((|context|))は呼び出し元では使われませんが、フォント空
@@ -94,7 +94,7 @@ render_glyph以外は定義しなくてもかまいません。
 
 --- on_render_glyph {|scaled_font, glyph, context, text_extents| ...}
 
-     ((*Since 1.8*)): グリフ描画コールバックを登録します。こ
+     ((*Since 1.7*)): グリフ描画コールバックを登録します。こ
      のコールバックが唯一必須のコールバックです。
 
      コードが((|glyph|))のグリフを((|context|))に描画してく
@@ -150,7 +150,7 @@ render_glyph以外は定義しなくてもかまいません。
 
 --- on_text_to_glyphs {|scaled_font, utf8, data| ...}
 
-     ((*Since 1.8*)): テキストをグリフに変換するコールバック
+     ((*Since 1.7*)): テキストをグリフに変換するコールバック
      を登録します。このコールバックは省略可能です。
 
      このコールバックはCairo::Context#show_textのときに使わ
@@ -204,7 +204,7 @@ render_glyph以外は定義しなくてもかまいません。
 
 --- on_unicode_to_glyph {|scaled_font, unicode| ...}
 
-     ((*Since 1.8*)): Unicodeからグリフへ変換するコールバッ
+     ((*Since 1.7*)): Unicodeからグリフへ変換するコールバッ
      クを登録します。このコールバックは省略可能です。
 
      このコールバックはCairo::Context#show_textで使われます。

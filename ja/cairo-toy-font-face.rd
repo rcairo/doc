@@ -1,6 +1,6 @@
 = class Cairo::ToyFontFace
 
-((*Since 1.8*)): おもちゃのような（少ない機能の）フォントフェイス。
+((*Since 1.7*)): おもちゃのような（少ない機能の）フォントフェイス。
 
 == Object Hierarchy
 
@@ -51,19 +51,19 @@
 
 --- family
 
-     ((*Since 1.8*)): ファミリー名を返します。
+     ((*Since 1.7*)): ファミリー名を返します。
 
      * Returns: ファミリー名。
 
 --- slant
 
-     ((*Since 1.8*)): 傾きを返します。
+     ((*Since 1.7*)): 傾きを返します。
 
      * Returns: 傾き（Cairo::FontSlant）
 
 --- weight
 
-     ((*Since 1.8*)): 重みを返します。
+     ((*Since 1.7*)): 重みを返します。
 
      * Returns: 傾き（Cairo::FontWeight）
 

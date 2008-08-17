@@ -304,7 +304,7 @@
 
 --- ==(other)
 
-     ((*Since rcairo 1.7*)): ((|other|))がCairo::Matrixオブ
+     ((*Since 1.7*)): ((|other|))がCairo::Matrixオブ
      ジェクトで、xx, yx, xy, yy, x0, y0それぞれが(({==}))だっ
      た場合に(({true}))を返します。
 

@@ -39,6 +39,11 @@
   * Cairo::HINT_STYLE_MEDIUM
   * Cairo::HINT_STYLE_NONE
   * Cairo::HINT_STYLE_SLIGHT
+  * Cairo::LCD_FILTER_DEFAULT
+  * Cairo::LCD_FILTER_FIR3
+  * Cairo::LCD_FILTER_FIR5
+  * Cairo::LCD_FILTER_INTRA_PIXEL
+  * Cairo::LCD_FILTER_NONE
   * Cairo::LINE_CAP_BUTT
   * Cairo::LINE_CAP_ROUND
   * Cairo::LINE_CAP_SQUARE
@@ -75,7 +80,9 @@
   * Cairo::SVG_VERSION_1_2
   * Cairo::VERSION
   * Cairo.bindings_version
+  * Cairo.exit_application
   * Cairo.normalize_const_name
+  * Cairo.satisfied_version?
   * Cairo::Antialias
   * Cairo::Antialias::DEFAULT
   * Cairo::Antialias::GRAY
@@ -504,6 +511,7 @@
   * Cairo::Context#curve_to
   * Cairo::Context#dash
   * Cairo::Context#dash_count
+  * Cairo::Context#destroy
   * Cairo::Context#device_to_user
   * Cairo::Context#device_to_user_distance
   * Cairo::Context#fill
@@ -523,7 +531,9 @@
   * Cairo::Context#glyph_path
   * Cairo::Context#group_target
   * Cairo::Context#has_current_point?
+  * Cairo::Context#has_show_text_glyphs?
   * Cairo::Context#have_current_point?
+  * Cairo::Context#have_show_text_glyphs?
   * Cairo::Context#identity_matrix
   * Cairo::Context#in_fill?
   * Cairo::Context#in_stroke?
@@ -586,6 +596,7 @@
   * Cairo::Context#show_glyphs
   * Cairo::Context#show_page
   * Cairo::Context#show_text
+  * Cairo::Context#show_text_glyphs
   * Cairo::Context#source
   * Cairo::Context#stroke
   * Cairo::Context#stroke_extents
@@ -632,11 +643,22 @@
   * Cairo::Filter::GOOD
   * Cairo::Filter::NEAREST
   * Cairo::FontExtents
+  * Cairo::FontExtents.new
   * Cairo::FontExtents#ascent
+  * Cairo::FontExtents#ascent=
   * Cairo::FontExtents#descent
+  * Cairo::FontExtents#descent=
   * Cairo::FontExtents#height
+  * Cairo::FontExtents#height=
   * Cairo::FontExtents#max_x_advance
+  * Cairo::FontExtents#max_x_advance=
   * Cairo::FontExtents#max_y_advance
+  * Cairo::FontExtents#max_y_advance=
+  * Cairo::FontExtents#set_ascent
+  * Cairo::FontExtents#set_descent
+  * Cairo::FontExtents#set_height
+  * Cairo::FontExtents#set_max_x_advance
+  * Cairo::FontExtents#set_max_y_advance
   * Cairo::FontExtents#to_s
   * Cairo::FontFace
   * Cairo::FontOptions
@@ -650,11 +672,14 @@
   * Cairo::FontOptions#hint_metrics=
   * Cairo::FontOptions#hint_style
   * Cairo::FontOptions#hint_style=
+  * Cairo::FontOptions#lcd_filter
+  * Cairo::FontOptions#lcd_filter=
   * Cairo::FontOptions#merge
   * Cairo::FontOptions#merge!
   * Cairo::FontOptions#set_antialias
   * Cairo::FontOptions#set_hint_metrics
   * Cairo::FontOptions#set_hint_style
+  * Cairo::FontOptions#set_lcd_filter
   * Cairo::FontOptions#set_subpixel_order
   * Cairo::FontOptions#subpixel_order
   * Cairo::FontOptions#subpixel_order=
@@ -663,6 +688,7 @@
   * Cairo::FontSlant::ITALIC
   * Cairo::FontSlant::NORMAL
   * Cairo::FontSlant::OBLIQUE
+  * Cairo::FontTypeMismatch
   * Cairo::FontWeight
   * Cairo::FontWeight::BOLD
   * Cairo::FontWeight::NORMAL
@@ -709,6 +735,7 @@
   * Cairo::ImageSurface#height
   * Cairo::ImageSurface#stride
   * Cairo::ImageSurface#width
+  * Cairo::InvalidClusters
   * Cairo::InvalidContentError
   * Cairo::InvalidDashError
   * Cairo::InvalidDscCommentError
@@ -718,10 +745,18 @@
   * Cairo::InvalidPathDataError
   * Cairo::InvalidPopGroupError
   * Cairo::InvalidRestoreError
+  * Cairo::InvalidSlant
   * Cairo::InvalidStatusError
   * Cairo::InvalidStrideError
   * Cairo::InvalidStringError
   * Cairo::InvalidVisualError
+  * Cairo::InvalidWeight
+  * Cairo::LCDFilter
+  * Cairo::LCDFilter::DEFAULT
+  * Cairo::LCDFilter::FIR3
+  * Cairo::LCDFilter::FIR5
+  * Cairo::LCDFilter::INTRA_PIXEL
+  * Cairo::LCDFilter::NONE
   * Cairo::LineCap
   * Cairo::LineCap::BUTT
   * Cairo::LineCap::ROUND
@@ -740,6 +775,7 @@
   * Cairo::Matrix.scale
   * Cairo::Matrix.translate
   * Cairo::Matrix#*
+  * Cairo::Matrix#==
   * Cairo::Matrix#clone
   * Cairo::Matrix#dup
   * Cairo::Matrix#identity!
@@ -776,6 +812,7 @@
   * Cairo::Matrix#yx=
   * Cairo::Matrix#yy
   * Cairo::Matrix#yy=
+  * Cairo::NegativeCount
   * Cairo::NoCurrentPointError
   * Cairo::NullPointerError
   * Cairo::Operator
@@ -1001,7 +1038,9 @@
   * Cairo::ScaledFont#font_matrix
   * Cairo::ScaledFont#font_options
   * Cairo::ScaledFont#glyph_extents
+  * Cairo::ScaledFont#scale_matrix
   * Cairo::ScaledFont#text_extents
+  * Cairo::ScaledFont#text_to_glyphs
   * Cairo::SolidPattern
   * Cairo::SolidPattern.new
   * Cairo::SolidPattern#color
@@ -1017,8 +1056,10 @@
   * Cairo::Surface#content
   * Cairo::Surface#copy_page
   * Cairo::Surface#create_similar
+  * Cairo::Surface#destroy
   * Cairo::Surface#device_offset
   * Cairo::Surface#dup
+  * Cairo::Surface#fallback_resolution
   * Cairo::Surface#finish
   * Cairo::Surface#flush
   * Cairo::Surface#font_options
@@ -1033,14 +1074,60 @@
   * Cairo::SurfacePattern#surface
   * Cairo::SurfaceTypeMismatchError
   * Cairo::TempFileError
+  * Cairo::TextCluster
+  * Cairo::TextCluster.new
+  * Cairo::TextCluster#num_bytes
+  * Cairo::TextCluster#num_bytes=
+  * Cairo::TextCluster#num_glyphs
+  * Cairo::TextCluster#num_glyphs=
+  * Cairo::TextCluster#set_num_bytes
+  * Cairo::TextCluster#set_num_glyphs
+  * Cairo::TextCluster#to_s
   * Cairo::TextExtents
+  * Cairo::TextExtents.new
   * Cairo::TextExtents#height
+  * Cairo::TextExtents#height=
+  * Cairo::TextExtents#set_height
+  * Cairo::TextExtents#set_width
+  * Cairo::TextExtents#set_x_advance
+  * Cairo::TextExtents#set_x_bearing
+  * Cairo::TextExtents#set_y_advance
+  * Cairo::TextExtents#set_y_bearing
   * Cairo::TextExtents#to_s
   * Cairo::TextExtents#width
+  * Cairo::TextExtents#width=
   * Cairo::TextExtents#x_advance
+  * Cairo::TextExtents#x_advance=
   * Cairo::TextExtents#x_bearing
+  * Cairo::TextExtents#x_bearing=
   * Cairo::TextExtents#y_advance
+  * Cairo::TextExtents#y_advance=
   * Cairo::TextExtents#y_bearing
+  * Cairo::TextExtents#y_bearing=
+  * Cairo::ToyFontFace
+  * Cairo::ToyFontFace.new
+  * Cairo::ToyFontFace#family
+  * Cairo::ToyFontFace#slant
+  * Cairo::ToyFontFace#weight
+  * Cairo::UserFontError
+  * Cairo::UserFontFace
+  * Cairo::UserFontFace.new
+  * Cairo::UserFontFace#on_init
+  * Cairo::UserFontFace#on_render_glyph
+  * Cairo::UserFontFace#on_text_to_glyphs
+  * Cairo::UserFontFace#on_unicode_to_glyph
+  * Cairo::UserFontFace::TextToGlyphsData
+  * Cairo::UserFontFace::TextToGlyphsData.new
+  * Cairo::UserFontFace::TextToGlyphsData#backward=
+  * Cairo::UserFontFace::TextToGlyphsData#backward?
+  * Cairo::UserFontFace::TextToGlyphsData#clusters
+  * Cairo::UserFontFace::TextToGlyphsData#clusters=
+  * Cairo::UserFontFace::TextToGlyphsData#glyphs
+  * Cairo::UserFontFace::TextToGlyphsData#glyphs=
+  * Cairo::UserFontFace::TextToGlyphsData#need_backward?
+  * Cairo::UserFontFace::TextToGlyphsData#need_clusters?
+  * Cairo::UserFontFace::TextToGlyphsData#need_glyphs?
+  * Cairo::UserFontImmutable
   * Cairo::Win32PrintingSurface
   * Cairo::Win32PrintingSurface.new
   * Cairo::Win32PrintingSurface#hdc

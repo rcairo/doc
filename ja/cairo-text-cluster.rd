@@ -1,6 +1,6 @@
 = class Cairo::TextCluster
 
-((*Since 1.8*)): テキストクラスタ情報を持ちます。テキストクラ
+((*Since 1.7*)): テキストクラスタ情報を持ちます。テキストクラ
 スタとは、複数のグリフと対応するUTF-8テキストとの最小の対応で
 す。それぞれをグリフ数とテキストのバイト数として持っています。
 
@@ -22,7 +22,7 @@ Cairo::Context#show_text_glyphsを見てください。
 
 --- Cairo::TextCluster.new(num_bytes, num_glyphs)
 
-     ((*Since 1.8*)): テキストクラスタを生成します。
+     ((*Since 1.7*)): テキストクラスタを生成します。
 
      * num_bytes: このクラスタが含んでいるUTF-8テキストのバ
        イト数。
@@ -33,33 +33,33 @@ Cairo::Context#show_text_glyphsを見てください。
 
 --- num_bytes
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: テキストのバイト数。
 
 --- num_bytes=(num_bytes)
 --- set_num_bytes(num_bytes)
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * num_bytes: テキストのバイト数
 
 --- num_glyphs
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: グリフ数。
 
 --- num_glyphs=(num_glyphs)
 --- set_num_glyphs(num_glyphs)
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * num_glyphs: グリフ数。
 
 --- to_s
 
-     ((*Since 1.8*))
+     ((*Since 1.7*))
 
      * Returns: Cairo::TextClusterの文字列表現。
 

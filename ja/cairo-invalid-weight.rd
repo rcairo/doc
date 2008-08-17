@@ -1,6 +1,6 @@
 = class Cairo::InvalidWeight
 
-((*Since 1.8*)): 入力したCairo::FontWeightが不正な値のときに
+((*Since 1.7*)): 入力したCairo::FontWeightが不正な値のときに
 発生します。
 
 == Object Hierarchy

@@ -151,7 +151,7 @@ Cairo::FontOptionsのそれぞれの機能は、Cairo::FontOptions#antialias
 
 --- lcd_filter
 
-     ((*Since 1.8*)): 使用するLCDフィルタを返します。詳しくは
+     ((*Since 1.7*)): 使用するLCDフィルタを返します。詳しくは
      Cairo::LCDFilterを見てください。
 
      * Returns: Cairo::LCDFilterに定義されている定数のどれか
@@ -159,7 +159,7 @@ Cairo::FontOptionsのそれぞれの機能は、Cairo::FontOptions#antialias
 --- lcd_filter=(lcd_filter)
 --- set_lcd_filter(lcd_filter)
 
-     ((*Since 1.8*)): 使用するLCDフィルタを指定します。LCDフィ
+     ((*Since 1.7*)): 使用するLCDフィルタを指定します。LCDフィ
      ルタはCairo::Antialias::SUBPIXELアンチエイリアスモード
      で描画する時にどのようにピクセルをフィルタするかを指定
      します。詳しくはCairo::LCDFilterを見てください。

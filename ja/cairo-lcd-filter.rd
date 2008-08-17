@@ -1,6 +1,6 @@
 = module Cairo::LCDFilter
 
-((*Since 1.8*)): Cairo::LCDFilterに定義されている定数は、
+((*Since 1.7*)): Cairo::LCDFilterに定義されている定数は、
 Cairo::Antialias::SUBPIXELアンチエイリアスモードでLCD（液晶ディ
 スプレイ）に最適化されたビットマップを生成する時に適用するロー
 パスフィルタ（low-pass filter）を指定します。

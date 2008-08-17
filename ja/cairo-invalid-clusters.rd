@@ -1,6 +1,6 @@
 = class Cairo::InvalidClusters
 
-((*Since 1.8*)): 指定したクラスタが一緒に指定したテキストと
+((*Since 1.7*)): 指定したクラスタが一緒に指定したテキストと
 グリフの配列を表現していない場合に発生します。
 
 == Object Hierarchy

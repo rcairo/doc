@@ -1,6 +1,6 @@
 = class Cairo::NegativeCount
 
-((*Since 1.8*)): 負の数を使えない場所で負の数を使った場合に発
+((*Since 1.7*)): 負の数を使えない場所で負の数を使った場合に発
 生します。
 
 == Object Hierarchy

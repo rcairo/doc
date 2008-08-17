@@ -1,6 +1,6 @@
 = class Cairo::InvalidSlant
 
-((*Since 1.8*)): 入力したCairo::FontSlantが不正な値のときに
+((*Since 1.7*)): 入力したCairo::FontSlantが不正な値のときに
 発生します。
 
 == Object Hierarchy

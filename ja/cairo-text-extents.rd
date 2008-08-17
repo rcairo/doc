@@ -17,7 +17,7 @@
 
 --- Cairo::TextExtents.new
 
-     ((*Since rcairo 1.7*)): 新しくCairo::TextExtentsオブジェ
+     ((*Since 1.7*)): 新しくCairo::TextExtentsオブジェ
      クトを生成します。以下のように値が設定されています。
        * x_bearing: 0.0
        * y_bearing: -1.0
@@ -39,7 +39,7 @@
 --- height=(height)
 --- set_height(height)
 
-     ((*Since rcairo 1.7*))
+     ((*Since 1.7*))
 
      * height: 高さ
 
@@ -52,7 +52,7 @@
 --- width=(width)
 --- set_width(width)
 
-     ((*Since rcairo 1.7*))
+     ((*Since 1.7*))
 
      * width: 幅
 
@@ -65,7 +65,7 @@
 --- x_advance=(x_advance)
 --- set_x_advance(x_advance)
 
-     ((*Since rcairo 1.7*))
+     ((*Since 1.7*))
 
      * x_advance: X方向に進める距離
 
@@ -80,7 +80,7 @@
 --- y_advance=(y_advance)
 --- set_y_advance(y_advance)
 
-     ((*Since rcairo 1.7*))
+     ((*Since 1.7*))
 
      * y_advance: Y方向に進める距離
 
@@ -95,7 +95,7 @@
 --- x_bearing=(x_bearing)
 --- set_x_bearing(x_bearing)
 
-     ((*Since rcairo 1.7*))
+     ((*Since 1.7*))
 
      * x_bearing: 基点からの水平方向の距離
 
@@ -110,7 +110,7 @@
 --- y_bearing=(y_bearing)
 --- set_y_bearing(y_bearing)
 
-     ((*Since rcairo 1.7*))
+     ((*Since 1.7*))
 
      * y_bearing: 基点からの垂直方向の距離
 

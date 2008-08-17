@@ -62,7 +62,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- Cairo::Context.new(target) {|context| ...}
 
-     ((*Since 1.8*))ブロック無しでCairo::Context.newを呼び出
+     ((*Since 1.7*))ブロック無しでCairo::Context.newを呼び出
      した場合と異なるのは、ブロックが終了した時点で
      Cairo::Context#destroyが呼ばれることです。
 
@@ -1560,7 +1560,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- destroy
 
-     ((*Since 1.8*)): Cairo::Contextを破棄します。この
+     ((*Since 1.7*)): Cairo::Contextを破棄します。この
      Cairo::Contextはもう使えません。
 
      通常はRubyのGC時に破棄されるので、このメソッドを意識す
@@ -1575,7 +1575,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 --- has_show_text_glyphs?
 --- have_show_text_glyphs?
 
-     ((*Since 1.8*)): 対象のサーフェスが
+     ((*Since 1.7*)): 対象のサーフェスが
      Cairo::Context#show_text_glyphsをサポートしているかどう
      かを返します。つまり、Cairo::Context#show_text_glyphsが
      指定したテキストとクラスタデータを実際に使うかどうかで
@@ -1595,7 +1595,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
 
 --- show_text_glyphs(utf8, glyphs, clusters, backward)
 
-     ((*Since 1.8*)): Cairo::Context#show_glyphsのような表示
+     ((*Since 1.7*)): Cairo::Context#show_glyphsのような表示
      効果があります。もし、対象のサーフェスが対応していれば、
      出力に表示するグリフのために、指定されたテキストと埋め
      込まれたテキストへのクラスタ対応を使います。

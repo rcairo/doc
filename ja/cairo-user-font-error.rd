@@ -1,6 +1,6 @@
 = class Cairo::UserFontError
 
-((*Since 1.8*)): Cairo::UserFontFaceのコールバック中でエラー
+((*Since 1.7*)): Cairo::UserFontFaceのコールバック中でエラー
 が起こったときはこの例外を発生させてください。
 
 == Object Hierarchy

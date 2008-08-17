@@ -1,6 +1,6 @@
 = class Cairo::UserFontImmutable
 
-((*Since 1.8*)): ユーザフォントが変更不可のときに発生します。
+((*Since 1.7*)): ユーザフォントが変更不可のときに発生します。
 
 == Object Hierarchy
 

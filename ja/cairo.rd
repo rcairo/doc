@@ -21,7 +21,7 @@
 
 --- Cairo.exit_application(exception, exit_status)
 
-     ((*Since rcairo 1.7*)): C言語レベルからのコールバックか
+     ((*Since 1.7*)): C言語レベルからのコールバックか
      ら実行されるRubyで実行する処理（例えば
      Cairo::UserFontFace#init）の最中に例外が発生した場合は、
      それ以降の処理を安全に継続できる保証がありません。その
@@ -37,7 +37,7 @@
 
 --- Cairo.satisfied_version?(major, minor, micro=nil)
 
-     ((*Since rcairo 1.7*)): ビルドしたcairoのバージョンが指
+     ((*Since 1.7*)): ビルドしたcairoのバージョンが指
      定したバージョン以上かどうかを返します。
 
      * major: メジャーバージョン

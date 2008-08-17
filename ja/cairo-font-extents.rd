@@ -21,7 +21,7 @@
 
 --- Cairo::FontExtents.new
 
-     ((*Since rcairo 1.7*)): 新しくCairo::FontExtentsオブジェ
+     ((*Since 1.7*)): 新しくCairo::FontExtentsオブジェ
      クトを生成します。以下のように値が設定されています。
        * ascent: 1.0
        * descent: 0.0
@@ -46,7 +46,7 @@
 --- ascent=(ascent)
 --- set_ascent(ascent)
 
-    ((*Since rcairo 1.7*))
+    ((*Since 1.7*))
 
      * ascent: フォントがベースラインより上に広げる距離。
 
@@ -65,7 +65,7 @@
 --- descent=(descent)
 --- set_descent(descent)
 
-    ((*Since rcairo 1.7*))
+    ((*Since 1.7*))
 
      * descent: フォントがベースラインより下に広げる距離。
 
@@ -83,7 +83,7 @@
 --- height=(height)
 --- set_height(height)
 
-    ((*Since rcairo 1.7*))
+    ((*Since 1.7*))
 
      * height: 高さ
 
@@ -97,7 +97,7 @@
 --- max_x_advance=(max_x_advance)
 --- set_max_x_advance(max_x_advance)
 
-    ((*Since rcairo 1.7*))
+    ((*Since 1.7*))
 
      * max_x_advance: X方向の最大の距離。
 
@@ -112,7 +112,7 @@
 --- max_y_advance=(max_y_advance)
 --- set_max_y_advance(max_y_advance)
 
-    ((*Since rcairo 1.7*))
+    ((*Since 1.7*))
 
      * max_y_advance: Y方向の最大の距離。
 
