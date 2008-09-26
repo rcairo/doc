@@ -116,5 +116,5 @@ Cairo::UserFontFace::TextToGlyphsData#need_backward?でわかりま
 
 == ChangeLog
 
-  * 2008-09-26: kou: backward -> cluster_flags
+  * 2008-09-26: kou: 1.8.0対応。backward -> cluster_flags
   * 2008-08-17: kou: スタート。

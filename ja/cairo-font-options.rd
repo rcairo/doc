@@ -149,35 +149,13 @@ Cairo::FontOptionsのそれぞれの機能は、Cairo::FontOptions#antialias
        ちろん、Cairo::SubpixelOrderに定義されている定数を指定
        することもできます。
 
---- lcd_filter
-
-     ((*Since 1.7*)): 使用するLCDフィルタを返します。詳しくは
-     Cairo::LCDFilterを見てください。
-
-     * Returns: Cairo::LCDFilterに定義されている定数のどれか
-
---- lcd_filter=(lcd_filter)
---- set_lcd_filter(lcd_filter)
-
-     ((*Since 1.7*)): 使用するLCDフィルタを指定します。LCDフィ
-     ルタはCairo::Antialias::SUBPIXELアンチエイリアスモード
-     で描画する時にどのようにピクセルをフィルタするかを指定
-     します。詳しくはCairo::LCDFilterを見てください。
-
-     * lcd_filter: :defaultや:noneなどCairo::LCDFilterに定義
-       されている定数名と同じもの。大文字小文字は関
-       係ありません。また、シンボルではなくて文字列で
-       "default"のように指定することもできます。もちろん、
-       Cairo::LCDFilterに定義されている定数を指定するこ
-       ともできます。
-
 == See Also
 
   * Index
   * Cairo::Antialias
-  * Cairo::LCDFilter
 
 == ChangeLog
 
+  * 2008-08-16: kou: 1.8.0対応。LCDFilter削除。
   * 2008-08-16: kou: 1.7.4対応。
   * 2007-05-24: kou: スタート。
