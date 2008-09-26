@@ -13,11 +13,11 @@
 
 == Instance Methods
 
---- backward=
+--- cluster_flags
 
      * Returns: self: ((*FIXME*))
 
---- backward?
+--- cluster_flags=
 
      * Returns: self: ((*FIXME*))
 
@@ -37,7 +37,7 @@
 
      * Returns: self: ((*FIXME*))
 
---- need_backward?
+--- need_cluster_flags?
 
      * Returns: self: ((*FIXME*))
 
@@ -46,6 +46,10 @@
      * Returns: self: ((*FIXME*))
 
 --- need_glyphs?
+
+     * Returns: self: ((*FIXME*))
+
+--- set_cluster_flags
 
      * Returns: self: ((*FIXME*))
 

@@ -49,14 +49,6 @@
 
      * Returns: self: ((*FIXME*))
 
---- lcd_filter
-
-     * Returns: self: ((*FIXME*))
-
---- lcd_filter=
-
-     * Returns: self: ((*FIXME*))
-
 --- merge
 
      * Returns: self: ((*FIXME*))
@@ -74,10 +66,6 @@
      * Returns: self: ((*FIXME*))
 
 --- set_hint_style
-
-     * Returns: self: ((*FIXME*))
-
---- set_lcd_filter
 
      * Returns: self: ((*FIXME*))
 

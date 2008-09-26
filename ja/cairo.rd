@@ -147,11 +147,7 @@
      現在rcairoと一緒に使用しているcairoのバージョンを示す
      (({[major, minor, micro]}))という配列です。
 
---- LCD_FILTER_DEFAULT
---- LCD_FILTER_FIR3
---- LCD_FILTER_FIR5
---- LCD_FILTER_INTRA_PIXEL
---- LCD_FILTER_NONE
+--- TEXT_CLUSTER_FLAG_BACKWARD
 
 == See Also
 

@@ -174,15 +174,7 @@
 
      * Returns: self: ((*FIXME*))
 
---- has_show_text_glyphs?
-
-     * Returns: self: ((*FIXME*))
-
 --- have_current_point?
-
-     * Returns: self: ((*FIXME*))
-
---- have_show_text_glyphs?
 
      * Returns: self: ((*FIXME*))
 

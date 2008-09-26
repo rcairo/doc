@@ -44,27 +44,26 @@ Cairo::UserFontFace::TextToGlyphsData#need_backward?でわかりま
 
 == Instance Methods
 
---- backward?
+--- cluster_flags
 
-     ((*Since 1.7*))
+     ((*Since 1.8*))
 
-     * Returns: クラスタ対応情報が後ろ向きに進むなら
-       (({true}))、そうでない場合は(({false}))
+     * Returns: クラスタ対応情報のプロパティ。
+       （Cairo::TextClusterFlag）
 
---- backward=(backward)
+--- cluster_flags=(flags)
 
-     ((*Since 1.7*))
+     ((*Since 1.8*))
 
-     * backward: クラスタ対応情報が後ろ向きに進むかどうかの
-       真偽値
+     * flags: クラスタ対応情報のプロパティ
+       （Cairo::TextClusterFlag）
 
---- need_backward?
+--- need_cluster_flags?
 
-     ((*Since 1.7*))
+     ((*Since 1.8*))
 
-     * Returns: クラスタ対応情報が後ろ向きに進むかどうかを計
-       算する必要があるなら(({true}))、そうでない場合は
-       (({false}))。
+     * Returns: クラスタ対応情報のプロパティを計算する必要が
+       あるなら(({true}))、そうでない場合は(({false}))。
 
 --- clusters
 
@@ -113,7 +112,9 @@ Cairo::UserFontFace::TextToGlyphsData#need_backward?でわかりま
   * Cairo::UserFontFace#on_text_to_glyphs
   * Cairo::Glyph
   * Cairo::TextCluster
+  * Cairo::TextClusterFlag
 
 == ChangeLog
 
+  * 2008-09-26: kou: backward -> cluster_flags
   * 2008-08-17: kou: スタート。
