@@ -49,10 +49,6 @@
 
      * Returns: self: ((*FIXME*))
 
---- set_cluster_flags
-
-     * Returns: self: ((*FIXME*))
-
 == See Also
 
 == ChangeLog

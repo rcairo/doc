@@ -1114,7 +1114,6 @@
   * Cairo::UserFontFace::TextToGlyphsData#need_cluster_flags?
   * Cairo::UserFontFace::TextToGlyphsData#need_clusters?
   * Cairo::UserFontFace::TextToGlyphsData#need_glyphs?
-  * Cairo::UserFontFace::TextToGlyphsData#set_cluster_flags
   * Cairo::UserFontImmutable
   * Cairo::Win32PrintingSurface
   * Cairo::Win32PrintingSurface.new
