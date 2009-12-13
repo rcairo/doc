@@ -668,14 +668,11 @@
   * Cairo::FontOptions#hint_metrics=
   * Cairo::FontOptions#hint_style
   * Cairo::FontOptions#hint_style=
-  * Cairo::FontOptions#lcd_filter
-  * Cairo::FontOptions#lcd_filter=
   * Cairo::FontOptions#merge
   * Cairo::FontOptions#merge!
   * Cairo::FontOptions#set_antialias
   * Cairo::FontOptions#set_hint_metrics
   * Cairo::FontOptions#set_hint_style
-  * Cairo::FontOptions#set_lcd_filter
   * Cairo::FontOptions#set_subpixel_order
   * Cairo::FontOptions#subpixel_order
   * Cairo::FontOptions#subpixel_order=
