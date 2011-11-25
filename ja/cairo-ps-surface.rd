@@ -25,7 +25,7 @@ PostScriptを生成するサーフェスです。
      ((|filename|))のファイルに出力されます。
 
      各ページのサイズは変更できます。
-     Cairoi::PSSurface#set_sizeを見てください。
+     Cairo::PSSurface#set_sizeを見てください。
 
      * stream: (({write}))メソッドを持つオブジェクト。
      * filename: 結果を出力するファイル名。
