@@ -1229,7 +1229,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
     在の変換行列を変更してもソースパターンには影響はないとい
     うことです。Cairo::Pattern#set_matrixを見てください。
 
-     * source: 今後の描画操作で仕様するCairo::Patternオブジェ
+     * source: 今後の描画操作で使用するCairo::Patternオブジェ
        クト。
 
 --- set_source_rgb(red, green, blue)
