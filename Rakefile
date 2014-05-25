@@ -102,3 +102,16 @@ namespace :html do
     end
   end
 end
+
+# experimental
+desc "Deploy to GitHub pages"
+task :deploy do
+  Dir.chdir(dest_dir) do
+    system("git", "init") unless File.exist?(".git")
+    system("git", "remote", "add", "working", "git@github.com:rcairo/doc.git")
+    system("git", "checkout", "-b", "gh-pages")
+    system("git", "add", "-A")
+    system("git", "commit", "-m", "Deploy task")
+    system("git", "push", "working", "gh-pages", "--force")
+  end
+end
