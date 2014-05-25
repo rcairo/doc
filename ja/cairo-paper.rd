@@ -253,93 +253,203 @@ cairoにはないrcairoの拡張です。
 
      A10横置きの用紙
 
---- B0
+--- ISO_B0
 
-     B0の用紙
+     ISO B0の用紙
+
+--- ISO_B0_LANDSCAPE
+
+     ISO B0横置きの用紙
+
+--- ISO_B1
+
+     ISO B1の用紙
+
+--- ISO_B1_LANDSCAPE
+
+     ISO B1横置きの用紙
+
+--- ISO_B2
+
+     ISO B2の用紙
+
+--- ISO_B2_LANDSCAPE
+
+     ISO B2横置きの用紙
+
+--- ISO_B3
+
+     ISO B3の用紙
+
+--- ISO_B3_LANDSCAPE
+
+     ISO B3横置きの用紙
+
+--- ISO_B4
+
+     ISO B4の用紙
+
+--- ISO_B4_LANDSCAPE
+
+     ISO B4横置きの用紙
+
+--- ISO_B5
+
+     ISO B5の用紙
+
+--- ISO_B5_LANDSCAPE
+
+     ISO B5横置きの用紙
+
+--- ISO_B6
+
+     ISO B6の用紙
+
+--- ISO_B6_LANDSCAPE
+
+     ISO B6横置きの用紙
+
+--- ISO_B7
+
+     ISO B7の用紙
+
+--- ISO_B7_LANDSCAPE
+
+     ISO B7横置きの用紙
+
+--- ISO_B8
+
+     ISO B8の用紙
+
+--- ISO_B8_LANDSCAPE
+
+     ISO B8横置きの用紙
+
+--- ISO_B9
+
+     ISO B9の用紙
+
+--- ISO_B9_LANDSCAPE
+
+     ISO B9横置きの用紙
+
+--- ISO_B10
+
+     ISO B10の用紙
+
+--- ISO_B10_LANDSCAPE
+
+     ISO B10横置きの用紙
+
+--- B0
+--- JIS_B0
+
+     JIS B0の用紙
 
 --- B0_LANDSCAPE
+--- JIS_B0_LANDSCAPE
 
-     B0横置きの用紙
+     JIS B0横置きの用紙
 
 --- B1
+--- JIS_B1
 
-     B1の用紙
+     JIS B1の用紙
 
 --- B1_LANDSCAPE
+--- JIS_B1_LANDSCAPE
 
-     B1横置きの用紙
+     JIS B1横置きの用紙
 
 --- B2
+--- JIS_B2
 
-     B2の用紙
+     JIS B2の用紙
 
 --- B2_LANDSCAPE
+--- JIS_B2_LANDSCAPE
 
-     B2横置きの用紙
+     JIS B2横置きの用紙
 
 --- B3
+--- JIS_B3
 
-     B3の用紙
+     JIS B3の用紙
 
 --- B3_LANDSCAPE
+--- JIS_B3_LANDSCAPE
 
-     B3横置きの用紙
+     JIS B3横置きの用紙
 
 --- B4
+--- JIS_B4
 
-     B4の用紙
+     JIS B4の用紙
 
 --- B4_LANDSCAPE
+--- JIS_B4_LANDSCAPE
 
-     B4横置きの用紙
+     JIS B4横置きの用紙
 
 --- B5
+--- JIS_B5
 
-     B5の用紙
+     JIS B5の用紙
 
 --- B5_LANDSCAPE
+--- JIS_B5_LANDSCAPE
 
-     B5横置きの用紙
+     JIS B5横置きの用紙
 
 --- B6
+--- JIS_B6
 
-     B6の用紙
+     JIS B6の用紙
 
 --- B6_LANDSCAPE
+--- JIS_B6_LANDSCAPE
 
-     B6横置きの用紙
+     JIS B6横置きの用紙
 
 --- B7
+--- JIS_B7
 
-     B7の用紙
+     JIS B7の用紙
 
 --- B7_LANDSCAPE
+--- JIS_B7_LANDSCAPE
 
-     B7横置きの用紙
+     JIS B7横置きの用紙
 
 --- B8
+--- JIS_B8
 
-     B8の用紙
+     JIS B8の用紙
 
 --- B8_LANDSCAPE
+--- JIS_B8_LANDSCAPE
 
-     B8横置きの用紙
+     JIS B8横置きの用紙
 
 --- B9
+--- JIS_B9
 
-     B9の用紙
+     JIS B9の用紙
 
 --- B9_LANDSCAPE
+--- JIS_B9_LANDSCAPE
 
-     B9横置きの用紙
+     JIS B9横置きの用紙
 
 --- B10
+--- JIS_B10
 
-     B10の用紙
+     JIS B10の用紙
 
 --- B10_LANDSCAPE
+--- JIS_B10_LANDSCAPE
 
-     B10横置きの用紙
+     JIS B10横置きの用紙
 
 --- JAPANESE_POSTCARD
 
