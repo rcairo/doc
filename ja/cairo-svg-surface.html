@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::SVGSurfaceクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::SVGSurfaceクラス</a></h1><!-- RDLabel: "Cairo::SVGSurfaceクラス" -->
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-surface.html">Cairo::Surface</a>
+<ul>
+<li>Cairo::SVGSurface</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::SVGSurface.new(<var>stream</var>, <var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "Cairo::SVGSurface.new" -->
+<dt><a name="label-4" id="label-4"><code>Cairo::SVGSurface.new(<var>filename</var>, <var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "Cairo::SVGSurface.new" -->
+<dd>
+<p>ポイントで指定されたサイズのSVG用サーフェスを生成します。</p>
+<p>第1引数に<code>write</code>メソッドを持ったオブジェクトを指定
+した場合はSVG形式のデータが順次<code>stream.write</code>で書き
+出されます。</p>
+<p><code>write</code>メソッドを持っていない場合はファイル名として
+扱われます。SVG形式のデータはファイル名<var>filename</var>の
+ファイルに出力されます。</p>
+<ul>
+<li>stream: <code>write</code>メソッドを持つオブジェクト。</li>
+<li>filename: 結果を出力するファイル名。</li>
+<li>width_in_points: ポイントで指定した幅。（1ポイント =
+       1/72.0インチ）</li>
+<li>height_in_points: ポイントで指定した高さ。（1ポイント =
+       1/72.0インチ）</li>
+<li>戻り値: 生成したCairo::SVGSurfaceオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-5" id="label-5"><code>Cairo::SVGSurface.version_to_string(<var>version</var>)</code></a></dt><!-- RDLabel: "Cairo::SVGSurface.version_to_string" -->
+<dd>
+<var>version</var>の文字列表現を返します。
+<ul>
+<li>version: "1_1"や"1_2"などCairo::SVGVersionに定義
+       されている定数名から「VERSION_」をのぞいたもの。"_"の
+       代わりに"."を使って"1.1"や"1.2"と書くともできます。も
+       ちろん、<a href="cairo.html">Cairo</a>::SVGVersionに定義されている定数を指定す
+       ることもできます。</li>
+<li>戻り値: <var>version</var>の文字列表現</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>Cairo::SVGSurface.versions</code></a></dt><!-- RDLabel: "Cairo::SVGSurface.versions" -->
+<dd>
+サポートしているバージョンのリストを返します。
+<ul>
+<li>戻り値: サポートしているバージョンの配列</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>Cairo::SVGSurface.versions_as_string</code></a></dt><!-- RDLabel: "Cairo::SVGSurface.versions_as_string" -->
+<dd>
+サポートしているバージョンの文字列表現のリストを返しま
+す。
+<ul>
+<li>戻り値: サポートしているバージョンの文字列表現の配列</li>
+</ul></dd>
+</dl>
+<h2><a name="label-8" id="label-8">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-9" id="label-9"><code>restrict_to_version(<var>version</var>)</code></a></dt><!-- RDLabel: "restrict_to_version" -->
+<dd>
+<p>生成するSVGファイルのバージョンを<var>version</var>に制限し
+ます。</p>
+<p>このメソッドはすべての描画操作の前にだけ呼び出すべきで
+す。サーフェスを作ってすぐに呼び出すのが簡単な方法です。</p>
+<ul>
+<li>version: "1_1"や"1_2"などCairo::SVGVersionに定義
+       されている定数名から「VERSION_」をのぞいたもの。"_"の
+       代わりに"."を使って"1.1"や"1.2"と書くともできます。も
+       ちろん、<a href="cairo.html">Cairo</a>::SVGVersionに定義されている定数を指定す
+       ることもできます。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-10" id="label-10">定数</a></h2><!-- RDLabel: "定数" -->
+<dl>
+<dt><a name="label-11" id="label-11"><code>VERSION_1_1</code></a></dt><!-- RDLabel: "VERSION_1_1" -->
+<dt><a name="label-12" id="label-12"><code>VERSION_1_2</code></a></dt><!-- RDLabel: "VERSION_1_2" -->
+</dl>
+<h2><a name="label-13" id="label-13">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-14" id="label-14">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-23: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

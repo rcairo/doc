@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Color::CMYKクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Color::CMYKクラス</a></h1><!-- RDLabel: "Cairo::Color::CMYKクラス" -->
+<p><em>Since 1.5?</em>: CMYK（シアン、マゼンタ、黄色、キー・プレー
+ト）で色を表現します。</p>
+<p>cairoにはないrcairoでの拡張です。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-color-base.html">Cairo::Color::Base</a>
+<ul>
+<li>Cairo::Color::CMYK</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Color::CMYK.new(<var>c</var>, <var>m</var>, <var>y</var>, <var>k</var>, <var>a</var>=<var>1</var>.<var>0</var>)</code></a></dt><!-- RDLabel: "Cairo::Color::CMYK.new" -->
+<dd>
+CMYKで表現した色を生成します。
+<ul>
+<li>c: シアン</li>
+<li>m: マゼンタ</li>
+<li>y: 黄色</li>
+<li>k: キー・プレート（黒）</li>
+<li>a: アルファ値</li>
+<li>戻り値: 生成した色</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>cyan</code></a></dt><!-- RDLabel: "cyan" -->
+<dt><a name="label-6" id="label-6"><code>c</code></a></dt><!-- RDLabel: "c" -->
+<dd>
+シアンの値を返します。
+<ul>
+<li>戻り値: シアンの値</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>cyan=(<var>value</var>)</code></a></dt><!-- RDLabel: "cyan=" -->
+<dt><a name="label-8" id="label-8"><code>c=(<var>value</var>)</code></a></dt><!-- RDLabel: "c=" -->
+<dd>
+シアンの値を設定します。
+<ul>
+<li>value: 新しいシアンの値</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>magenta</code></a></dt><!-- RDLabel: "magenta" -->
+<dt><a name="label-10" id="label-10"><code>m</code></a></dt><!-- RDLabel: "m" -->
+<dd>
+マゼンタの値を返します。
+<ul>
+<li>戻り値: マゼンタの値</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>magenta=(<var>value</var>)</code></a></dt><!-- RDLabel: "magenta=" -->
+<dt><a name="label-12" id="label-12"><code>m=(<var>value</var>)</code></a></dt><!-- RDLabel: "m=" -->
+<dd>
+シアンの値を設定します。
+<ul>
+<li>value: 新しいマゼンタの値</li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>yellow</code></a></dt><!-- RDLabel: "yellow" -->
+<dt><a name="label-14" id="label-14"><code>y</code></a></dt><!-- RDLabel: "y" -->
+<dd>
+黄色の値を返します。
+<ul>
+<li>戻り値: 黄色の値</li>
+</ul></dd>
+<dt><a name="label-15" id="label-15"><code>yellow=(<var>value</var>)</code></a></dt><!-- RDLabel: "yellow=" -->
+<dt><a name="label-16" id="label-16"><code>y=(<var>value</var>)</code></a></dt><!-- RDLabel: "y=" -->
+<dd>
+黄色の値を設定します。
+<ul>
+<li>value: 新しい黄色の値</li>
+</ul></dd>
+<dt><a name="label-17" id="label-17"><code>key_plate</code></a></dt><!-- RDLabel: "key_plate" -->
+<dt><a name="label-18" id="label-18"><code>k</code></a></dt><!-- RDLabel: "k" -->
+<dd>
+キー・プレートの値を返します。
+<ul>
+<li>戻り値: キー・プレートの値</li>
+</ul></dd>
+<dt><a name="label-19" id="label-19"><code>key_plate=(<var>value</var>)</code></a></dt><!-- RDLabel: "key_plate=" -->
+<dt><a name="label-20" id="label-20"><code>k=(<var>value</var>)</code></a></dt><!-- RDLabel: "k=" -->
+<dd>
+キー・プレートの値を設定します。
+<ul>
+<li>value: 新しいキー・プレートの値</li>
+</ul></dd>
+<dt><a name="label-21" id="label-21"><code>to_a</code></a></dt><!-- RDLabel: "to_a" -->
+<dt><a name="label-22" id="label-22"><code>to_ary</code></a></dt><!-- RDLabel: "to_ary" -->
+<dd>
+[cyan, magenta, yellow, key_plate, alpha]を返します。
+<ul>
+<li>戻り値: シアン、マゼンタ、黄色、キー・プレート、アル
+       ファ値の配列</li>
+</ul></dd>
+<dt><a name="label-23" id="label-23"><code>to_cmyk</code></a></dt><!-- RDLabel: "to_cmyk" -->
+<dd>
+複製を返します。
+<ul>
+<li>戻り値: 自分自身の複製</li>
+</ul></dd>
+<dt><a name="label-24" id="label-24"><code>to_hsv</code></a></dt><!-- RDLabel: "to_hsv" -->
+<dd>
+HSV形式に変換した色を返します。
+<ul>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::HSVオブジェクト</li>
+</ul></dd>
+<dt><a name="label-25" id="label-25"><code>to_rgb</code></a></dt><!-- RDLabel: "to_rgb" -->
+<dd>
+RGB形式に変換した色を返します。
+<ul>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+</ul></dd>
+</dl>
+<h2><a name="label-26" id="label-26">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-color-base.html">Cairo::Color::Base</a></li>
+<li><a href="cairo-color-rgb.html">Cairo::Color::RGB</a></li>
+<li><a href="cairo-color-hsv.html">Cairo::Color::HSV</a></li>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-27" id="label-27">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-04-26: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

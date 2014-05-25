@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::FontExtentsクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::FontExtentsクラス</a></h1><!-- RDLabel: "Cairo::FontExtentsクラス" -->
+<p>フォントのメトリック（距離）情報を持つクラスです。現在のユー
+ザ空間座標システムでの値になります。</p>
+<p>フォント・メトリックがユーザ空間座標なので、全てではありませ
+んが、多くの場合、現在の変換行列とは独立しています。もし、
+<code>context.scale(2.0, 2.0)</code>とすると、テキストは2倍の大きさ
+で描画されますが、取得されたテキストの範囲は2倍になっていませ
+ん。範囲はヒント（<a href="cairo.html">Cairo</a>::HintMetricsのこと）によって少し変
+わる（そのため、メトリックが変換行列から独立していると仮定す
+ることはできません）でしょうが、そうでなければ変わらないでしょ
+う。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::FontExtents</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::FontExtents.new</code></a></dt><!-- RDLabel: "Cairo::FontExtents.new" -->
+<dd>
+<em>Since 1.7</em>: 新しくCairo::FontExtentsオブジェ
+クトを生成します。以下のように値が設定されています。
+<ul>
+<li>ascent: 1.0</li>
+<li>descent: 0.0</li>
+<li>height: 1.0</li>
+<li>max_x_advance: 1.0</li>
+<li>max_y_advance: 0.0</li>
+</ul>
+<ul>
+<li>戻り値: 新しく生成されたCairo::FontExtentsオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>ascent</code></a></dt><!-- RDLabel: "ascent" -->
+<dd>
+フォントがベースラインより上に広げる距離。この値が常に
+フォントの全てのグリフの範囲の最大値と同じになるわけで
+はないことに注意してください。そうではなくて、どのよう
+にフォントをベースライン上の要素と並べるべきかというフォ
+ントデザイナの意図を表現するために取り出します。
+<ul>
+<li>戻り値: フォントがベースラインより上に広げる距離。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>ascent=(<var>ascent</var>)</code></a></dt><!-- RDLabel: "ascent=" -->
+<dt><a name="label-7" id="label-7"><code>set_ascent(<var>ascent</var>)</code></a></dt><!-- RDLabel: "set_ascent" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>ascent: フォントがベースラインより上に広げる距離。</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>descent</code></a></dt><!-- RDLabel: "descent" -->
+<dd>
+フォントがベースラインより下に広げる距離。多くのフォン
+トはベースラインの下の部分を含みますが、そのようなフォ
+ントではこの値は正になります。この値が常にフォントの全
+てのグリフの範囲の最大値と同じになるわけではないことに
+注意してください。そうではなくて、どのようにフォントを
+ベースラインより下の要素と並べるべきかというフォントデ
+ザイナの意図を表現するために取り出します。
+<ul>
+<li>戻り値: フォントがベースラインより下に広げる距離。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>descent=(<var>descent</var>)</code></a></dt><!-- RDLabel: "descent=" -->
+<dt><a name="label-10" id="label-10"><code>set_descent(<var>descent</var>)</code></a></dt><!-- RDLabel: "set_descent" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>descent: フォントがベースラインより下に広げる距離。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>height</code></a></dt><!-- RDLabel: "height" -->
+<dd>
+指定したフォントでテキストの連続的な線を設定したときに
+推奨される縦方向のベースライン間の距離です。この値は行
+ピッチや行間（external leading）として知られる量のおか
+げで<code>ascent + descent</code>よりも大きいです。空白がとて
+も需要が多い場合、多くのフォントは線の間の<code>ascent +
+descent</code>の距離だけが設定されます。
+<ul>
+<li>戻り値: 高さ</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>height=(<var>height</var>)</code></a></dt><!-- RDLabel: "height=" -->
+<dt><a name="label-13" id="label-13"><code>set_height(<var>height</var>)</code></a></dt><!-- RDLabel: "set_height" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>height: 高さ</li>
+</ul></dd>
+<dt><a name="label-14" id="label-14"><code>max_x_advance</code></a></dt><!-- RDLabel: "max_x_advance" -->
+<dd>
+X方向の最大の距離。基点はフォントの中の全てのグリフによっ
+進化します。
+<ul>
+<li>戻り値: X方向の最大の距離。</li>
+</ul></dd>
+<dt><a name="label-15" id="label-15"><code>max_x_advance=(<var>max_x_advance</var>)</code></a></dt><!-- RDLabel: "max_x_advance=" -->
+<dt><a name="label-16" id="label-16"><code>set_max_x_advance(<var>max_x_advance</var>)</code></a></dt><!-- RDLabel: "set_max_x_advance" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>max_x_advance: X方向の最大の距離。</li>
+</ul></dd>
+<dt><a name="label-17" id="label-17"><code>max_y_advance</code></a></dt><!-- RDLabel: "max_y_advance" -->
+<dd>
+Y方向の最大の距離。基点はフォントの中の全てのグリフによっ
+進化します。普通のフォントを横書きにする場合は0になりで
+しょう。（東アジアの文字はときどき縦書きになります。）
+<ul>
+<li>戻り値: Y方向の最大の距離。</li>
+</ul></dd>
+<dt><a name="label-18" id="label-18"><code>max_y_advance=(<var>max_y_advance</var>)</code></a></dt><!-- RDLabel: "max_y_advance=" -->
+<dt><a name="label-19" id="label-19"><code>set_max_y_advance(<var>max_y_advance</var>)</code></a></dt><!-- RDLabel: "set_max_y_advance" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>max_y_advance: Y方向の最大の距離。</li>
+</ul></dd>
+<dt><a name="label-20" id="label-20"><code>to_s</code></a></dt><!-- RDLabel: "to_s" -->
+<dd>
+<ul>
+<li>戻り値: このCairo::FontExtentsの文字列表現。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-21" id="label-21">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-user-font-face.html#label-5">Cairo::UserFontFace#on_init</a></li>
+</ul>
+<h2><a name="label-22" id="label-22">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-17: kou: rcairo 1.7対応</li>
+<li>2007-04-16: kou: スタート</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

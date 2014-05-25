@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::FontOptionsクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::FontOptionsクラス</a></h1><!-- RDLabel: "Cairo::FontOptionsクラス" -->
+<p>フォントを描画するときに使われる全てのオプションを含んだオブ
+ジェクトです。</p>
+<p><a href="cairo.html">Cairo</a>::FontOptionsのそれぞれの機能は、<a href="cairo-font-options.html#label-5">Cairo::FontOptions#antialias</a>
+やCairo::FontOptions#set_antialiasのようにアクセスできます。</p>
+<p>将来、新しい機能がCairo::FontOptionsに追加されるかもしれませ
+ん。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::FontOptions</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::FontOptions.new</code></a></dt><!-- RDLabel: "Cairo::FontOptions.new" -->
+<dd>
+全てのオプションがデフォルト値に初期化された新しい
+<a href="cairo.html">Cairo</a>::FontOptionsオブジェクトを作成します。
+<ul>
+<li>戻り値: 新しく作成したCairo::FontOptionsオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>antialias</code></a></dt><!-- RDLabel: "antialias" -->
+<dd>
+アンチエイリアスのモードを返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Antialiasに定義されている定数のどれか。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>antialias=(<var>antialias</var>)</code></a></dt><!-- RDLabel: "antialias=" -->
+<dt><a name="label-7" id="label-7"><code>set_antialias(<var>antialias</var>)</code></a></dt><!-- RDLabel: "set_antialias" -->
+<dd>
+アンチエイリアスのモードを設定します。これはテキストを
+描画するときに使われるアンチエイリアスの種類を指定しま
+す。
+<ul>
+<li>antialias: :defaultや:noneなどCairo::Antialiasに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "default"のように指定することもできます。もちろん、
+       <a href="cairo.html">Cairo</a>::Antialiasに定義されている定数を指定するこ
+       ともできます。</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>dup</code></a></dt><!-- RDLabel: "dup" -->
+<dd>
+コピーします。
+<ul>
+<li>戻り値: コピーされたCairo::FontOptionsオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>eql?(<var>other</var>)</code></a></dt><!-- RDLabel: "eql?" -->
+<dd>
+<var>self</var>と<var>other</var>の等価性を比較します。
+<ul>
+<li>戻り値: 全てのオプションの値が等しければ<code>true</code>を
+       返します。</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>hash</code></a></dt><!-- RDLabel: "hash" -->
+<dd>
+ハッシュ値を計算します。
+<ul>
+<li>戻り値: ハッシュ値。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>hint_metrics</code></a></dt><!-- RDLabel: "hint_metrics" -->
+<dd>
+メトリクスのヒントモードを返します。詳細は
+<a href="cairo.html">Cairo</a>::HintMetricsを見てください。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::HintMetricsに定義されている定数のどれか。</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>hint_metrics=(<var>hint_metrics</var>)</code></a></dt><!-- RDLabel: "hint_metrics=" -->
+<dt><a name="label-13" id="label-13"><code>set_hint_metrics(<var>hint_metrics</var>)</code></a></dt><!-- RDLabel: "set_hint_metrics" -->
+<dd>
+メトリクスのヒントモードを設定します。これはメトリック
+スを装置単位の整数値に量子化するかどうかを制御します。
+<ul>
+<li>hint_metrics: :defaultや:onなどCairo::HintMetricsに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "default"のように指定することもできます。もちろん、
+       <a href="cairo.html">Cairo</a>::HintMetricsに定義されている定数を指定するこ
+       ともできます。</li>
+</ul></dd>
+<dt><a name="label-14" id="label-14"><code>hint_style</code></a></dt><!-- RDLabel: "hint_style" -->
+<dd>
+フォントの輪郭のヒントスタイルを返します。詳細は
+<a href="cairo.html">Cairo</a>::HintStyleを見てください。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::HintStyleに定義されている定数のどれか。</li>
+</ul></dd>
+<dt><a name="label-15" id="label-15"><code>hint_style=(<var>hint_style</var>)</code></a></dt><!-- RDLabel: "hint_style=" -->
+<dt><a name="label-16" id="label-16"><code>set_hint_style(<var>hint_style</var>)</code></a></dt><!-- RDLabel: "set_hint_style" -->
+<dd>
+フォントの輪郭のヒントスタイルを設定します。これはフォ
+ントの輪郭をピクセルの格子に合わせるかどうか、忠実さや
+コントラストを最適化するかどうかなどを制御します。詳細は
+<a href="cairo.html">Cairo</a>::HintStyleを見てください。
+<ul>
+<li>hint_style: :defaultや:noneなどCairo::HintStyleに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "default"のように指定することもできます。もちろん、
+       <a href="cairo.html">Cairo</a>::HintStyleに定義されている定数を指定するこ
+       ともできます。</li>
+</ul></dd>
+<dt><a name="label-17" id="label-17"><code>merge(<var>other</var>)</code></a></dt><!-- RDLabel: "merge" -->
+<dd>
+<p><a href="cairo-font-options.html#label-18">Cairo::FontOptions#merge!</a>を以下のように使うのと同じです。</p>
+<pre>options.dup.merge!(other)</pre>
+<ul>
+<li>戻り値: <var>self</var>に<var>other</var>をマージした新しい
+       <a href="cairo.html">Cairo</a>::FontOptionsオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-18" id="label-18"><code>merge!(<var>other</var>)</code></a></dt><!-- RDLabel: "merge!" -->
+<dt><a name="label-19" id="label-19"><code>update(<var>other</var>)</code></a></dt><!-- RDLabel: "update" -->
+<dd>
+<var>other</var>のデフォルトではないオプションを<var>self</var>に
+マージします。破壊的な動作になります。この操作は
+<var>other</var>をCairo::Operator::OVERで<var>self</var>の上に合
+成したのと同じように考えることができます。
+<ul>
+<li>戻り値: self</li>
+</ul></dd>
+<dt><a name="label-20" id="label-20"><code>subpixel_order</code></a></dt><!-- RDLabel: "subpixel_order" -->
+<dd>
+サブピクセルの並びかたを返します。詳細は
+<a href="cairo.html">Cairo</a>::SubpixelOrderを見てください。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::SubpixelOrderに定義されている定数のど
+       れか。</li>
+</ul></dd>
+<dt><a name="label-21" id="label-21"><code>subpixel_order=(<var>subpixel_order</var>)</code></a></dt><!-- RDLabel: "subpixel_order=" -->
+<dt><a name="label-22" id="label-22"><code>set_subpixel_order(<var>subpixel_order</var>)</code></a></dt><!-- RDLabel: "set_subpixel_order" -->
+<dd>
+サブピクセルの並びかたを設定します。サブピクセルの並び
+かたは、アンチエイリアスモードを
+<a href="cairo-antialias.html">Cairo::Antialias</a>::SUBPIXELに設定しディスプレイ装置に描
+画するときの各ピクセルの色要素の順番を指定します。詳細は
+<a href="cairo.html">Cairo</a>::SubpixelOrderを見てください。
+<ul>
+<li>subpixel_order: :defaultや:rgbなど
+       <a href="cairo.html">Cairo</a>::SubpixelOrderに定義されている定数名と同じもの。
+       大文字小文字は関係ありません。また、シンボルではなく
+       て文字列で"default"のように指定することもできます。も
+       ちろん、<a href="cairo.html">Cairo</a>::SubpixelOrderに定義されている定数を指定
+       することもできます。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-23" id="label-23">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-antialias.html">Cairo::Antialias</a></li>
+</ul>
+<h2><a name="label-24" id="label-24">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-16: kou: 1.8.0対応。LCDFilter削除。</li>
+<li>2008-08-16: kou: 1.7.4対応。</li>
+<li>2007-05-24: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

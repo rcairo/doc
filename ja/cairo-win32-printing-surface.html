@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Win32PrintingSurfaceクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Win32PrintingSurfaceクラス</a></h1><!-- RDLabel: "Cairo::Win32PrintingSurfaceクラス" -->
+<p><em>Since 1.6</em></p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-surface.html">Cairo::Surface</a>
+<ul>
+<li>Cairo::Win32PrintingSurface</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Win32PrintingSurface.new(<var>hdc</var>)</code></a></dt><!-- RDLabel: "Cairo::Win32PrintingSurface.new" -->
+<dd>
+<p><var>hdc</var>用のサーフェスを生成します。サーフェイスの大き
+さは指定されたデバイスコンテキストが切り取っている（ク
+リップしている）範囲になります。<var>hdc</var>は印刷用のDCで
+なければいけません。つまり、アンチエイリアスは無視され、
+サーフェスへの描画はできるだけGDIを使います。</p>
+<p>正しく複雑な描画動作をするために、生成されたサーフェス
+はページサポート付きのサーフェスでラップされます。つま
+り、正しい結果を得るためにCairo::Surface#show_pageと関連
+するメソッドを使う必要があります。</p>
+<ul>
+<li>hdc: サーフェスを生成するデバイスコンテキストハンドル。
+       （HDC）</li>
+<li>戻り値: 新しく生成したCairo::Win32PrintingSurface</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>hdc</code></a></dt><!-- RDLabel: "hdc" -->
+<dd>
+サーフェスに関連付けられているデバイスコンテキストハン
+ドル（HDC）を返します。関連付けられていない場合はnilを
+返します。
+<ul>
+<li>戻り値: デバイスコンテキストハンドル（HDC）あるいはnil</li>
+</ul></dd>
+</dl>
+<h2><a name="label-6" id="label-6">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-surface.html">Cairo::Surface</a></li>
+<li><a href="cairo-win32-surface.html">Cairo::Win32Surface</a></li>
+</ul>
+<h2><a name="label-7" id="label-7">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-04-12: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

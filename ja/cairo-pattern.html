@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Patternクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Patternクラス</a></h1><!-- RDLabel: "Cairo::Patternクラス" -->
+<p>サーフェス上に描画するときのソースを表します。ソースの種類に
+よっていくつかサブクラスがあります。例えば、
+<a href="cairo.html">Cairo</a>::SolidPatternは単色のパターンを作ります。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::Pattern</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Pattern.new</code></a></dt><!-- RDLabel: "Cairo::Pattern.new" -->
+<dd>
+使えません。</dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>__extend__</code></a></dt><!-- RDLabel: "__extend__" -->
+<dd>
+Object#extendの別名です。</dd>
+<dt><a name="label-6" id="label-6"><code>extend</code></a></dt><!-- RDLabel: "extend" -->
+<dd>
+現在の引き延ばしモードを返します。各引き延ばしモードの意
+味の詳細はCairo::Extendを見てください。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Extendに定義されている定数のどれか。</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>extend=(<var>extend</var>)</code></a></dt><!-- RDLabel: "extend=" -->
+<dt><a name="label-8" id="label-8"><code>set_extend(<var>extend</var>)</code></a></dt><!-- RDLabel: "set_extend" -->
+<dd>
+パターンの外側の領域を描画するときに使うモードを指定し
+ます。各引き延ばしモードの意味の詳細はCairo::Extendを見
+てください。
+<ul>
+<li>extend: :noneや:repeatなどCairo::Extendに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "none"のように指定することもできます。もちろん、
+       <a href="cairo.html">Cairo</a>::Extendに定義されている定数を指定するこ
+       ともできます。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>filter</code></a></dt><!-- RDLabel: "filter" -->
+<dd>
+現在のフィルタを返します。各フィルタの詳細は
+<a href="cairo.html">Cairo</a>::Filterを見てください。
+<ul>
+<li>戻り値: パターンの大きさを変えるときに使う現在のフィ
+       ルタ。</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>filter=(<var>filter</var>)</code></a></dt><!-- RDLabel: "filter=" -->
+<dt><a name="label-11" id="label-11"><code>set_filter(<var>filter</var>)</code></a></dt><!-- RDLabel: "set_filter" -->
+<dd>
+パターンの大きさを変えるときに使う現在のフィルタを設定
+します。各フィルタの詳細はCairo::Filterを見てください。
+<ul>
+<li>filter: :fastや:gaussianなどCairo::Filterに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "fast"のように指定することもできます。もちろん、
+       <a href="cairo.html">Cairo</a>::Filterに定義されている定数を指定するこ
+       ともできます。</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>matrix</code></a></dt><!-- RDLabel: "matrix" -->
+<dd>
+パターンの変換行列を返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>matrix=(<var>matrix</var>)</code></a></dt><!-- RDLabel: "matrix=" -->
+<dt><a name="label-14" id="label-14"><code>set_matrix(<var>matrix</var>)</code></a></dt><!-- RDLabel: "set_matrix" -->
+<dd>
+<p>パターンの変換行列を指定します。この行列はユーザ空間か
+らパターン空間に変換するときに使います。</p>
+<p>パターンを作ったときはいつも単位行列です。これは最初は
+パターン空間はユーザ空間と同じであるということです。</p>
+<p>重要: ユーザ空間からパターン空間への変換行列の方向に注
+意してください。これは、パターンからユーザ空間（そして装
+置空間）という流れの場合、座標はパターン行列の逆行列で
+変換されるということです。</p>
+<p>例えば、2倍の大きさのパターンを作りたいとしたら、以下が
+正しいコードです。</p>
+<pre>pattern.matrix = Cairo::Matrix.scale(0.5, 0.5)</pre>
+<p>一方、上記のコードで0.5ではなく2.0を使うとパターンは半
+分の大きさになります。</p>
+<p><a href="cairo-context.html">Cairo::Context#set_</a>sourceのユーザ空間ロック動作の議論に
+も注意してください。</p>
+<ul>
+<li>matrix: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-15" id="label-15">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-16" id="label-16">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-22: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

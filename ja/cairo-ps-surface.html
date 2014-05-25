@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::PSSurfaceクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::PSSurfaceクラス</a></h1><!-- RDLabel: "Cairo::PSSurfaceクラス" -->
+<p>PostScriptを生成するサーフェスです。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-surface.html">Cairo::Surface</a>
+<ul>
+<li>Cairo::PSSurface</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::PSSurface.new(<var>stream</var>, <var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "Cairo::PSSurface.new" -->
+<dt><a name="label-4" id="label-4"><code>Cairo::PSSurface.new(<var>filename</var>, <var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "Cairo::PSSurface.new" -->
+<dd>
+<p>ポイントで指定されたサイズのPostScript用サーフェスを生成
+します。</p>
+<p>第1引数に<code>write</code>メソッドを持ったオブジェクトを指定
+した場合はPostScript形式のデータが順次
+<code>stream.write</code>で書き出されます。</p>
+<p><code>write</code>メソッドを持っていない場合はファイル名として
+扱われます。PostScript形式のデータはファイル名
+<var>filename</var>のファイルに出力されます。</p>
+<p>各ページのサイズは変更できます。
+<a href="cairo-ps-surface.html">Cairo::PSSurface#set_</a>sizeを見てください。</p>
+<ul>
+<li>stream: <code>write</code>メソッドを持つオブジェクト。</li>
+<li>filename: 結果を出力するファイル名。</li>
+<li>width_in_points: ポイントで指定した幅。（1ポイント =
+       1/72.0インチ）</li>
+<li>height_in_points: ポイントで指定した高さ。（1ポイント =
+       1/72.0インチ）</li>
+<li>戻り値: 生成したCairo::PSSurfaceオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-5" id="label-5">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-6" id="label-6"><code>dsc_begin_page_setup</code></a></dt><!-- RDLabel: "dsc_begin_page_setup" -->
+<dd>
+<p>以降のCairo::PSSurface#dsc_comment呼び出しが直接
+PageSetupセクションのコメントになることを示します。</p>
+<p>このメソッドは最初のページにだけ必要です。
+ただし、全てのCairo::PSSurface#dsc_begin_setupの後で、ま
+だなにも描画されていない場合だけ呼び出してください。</p>
+<p>詳細はCairo::PSSurface#dsc_commentを見てください。</p></dd>
+<dt><a name="label-7" id="label-7"><code>dsc_begin_setup</code></a></dt><!-- RDLabel: "dsc_begin_setup" -->
+<dd>
+<p>以降のCairo::PSSurface#dsc_comment呼び出しが直接
+Setupセクションのコメントになることを示します。</p>
+<p>このメソッドは多くても一度だけ呼び出せます。また、全て
+のCairo::PSSurface#dsc_begin_page_setup呼び出しよりも前
+で、さらにまだなにも描画されていない場合でなければいけ
+ません。</p>
+<p>詳細はCairo::PSSurface#dsc_commentを見てください。</p></dd>
+<dt><a name="label-8" id="label-8"><code>dsc_comment(<var>comment</var>)</code></a></dt><!-- RDLabel: "dsc_comment" -->
+<dd>
+<p>PostScriptの出力にコメントを発行します。</p>
+<p>コメントはPostScript Language Document Structuring
+Conventions (DSC)を従う必要があります。利用可能なコメン
+トとその意味はマニュアルを見てください。特に、
+%%IncludeFeatureコメントはプリンタの機能を制御する装
+置に依存しない方法です。PostScript Printer Description
+(PPD)ファイルの仕様書も役に立つリファレンスです。</p>
+<p>コメントはパーセント(%)で始まり、最大長が（パーセントを
+含めて）255を越えないようにしなくてはいけません。どちら
+かの条件が破られたらCairo::InvalidDscCommentErrorが発生
+します。このメソッドはこのふたつの条件以外の詳細なコメ
+ントの仕様については強制しません。</p>
+<p>コメントには改行をつけないでください。</p>
+<p>DSCは異なったセクションに詳細なコメントを入れることがで
+きると述べています。このメソッドは3つのセクションに発行
+できます。ヘッダとSetupセクションとPageSetupセクション
+です。最初の2つのセクションに現れたコメントは文書全体に
+適用されます。BeginPageSetupセクションに現れたコメント
+はひとつのページにだけ適用されます。</p>
+<p>ヘッダセクションにコメントを入れるには、サーフェスが作
+られてCairo::PSSurface#begin_setupを呼ぶ前にこのメソッ
+ドを使わなければいけません。</p>
+<p>Setupセクションにコメントを入れるには、
+<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_</a>setupを呼んだあとで、
+<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_</a>setupを呼ぶ前にこのメソッ
+ドを使わなければいけません。</p>
+<p>PageSetupセクションにコメントを入れるには、
+<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_</a>setupを呼んだあとでこのメソッ
+ドを使わなければいけません。</p>
+<p><a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_</a>setupが必要なのは最初のペー
+ジだけだということに注意してください。
+<a href="cairo-context.html">Cairo::Context#show_</a>pageとCairo::Context#copy_pageの後
+に呼び出すということは、明示的なコメントを現在のページ
+のPageSetupに入れるということです。しかし、呼び出しコー
+ドをシンプルにする一貫性のために、各ページの始めにこの
+メソッドを呼び出しても害はありません。</p>
+<p>最後の注意です。cairoは自動的にいくつかのコメントを生成
+します。アプリケーションは手動で以下のコメントを生成し
+ないでください。</p>
+<p>ヘッダセクション: %!PS-Adobe-3.0, %%Creator, %%CreationDate, %%Pages,
+%%BoundingBox, %%DocumentData, %%LanguageLevel, %%EndComments.</p>
+<p>Setupセクション: %%BeginSetup, %%EndSetup</p>
+<p>PageSetupセクション: %%BeginPageSetup, %%PageBoundingBox,
+%%EndPageSetup.</p>
+<p>他のセクション: %%BeginProlog, %%EndProlog, %%Page, %%Trailer, %%EOF</p>
+<p>以下はこのメソッドをどのように使うかを示す例です。</p>
+<pre>surface = ((&lt;Cairo::PSSurface.new|cairo-ps-surface.rd/Cairo::PSSurface.new&gt;))(filename, width, height)
+...
+surface.dsc_comment("%%Title: My excellent document")
+surface.dsc_comment("%%Copyright: Copyright (C) 2006 ((&lt;Cairo|cairo.rd/module Cairo&gt;)) Lover")
+...
+surface.dsc_begin_setup
+surface.dsc_comment("%%IncludeFeature: *MediaColor White")
+...
+surface.dsc_begin_page_setup
+surface.dsc_comment("%%IncludeFeature: *PageSize A3")
+surface.dsc_comment("%%IncludeFeature: *InputSlot LargeCapacity")
+surface.dsc_comment("%%IncludeFeature: *MediaType Glossy")
+surface.dsc_comment("%%IncludeFeature: *MediaColor Blue")
+... ここで最初のページを描く ..
+cr.show_page
+...
+surface.dsc_comment("%%IncludeFeature: *PageSize A5")
+...</pre>
+<ul>
+<li>comment: PostScriptの出力に発行するコメント文字列。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>set_size(<var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "set_size" -->
+<dd>
+<p>現在（とそれ以降の）ページのサイズを変更します。</p>
+<p>現在のページに何も描画していないときにだけ呼び出せます。
+単純な方法は、サーフェスを作成した直後か、
+<a href="cairo-context.html">Cairo::Context#show_</a>pageかCairo::Context#copy_pageでペー
+ジを完了した直後に呼び出すことです。</p>
+<ul>
+<li>width_in_points: ポイントで指定した新しい幅。（1ポイ
+       ント = 1/72.0インチ）</li>
+<li>height_in_points: ポイントで指定した新しい高さ。（1ポ
+       イント = 1/72.0インチ）</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>eps?</code></a></dt><!-- RDLabel: "eps?" -->
+<dd>
+<em>Since 1.6</em>: このPostScriptサーフェスがEncapsulated
+PostScriptを出力するかどうかを返します。
+<ul>
+<li>戻り値: EPSフォーマットのPostScriptを出力する場合はtrue</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>eps=(<var>eps</var>)</code></a></dt><!-- RDLabel: "eps=" -->
+<dd>
+<p><em>Since 1.6</em>: <var>eps</var>がtrueならこのPostScriptサーフェ
+スはEncapsulated PostScriptを出力します。</p>
+<p>このメソッドは現在のページで実行するすべての描画操作よ
+りも前に呼び出してください。これを行うもっとも簡単な方
+法はサーフェスを作った直後にこのメソッドを呼び出すこと
+です。Encapsulated PostScriptファイルは1ページしか含む
+ことができません。</p>
+<ul>
+<li>戻り値: <var>eps</var></li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>set_eps(<var>eps</var>)</code></a></dt><!-- RDLabel: "set_eps" -->
+<dd>
+<em>Since 1.6</em>: <a href="cairo-ps-surface.html#label-11">Cairo::PSSurface#eps=</a>と同じです。
+<ul>
+<li>戻り値: self</li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>restrict_to_level(<var>level</var>)</code></a></dt><!-- RDLabel: "restrict_to_level" -->
+<dd>
+<p><em>Since 1.6</em>: 生成するPostScriptファイルのレベルを制
+限します。ここで使用できるレベルの一覧は
+<a href="cairo-ps-level.html">Cairo::PSLevel#</a>listで得られます。</p>
+<p>このメソッドはこのサーフェスへ実行するすべての描画操作
+よりも前にだけ呼び出してください。これを実行するもっと
+も簡単な方法はサーフェスを作った直後にこのメソッドを呼
+び出すことです。</p>
+<ul>
+<li>level: PostScriptのレベル（<a href="cairo-ps-level.html">Cairo::PSLevel</a>）</li>
+</ul></dd>
+</dl>
+<h2><a name="label-14" id="label-14">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-ps-level.html">Cairo::PSLevel</a></li>
+</ul>
+<h2><a name="label-15" id="label-15">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-04-11: kou: 1.6対応。</li>
+<li>2007-05-22: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

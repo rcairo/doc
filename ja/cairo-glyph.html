@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Glyphクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Glyphクラス</a></h1><!-- RDLabel: "Cairo::Glyphクラス" -->
+<p>テキストを描画したり計ったりするときのひとつのグリフの情報を
+持っています。（単純な用語での）フォントはテキストを描画する
+ために使われる形の集まりです。グリフはその形のなかのひとつで
+す。ひとつの文字に複数のグリフがあることもあります（例えば、
+異なった文脈で使われる別のものがあります）。グリフは複数の文
+字の合字にもなります。cairoは入力されたテキストをグリフに変換
+する方法を何も提供しません。グリフの配列を受け取るcairoのイン
+ターフェイスを使うためには、下の層にある適当なフォントシステ
+ムに直接アクセスする必要があります。</p>
+<p><a href="cairo-glyph.html">Cairo::Glyph#</a>xとCairo::Glyph#yで与えられる補正値は累積されな
+いことに注意してください。テキストを描画したり計ったりすると
+きは、各グリフは全部の基準を考慮して個々に配置されます。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::Glyph</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Glyph.new</code></a></dt><!-- RDLabel: "Cairo::Glyph.new" -->
+<dd>
+<ul>
+<li>戻り値: self</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>index</code></a></dt><!-- RDLabel: "index" -->
+<dd>
+フォント中のグリフのインデックスを返します。グリフのイン
+デックスの正確な解釈は使用しているフォント技術に依存し
+ます。
+<ul>
+<li>戻り値: フォント中のグリフのインデックス。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>index=(<var>index</var>)</code></a></dt><!-- RDLabel: "index=" -->
+<dt><a name="label-7" id="label-7"><code>set_index(<var>index</var>)</code></a></dt><!-- RDLabel: "set_index" -->
+<dd>
+フォント中のグリフのインデックスを指定します。
+<ul>
+<li>index: フォント中のグリフのインデックス。</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>x</code></a></dt><!-- RDLabel: "x" -->
+<dd>
+文字列を描画・計測時に使われる基準点とグリフの基準点の
+間のX方向の補正値を返します。
+<ul>
+<li>戻り値: X方向の補正値。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>x=(<var>x</var>)</code></a></dt><!-- RDLabel: "x=" -->
+<dt><a name="label-10" id="label-10"><code>set_x(<var>x</var>)</code></a></dt><!-- RDLabel: "set_x" -->
+<dd>
+X方向の補正値を指定します。
+<ul>
+<li>x: X方向の補正値。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>y</code></a></dt><!-- RDLabel: "y" -->
+<dd>
+文字列を描画・計測時に使われる基準点とグリフの基準点の
+間のY方向の補正値を返します。
+<ul>
+<li>戻り値: Y方向の補正値。</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>y=(<var>y</var>)</code></a></dt><!-- RDLabel: "y=" -->
+<dt><a name="label-13" id="label-13"><code>set_y(<var>y</var>)</code></a></dt><!-- RDLabel: "set_y" -->
+<dd>
+Y方向の補正値を指定します。
+<ul>
+<li>y: Y方向の補正値。</li>
+</ul></dd>
+<dt><a name="label-14" id="label-14"><code>to_s</code></a></dt><!-- RDLabel: "to_s" -->
+<dd>
+<ul>
+<li>戻り値: self</li>
+</ul></dd>
+</dl>
+<h2><a name="label-15" id="label-15">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-16" id="label-16">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-20: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

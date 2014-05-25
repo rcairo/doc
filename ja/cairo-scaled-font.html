@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::ScaledFontクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::ScaledFontクラス</a></h1><!-- RDLabel: "Cairo::ScaledFontクラス" -->
+<p>好みのサイズと装置解像度に拡大・縮小したフォントです。
+<a href="cairo.html">Cairo</a>::ScaledFontは低レベルのフォント使用でもっとも役に立ちま
+す。例えば、メトリックスの計算を高速化するために拡大・縮小し
+たフォントをキャッシュしたいライブラリやアプリケーションには
+役に立ちます。</p>
+<p><a href="cairo.html">Cairo</a>::ScaledFontにはフォントバックエンドに依存したいくつか
+の種類があります。ただし、rcairoではサポートしていません。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::ScaledFont</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::ScaledFont.new(<var>font_face</var>, <var>font_matrix</var>, <var>ctm</var>, <var>options</var>)</code></a></dt><!-- RDLabel: "Cairo::ScaledFont.new" -->
+<dd>
+フォントフェイスと、フォントサイズと使用環境を表現する
+行列からCairo::ScaledFontオブジェクトを生成します。
+<ul>
+<li>font_face: <a href="cairo.html">Cairo</a>::FontFaceオブジェクト。</li>
+<li>font_matrix: このフォントのためのフォント空間からユー
+       ザ空間への変換行列です。Nポイントのフォントの単純な場
+       合だと、この行列は単純にN倍します。しかし、このフォン
+       トを剪断したりふたつの軸に付近等に伸縮するのに使うこ
+       ともできます。<a href="cairo-context.html">Cairo::Context#set_font_</a>matrixを見てく
+       ださい。</li>
+<li>ctm: フォントが使うユーザ空間から装置空間への変換行列です。</li>
+<li>options: フォントのメトリックスを取得したりフォントを
+       描画するときに使うオプションです。</li>
+<li>戻り値: 生成したCairo::ScaledFontオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>ctm</code></a></dt><!-- RDLabel: "ctm" -->
+<dd>
+<var>self</var>を生成するときに指定したCTM（現在の変換行列）
+を返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>extents</code></a></dt><!-- RDLabel: "extents" -->
+<dd>
+メトリックスを返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::FontExtentsオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>font_face</code></a></dt><!-- RDLabel: "font_face" -->
+<dd>
+<var>self</var>を生成するときに指定したフォントフェイスを返
+します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::FontFaceオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>font_matrix</code></a></dt><!-- RDLabel: "font_matrix" -->
+<dd>
+<var>self</var>を生成するときに指定したフォント行列を返しま
+す。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>font_options</code></a></dt><!-- RDLabel: "font_options" -->
+<dd>
+<var>self</var>を生成するときに指定したフォントオプションを返
+します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::FontOptionsオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>glyph_extents(<var>glyphs</var>)</code></a></dt><!-- RDLabel: "glyph_extents" -->
+<dd>
+<p>グリフの範囲を返します。範囲はグリフをインクで塗る部分
+を囲む（ユーザ空間での）四角を示しています。（グリフは
+<a href="cairo-context.html">Cairo::Context#show_</a>glyphsで描画できます。）さらに、
+範囲（<a href="cairo-text-extents.html">Cairo::TextExtents</a>）の<var>x_advance</var>と
+<var>y_advance</var>の値はCairo::Context#show_glyphsが進める
+現在の点の合計を示しています。
+（<a href="cairo-context.html">Cairo::Context#show_</a>glyphsはグリフを描画すると、描画
+した分だけ現在の点を進めます。）</p>
+<p>空白のグリフは四角のサイズ（extents.widthと
+extents.height）に貢献しないことに注意してください。</p>
+<ul>
+<li>glyphs: <a href="cairo.html">Cairo</a>::Glyphの配列</li>
+<li>戻り値: グリフの範囲を示すCairo::TextExtentsオブジェ
+       クト。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>text_extents(<var>utf8</var>)</code></a></dt><!-- RDLabel: "text_extents" -->
+<dd>
+<p>テキストの範囲を返します。範囲はテキストをインクで塗る
+部分（テキストが描画される部分）を囲む（ユーザ空間での）
+示しています。さらに、範囲（<a href="cairo-text-extents.html">Cairo::TextExtents</a>）の
+<var>x_advance</var>と<var>y_advance</var>の値は
+<a href="cairo-context.html">Cairo::Context#show_</a>glyphsが進める現在の点の合計を示し
+ています。（<a href="cairo-context.html">Cairo::Context#show_</a>textはテキストを描画す
+ると、描画した分だけ現在の点を進めます。）</p>
+<p>空白文字は四角のサイズ（extents.widthとextents.height）
+に貢献しないことに注意してください。空白文字は非空白文
+字の位置を変更することにより間接的に貢献しています。特
+に、テキストの最後の空白文字は四角のサイズには影響を与
+えませんが、<var>x_advance</var>と<var>y_advance</var>の値には影
+響を与えます。</p>
+<ul>
+<li>utf8: UTF-8で符号化されたテキスト。</li>
+<li>戻り値: テキストの範囲を示すCairo::TextExtentsオブジェ
+       クト。</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>scale_matrix</code></a></dt><!-- RDLabel: "scale_matrix" -->
+<dd>
+<em>Since 1.7</em>: 拡大・縮小用の行列を返します。拡大・縮
+小用行列は、このCairo::ScaledFontのフォント行列と現在の
+変換行列（CTM）の積です。つまり、フォント空間から装置空
+間へ変換する（写像する・mapする）行列です。
+<ul>
+<li>戻り値: 拡大・縮小用の行列。</li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>text_to_glyphs(<var>x</var>, <var>y</var>, <var>utf8</var>)</code></a></dt><!-- RDLabel: "text_to_glyphs" -->
+<dd>
+<p><em>Since 1.7</em>: UTF-8のテキストをグリフの配列とクラス
+タ対応に変換します。これらは後でこのCairo::ScaledFontを
+使って描画するときに使うことができます。</p>
+<p>どのようにクラスタ対応情報が入力のUTF-8のテキストと出力
+のグリフを対応付けるかの詳細については
+<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsを見てください。</p>
+<p>同じCairo::ScaledFontを使う場合は、戻り値はそのまま
+<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsや
+<a href="cairo-context.html">Cairo::Context#show_</a>glyphsなど関連するメソッドで使うこ
+とができます。</p>
+<ul>
+<li>戻り値: <code>[glyphs, clusters, backward]</code>
+<ul>
+<li>glyphs: グリフ（<a href="cairo-glyph.html">Cairo::Glyph</a>）の配列。</li>
+<li>clusters: クラスタ対応情報（<a href="cairo-text-cluster.html">Cairo::TextCluster</a>）の
+         配列。</li>
+<li>backward: テキストとグリフの対応が後ろ向きかどうか
+         の真偽値。</li>
+</ul></li>
+</ul></dd>
+</dl>
+<h2><a name="label-14" id="label-14">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-context.html">Cairo::Context</a></li>
+<li><a href="cairo-glyph.html">Cairo::Glyph</a></li>
+<li><a href="cairo-text-cluster.html">Cairo::TextCluster</a></li>
+</ul>
+<h2><a name="label-15" id="label-15">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-17: kou: 1.7.4対応。</li>
+<li>2007-05-23: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

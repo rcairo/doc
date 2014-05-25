@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::TextClusterクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::TextClusterクラス</a></h1><!-- RDLabel: "Cairo::TextClusterクラス" -->
+<p><em>Since 1.7</em>: テキストクラスタ情報を持ちます。テキストクラ
+スタとは、複数のグリフと対応するUTF-8テキストとの最小の対応で
+す。それぞれをグリフ数とテキストのバイト数として持っています。</p>
+<p>妥当なクラスタは、バイト数とグリフ数が負ではなく、どちらか一
+方は0ではありません。グリフが0のクラスタは普通のクラスタと同
+じようにはサポートされていないことに注意してください。例えば、
+通常のPDF描画アプリケーションは、PDFテキストが選択されている
+ときはそれらのクラスタを無視します。</p>
+<p>高度なテキスト操作がどのようにクラスタを使うかは
+<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsを見てください。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::TextCluster</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::TextCluster.new(<var>num_bytes</var>, <var>num_glyphs</var>)</code></a></dt><!-- RDLabel: "Cairo::TextCluster.new" -->
+<dd>
+<em>Since 1.7</em>: テキストクラスタを生成します。
+<ul>
+<li>num_bytes: このクラスタが含んでいるUTF-8テキストのバ
+       イト数。</li>
+<li>num_glyphs: このクラスタが含んでいるグリフ数。</li>
+<li>戻り値: 新しく生成したCairo::TextClusterオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>num_bytes</code></a></dt><!-- RDLabel: "num_bytes" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: テキストのバイト数。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>num_bytes=(<var>num_bytes</var>)</code></a></dt><!-- RDLabel: "num_bytes=" -->
+<dt><a name="label-7" id="label-7"><code>set_num_bytes(<var>num_bytes</var>)</code></a></dt><!-- RDLabel: "set_num_bytes" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>num_bytes: テキストのバイト数</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>num_glyphs</code></a></dt><!-- RDLabel: "num_glyphs" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: グリフ数。</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>num_glyphs=(<var>num_glyphs</var>)</code></a></dt><!-- RDLabel: "num_glyphs=" -->
+<dt><a name="label-10" id="label-10"><code>set_num_glyphs(<var>num_glyphs</var>)</code></a></dt><!-- RDLabel: "set_num_glyphs" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>num_glyphs: グリフ数。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>to_s</code></a></dt><!-- RDLabel: "to_s" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::TextClusterの文字列表現。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-12" id="label-12">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a></li>
+<li><a href="cairo-scaled-font.html#label-13">Cairo::ScaledFont#text_to_glyphs</a></li>
+</ul>
+<h2><a name="label-13" id="label-13">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-17: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

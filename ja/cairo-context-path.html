@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Context::Pathモジュール</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Context::Pathモジュール</a></h1><!-- RDLabel: "Cairo::Context::Pathモジュール" -->
+<p>パスに関する便利なメソッドをCairo::Contextに提供するモ
+ジュールです。実験的なものでAPIは変更される可能性があります。</p>
+<p>cairoにはないrcairoでの拡張です。</p>
+<h2><a name="label-1" id="label-1">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-2" id="label-2"><code>map_path_onto(<var>path</var>)</code></a></dt><!-- RDLabel: "map_path_onto" -->
+<dd>
+<p>コンテキストが持っているパスを<var>path</var>の上に配置しま
+す。以下のようにすると円上にテキストを配置することがで
+きます。</p>
+<pre>cr.circle(100, 100, 50)
+cr.set_source_color(:blue)
+cr.stroke_preserve
+circle_path = cr.copy_path_flat
+
+cr.new_path
+# cr.move_to(100, 0) # 円上を時計周りに100移動
+cr.text_path("ABCDE")
+cr.map_path_onto(circle_path)
+cr.set_source_color(:red)
+cr.fill</pre></dd>
+<dt><a name="label-3" id="label-3"><code>transform_path(<var>path</var>) {|<var>x</var>, <var>y</var>| ...}</code></a></dt><!-- RDLabel: "transform_path" -->
+<dd>
+<p><var>path</var>の各点をブロックで変換します。Array#collectの
+ようなものです。以下は、パスを縦横それぞれ2倍の大きさに
+する実用的ではない例です。（こういうときは
+<a href="cairo-context.html">Cairo::Context#</a>scaleを使いましょう。）</p>
+<pre>transformed_path = cr.transform_path(cr.copy_path) do |x, y|
+  [x * 2, y * 2]
+end
+cr.new_path
+cr.append_path(transformed_path)</pre>
+<ul>
+<li>path: 変換対象のパス</li>
+<li>x: 点のx座標</li>
+<li>y: 点のy座標</li>
+<li>戻り値: 変換されたパス</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-context.html">Cairo::Context</a></li>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-5" id="label-5">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-04-30: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::UserFontFace::TextToGlyphsDataクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::UserFontFace::TextToGlyphsDataクラス</a></h1><!-- RDLabel: "Cairo::UserFontFace::TextToGlyphsDataクラス" -->
+<p><em>Since 1.7</em>: <a href="cairo-user-font-face.html">Cairo::UserFontFace#on_text_to_</a>glyphsコール
+バックに渡されるデータです。
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-12">Cairo::UserFontFace::TextToGlyphsData#glyphs=</a>,
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-9">Cairo::UserFontFace::TextToGlyphsData#clusters=</a>,
+<a href="cairo-user-font-face-text-to-glyphs-data.html">Cairo::UserFontFace::TextToGlyphsData#backward=</a>
+で値を設定してください。</p>
+<p>glyphsを設定する必要があるかどうかは
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-13">Cairo::UserFontFace::TextToGlyphsData#need_glyphs?</a>でわかりま
+す。</p>
+<p>clustersを設定する必要があるかどうかは
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-10">Cairo::UserFontFace::TextToGlyphsData#need_clusters?</a>でわかりま
+す。</p>
+<p>backwardを設定する必要があるかどうかは
+<a href="cairo-user-font-face-text-to-glyphs-data.html">Cairo::UserFontFace::TextToGlyphsData#need_backward?</a>でわかりま
+す。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::UserFontFace::TextToGlyphsData</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::UserFontFace::TextToGlyphsData.new(<var>need_glyphs</var>, <var>need_clusters</var>, <var>need_backward</var>)</code></a></dt><!-- RDLabel: "Cairo::UserFontFace::TextToGlyphsData.new" -->
+<dd>
+<em>Since 1.7</em>: 新しく
+<a href="cairo-user-font-face.html">Cairo::UserFontFace</a>::TextToGlyphsDataオブジェクトを生成
+します。このオブジェクトは
+<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_text_to_</a>glyphsコールバック中で生
+成されるため、通常は明示的に生成する必要はありません。
+<ul>
+<li>need_glyphs: グリフを計算する必要があるかどうか。</li>
+<li>need_clusters: クラスタ対応情報を計算する必要があるか
+       どうか。</li>
+<li>need_backward: クラスタ対応情報が後ろ向きに進むかどう
+       かを計算する必要があるかどうか。</li>
+<li>戻り値: 新しく生成した
+       <a href="cairo-user-font-face.html">Cairo::UserFontFace</a>::TextToGlyphsDataオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>cluster_flags</code></a></dt><!-- RDLabel: "cluster_flags" -->
+<dd>
+<em>Since 1.8</em>
+<ul>
+<li>戻り値: クラスタ対応情報のプロパティ。
+       （<a href="cairo-text-cluster-flag.html">Cairo::TextClusterFlag</a>）</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>cluster_flags=(<var>flags</var>)</code></a></dt><!-- RDLabel: "cluster_flags=" -->
+<dd>
+<em>Since 1.8</em>
+<ul>
+<li>flags: クラスタ対応情報のプロパティ
+       （<a href="cairo-text-cluster-flag.html">Cairo::TextClusterFlag</a>）</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>need_cluster_flags?</code></a></dt><!-- RDLabel: "need_cluster_flags?" -->
+<dd>
+<em>Since 1.8</em>
+<ul>
+<li>戻り値: クラスタ対応情報のプロパティを計算する必要が
+       あるなら<code>true</code>、そうでない場合は<code>false</code>。</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>clusters</code></a></dt><!-- RDLabel: "clusters" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: <code>[cluster, ...]</code>
+<ul>
+<li>cluster: <a href="cairo.html">Cairo</a>::TextClusterオブジェクト。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>clusters=(<var>clusters</var>)</code></a></dt><!-- RDLabel: "clusters=" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>clusters: <code>[cluster, ...]</code>
+<ul>
+<li>cluster: <a href="cairo.html">Cairo</a>::TextClusterオブジェクト。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>need_clusters?</code></a></dt><!-- RDLabel: "need_clusters?" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: クラスタ対応情報を計算する必要があるなら
+       <code>true</code>、そうでない場合は<code>false</code>。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>glyphs</code></a></dt><!-- RDLabel: "glyphs" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: <code>[glyph, ...]</code>
+<ul>
+<li>glyph: <a href="cairo.html">Cairo</a>::Glyphオブジェクト。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>glyphs=(<var>glyphs</var>)</code></a></dt><!-- RDLabel: "glyphs=" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>glyphs: <code>[glyph, ...]</code>
+<ul>
+<li>glyph: <a href="cairo.html">Cairo</a>::Glyphオブジェクト。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>need_glyphs?</code></a></dt><!-- RDLabel: "need_glyphs?" -->
+<dd>
+<em>Since 1.7</em>
+<ul>
+<li>戻り値: グリフを計算する必要があるなら<code>true</code>、そ
+       うでない場合は<code>false</code>。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-14" id="label-14">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-user-font-face.html#label-7">Cairo::UserFontFace#on_text_to_glyphs</a></li>
+<li><a href="cairo-glyph.html">Cairo::Glyph</a></li>
+<li><a href="cairo-text-cluster.html">Cairo::TextCluster</a></li>
+<li><a href="cairo-text-cluster-flag.html">Cairo::TextClusterFlag</a></li>
+</ul>
+<h2><a name="label-15" id="label-15">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-09-26: kou: 1.8.0対応。backward -&gt; cluster_flags</li>
+<li>2008-08-17: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

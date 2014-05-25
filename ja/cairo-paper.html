@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Paperクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Paperクラス</a></h1><!-- RDLabel: "Cairo::Paperクラス" -->
+<p><em>Since 1.6</em>: 用紙を表すクラスです。</p>
+<p>cairoにはないrcairoの拡張です。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::Paper</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Paper.default_unit</code></a></dt><!-- RDLabel: "Cairo::Paper.default_unit" -->
+<dd>
+単位を省略した場合に使用する単位を返します。初期値はポ
+イントです。
+<ul>
+<li>戻り値: デフォルトの単位</li>
+</ul></dd>
+<dt><a name="label-4" id="label-4"><code>Cairo::Paper.default_unit=(<var>unit</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.default_unit=" -->
+<dd>
+単位を省略した場合に使用する単位を設定します。
+<ul>
+<li>unit: 単位を表す文字列（"inch"や"pt"など）</li>
+<li>戻り値: <var>unit</var></li>
+</ul></dd>
+<dt><a name="label-5" id="label-5"><code>Cairo::Paper.new(<var>width</var>, <var>height</var>, <var>unit</var>=<var>nil</var>, <var>name</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.new" -->
+<dd>
+<p>指定した大きさの用紙を作ります。unitがnilの場合は
+<a href="cairo-paper.html">Cairo::Paper.default_</a>unitを使用します。</p>
+<p>nameは人間のためのものです。省略しても問題ありません。</p>
+<ul>
+<li>width: 用紙の幅</li>
+<li>height: 用紙の高さ</li>
+<li>unit: width/heightの単位</li>
+<li>name: 用紙の名前</li>
+<li>戻り値: 新しいCairo::Paperオブジェクト</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>Cairo::Paper.parse(<var>paper</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.parse" -->
+<dt><a name="label-7" id="label-7"><code>Cairo::Paper.parse(<var>name</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.parse" -->
+<dt><a name="label-8" id="label-8"><code>Cairo::Paper.parse(<var>description</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.parse" -->
+<dd>
+様々なオブジェクトから対応するCairo::Paperオブジェクト
+を生成します。paperが指定された場合でも、指定された
+paperと同じ内容のCairo::Paperオブジェクトを新しく生成し
+ます。
+<ul>
+<li>paper: <a href="cairo-paper.html">Cairo::Paper</a></li>
+<li>name: 用紙名（例: "a4", :a4, "b0 landscape", "Japanese-postalcard"）</li>
+<li><p>description: 用紙表現: "#{WIDTH}#{UNIT}x#{HEIGHT}#{UNIT}\##{NAME}"
+       "#{UNIT}"と最後の"\##{NAME}"は省略可能。"#{UNIT}"を省
+       略した場合はCairo::Paper.default_unitが使われる。</p>
+<p>例: "100x200", "200mmx4inch", "841mmx1189mm#A0"</p></li>
+<li>戻り値: 対応する新しいCairo::Paperオブジェクト</li>
+</ul></dd>
+<dt><a name="label-9" id="label-9"><code>Cairo::Paper.register_unit_resolver(<var>from_units</var>, <var>to_units</var>, &amp;<var>resolver</var>) {|<var>size</var>| ...}</code></a></dt><!-- RDLabel: "Cairo::Paper.register_unit_resolver" -->
+<dd>
+<p>異なる単位間で値を変換する方法を登録します。以下はイン
+チをポイントに変換する方法を登録しています。ここでは、イ
+ンチの単位として"in", "inch"を、ポイントの単位として
+"pt"を登録しています。</p>
+<pre>((&lt;Cairo::Paper.register_unit_resolver|cairo-paper.rd/Cairo::Paper.register_unit_resolver&gt;))(["in", "inch"], "pt") do |size|
+  size * 72
+end</pre>
+<ul>
+<li>from_units: 変換元の単位の文字列の配列。文字列を指定
+       した場合はその文字列だけの配列が指定されたものとして
+       扱われる。（"pt" =&gt; ["pt"]）</li>
+<li>to_units: 変換先の単位の文字列の配列。文字列を指定
+       した場合はその文字列だけの配列が指定されたものとして
+       扱われる。（"pt" =&gt; ["pt"]）</li>
+<li>resolver: 変換対象のサイズを受け取って、変換したサイ
+       ズを返すブロック</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>Cairo::Paper.resolve_unit(<var>size</var>, <var>from_unit</var>, <var>to_unit</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.resolve_unit" -->
+<dd>
+from_unit単位のsizeをto_unit単位のサイズに変換します。
+<ul>
+<li>size: 変換対象のサイズ</li>
+<li>from_unit: 変換元の単位（文字列。nilを指定した場合は
+       <a href="cairo-paper.html">Cairo::Paper.default_</a>sizeを使用）</li>
+<li>to_unit: 変換先の単位（文字列。nilを指定した場合は
+       <a href="cairo-paper.html">Cairo::Paper.default_</a>sizeを使用）</li>
+<li>戻り値: 変換後のサイズ</li>
+</ul></dd>
+</dl>
+<h2><a name="label-11" id="label-11">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-12" id="label-12"><code>width(<var>unit</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "width" -->
+<dd>
+指定した単位での幅を返します。unitがnilのときはその用紙
+の単位を使います。
+<ul>
+<li>unit: 単位</li>
+<li>戻り値: 指定した単位での幅</li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>width=(<var>width</var>)</code></a></dt><!-- RDLabel: "width=" -->
+<dd>
+幅を設定します。
+<ul>
+<li>width: 幅</li>
+</ul></dd>
+<dt><a name="label-14" id="label-14"><code>height(<var>unit</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "height" -->
+<dd>
+指定した単位での高さを返します。unitがnilのときはその用紙
+の単位を使います。
+<ul>
+<li>unit: 単位</li>
+<li>戻り値: 高さ</li>
+</ul></dd>
+<dt><a name="label-15" id="label-15"><code>height=(<var>height</var>)</code></a></dt><!-- RDLabel: "height=" -->
+<dd>
+高さを設定します。
+<ul>
+<li>height: 高さ</li>
+</ul></dd>
+<dt><a name="label-16" id="label-16"><code>size(<var>unit</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "size" -->
+<dd>
+指定した単位での幅と高さを返します。unitがnilのときはそ
+の用紙の単位を使います。
+<ul>
+<li>unit: 単位</li>
+<li>戻り値: 指定した単位での幅と高さの配列: [width, height]</li>
+</ul></dd>
+<dt><a name="label-17" id="label-17"><code>unit</code></a></dt><!-- RDLabel: "unit" -->
+<dd>
+<ul>
+<li>戻り値: 単位</li>
+</ul></dd>
+<dt><a name="label-18" id="label-18"><code>unit=(<var>unit</var>)</code></a></dt><!-- RDLabel: "unit=" -->
+<dd>
+単位を設定します。
+<ul>
+<li>unit: 単位</li>
+</ul></dd>
+<dt><a name="label-19" id="label-19"><code>name</code></a></dt><!-- RDLabel: "name" -->
+<dd>
+<ul>
+<li>戻り値: 名前</li>
+</ul></dd>
+<dt><a name="label-20" id="label-20"><code>name=(<var>name</var>)</code></a></dt><!-- RDLabel: "name=" -->
+<dd>
+名前を設定します。
+<ul>
+<li>name: 名前</li>
+</ul></dd>
+<dt><a name="label-21" id="label-21"><code>to_s</code></a></dt><!-- RDLabel: "to_s" -->
+<dd>
+<p>以下の形式の用紙の文字列表現を返します。</p>
+<pre>"#{WIDTH}#{UNIT}x#{HEIGHT}#{UNIT}\##{NAME}"</pre>
+<p>"#{UNIT}"および"\##{NAME}"はない場合があります。</p>
+<p><a href="cairo-paper.html">Cairo::Paper.</a>parseの入力にすることができます。</p>
+<ul>
+<li>戻り値: 用紙の文字列表現</li>
+</ul></dd>
+<dt><a name="label-22" id="label-22"><code>==(<var>other</var>)</code></a></dt><!-- RDLabel: "==" -->
+<dd>
+selfとotherが等しいかどうかを返します。
+<ul>
+<li>戻り値: otherと同じ用紙の場合はtrue</li>
+</ul></dd>
+</dl>
+<h2><a name="label-23" id="label-23">定数</a></h2><!-- RDLabel: "定数" -->
+<dl>
+<dt><a name="label-24" id="label-24"><code>A0</code></a></dt><!-- RDLabel: "A0" -->
+<dd>
+A0の用紙</dd>
+<dt><a name="label-25" id="label-25"><code>A0_LANDSCAPE</code></a></dt><!-- RDLabel: "A0_LANDSCAPE" -->
+<dd>
+A0横置きの用紙</dd>
+<dt><a name="label-26" id="label-26"><code>A1</code></a></dt><!-- RDLabel: "A1" -->
+<dd>
+A1の用紙</dd>
+<dt><a name="label-27" id="label-27"><code>A1_LANDSCAPE</code></a></dt><!-- RDLabel: "A1_LANDSCAPE" -->
+<dd>
+A1横置きの用紙</dd>
+<dt><a name="label-28" id="label-28"><code>A2</code></a></dt><!-- RDLabel: "A2" -->
+<dd>
+A2の用紙</dd>
+<dt><a name="label-29" id="label-29"><code>A2_LANDSCAPE</code></a></dt><!-- RDLabel: "A2_LANDSCAPE" -->
+<dd>
+A2横置きの用紙</dd>
+<dt><a name="label-30" id="label-30"><code>A3</code></a></dt><!-- RDLabel: "A3" -->
+<dd>
+A3の用紙</dd>
+<dt><a name="label-31" id="label-31"><code>A3_LANDSCAPE</code></a></dt><!-- RDLabel: "A3_LANDSCAPE" -->
+<dd>
+A3横置きの用紙</dd>
+<dt><a name="label-32" id="label-32"><code>A4</code></a></dt><!-- RDLabel: "A4" -->
+<dd>
+A4の用紙</dd>
+<dt><a name="label-33" id="label-33"><code>A4_LANDSCAPE</code></a></dt><!-- RDLabel: "A4_LANDSCAPE" -->
+<dd>
+A4横置きの用紙</dd>
+<dt><a name="label-34" id="label-34"><code>A5</code></a></dt><!-- RDLabel: "A5" -->
+<dd>
+A5の用紙</dd>
+<dt><a name="label-35" id="label-35"><code>A5_LANDSCAPE</code></a></dt><!-- RDLabel: "A5_LANDSCAPE" -->
+<dd>
+A5横置きの用紙</dd>
+<dt><a name="label-36" id="label-36"><code>A6</code></a></dt><!-- RDLabel: "A6" -->
+<dd>
+A6の用紙</dd>
+<dt><a name="label-37" id="label-37"><code>A6_LANDSCAPE</code></a></dt><!-- RDLabel: "A6_LANDSCAPE" -->
+<dd>
+A6横置きの用紙</dd>
+<dt><a name="label-38" id="label-38"><code>A7</code></a></dt><!-- RDLabel: "A7" -->
+<dd>
+A7の用紙</dd>
+<dt><a name="label-39" id="label-39"><code>A7_LANDSCAPE</code></a></dt><!-- RDLabel: "A7_LANDSCAPE" -->
+<dd>
+A7横置きの用紙</dd>
+<dt><a name="label-40" id="label-40"><code>A8</code></a></dt><!-- RDLabel: "A8" -->
+<dd>
+A8の用紙</dd>
+<dt><a name="label-41" id="label-41"><code>A8_LANDSCAPE</code></a></dt><!-- RDLabel: "A8_LANDSCAPE" -->
+<dd>
+A8横置きの用紙</dd>
+<dt><a name="label-42" id="label-42"><code>A9</code></a></dt><!-- RDLabel: "A9" -->
+<dd>
+A9の用紙</dd>
+<dt><a name="label-43" id="label-43"><code>A9_LANDSCAPE</code></a></dt><!-- RDLabel: "A9_LANDSCAPE" -->
+<dd>
+A9横置きの用紙</dd>
+<dt><a name="label-44" id="label-44"><code>A10</code></a></dt><!-- RDLabel: "A10" -->
+<dd>
+A10の用紙</dd>
+<dt><a name="label-45" id="label-45"><code>A10_LANDSCAPE</code></a></dt><!-- RDLabel: "A10_LANDSCAPE" -->
+<dd>
+A10横置きの用紙</dd>
+<dt><a name="label-46" id="label-46"><code>B0</code></a></dt><!-- RDLabel: "B0" -->
+<dd>
+B0の用紙</dd>
+<dt><a name="label-47" id="label-47"><code>B0_LANDSCAPE</code></a></dt><!-- RDLabel: "B0_LANDSCAPE" -->
+<dd>
+B0横置きの用紙</dd>
+<dt><a name="label-48" id="label-48"><code>B1</code></a></dt><!-- RDLabel: "B1" -->
+<dd>
+B1の用紙</dd>
+<dt><a name="label-49" id="label-49"><code>B1_LANDSCAPE</code></a></dt><!-- RDLabel: "B1_LANDSCAPE" -->
+<dd>
+B1横置きの用紙</dd>
+<dt><a name="label-50" id="label-50"><code>B2</code></a></dt><!-- RDLabel: "B2" -->
+<dd>
+B2の用紙</dd>
+<dt><a name="label-51" id="label-51"><code>B2_LANDSCAPE</code></a></dt><!-- RDLabel: "B2_LANDSCAPE" -->
+<dd>
+B2横置きの用紙</dd>
+<dt><a name="label-52" id="label-52"><code>B3</code></a></dt><!-- RDLabel: "B3" -->
+<dd>
+B3の用紙</dd>
+<dt><a name="label-53" id="label-53"><code>B3_LANDSCAPE</code></a></dt><!-- RDLabel: "B3_LANDSCAPE" -->
+<dd>
+B3横置きの用紙</dd>
+<dt><a name="label-54" id="label-54"><code>B4</code></a></dt><!-- RDLabel: "B4" -->
+<dd>
+B4の用紙</dd>
+<dt><a name="label-55" id="label-55"><code>B4_LANDSCAPE</code></a></dt><!-- RDLabel: "B4_LANDSCAPE" -->
+<dd>
+B4横置きの用紙</dd>
+<dt><a name="label-56" id="label-56"><code>B5</code></a></dt><!-- RDLabel: "B5" -->
+<dd>
+B5の用紙</dd>
+<dt><a name="label-57" id="label-57"><code>B5_LANDSCAPE</code></a></dt><!-- RDLabel: "B5_LANDSCAPE" -->
+<dd>
+B5横置きの用紙</dd>
+<dt><a name="label-58" id="label-58"><code>B6</code></a></dt><!-- RDLabel: "B6" -->
+<dd>
+B6の用紙</dd>
+<dt><a name="label-59" id="label-59"><code>B6_LANDSCAPE</code></a></dt><!-- RDLabel: "B6_LANDSCAPE" -->
+<dd>
+B6横置きの用紙</dd>
+<dt><a name="label-60" id="label-60"><code>B7</code></a></dt><!-- RDLabel: "B7" -->
+<dd>
+B7の用紙</dd>
+<dt><a name="label-61" id="label-61"><code>B7_LANDSCAPE</code></a></dt><!-- RDLabel: "B7_LANDSCAPE" -->
+<dd>
+B7横置きの用紙</dd>
+<dt><a name="label-62" id="label-62"><code>B8</code></a></dt><!-- RDLabel: "B8" -->
+<dd>
+B8の用紙</dd>
+<dt><a name="label-63" id="label-63"><code>B8_LANDSCAPE</code></a></dt><!-- RDLabel: "B8_LANDSCAPE" -->
+<dd>
+B8横置きの用紙</dd>
+<dt><a name="label-64" id="label-64"><code>B9</code></a></dt><!-- RDLabel: "B9" -->
+<dd>
+B9の用紙</dd>
+<dt><a name="label-65" id="label-65"><code>B9_LANDSCAPE</code></a></dt><!-- RDLabel: "B9_LANDSCAPE" -->
+<dd>
+B9横置きの用紙</dd>
+<dt><a name="label-66" id="label-66"><code>B10</code></a></dt><!-- RDLabel: "B10" -->
+<dd>
+B10の用紙</dd>
+<dt><a name="label-67" id="label-67"><code>B10_LANDSCAPE</code></a></dt><!-- RDLabel: "B10_LANDSCAPE" -->
+<dd>
+B10横置きの用紙</dd>
+<dt><a name="label-68" id="label-68"><code>JAPANESE_POSTCARD</code></a></dt><!-- RDLabel: "JAPANESE_POSTCARD" -->
+<dd>
+日本の官製はがき</dd>
+<dt><a name="label-69" id="label-69"><code>JAPANESE_POSTCARD_LANDSCAPE</code></a></dt><!-- RDLabel: "JAPANESE_POSTCARD_LANDSCAPE" -->
+<dd>
+日本の官製はがきの横置き</dd>
+<dt><a name="label-70" id="label-70"><code>LEGAL</code></a></dt><!-- RDLabel: "LEGAL" -->
+<dd>
+法律文書用サイズ</dd>
+<dt><a name="label-71" id="label-71"><code>LEGAL_LANDSCAPE</code></a></dt><!-- RDLabel: "LEGAL_LANDSCAPE" -->
+<dd>
+法律文書用サイズの横置き</dd>
+<dt><a name="label-72" id="label-72"><code>LETTER</code></a></dt><!-- RDLabel: "LETTER" -->
+<dd>
+便箋</dd>
+<dt><a name="label-73" id="label-73"><code>LETTER_LANDSCAPE</code></a></dt><!-- RDLabel: "LETTER_LANDSCAPE" -->
+<dd>
+便箋の横置き</dd>
+<dt><a name="label-74" id="label-74"><code>TABLOID</code></a></dt><!-- RDLabel: "TABLOID" -->
+<dd>
+新聞</dd>
+<dt><a name="label-75" id="label-75"><code>TABLOID_LANDSCAPE</code></a></dt><!-- RDLabel: "TABLOID_LANDSCAPE" -->
+<dd>
+新聞の横置き</dd>
+</dl>
+<h2><a name="label-76" id="label-76">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-77" id="label-77">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-04-11: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

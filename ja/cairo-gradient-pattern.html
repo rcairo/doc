@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::GradientPatternクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::GradientPatternクラス</a></h1><!-- RDLabel: "Cairo::GradientPatternクラス" -->
+<p>グラデーション用のパターン。使うときはCairo::LinearPatternか
+<a href="cairo.html">Cairo</a>::RadialPatternを使う。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-pattern.html">Cairo::Pattern</a>
+<ul>
+<li>Cairo::GradientPattern</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>add_color_stop(<var>offset</var>, <var>color</var>)</code></a></dt><!-- RDLabel: "add_color_stop" -->
+<dt><a name="label-4" id="label-4"><code>add_color_stop(<var>offset</var>, <var>red</var>, <var>green</var>, <var>blue</var>, <var>alpha</var>=<var>1</var>.<var>0</var>)</code></a></dt><!-- RDLabel: "add_color_stop" -->
+<dt><a name="label-5" id="label-5"><code>add_color_stop(<var>offset</var>, <var>rgb</var>)</code></a></dt><!-- RDLabel: "add_color_stop" -->
+<dt><a name="label-6" id="label-6"><code>add_color_stop(<var>offset</var>, <var>rgba</var>)</code></a></dt><!-- RDLabel: "add_color_stop" -->
+<dd>
+<p>グラデーションパターンにカラーストップを追加します。
+<var>offset</var>はグラデーションの制御ベクトルに沿った位置
+を指定します。例えば、線形グラデーションの制御ベクトル
+は(x0, y0)から(x1, y1)までです。放射グラデーションの制
+御ベクトルは開始円の任意の場所から終端円の対応する点ま
+でです。</p>
+<p>色はCairo::Context#set_source_colorや
+<a href="cairo-context.html#label-105">Cairo::Context#set_source_rgb</a>、
+<a href="cairo-context.html">Cairo::Context#set_source_</a>rgbaと同じ方法で指定します。</p>
+<ul>
+<li>offset: 範囲[0.0 .. 1.0]間の補正値。</li>
+<li>color: <a href="cairo-color.html">Cairo::Color.</a>parseで認識できる色。</li>
+<li>red: 色の赤の値。</li>
+<li>green: 色の緑の値。</li>
+<li>blue: 色の青の値。</li>
+<li>alpha: 色のアルファ値。</li>
+<li>rgb: <code>[red, green, blue]</code></li>
+<li>rgba: <code>[red, green, blue, alpha]</code></li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>add_color_stop_rgb(<var>offset</var>, <var>red</var>, <var>green</var>, <var>blue</var>)</code></a></dt><!-- RDLabel: "add_color_stop_rgb" -->
+<dd>
+<p><a href="cairo-gradient-pattern.html">Cairo::GradientPattern#add_color_</a>stopを以下のように呼び
+出したのと同じです。</p>
+<pre>pattern.add_color_stop(offset, red, green, blue)</pre></dd>
+<dt><a name="label-8" id="label-8"><code>add_color_stop_rgba(<var>offset</var>, <var>red</var>, <var>green</var>, <var>blue</var>, <var>alpha</var>)</code></a></dt><!-- RDLabel: "add_color_stop_rgba" -->
+<dd>
+<p><a href="cairo-gradient-pattern.html">Cairo::GradientPattern#add_color_</a>stopを以下のように呼び
+出したのと同じです。</p>
+<pre>pattern.add_color_stop(offset, red, green, blue, alpha)</pre></dd>
+<dt><a name="label-9" id="label-9"><code>color_stop_count</code></a></dt><!-- RDLabel: "color_stop_count" -->
+<dd>
+カラーストップの数を返します。
+<ul>
+<li>戻り値: カラーストップの数。</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>get_color_stop_rgba(<var>index</var>)</code></a></dt><!-- RDLabel: "get_color_stop_rgba" -->
+<dd>
+指定された<var>index</var>の色と補正値の情報を返します。
+<ul>
+<li>戻り値: <code>[offset, red, green, blue, alpha]</code>
+<ul>
+<li>offset: 指定されたカラーストップの補正値。</li>
+<li>red: 色の赤の値。</li>
+<li>green: 色の緑の値。</li>
+<li>blue: 色の青の値。</li>
+<li>alpha: 色のアルファ値。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>get_color_stop_color(<var>index</var>)</code></a></dt><!-- RDLabel: "get_color_stop_color" -->
+<dd>
+指定された<var>index</var>の色と補正値の情報を返します。
+<a href="cairo-gradient-pattern.html">Cairo::GradientPattern#get_color_stop_</a>rgbaと違い
+<a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクトとして返します。
+<ul>
+<li>戻り値: <code>[offset, color]</code>
+<ul>
+<li>offset: 指定されたカラーストップの補正値。</li>
+<li>color: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト。</li>
+</ul></li>
+</ul></dd>
+</dl>
+<h2><a name="label-12" id="label-12">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-linear-pattern.html">Cairo::LinearPattern</a></li>
+<li><a href="cairo-radial-pattern.html">Cairo::RadialPattern</a></li>
+</ul>
+<h2><a name="label-13" id="label-13">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-20: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Colorモジュール</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Colorモジュール</a></h1><!-- RDLabel: "Cairo::Colorモジュール" -->
+<p><em>Since 1.5?</em>: 色をパースする機能と、有名な色の
+<a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクトを提供するモジュールです。</p>
+<p>cairoにはないrcairoでの拡張です。</p>
+<h2><a name="label-1" id="label-1">includeしているモジュール</a></h2><!-- RDLabel: "includeしているモジュール" -->
+<ul>
+<li><a href="cairo-color-x11.html">Cairo::Color::X11</a></li>
+</ul>
+<h2><a name="label-2" id="label-2">モジュール関数</a></h2><!-- RDLabel: "モジュール関数" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Color.parse([<var>r</var>, <var>g</var>, <var>b</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-4" id="label-4"><code>Cairo::Color.parse([:<var>rgb</var>, <var>r</var>, <var>g</var>, <var>b</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-5" id="label-5"><code>Cairo::Color.parse([:<var>rgba</var>, <var>r</var>, <var>g</var>, <var>b</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+RGB形式の色を生成します。
+<ul>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>Cairo::Color.parse([:<var>cmyk</var>, <var>c</var>, <var>m</var>, <var>y</var>, <var>k</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-7" id="label-7"><code>Cairo::Color.parse([:<var>cmyka</var>, <var>c</var>, <var>m</var>, <var>y</var>, <var>k</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+CMYK形式の色を生成します。
+<ul>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::CMYKオブジェクト</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>Cairo::Color.parse([:<var>hsv</var>, <var>h</var>, <var>s</var>, <var>v</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-9" id="label-9"><code>Cairo::Color.parse([:<var>hsva</var>, <var>h</var>, <var>s</var>, <var>v</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+HSV形式の色を生成します。
+<ul>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::HSVオブジェクト</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>Cairo::Color.parse("#<var>RGB</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-11" id="label-11"><code>Cairo::Color.parse("#<var>RGBA</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-12" id="label-12"><code>Cairo::Color.parse("#<var>RRGGBB</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-13" id="label-13"><code>Cairo::Color.parse("#<var>RRGGBBAA</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-14" id="label-14"><code>Cairo::Color.parse("#<var>RRRRGGGGBBBB</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dt><a name="label-15" id="label-15"><code>Cairo::Color.parse("#<var>RRRRGGGGBBBBAAAA</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+16進数の文字列で表現されたRGB形式から対応する色を生成し
+ます。"#"からはじまるのに、上記以外のフォーマットの場合
+はArgumentErrorが発生します。
+<ul>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+</ul></dd>
+<dt><a name="label-16" id="label-16"><code>Cairo::Color.parse(<var>color_name</var>, <var>robust</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+<p>名前から色を生成します。使える色の名前は
+<a href="cairo.html">Cairo</a>::Colorモジュールに定義されている定数名と対応
+します。大文字小文字、"-"や"_"や空白は区別されません。</p>
+<p>例えば、<a href="cairo-color.html">Cairo::Color</a>::PEACH_YELLOWを使いたい場合は
+以下のどの書き方でも有効です。</p>
+<pre>Cairo::Color.parse(:peach_yellow)
+Cairo::Color.parse("peach-yellow")
+Cairo::Color.parse("peach yellow")
+Cairo::Color.parse("Peach Yellow")
+Cairo::Color.parse("PEACH_YELLOW")
+Cairo::Color.parse("PEACH     Yellow")</pre>
+<ul>
+<li>color_name: 色の名前。文字列またはシンボル。</li>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+</ul></dd>
+<dt><a name="label-17" id="label-17"><code>Cairo::Color.parse(<var>color</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+色（<a href="cairo-color.html">Cairo::Color</a>::Baseのサブクラスのオブジェクト）
+を指定した場合は、その色の複製を返します。
+<ul>
+<li>color: <a href="cairo-color.html">Cairo::Color</a>::Baseのサブクラスのオブジェクト</li>
+<li>戻り値: colorの複製</li>
+</ul></dd>
+<dt><a name="label-18" id="label-18"><code>Cairo::Color.parse(<var>value</var>, <var>robust</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
+<dd>
+robustがtrueの場合はArgumentErrorが発生します。そうでな
+い場合は、valueをそのまま返します。
+<ul>
+<li>value: 上記以外のオブジェクト</li>
+<li>戻り値: value</li>
+</ul></dd>
+<dt><a name="label-19" id="label-19"><code>Cairo::Color.parse_hex_color(<var>value</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse_hex_color" -->
+<dd>
+"#..."形式のRGB値から色を生成する。
+<a href="cairo-color.html">Cairo::Color.</a>parseを使ってください。
+<ul>
+<li>value: "#..."形式の文字列</li>
+<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+</ul></dd>
+</dl>
+<h2><a name="label-20" id="label-20">定数</a></h2><!-- RDLabel: "定数" -->
+<dl>
+<dt><a name="label-21" id="label-21"><code>ALICE_BLUE</code></a></dt><!-- RDLabel: "ALICE_BLUE" -->
+<dt><a name="label-22" id="label-22"><code>ALIZARIN_CRIMSON</code></a></dt><!-- RDLabel: "ALIZARIN_CRIMSON" -->
+<dt><a name="label-23" id="label-23"><code>AMARANTH</code></a></dt><!-- RDLabel: "AMARANTH" -->
+<dt><a name="label-24" id="label-24"><code>AMBER</code></a></dt><!-- RDLabel: "AMBER" -->
+<dt><a name="label-25" id="label-25"><code>AMETHYST</code></a></dt><!-- RDLabel: "AMETHYST" -->
+<dt><a name="label-26" id="label-26"><code>APRICOT</code></a></dt><!-- RDLabel: "APRICOT" -->
+<dt><a name="label-27" id="label-27"><code>AQUA</code></a></dt><!-- RDLabel: "AQUA" -->
+<dt><a name="label-28" id="label-28"><code>AQUAMARINE</code></a></dt><!-- RDLabel: "AQUAMARINE" -->
+<dt><a name="label-29" id="label-29"><code>ASPARAGUS</code></a></dt><!-- RDLabel: "ASPARAGUS" -->
+<dt><a name="label-30" id="label-30"><code>AZURE</code></a></dt><!-- RDLabel: "AZURE" -->
+<dt><a name="label-31" id="label-31"><code>BEIGE</code></a></dt><!-- RDLabel: "BEIGE" -->
+<dt><a name="label-32" id="label-32"><code>BISTRE</code></a></dt><!-- RDLabel: "BISTRE" -->
+<dt><a name="label-33" id="label-33"><code>BLACK</code></a></dt><!-- RDLabel: "BLACK" -->
+<dt><a name="label-34" id="label-34"><code>BLAZE_ORANGE</code></a></dt><!-- RDLabel: "BLAZE_ORANGE" -->
+<dt><a name="label-35" id="label-35"><code>BLUE</code></a></dt><!-- RDLabel: "BLUE" -->
+<dt><a name="label-36" id="label-36"><code>BONDI_BLUE</code></a></dt><!-- RDLabel: "BONDI_BLUE" -->
+<dt><a name="label-37" id="label-37"><code>BRIGHT_GREEN</code></a></dt><!-- RDLabel: "BRIGHT_GREEN" -->
+<dt><a name="label-38" id="label-38"><code>BRIGHT_TURQUOISE</code></a></dt><!-- RDLabel: "BRIGHT_TURQUOISE" -->
+<dt><a name="label-39" id="label-39"><code>BROWN</code></a></dt><!-- RDLabel: "BROWN" -->
+<dt><a name="label-40" id="label-40"><code>BUFF</code></a></dt><!-- RDLabel: "BUFF" -->
+<dt><a name="label-41" id="label-41"><code>BURGUNDY</code></a></dt><!-- RDLabel: "BURGUNDY" -->
+<dt><a name="label-42" id="label-42"><code>BURNT_ORANGE</code></a></dt><!-- RDLabel: "BURNT_ORANGE" -->
+<dt><a name="label-43" id="label-43"><code>BURNT_SIENNA</code></a></dt><!-- RDLabel: "BURNT_SIENNA" -->
+<dt><a name="label-44" id="label-44"><code>BURNT_UMBER</code></a></dt><!-- RDLabel: "BURNT_UMBER" -->
+<dt><a name="label-45" id="label-45"><code>CAMOUFLAGE_GREEN</code></a></dt><!-- RDLabel: "CAMOUFLAGE_GREEN" -->
+<dt><a name="label-46" id="label-46"><code>CARDINAL</code></a></dt><!-- RDLabel: "CARDINAL" -->
+<dt><a name="label-47" id="label-47"><code>CARMINE</code></a></dt><!-- RDLabel: "CARMINE" -->
+<dt><a name="label-48" id="label-48"><code>CARNATION</code></a></dt><!-- RDLabel: "CARNATION" -->
+<dt><a name="label-49" id="label-49"><code>CARROT_ORANGE</code></a></dt><!-- RDLabel: "CARROT_ORANGE" -->
+<dt><a name="label-50" id="label-50"><code>CELADON</code></a></dt><!-- RDLabel: "CELADON" -->
+<dt><a name="label-51" id="label-51"><code>CERISE</code></a></dt><!-- RDLabel: "CERISE" -->
+<dt><a name="label-52" id="label-52"><code>CERULEAN</code></a></dt><!-- RDLabel: "CERULEAN" -->
+<dt><a name="label-53" id="label-53"><code>CERULEAN_BLUE</code></a></dt><!-- RDLabel: "CERULEAN_BLUE" -->
+<dt><a name="label-54" id="label-54"><code>CHARTREUSE</code></a></dt><!-- RDLabel: "CHARTREUSE" -->
+<dt><a name="label-55" id="label-55"><code>CHARTREUSE_YELLOW</code></a></dt><!-- RDLabel: "CHARTREUSE_YELLOW" -->
+<dt><a name="label-56" id="label-56"><code>CHESTNUT</code></a></dt><!-- RDLabel: "CHESTNUT" -->
+<dt><a name="label-57" id="label-57"><code>CHOCOLATE</code></a></dt><!-- RDLabel: "CHOCOLATE" -->
+<dt><a name="label-58" id="label-58"><code>CINNAMON</code></a></dt><!-- RDLabel: "CINNAMON" -->
+<dt><a name="label-59" id="label-59"><code>COBALT</code></a></dt><!-- RDLabel: "COBALT" -->
+<dt><a name="label-60" id="label-60"><code>COPPER</code></a></dt><!-- RDLabel: "COPPER" -->
+<dt><a name="label-61" id="label-61"><code>COPPER_ROSE</code></a></dt><!-- RDLabel: "COPPER_ROSE" -->
+<dt><a name="label-62" id="label-62"><code>CORAL</code></a></dt><!-- RDLabel: "CORAL" -->
+<dt><a name="label-63" id="label-63"><code>CORAL_RED</code></a></dt><!-- RDLabel: "CORAL_RED" -->
+<dt><a name="label-64" id="label-64"><code>CORN</code></a></dt><!-- RDLabel: "CORN" -->
+<dt><a name="label-65" id="label-65"><code>CORNFLOWER_BLUE</code></a></dt><!-- RDLabel: "CORNFLOWER_BLUE" -->
+<dt><a name="label-66" id="label-66"><code>CREAM</code></a></dt><!-- RDLabel: "CREAM" -->
+<dt><a name="label-67" id="label-67"><code>CRIMSON</code></a></dt><!-- RDLabel: "CRIMSON" -->
+<dt><a name="label-68" id="label-68"><code>CYAN</code></a></dt><!-- RDLabel: "CYAN" -->
+<dt><a name="label-69" id="label-69"><code>DARK_BLUE</code></a></dt><!-- RDLabel: "DARK_BLUE" -->
+<dt><a name="label-70" id="label-70"><code>DARK_POWDER_BLUE</code></a></dt><!-- RDLabel: "DARK_POWDER_BLUE" -->
+<dt><a name="label-71" id="label-71"><code>DENIM</code></a></dt><!-- RDLabel: "DENIM" -->
+<dt><a name="label-72" id="label-72"><code>DODGER_BLUE</code></a></dt><!-- RDLabel: "DODGER_BLUE" -->
+<dt><a name="label-73" id="label-73"><code>EGGPLANT</code></a></dt><!-- RDLabel: "EGGPLANT" -->
+<dt><a name="label-74" id="label-74"><code>EMERALD</code></a></dt><!-- RDLabel: "EMERALD" -->
+<dt><a name="label-75" id="label-75"><code>FALU_RED</code></a></dt><!-- RDLabel: "FALU_RED" -->
+<dt><a name="label-76" id="label-76"><code>FERN_GREEN</code></a></dt><!-- RDLabel: "FERN_GREEN" -->
+<dt><a name="label-77" id="label-77"><code>FLAX</code></a></dt><!-- RDLabel: "FLAX" -->
+<dt><a name="label-78" id="label-78"><code>FOREST_GREEN</code></a></dt><!-- RDLabel: "FOREST_GREEN" -->
+<dt><a name="label-79" id="label-79"><code>FRENCH_ROSE</code></a></dt><!-- RDLabel: "FRENCH_ROSE" -->
+<dt><a name="label-80" id="label-80"><code>FUCHSIA</code></a></dt><!-- RDLabel: "FUCHSIA" -->
+<dt><a name="label-81" id="label-81"><code>GAMBOGE</code></a></dt><!-- RDLabel: "GAMBOGE" -->
+<dt><a name="label-82" id="label-82"><code>GOLD</code></a></dt><!-- RDLabel: "GOLD" -->
+<dt><a name="label-83" id="label-83"><code>GOLDENROD</code></a></dt><!-- RDLabel: "GOLDENROD" -->
+<dt><a name="label-84" id="label-84"><code>GRAY</code></a></dt><!-- RDLabel: "GRAY" -->
+<dt><a name="label-85" id="label-85"><code>GRAY_ASPARAGUS</code></a></dt><!-- RDLabel: "GRAY_ASPARAGUS" -->
+<dt><a name="label-86" id="label-86"><code>GREEN</code></a></dt><!-- RDLabel: "GREEN" -->
+<dt><a name="label-87" id="label-87"><code>GREEN_YELLOW</code></a></dt><!-- RDLabel: "GREEN_YELLOW" -->
+<dt><a name="label-88" id="label-88"><code>HARLEQUIN</code></a></dt><!-- RDLabel: "HARLEQUIN" -->
+<dt><a name="label-89" id="label-89"><code>HELIOTROPE</code></a></dt><!-- RDLabel: "HELIOTROPE" -->
+<dt><a name="label-90" id="label-90"><code>HEX_RE</code></a></dt><!-- RDLabel: "HEX_RE" -->
+<dt><a name="label-91" id="label-91"><code>HOLLYWOOD_CERISE</code></a></dt><!-- RDLabel: "HOLLYWOOD_CERISE" -->
+<dt><a name="label-92" id="label-92"><code>HOT_MAGENTA</code></a></dt><!-- RDLabel: "HOT_MAGENTA" -->
+<dt><a name="label-93" id="label-93"><code>HOT_PINK</code></a></dt><!-- RDLabel: "HOT_PINK" -->
+<dt><a name="label-94" id="label-94"><code>INDIGO</code></a></dt><!-- RDLabel: "INDIGO" -->
+<dt><a name="label-95" id="label-95"><code>INTERNATIONAL_KLEIN_BLUE</code></a></dt><!-- RDLabel: "INTERNATIONAL_KLEIN_BLUE" -->
+<dt><a name="label-96" id="label-96"><code>INTERNATIONAL_ORANGE</code></a></dt><!-- RDLabel: "INTERNATIONAL_ORANGE" -->
+<dt><a name="label-97" id="label-97"><code>IVORY</code></a></dt><!-- RDLabel: "IVORY" -->
+<dt><a name="label-98" id="label-98"><code>JADE</code></a></dt><!-- RDLabel: "JADE" -->
+<dt><a name="label-99" id="label-99"><code>KHAKI</code></a></dt><!-- RDLabel: "KHAKI" -->
+<dt><a name="label-100" id="label-100"><code>KHAKI_X11</code></a></dt><!-- RDLabel: "KHAKI_X11" -->
+<dt><a name="label-101" id="label-101"><code>LAVENDER</code></a></dt><!-- RDLabel: "LAVENDER" -->
+<dt><a name="label-102" id="label-102"><code>LAVENDER_BLUE</code></a></dt><!-- RDLabel: "LAVENDER_BLUE" -->
+<dt><a name="label-103" id="label-103"><code>LAVENDER_BLUSH</code></a></dt><!-- RDLabel: "LAVENDER_BLUSH" -->
+<dt><a name="label-104" id="label-104"><code>LAVENDER_GRAY</code></a></dt><!-- RDLabel: "LAVENDER_GRAY" -->
+<dt><a name="label-105" id="label-105"><code>LAVENDER_PINK</code></a></dt><!-- RDLabel: "LAVENDER_PINK" -->
+<dt><a name="label-106" id="label-106"><code>LAVENDER_ROSE</code></a></dt><!-- RDLabel: "LAVENDER_ROSE" -->
+<dt><a name="label-107" id="label-107"><code>LEMON</code></a></dt><!-- RDLabel: "LEMON" -->
+<dt><a name="label-108" id="label-108"><code>LEMON_CHIFFON</code></a></dt><!-- RDLabel: "LEMON_CHIFFON" -->
+<dt><a name="label-109" id="label-109"><code>LILAC</code></a></dt><!-- RDLabel: "LILAC" -->
+<dt><a name="label-110" id="label-110"><code>LIME</code></a></dt><!-- RDLabel: "LIME" -->
+<dt><a name="label-111" id="label-111"><code>LINEN</code></a></dt><!-- RDLabel: "LINEN" -->
+<dt><a name="label-112" id="label-112"><code>MAGENTA</code></a></dt><!-- RDLabel: "MAGENTA" -->
+<dt><a name="label-113" id="label-113"><code>MALACHITE</code></a></dt><!-- RDLabel: "MALACHITE" -->
+<dt><a name="label-114" id="label-114"><code>MAROON</code></a></dt><!-- RDLabel: "MAROON" -->
+<dt><a name="label-115" id="label-115"><code>MAUVE</code></a></dt><!-- RDLabel: "MAUVE" -->
+<dt><a name="label-116" id="label-116"><code>MEDIUM_CARMINE</code></a></dt><!-- RDLabel: "MEDIUM_CARMINE" -->
+<dt><a name="label-117" id="label-117"><code>MEDIUM_LAVENDER</code></a></dt><!-- RDLabel: "MEDIUM_LAVENDER" -->
+<dt><a name="label-118" id="label-118"><code>MEDIUM_PURPLE</code></a></dt><!-- RDLabel: "MEDIUM_PURPLE" -->
+<dt><a name="label-119" id="label-119"><code>MIDNIGHT_BLUE</code></a></dt><!-- RDLabel: "MIDNIGHT_BLUE" -->
+<dt><a name="label-120" id="label-120"><code>MINT_GREEN</code></a></dt><!-- RDLabel: "MINT_GREEN" -->
+<dt><a name="label-121" id="label-121"><code>MOSS_GREEN</code></a></dt><!-- RDLabel: "MOSS_GREEN" -->
+<dt><a name="label-122" id="label-122"><code>MOUNTBATTEN_PINK</code></a></dt><!-- RDLabel: "MOUNTBATTEN_PINK" -->
+<dt><a name="label-123" id="label-123"><code>MUSTARD</code></a></dt><!-- RDLabel: "MUSTARD" -->
+<dt><a name="label-124" id="label-124"><code>NAVAJO_WHITE</code></a></dt><!-- RDLabel: "NAVAJO_WHITE" -->
+<dt><a name="label-125" id="label-125"><code>NAVY_BLUE</code></a></dt><!-- RDLabel: "NAVY_BLUE" -->
+<dt><a name="label-126" id="label-126"><code>OCHRE</code></a></dt><!-- RDLabel: "OCHRE" -->
+<dt><a name="label-127" id="label-127"><code>OLD_GOLD</code></a></dt><!-- RDLabel: "OLD_GOLD" -->
+<dt><a name="label-128" id="label-128"><code>OLD_LACE</code></a></dt><!-- RDLabel: "OLD_LACE" -->
+<dt><a name="label-129" id="label-129"><code>OLD_LAVENDER</code></a></dt><!-- RDLabel: "OLD_LAVENDER" -->
+<dt><a name="label-130" id="label-130"><code>OLD_ROSE</code></a></dt><!-- RDLabel: "OLD_ROSE" -->
+<dt><a name="label-131" id="label-131"><code>OLIVE</code></a></dt><!-- RDLabel: "OLIVE" -->
+<dt><a name="label-132" id="label-132"><code>OLIVE_DRAB</code></a></dt><!-- RDLabel: "OLIVE_DRAB" -->
+<dt><a name="label-133" id="label-133"><code>ORANGE</code></a></dt><!-- RDLabel: "ORANGE" -->
+<dt><a name="label-134" id="label-134"><code>ORANGE_COLOR_WHEEL</code></a></dt><!-- RDLabel: "ORANGE_COLOR_WHEEL" -->
+<dt><a name="label-135" id="label-135"><code>ORANGE_PEEL</code></a></dt><!-- RDLabel: "ORANGE_PEEL" -->
+<dt><a name="label-136" id="label-136"><code>ORANGE_WEB</code></a></dt><!-- RDLabel: "ORANGE_WEB" -->
+<dt><a name="label-137" id="label-137"><code>ORCHID</code></a></dt><!-- RDLabel: "ORCHID" -->
+<dt><a name="label-138" id="label-138"><code>PAPAYA_WHIP</code></a></dt><!-- RDLabel: "PAPAYA_WHIP" -->
+<dt><a name="label-139" id="label-139"><code>PASTEL_GREEN</code></a></dt><!-- RDLabel: "PASTEL_GREEN" -->
+<dt><a name="label-140" id="label-140"><code>PASTEL_PINK</code></a></dt><!-- RDLabel: "PASTEL_PINK" -->
+<dt><a name="label-141" id="label-141"><code>PEACH</code></a></dt><!-- RDLabel: "PEACH" -->
+<dt><a name="label-142" id="label-142"><code>PEACH_ORANGE</code></a></dt><!-- RDLabel: "PEACH_ORANGE" -->
+<dt><a name="label-143" id="label-143"><code>PEACH_YELLOW</code></a></dt><!-- RDLabel: "PEACH_YELLOW" -->
+<dt><a name="label-144" id="label-144"><code>PEAR</code></a></dt><!-- RDLabel: "PEAR" -->
+<dt><a name="label-145" id="label-145"><code>PERIWINKLE</code></a></dt><!-- RDLabel: "PERIWINKLE" -->
+<dt><a name="label-146" id="label-146"><code>PERSIAN_BLUE</code></a></dt><!-- RDLabel: "PERSIAN_BLUE" -->
+<dt><a name="label-147" id="label-147"><code>PERSIAN_GREEN</code></a></dt><!-- RDLabel: "PERSIAN_GREEN" -->
+<dt><a name="label-148" id="label-148"><code>PERSIAN_INDIGO</code></a></dt><!-- RDLabel: "PERSIAN_INDIGO" -->
+<dt><a name="label-149" id="label-149"><code>PERSIAN_PINK</code></a></dt><!-- RDLabel: "PERSIAN_PINK" -->
+<dt><a name="label-150" id="label-150"><code>PERSIAN_RED</code></a></dt><!-- RDLabel: "PERSIAN_RED" -->
+<dt><a name="label-151" id="label-151"><code>PERSIAN_ROSE</code></a></dt><!-- RDLabel: "PERSIAN_ROSE" -->
+<dt><a name="label-152" id="label-152"><code>PINE_GREEN</code></a></dt><!-- RDLabel: "PINE_GREEN" -->
+<dt><a name="label-153" id="label-153"><code>PINK</code></a></dt><!-- RDLabel: "PINK" -->
+<dt><a name="label-154" id="label-154"><code>PINK_ORANGE</code></a></dt><!-- RDLabel: "PINK_ORANGE" -->
+<dt><a name="label-155" id="label-155"><code>POMEGRANATE</code></a></dt><!-- RDLabel: "POMEGRANATE" -->
+<dt><a name="label-156" id="label-156"><code>POWDER_BLUE_WEB</code></a></dt><!-- RDLabel: "POWDER_BLUE_WEB" -->
+<dt><a name="label-157" id="label-157"><code>PRUSSIAN_BLUE</code></a></dt><!-- RDLabel: "PRUSSIAN_BLUE" -->
+<dt><a name="label-158" id="label-158"><code>PUCE</code></a></dt><!-- RDLabel: "PUCE" -->
+<dt><a name="label-159" id="label-159"><code>PUMPKIN</code></a></dt><!-- RDLabel: "PUMPKIN" -->
+<dt><a name="label-160" id="label-160"><code>PURPLE</code></a></dt><!-- RDLabel: "PURPLE" -->
+<dt><a name="label-161" id="label-161"><code>RAW_UMBER</code></a></dt><!-- RDLabel: "RAW_UMBER" -->
+<dt><a name="label-162" id="label-162"><code>RED</code></a></dt><!-- RDLabel: "RED" -->
+<dt><a name="label-163" id="label-163"><code>RED_VIOLET</code></a></dt><!-- RDLabel: "RED_VIOLET" -->
+<dt><a name="label-164" id="label-164"><code>ROBIN_EGG_BLUE</code></a></dt><!-- RDLabel: "ROBIN_EGG_BLUE" -->
+<dt><a name="label-165" id="label-165"><code>ROSE</code></a></dt><!-- RDLabel: "ROSE" -->
+<dt><a name="label-166" id="label-166"><code>ROYAL_BLUE</code></a></dt><!-- RDLabel: "ROYAL_BLUE" -->
+<dt><a name="label-167" id="label-167"><code>RUSSET</code></a></dt><!-- RDLabel: "RUSSET" -->
+<dt><a name="label-168" id="label-168"><code>RUST</code></a></dt><!-- RDLabel: "RUST" -->
+<dt><a name="label-169" id="label-169"><code>SAFETY_ORANGE</code></a></dt><!-- RDLabel: "SAFETY_ORANGE" -->
+<dt><a name="label-170" id="label-170"><code>SAFFRON</code></a></dt><!-- RDLabel: "SAFFRON" -->
+<dt><a name="label-171" id="label-171"><code>SALMON</code></a></dt><!-- RDLabel: "SALMON" -->
+<dt><a name="label-172" id="label-172"><code>SANDY_BROWN</code></a></dt><!-- RDLabel: "SANDY_BROWN" -->
+<dt><a name="label-173" id="label-173"><code>SANGRIA</code></a></dt><!-- RDLabel: "SANGRIA" -->
+<dt><a name="label-174" id="label-174"><code>SAPPHIRE</code></a></dt><!-- RDLabel: "SAPPHIRE" -->
+<dt><a name="label-175" id="label-175"><code>SCARLET</code></a></dt><!-- RDLabel: "SCARLET" -->
+<dt><a name="label-176" id="label-176"><code>SCHOOL_BUS_YELLOW</code></a></dt><!-- RDLabel: "SCHOOL_BUS_YELLOW" -->
+<dt><a name="label-177" id="label-177"><code>SEASHELL</code></a></dt><!-- RDLabel: "SEASHELL" -->
+<dt><a name="label-178" id="label-178"><code>SEA_GREEN</code></a></dt><!-- RDLabel: "SEA_GREEN" -->
+<dt><a name="label-179" id="label-179"><code>SELECTIVE_YELLOW</code></a></dt><!-- RDLabel: "SELECTIVE_YELLOW" -->
+<dt><a name="label-180" id="label-180"><code>SEPIA</code></a></dt><!-- RDLabel: "SEPIA" -->
+<dt><a name="label-181" id="label-181"><code>SHOCKING_PINK</code></a></dt><!-- RDLabel: "SHOCKING_PINK" -->
+<dt><a name="label-182" id="label-182"><code>SILVER</code></a></dt><!-- RDLabel: "SILVER" -->
+<dt><a name="label-183" id="label-183"><code>SLATE_GRAY</code></a></dt><!-- RDLabel: "SLATE_GRAY" -->
+<dt><a name="label-184" id="label-184"><code>SMALT</code></a></dt><!-- RDLabel: "SMALT" -->
+<dt><a name="label-185" id="label-185"><code>SPRING_GREEN</code></a></dt><!-- RDLabel: "SPRING_GREEN" -->
+<dt><a name="label-186" id="label-186"><code>STEEL_BLUE</code></a></dt><!-- RDLabel: "STEEL_BLUE" -->
+<dt><a name="label-187" id="label-187"><code>SWAMP_GREEN</code></a></dt><!-- RDLabel: "SWAMP_GREEN" -->
+<dt><a name="label-188" id="label-188"><code>TAN</code></a></dt><!-- RDLabel: "TAN" -->
+<dt><a name="label-189" id="label-189"><code>TANGERINE</code></a></dt><!-- RDLabel: "TANGERINE" -->
+<dt><a name="label-190" id="label-190"><code>TAUPE</code></a></dt><!-- RDLabel: "TAUPE" -->
+<dt><a name="label-191" id="label-191"><code>TAWNY</code></a></dt><!-- RDLabel: "TAWNY" -->
+<dt><a name="label-192" id="label-192"><code>TEAL</code></a></dt><!-- RDLabel: "TEAL" -->
+<dt><a name="label-193" id="label-193"><code>TEA_GREEN</code></a></dt><!-- RDLabel: "TEA_GREEN" -->
+<dt><a name="label-194" id="label-194"><code>TENNE</code></a></dt><!-- RDLabel: "TENNE" -->
+<dt><a name="label-195" id="label-195"><code>TERRA_COTTA</code></a></dt><!-- RDLabel: "TERRA_COTTA" -->
+<dt><a name="label-196" id="label-196"><code>THISTLE</code></a></dt><!-- RDLabel: "THISTLE" -->
+<dt><a name="label-197" id="label-197"><code>TURQUOISE</code></a></dt><!-- RDLabel: "TURQUOISE" -->
+<dt><a name="label-198" id="label-198"><code>ULTRAMARINE</code></a></dt><!-- RDLabel: "ULTRAMARINE" -->
+<dt><a name="label-199" id="label-199"><code>VERMILION</code></a></dt><!-- RDLabel: "VERMILION" -->
+<dt><a name="label-200" id="label-200"><code>VIOLET</code></a></dt><!-- RDLabel: "VIOLET" -->
+<dt><a name="label-201" id="label-201"><code>VIOLET_EGGPLANT</code></a></dt><!-- RDLabel: "VIOLET_EGGPLANT" -->
+<dt><a name="label-202" id="label-202"><code>VIRIDIAN</code></a></dt><!-- RDLabel: "VIRIDIAN" -->
+<dt><a name="label-203" id="label-203"><code>WHEAT</code></a></dt><!-- RDLabel: "WHEAT" -->
+<dt><a name="label-204" id="label-204"><code>WHITE</code></a></dt><!-- RDLabel: "WHITE" -->
+<dt><a name="label-205" id="label-205"><code>WISTERIA</code></a></dt><!-- RDLabel: "WISTERIA" -->
+<dt><a name="label-206" id="label-206"><code>YELLOW</code></a></dt><!-- RDLabel: "YELLOW" -->
+<dt><a name="label-207" id="label-207"><code>ZINNWALDITE</code></a></dt><!-- RDLabel: "ZINNWALDITE" -->
+</dl>
+<h2><a name="label-208" id="label-208">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-color-rgb.html">Cairo::Color::RGB</a></li>
+<li><a href="cairo-color-cmyk.html">Cairo::Color::CMYK</a></li>
+<li><a href="cairo-color-hsv.html">Cairo::Color::HSV</a></li>
+<li><a href="cairo-color-x11.html">Cairo::Color::X11</a></li>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-209" id="label-209">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-04-26: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Formatモジュール</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Formatモジュール</a></h1><!-- RDLabel: "Cairo::Formatモジュール" -->
+<p>画像データのメモリ上のフォーマットを特定するために使われます。</p>
+<h2><a name="label-1" id="label-1">モジュール関数</a></h2><!-- RDLabel: "モジュール関数" -->
+<dl>
+<dt><a name="label-2" id="label-2"><code>Cairo::Format.stride_for_width(<var>format</var>, <var>width</var>)</code></a></dt><!-- RDLabel: "Cairo::Format.stride_for_width" -->
+<dd>
+<p><em>Since 1.6</em>: cairoの最適化したイメージ描画処理での
+すべての調整要求を考慮したストライド値を返します。以下
+のように使います。</p>
+<pre>stride = Cairo::Format.stride_for_width(format, width)
+data = "\0" * stride * height
+surface = Cairo::ImageSurface.create(data, format, width, height, stride)</pre>
+<p>format: <a href="cairo-format.html">Cairo::Format</a>::*のどれか。
+width: <a href="cairo.html">Cairo</a>::ImageSurfaceの作成に使いたい幅。
+Returns: 与えられたformatとwidthに適切なストライド値。
+不正なformatや大きすぎるwidthを与えた場合は-1。</p></dd>
+</dl>
+<h2><a name="label-3" id="label-3">定数</a></h2><!-- RDLabel: "定数" -->
+<dl>
+<dt><a name="label-4" id="label-4"><code>A1</code></a></dt><!-- RDLabel: "A1" -->
+<dd>
+各ピクセルはアルファ値を保持するために1ビット持っていま
+す。ピクセルは他のピクセルとともに32ビットに詰められま
+す。ビットのならび順はプラットフォームのエンディアンと
+同じです。ビッグエンディアンの計算機では最初のピクセル
+が最上位ビットで、リトルエンディアンの計算機では最下位
+ビットです。</dd>
+<dt><a name="label-5" id="label-5"><code>A8</code></a></dt><!-- RDLabel: "A8" -->
+<dd>
+各ピクセルはアルファ値を保持するために8ビット持っていま
+す。</dd>
+<dt><a name="label-6" id="label-6"><code>ARGB32</code></a></dt><!-- RDLabel: "ARGB32" -->
+<dd>
+各ピクセルは32ビット持っています。上からアルファ値用に8
+ビット、赤用に8ビット、緑用に8ビット、青用に8ビットです。
+32ビットは環境のデフォルトのエンディアンで保存されます。
+事前にアルファ値を掛けた値が使われます。（つまり、50%透過
+している赤は0x80800000で0x80ff0000ではありません。）</dd>
+<dt><a name="label-7" id="label-7"><code>RGB24</code></a></dt><!-- RDLabel: "RGB24" -->
+<dd>
+各ピクセルは32ビット持っています。上位8ビットは使われま
+せん。赤、緑、青はこの順番で残りの24ビットに保存されま
+す。</dd>
+</dl>
+<h2><a name="label-8" id="label-8">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-9" id="label-9">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-04-11: kou: 1.6.0対応。</li>
+<li>2007-05-20: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

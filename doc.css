@@ -1,0 +1,91 @@
+body
+{
+  background-color: white;
+  margin: 1em;
+}
+
+h1
+{
+  background-image: url(rcairo-title.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding-top: 50px;
+}
+
+h2
+{
+  border-top: solid 1px black;
+  padding-top: 0.5em;
+}
+
+body > ul > li
+{
+  line-height: 150%;
+}
+
+code
+{
+  font: monospace;
+  font-style: italic;
+}
+
+dt
+{
+  margin-bottom: 1em;
+  margin: 1.5em;
+}
+
+dt code
+{
+  font-weight: bold;
+  padding: 0.5em;
+  background: #eeeeee;
+  border: solid 1px #aaaaaa;
+}
+
+dd
+{
+  margin-bottom: 2em;
+  line-height: 150%;
+  padding: 1em;
+  padding-top: 0em;
+  border-bottom: 1px solid #ffaaaa;
+  border-right: 2px solid #ffaaaa;
+}
+
+pre
+{
+  background: #ffeeee;
+  border: solid 1px #ffaaaa;
+  padding: 0.5em;
+  margin-left: 1em;
+  font: monospace;
+}
+
+em
+{
+  color: #cb2327;
+  font-weight: bold;
+}
+
+div.header,
+div.footer
+{
+  background: #ffeeee;
+  border: solid 1px #ffaaaa;
+}
+
+div.header ul,
+div.footer ul
+{
+  padding-left: 1em;
+}
+
+div.header ul li,
+div.footer ul li
+{
+  display: inline;
+  background: #eeeeee;
+  border: solid 1px #aaaaaa;
+  padding: 0.5em 1em;
+}

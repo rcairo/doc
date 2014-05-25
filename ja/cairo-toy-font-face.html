@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::ToyFontFaceクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::ToyFontFaceクラス</a></h1><!-- RDLabel: "Cairo::ToyFontFaceクラス" -->
+<p><em>Since 1.7</em>: おもちゃのような（少ない機能の）フォントフェイス。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-font-face.html">Cairo::FontFace</a>
+<ul>
+<li>Cairo::ToyFontFace</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::ToyFontFace.new(<var>family</var>=<var>nil</var>, <var>slant</var>=<var>nil</var>, <var>weight</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "Cairo::ToyFontFace.new" -->
+<dd>
+<p>フォントのファミリーと傾きと重みからフォントフェイスを
+作ります。このフォントフェイスはCairo::Contextの「おも
+ちゃのような」フォントAPIを実装するために使われます。</p>
+<p><var>family</var>が<code>nil</code>や空文字列の場合はプラットフォー
+ム依存のデフォルトのフォントファミリーが使われます。デ
+フォルトのフォントファミリーはCairo::ToyFontFace#family
+で取得できます。</p>
+<p><var>slant</var>が<code>nil</code>の場合はCairo::FontSlant::NORMAL
+が使われます。</p>
+<p><var>weight</var>が<code>nil</code>の場合は
+<a href="cairo-font-weight.html">Cairo::FontWeight</a>::NORMALが使われます。</p>
+<p><a href="cairo.html">Cairo</a>::ToyFontFaceの制限については
+<a href="cairo-context.html">Cairo::Context#select_font_</a>faceの説明を見てください。</p>
+<ul>
+<li>family: UTF-8で符号化されたフォントファミリー名。</li>
+<li>slant: フォントの傾き。:normalや:italicなど
+       <a href="cairo.html">Cairo</a>::FontSlantに定義されている定数名と同じもの。
+       大文字小文字は関係ありません。また、シンボル
+       ではなくて文字列で"normal"のように指定することもでき
+       ます。もちろん、<a href="cairo.html">Cairo</a>::FontSlantに定義されている定数
+       を指定することもできます。<code>nil</code>の場合はデフォルト
+       値としてCairo::FontSlant::NORMALが使われます。</li>
+<li>weight: フォントの重み。:normalや:boldなど
+       <a href="cairo.html">Cairo</a>::FontWeightに定義されている定数名と同じもの。
+       大文字小文字は関係ありません。また、シンボルではなく
+       て文字列で"normal"のように指定することもできます。も
+       ちろん、<a href="cairo.html">Cairo</a>::FontWeightを指定することもできます。
+       <code>nil</code>の場合はデフォルト値として
+       <a href="cairo-font-weight.html">Cairo::FontWeight</a>::NORMALが使われます。</li>
+<li>戻り値: 新しく生成したCairo::ToyFontFaceオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>family</code></a></dt><!-- RDLabel: "family" -->
+<dd>
+<em>Since 1.7</em>: ファミリー名を返します。
+<ul>
+<li>戻り値: ファミリー名。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>slant</code></a></dt><!-- RDLabel: "slant" -->
+<dd>
+<em>Since 1.7</em>: 傾きを返します。
+<ul>
+<li>戻り値: 傾き（<a href="cairo-font-slant.html">Cairo::FontSlant</a>）</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>weight</code></a></dt><!-- RDLabel: "weight" -->
+<dd>
+<em>Since 1.7</em>: 重みを返します。
+<ul>
+<li>戻り値: 傾き（<a href="cairo-font-weight.html">Cairo::FontWeight</a>）</li>
+</ul></dd>
+</dl>
+<h2><a name="label-8" id="label-8">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-context.html#label-102">Cairo::Context#select_font_face</a></li>
+<li><a href="cairo-font-slant.html">Cairo::FontSlant</a></li>
+<li><a href="cairo-font-weight.html">Cairo::FontWeight</a></li>
+</ul>
+<h2><a name="label-9" id="label-9">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-16: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::UserFontFaceクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::UserFontFaceクラス</a></h1><!-- RDLabel: "Cairo::UserFontFaceクラス" -->
+<p><em>Since 1.7</em>: ユーザが独自のフォントを使うためのフォント
+フェイス。</p>
+<p>on_XXXメソッドでコールバックを登録する方法と
+<a href="cairo.html">Cairo</a>::UserFontFaceを継承して、そのクラスにコールバック用のメ
+ソッドを定義する方法があります。</p>
+<p>継承した場合のコールバック用メソッドの名前はon_XXXメソッドか
+ら「on_」を除いた部分です。例えば、on_initに対応するメソッド
+名はinitです。引数は同じです。以下は継承する例です。
+render_glyph以外は定義しなくてもかまいません。</p>
+<pre>class CustomUserFontFace &lt; Cairo::UserFontFace
+  def init(scaled_font, context, font_extents)
+  end
+
+  def render_glyph(scaled_font, glyph, context, text_extents)
+  end
+
+  def text_to_glyphs(scaled_font, utf8, data)
+  end
+
+  def unicode_to_glyph(scaled_font, unicode)
+  end
+end</pre>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-font-face.html">Cairo::FontFace</a>
+<ul>
+<li>Cairo::UserFontFace</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::UserFontFace.new</code></a></dt><!-- RDLabel: "Cairo::UserFontFace.new" -->
+<dd>
+<p><em>Since 1.7</em>: 新しくCario::UserFontFaceオブジェクト
+を生成します。</p>
+<p>オブジェクトを生成したら、on_XXXメソッドでコールバック
+を登録してください。必須のコールバックは
+<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_render_</a>glyphです。それ以外のコー
+ルバックは省略可能です。</p>
+<p>継承して利用する場合、そのクラスのメソッドよりもon_XXX
+メソッドで登録したコールバックの方が優先されます。</p>
+<ul>
+<li>戻り値: 新しく生成したCario::UserFontFaceオブジェク
+       ト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>on_init {|<var>scaled_font</var>, <var>context</var>, <var>font_extents</var>| ...}</code></a></dt><!-- RDLabel: "on_init" -->
+<dd>
+<p><em>Since 1.7</em>: 拡大・縮小したフォントを初期化するコー
+ルバックを登録します。このコールバックは省略可能です。</p>
+<p><var>context</var>は呼び出し元では使われませんが、フォント空
+間ように準備されています。これは
+<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_render_</a>glyphで登録するコールバッ
+クに渡される<var>context</var>と同様です。コールバック中では
+このCairo::Contextをフォントの範囲を計算するために使う
+ことができます。</p>
+<p><var>font_extents</var>には<var>scaled_font</var>用のフォントの範
+囲を設定します。座標はフォント空間です。そのため、多く
+の場合はCairo::FontExtents#ascentと
+<a href="cairo-font-extents.html">Cairo::FontExtents#</a>descentに1.0を足す必要があります。
+<var>font_extents</var>は以下のように初期化されています。</p>
+<ul>
+<li>ascent: 1.0</li>
+<li>descent: 0.0</li>
+<li>height: 1.0</li>
+<li>max_x_advance: 1.0</li>
+<li>max_y_advance: 0.0</li>
+</ul>
+<p>このコールバックを指定しなかった場合は上記のデフォルト
+のフォントの範囲が使われます。</p>
+<p>注: <var>scaled_font</var>はこの時点では完全には初期化されて
+いません。そのため、コールバック中でテキスト操作を行う
+とデッドロックするでしょう。</p>
+<p>コールバック中で問題が発生した場合は
+<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+発生させてください。</p>
+<ul>
+<li>scaled_font: 生成中の拡大・縮小したフォント。
+       （<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>）</li>
+<li>context: <a href="cairo-context.html">Cairo::Context</a>。座標はフォント空間。</li>
+<li>font_extents: 設定するフォントの範囲
+       （<a href="cairo-font-extents.html">Cairo::FontExtents</a>）。座標はフォント空間。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>on_render_glyph {|<var>scaled_font</var>, <var>glyph</var>, <var>context</var>, <var>text_extents</var>| ...}</code></a></dt><!-- RDLabel: "on_render_glyph" -->
+<dd>
+<p><em>Since 1.7</em>: グリフ描画コールバックを登録します。こ
+のコールバックが唯一必須のコールバックです。</p>
+<p>コードが<var>glyph</var>のグリフを<var>context</var>に描画してく
+ださい。<var>context</var>はグリフ描画がフォント空間の座標で
+行われるように準備されています。つまり、<var>context</var>に
+設定されている変換行列は<var>scaled_font</var>の拡大・縮小行
+列です。</p>
+<p><var>text_extents</var>には<var>scaled_font</var>のフォントの範囲
+を設定してください。しかし、もし、ユーザ空間座標で描画
+したい場合は<var>context</var>の変換行列を設定してください。
+すべての<var>context</var>に対する操作は許可されていますが、
+もし、<var>context</var>のデフォルトソース以外のソースが使わ
+れた場合の動作は未定義です。つまり、グリフのビットマッ
+プはCairo::Context#paintではなくCairo::Context#maskで描
+画するべきだということです。</p>
+<p>他のデフォルトではない<var>context</var>の設定は以下の通り
+です。</p>
+<ul>
+<li>フォントサイズが1.0である（座標がフォント空間に設定
+         されているため）</li>
+<li>フォントオプションの設定が<var>scaled_font</var>に対応し
+         ている</li>
+</ul>
+<p><var>text_extents</var>は以下のように設定されています。</p>
+<ul>
+<li>x_bearing: 0.0</li>
+<li>y_bearing: -font_extents.ascent</li>
+<li>width: 0.0</li>
+<li>height: font_extents.ascent + font_extents.descent</li>
+<li>x_advance: font_extents.max_x_advance</li>
+<li>y_advance: 0.0</li>
+</ul>
+<p>多くの場合、設定しなければいけない項目はx_advanceだけで
+す。もし、コールバックの後でもwidthが0（デフォルト値）
+のままだった場合は、グリフの範囲は<var>context</var>への描画
+操作を元に自動的に計算されます。多くの場合、これは望ま
+れた動作です。しかし、もし、コールバックがグリフの範囲
+を設定する理由がある場合は、インクで塗る部分のグリフの
+範囲を設定してください。また、その範囲はコールバック中
+で<var>context</var>に描画したものすべてを含むようにしてくだ
+さい。</p>
+<p>コールバック中で問題が発生した場合は
+<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+発生させてください。</p>
+<ul>
+<li>scaled_font: ユーザ用の拡大・縮小したフォント。
+       （<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>）</li>
+<li>glyph: 描画するグリフコード（Integer）</li>
+<li>context: <a href="cairo-context.html">Cairo::Context</a>。座標はフォント空間。</li>
+<li>text_extents: 設定するグリフの範囲</li>
+</ul>
+<p>（<a href="cairo-text-extents.html">Cairo::TextExtents</a>）。座標はフォント空間。</p></dd>
+<dt><a name="label-7" id="label-7"><code>on_text_to_glyphs {|<var>scaled_font</var>, <var>utf8</var>, <var>data</var>| ...}</code></a></dt><!-- RDLabel: "on_text_to_glyphs" -->
+<dd>
+<p><em>Since 1.7</em>: テキストをグリフに変換するコールバック
+を登録します。このコールバックは省略可能です。</p>
+<p>このコールバックはCairo::Context#show_textのときに使わ
+れます。</p>
+<p>このコールバックを使うとき、ユーザフォントはグリフとそ
+の位置をすべて制御できます。つまり、リガチャ、カーニン
+グといった機能や、アラビア語やインド語のような文字体系
+が要求するような複雑な形を実現できます。</p>
+<p>変換した結果は<var>data</var>に設定します。</p>
+<p>もし、
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-13">data.need_glyphs?</a>
+が<code>true</code>の場合は
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-12">data.glyphs=</a>
+で計算したグリフのインデックスと位置を設定します。グリ
+フの位置はフォント空間座標です。テキストは起点から表示
+されると仮定しています。</p>
+<p>もし、
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-10">data.need_clusters?</a>
+が<code>true</code>の場合は
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-9">data.clusters=</a>
+で計算したクラスタ対応情報を設定します。</p>
+<p>もし、このコールバックが省略されているか
+<a href="cairo-user-font-face-text-to-glyphs-data.html#label-11">data.glyphs</a>
+が<code>nil</code>の場合は
+<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_unicode_to_</a>glyphが呼ばれます。</p>
+<p>注: cairoはグリフのインデックス付けには制限を設けていま
+せんが、いくつかのアプリケーションはグリフのインデック
+スは16ビットの符号無し整数に収まると仮定しています。そ
+のため、ユーザフォントはグリフの範囲を0から65535の範囲
+に収めるようにするとよいでしょう。さらに、いくつかのアプ
+リケーションは0番目のグリフは「グリフがない」という特別
+なグリフと仮定しているかもしれません。ユーザフォントは0
+番目のグリフをそのような目的として使い、他の目的には使
+わない方がよいでしょう。</p>
+<p>コールバック中で問題が発生した場合は
+<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+発生させてください。</p>
+<ul>
+<li>scaled_font: ユーザ用の拡大・縮小したフォント。
+       （<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>）</li>
+<li>utf8: UTF-8で符号化されたテキスト</li>
+<li>data: 変換結果を保存するオブジェクト
+       （<a href="cairo-user-font-face-text-to-glyphs-data.html">Cairo::UserFontFace::TextToGlyphsData</a>）</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>on_unicode_to_glyph {|<var>scaled_font</var>, <var>unicode</var>| ...}</code></a></dt><!-- RDLabel: "on_unicode_to_glyph" -->
+<dd>
+<p><em>Since 1.7</em>: Unicodeからグリフへ変換するコールバッ
+クを登録します。このコールバックは省略可能です。</p>
+<p>このコールバックはCairo::Context#show_textで使われます。</p>
+<p>登録したコールバックは<var>unicode</var>で指定されたUnicode
+のコードポイントに対応するグリフのインデックスを返して
+ください。</p>
+<p>このコールバックはCairo::UserFontFace#on_text_to_glyphs
+で登録するコールバックと同じ機能を提供します。
+on_text_to_glyphsほど出力を制御できませんが、使いやすい
+です。このコールバックを使うということは、各文字はそれ
+ぞれひとつのグリフに対応し、その対応は文脈に依存しない
+という前提があるということです。また、グリフは前のグリ
+フの幅に対応して配置されるという仮定もしています。つま
+り、リガチャやカーニングや複雑な文字体系などはこのコー
+ルバックを使っては実装できないということです。</p>
+<p>このコールバックはCairo::UserFontFace#on_text_to_glyphs
+でコールバックを登録していない場合や、登録したコールバッ
+クがグリフを返せなかった場合にだけ呼ばれます。このコー
+ルバックが登録されていない場合はUnicodeのコードポイ
+ントがそのままグリフのインデックスになっていると仮定さ
+れます。</p>
+<p>注: cairoはグリフのインデックス付けには制限を設けていま
+せんが、いくつかのアプリケーションはグリフのインデック
+スは16ビットの符号無し整数に収まると仮定しています。そ
+のため、ユーザフォントはグリフの範囲を0から65535の範囲
+に収めるようにするとよいでしょう。さらに、いくつかのアプ
+リケーションは0番目のグリフは「グリフがない」という特別
+なグリフと仮定しているかもしれません。ユーザフォントは0
+番目のグリフをそのような目的として使い、他の目的には使
+わない方がよいでしょう。</p>
+<p>コールバック中で問題が発生した場合は
+<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+発生させてください。</p>
+<ul>
+<li>scaled_font: ユーザ用の拡大・縮小したフォント。
+       （<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>）</li>
+<li>unicode: Unicode文字のコードポイント</li>
+<li>ブロックの戻り値: グリフのインデックス</li>
+</ul></dd>
+</dl>
+<h2><a name="label-9" id="label-9">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a></li>
+<li><a href="cairo-scaled-font.html#label-13">Cairo::ScaledFont#text_to_glyphs</a></li>
+</ul>
+<h2><a name="label-10" id="label-10">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-17: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

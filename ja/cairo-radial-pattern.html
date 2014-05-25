@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::RadialPatternクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::RadialPatternクラス</a></h1><!-- RDLabel: "Cairo::RadialPatternクラス" -->
+<p>放射グラデーション用のパターンです。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-pattern.html">Cairo::Pattern</a>
+<ul>
+<li><a href="cairo-gradient-pattern.html">Cairo::GradientPattern</a>
+<ul>
+<li>Cairo::RadialPattern</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::RadialPattern.new(<var>cx0</var>, <var>cy0</var>, <var>radius0</var>, <var>cx1</var>, <var>cy1</var>, <var>radius1</var>)</code></a></dt><!-- RDLabel: "Cairo::RadialPattern.new" -->
+<dd>
+<p>(<var>cx0</var>, <var>cy0</var>, <var>radius0</var>)と(<var>cx1</var>,
+<var>cy1</var>, <var>radius1</var>)で定義されるふたつの円の間の放
+射グラデーション用のパターンを生成します。このグラデー
+ションパターンを使う前に、
+<a href="cairo-gradient-pattern.html">Cairo::GradientPattern#add_color_</a>stopを使ってたくさんの
+カラーストップを定義してください。</p>
+<p>注: 座標はパターン空間になります。新しいパターンはユー
+ザ空間と同じになっていますが、ふたつの空間の関係は
+<a href="cairo-pattern.html">Cairo::Pattern#set_</a>matrixで変更できます。</p>
+<ul>
+<li>cx0: 開始円の中心のX座標</li>
+<li>cy0: 開始円の中心のY座標</li>
+<li>radius0: 開始円の半径</li>
+<li>cx1: 終了円の中心のX座標</li>
+<li>cy1: 終了円の中心のY座標</li>
+<li>radius1: 終了円の半径</li>
+<li>戻り値: 新しく作成したCairo::GradientPatternオブジェク
+       ト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>circles</code></a></dt><!-- RDLabel: "circles" -->
+<dd>
+放射グラデーションの2つの円を返します。それぞれ中心座標
+と半径で特定されます。
+<ul>
+<li>戻り値: <code>[[x0, y0, r0], [x1, y1, r1]]</code>
+<ul>
+<li>x0: 1つめの円の中心のX座標</li>
+<li>y0: 1つめの円の中心のY座標</li>
+<li>r0: 1つめの円の半径</li>
+<li>x1: 2つめの円の中心のX座標</li>
+<li>y1: 2つめの円の中心のY座標</li>
+<li>r1: 2つめの円の半径</li>
+</ul></li>
+</ul></dd>
+</dl>
+<h2><a name="label-6" id="label-6">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-7" id="label-7">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-22: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

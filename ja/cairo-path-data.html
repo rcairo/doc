@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::PathDataクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::PathDataクラス</a></h1><!-- RDLabel: "Cairo::PathDataクラス" -->
+<p><a href="cairo.html">Cairo</a>::Pathの中にあるパスデータを表します。実際に使うのはサ
+ブクラスのCairo::PathMoveTo, <a href="cairo-path-line-to.html">Cairo::PathLineTo</a>,
+<a href="cairo-path-curve-to.html">Cairo::PathCurveTo</a>, <a href="cairo.html">Cairo</a>::PathClosePathでしょう。</p>
+<p>パスはCairo::PathDataの配列として表現されます。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::PathData</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">includeしているモジュール</a></h2><!-- RDLabel: "includeしているモジュール" -->
+<ul>
+<li>Enumerable</li>
+</ul>
+<h2><a name="label-3" id="label-3">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-4" id="label-4"><code>Cairo::PathData.new(<var>type</var>, <var>points</var>)</code></a></dt><!-- RDLabel: "Cairo::PathData.new" -->
+<dd>
+<a href="cairo.html">Cairo</a>::PathDataオブジェクトを作成します。通常はサブクラ
+スのオブジェクトを作成します。
+<ul>
+<li>type: :move_toや:line_toなどCairo::PathDataTypeに定義
+       されている定数名と同じもの。大文字小文字は関
+       係ありません。また、シンボルではなくて文字列で
+       "move_to"のように指定することもできます。もちろん、
+       <a href="cairo.html">Cairo</a>::PathDataTypeに定義されている定数を指定するこ
+       ともできます。</li>
+<li>points: Ciaro::Pointの配列。</li>
+<li>戻り値: 新しく作成したCairo::PathDataオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-5" id="label-5">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-6" id="label-6"><code>close_path?</code></a></dt><!-- RDLabel: "close_path?" -->
+<dd>
+パスを閉じる操作なら真を返します。
+<ul>
+<li>戻り値: パスを閉じる操作なら<code>true</code>、それ以外は<code>false</code>。</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>curve_to?</code></a></dt><!-- RDLabel: "curve_to?" -->
+<dd>
+曲線を描く操作なら真を返します。
+<ul>
+<li>戻り値: 曲線を描く操作なら<code>true</code>、それ以外は<code>false</code>。</li>
+</ul></dd>
+<dt><a name="label-8" id="label-8"><code>each {|<var>point</var>| ...}</code></a></dt><!-- RDLabel: "each" -->
+<dd>
+各点毎にブロックを呼び出します。</dd>
+<dt><a name="label-9" id="label-9"><code>line_to?</code></a></dt><!-- RDLabel: "line_to?" -->
+<dd>
+直線を描く操作なら真を返します。
+<ul>
+<li>戻り値: 直線を描く操作なら<code>true</code>、それ以外は<code>false</code>。</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>move_to?</code></a></dt><!-- RDLabel: "move_to?" -->
+<dd>
+移動する操作なら真を返します。
+<ul>
+<li>戻り値: 移動する操作なら<code>true</code>、それ以外は<code>false</code>。</li>
+</ul></dd>
+<dt><a name="label-11" id="label-11"><code>points</code></a></dt><!-- RDLabel: "points" -->
+<dd>
+操作に必要な点を返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Pointの配列。</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>to_a</code></a></dt><!-- RDLabel: "to_a" -->
+<dt><a name="label-13" id="label-13"><code>to_ary</code></a></dt><!-- RDLabel: "to_ary" -->
+<dd>
+配列化します。
+<ul>
+<li>戻り値: <code>[type, points]</code>
+<ul>
+<li>type: 操作の種類。</li>
+<li>points: <a href="cairo.html">Cairo</a>::Pointの配列。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-14" id="label-14"><code>type</code></a></dt><!-- RDLabel: "type" -->
+<dd>
+操作の種類を返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::PathDataTypeに定義されている定数のど
+       れか。あるいはそれの文字列表現。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-15" id="label-15">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+<li><a href="cairo-path-move-to.html">Cairo::PathMoveTo</a></li>
+<li><a href="cairo-path-line-to.html">Cairo::PathLineTo</a></li>
+<li><a href="cairo-path-curve-to.html">Cairo::PathCurveTo</a></li>
+<li><a href="cairo-path-close-path.html">Cairo::PathClosePath</a></li>
+</ul>
+<h2><a name="label-16" id="label-16">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-22: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

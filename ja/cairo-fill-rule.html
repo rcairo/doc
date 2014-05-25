@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::FillRuleモジュール</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::FillRuleモジュール</a></h1><!-- RDLabel: "Cairo::FillRuleモジュール" -->
+<p>どのようにパスを塗りつぶすかを選択するために使われます。どち
+らの塗りつぶし規則でも、点が塗りつぶされるかは、点から無限遠
+方に視点を投げたときのパスとの交差点を見て決定します。線分の
+終点を通らなければ、視点の方向は問いません。そうしなければ接
+線とパスが交差するという扱いにくい交差ができます。（実際はこ
+のようには実装されていません。実際に使われている規則を説明し
+ただけ出す。）</p>
+<p>将来、新しい規則が増えるかもしれません。</p>
+<h2><a name="label-1" id="label-1">定数</a></h2><!-- RDLabel: "定数" -->
+<dl>
+<dt><a name="label-2" id="label-2"><code>EVEN_ODD</code></a></dt><!-- RDLabel: "EVEN_ODD" -->
+<dd>
+輪郭の方向と考えられるものをのぞいた交差の数を数えます。
+交差の総数が奇数ならその点は塗りつぶされます。</dd>
+<dt><a name="label-3" id="label-3"><code>WINDING</code></a></dt><!-- RDLabel: "WINDING" -->
+<dd>
+パスが左から右に視点と交差するなら+1、右から左に交差す
+るなら-1します。（左と右は最初の点からの視点に従った遠
+近法で決まります。）総数が0でないならその点は塗りつぶさ
+れます。</dd>
+</dl>
+<h2><a name="label-4" id="label-4">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-5" id="label-5">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-20: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

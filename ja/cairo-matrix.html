@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Matrixクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Matrixクラス</a></h1><!-- RDLabel: "Cairo::Matrixクラス" -->
+<p>拡大・回転・剪断とそれらを組み合わせた変換であるアフィン変換
+を持つオブジェクトです。点(x, y)は以下のように変換されます。</p>
+<pre>x_new = xx * x + xy * y + x0
+y_new = yx * x + yy * y + y0</pre>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li>Cairo::Matrix</li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::Matrix.identity</code></a></dt><!-- RDLabel: "Cairo::Matrix.identity" -->
+<dd>
+恒等変換をする行列を生成します。
+<ul>
+<li>戻り値: 単位行列のCairo::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-4" id="label-4"><code>Cairo::Matrix.new(<var>xx</var>, <var>yx</var>, <var>xy</var>, <var>yy</var>, <var>x0</var>, <var>y0</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.new" -->
+<dd>
+対応する成分を設定した行列を生成します。
+<ul>
+<li>xx: アフィン変換のxx成分。</li>
+<li>yx: アフィン変換のyx成分。</li>
+<li>xy: アフィン変換のxy成分。</li>
+<li>yy: アフィン変換のyy成分。</li>
+<li>x0: アフィン変換のX平行移動成分。</li>
+<li>y0: アフィン変換のY平行移動成分。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-5" id="label-5"><code>Cairo::Matrix.rotate(<var>radians</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.rotate" -->
+<dd>
+<var>radians</var>回転する変換を行う行列を返します。
+<ul>
+<li>radians: 回転する角度（ラジアン）。正の角度は軸から正
+       のY軸に進む方向に回転します。cairoのデフォルトの軸の
+       方向と同じように、正の角度は時計回りに回転します（？
+       FIXME: 逆じゃない？）。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-6" id="label-6"><code>Cairo::Matrix.scale(<var>sx</var>, <var>sy</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.scale" -->
+<dd>
+X方向に<var>sx</var>、Y方向に<var>sy</var>拡大する行列を返します。
+<ul>
+<li>sx: X方向の拡大率。</li>
+<li>sy: Y方向の拡大率。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-7" id="label-7"><code>Cairo::Matrix.translate(<var>tx</var>, <var>ty</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.translate" -->
+<dd>
+X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を返
+します。
+<ul>
+<li>tx: X方向の平行移動量。</li>
+<li>ty: Y方向の平行移動量。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-8" id="label-8">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-9" id="label-9"><code>xx</code></a></dt><!-- RDLabel: "xx" -->
+<dd>
+アフィン変換のxx成分を返します。
+<ul>
+<li>戻り値: アフィン変換のxx成分。</li>
+</ul></dd>
+<dt><a name="label-10" id="label-10"><code>xx=(<var>xx</var>)</code></a></dt><!-- RDLabel: "xx=" -->
+<dt><a name="label-11" id="label-11"><code>set_xx(<var>xx</var>)</code></a></dt><!-- RDLabel: "set_xx" -->
+<dd>
+アフィン変換のxx成分を設定します。
+<ul>
+<li>xx: アフィン変換のxx成分。</li>
+</ul></dd>
+<dt><a name="label-12" id="label-12"><code>yx</code></a></dt><!-- RDLabel: "yx" -->
+<dd>
+アフィン変換のyx成分を返します。
+<ul>
+<li>戻り値: アフィン変換のyx成分。</li>
+</ul></dd>
+<dt><a name="label-13" id="label-13"><code>yx=(<var>yx</var>)</code></a></dt><!-- RDLabel: "yx=" -->
+<dt><a name="label-14" id="label-14"><code>set_yx(<var>yx</var>)</code></a></dt><!-- RDLabel: "set_yx" -->
+<dd>
+アフィン変換のyx成分を設定します。
+<ul>
+<li>yx: アフィン変換のyx成分。</li>
+</ul></dd>
+<dt><a name="label-15" id="label-15"><code>xy</code></a></dt><!-- RDLabel: "xy" -->
+<dd>
+アフィン変換のxy成分を返します。
+<ul>
+<li>戻り値: アフィン変換のxy成分。</li>
+</ul></dd>
+<dt><a name="label-16" id="label-16"><code>xy=(<var>xy</var>)</code></a></dt><!-- RDLabel: "xy=" -->
+<dt><a name="label-17" id="label-17"><code>set_xy(<var>xy</var>)</code></a></dt><!-- RDLabel: "set_xy" -->
+<dd>
+アフィン変換のxy成分を設定します。
+<ul>
+<li>xy: アフィン変換のxy成分。</li>
+</ul></dd>
+<dt><a name="label-18" id="label-18"><code>yy</code></a></dt><!-- RDLabel: "yy" -->
+<dd>
+アフィン変換のyy成分を返します。
+<ul>
+<li>戻り値: アフィン変換のyy成分。</li>
+</ul></dd>
+<dt><a name="label-19" id="label-19"><code>yy=(<var>yy</var>)</code></a></dt><!-- RDLabel: "yy=" -->
+<dt><a name="label-20" id="label-20"><code>set_yy(<var>yy</var>)</code></a></dt><!-- RDLabel: "set_yy" -->
+<dd>
+アフィン変換のyy成分を設定します。
+<ul>
+<li>yy: アフィン変換のyy成分。</li>
+</ul></dd>
+<dt><a name="label-21" id="label-21"><code>x0</code></a></dt><!-- RDLabel: "x0" -->
+<dd>
+アフィン変換のX平行移動成分を返します。
+<ul>
+<li>戻り値: アフィン変換のX平行移動成分。</li>
+</ul></dd>
+<dt><a name="label-22" id="label-22"><code>x0=(<var>x0</var>)</code></a></dt><!-- RDLabel: "x0=" -->
+<dt><a name="label-23" id="label-23"><code>set_x0(<var>x0</var>)</code></a></dt><!-- RDLabel: "set_x0" -->
+<dd>
+アフィン変換のX平行移動成分を設定します。
+<ul>
+<li>x0: アフィン変換のX平行移動成分。</li>
+</ul></dd>
+<dt><a name="label-24" id="label-24"><code>y0</code></a></dt><!-- RDLabel: "y0" -->
+<dd>
+アフィン変換のY平行移動成分を返します。
+<ul>
+<li>戻り値: アフィン変換のY平行移動成分。</li>
+</ul></dd>
+<dt><a name="label-25" id="label-25"><code>y0=(<var>y0</var>)</code></a></dt><!-- RDLabel: "y0=" -->
+<dt><a name="label-26" id="label-26"><code>set_y0(<var>y0</var>)</code></a></dt><!-- RDLabel: "set_y0" -->
+<dd>
+アフィン変換のY平行移動成分を設定します。
+<ul>
+<li>y0: アフィン変換のY平行移動成分。</li>
+</ul></dd>
+<dt><a name="label-27" id="label-27"><code>clone</code></a></dt><!-- RDLabel: "clone" -->
+<dd>
+複製を返します。<var>self</var>が凍結されているオブジェクト
+なら複製されたオブジェクトも凍結されています。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-28" id="label-28"><code>dup</code></a></dt><!-- RDLabel: "dup" -->
+<dd>
+複製を返します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-29" id="label-29"><code>identity!</code></a></dt><!-- RDLabel: "identity!" -->
+<dd>
+単位行列にします。</dd>
+<dt><a name="label-30" id="label-30"><code>invert</code></a></dt><!-- RDLabel: "invert" -->
+<dd>
+逆行列を返します。全ての変換行列が逆行列を持っているわ
+けではありません。行列が点をつぶすなら（退化という
+（FIXME））逆行列がなく、<a href="cairo.html">Cairo</a>::InvalidMatrixError例外
+が発生します。
+<ul>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-31" id="label-31"><code>invert!</code></a></dt><!-- RDLabel: "invert!" -->
+<dd>
+<a href="cairo-matrix.html">Cairo::Matrix#</a>invertの破壊的なバージョンです。</dd>
+<dt><a name="label-32" id="label-32"><code>*(<var>other</var>)</code></a></dt><!-- RDLabel: "*" -->
+<dt><a name="label-33" id="label-33"><code>multiply(<var>other</var>)</code></a></dt><!-- RDLabel: "multiply" -->
+<dd>
+<a href="cairo-matrix.html">Cairo::Matrix#</a>multiplyの別名です。
+<var>self</var>と<var>other</var>の積を返します。結果として最初
+に<var>self</var>の変換を行い、次に<var>other</var>の変換を行う新
+しい変換を返します。
+<ul>
+<li>other: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-34" id="label-34"><code>multiply!(<var>other</var>)</code></a></dt><!-- RDLabel: "multiply!" -->
+<dd>
+<a href="cairo-matrix.html">Cairo::Matrix#</a>multiplyの破壊的なバージョンです。
+<ul>
+<li>other: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-35" id="label-35"><code>rotate(<var>radians</var>)</code></a></dt><!-- RDLabel: "rotate" -->
+<dd>
+<var>radians</var>回転する変換を適用した新しい行列を返します。
+この結果、最初に<var>radians</var>回転し、次に<var>self</var>を適
+用する変換になります。
+<ul>
+<li>radians: 回転する角度（ラジアン）。正の角度は軸から正
+       のY軸に進む方向に回転します。cairoのデフォルトの軸の
+       方向と同じように、正の角度は時計回りに回転します（？
+       FIXME: 逆じゃない？）。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-36" id="label-36"><code>rotate!(<var>radians</var>)</code></a></dt><!-- RDLabel: "rotate!" -->
+<dd>
+<a href="cairo-matrix.html">Cairo::Matrix#</a>rotateの破壊的なバージョンです。
+<ul>
+<li>radians: 回転する角度（ラジアン）。正の角度は軸から正
+       のY軸に進む方向に回転します。cairoのデフォルトの軸の
+       方向と同じように、正の角度は時計回りに回転します（？
+       FIXME: 逆じゃない？）。</li>
+</ul></dd>
+<dt><a name="label-37" id="label-37"><code>scale(<var>sx</var>, <var>sy</var>)</code></a></dt><!-- RDLabel: "scale" -->
+<dd>
+X方向に<var>sx</var>、Y方向に<var>sy</var>拡大する変換を適用した
+新しい行列を返します。この結果、最初に<var>sx</var>,
+<var>sy</var>だけ拡大し、次に<var>self</var>を適用する変換になり
+ます。
+<ul>
+<li>sx: X方向の拡大率。</li>
+<li>sy: Y方向の拡大率。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-38" id="label-38"><code>scale!(<var>sx</var>, <var>sy</var>)</code></a></dt><!-- RDLabel: "scale!" -->
+<dd>
+<a href="cairo-matrix.html">Cairo::Matrix#</a>scaleの破壊的なバージョンです。
+<ul>
+<li>sx: X方向の拡大率。</li>
+<li>sy: Y方向の拡大率。</li>
+</ul></dd>
+<dt><a name="label-39" id="label-39"><code>set(<var>xx</var>, <var>yx</var>, <var>xy</var>, <var>yy</var>, <var>x0</var>, <var>y0</var>)</code></a></dt><!-- RDLabel: "set" -->
+<dd>
+対応する成分を設定します。
+<ul>
+<li>xx: アフィン変換のxx成分。</li>
+<li>yx: アフィン変換のyx成分。</li>
+<li>xy: アフィン変換のxy成分。</li>
+<li>yy: アフィン変換のyy成分。</li>
+<li>x0: アフィン変換のX平行移動成分。</li>
+<li>y0: アフィン変換のY平行移動成分。</li>
+</ul></dd>
+<dt><a name="label-40" id="label-40"><code>to_a</code></a></dt><!-- RDLabel: "to_a" -->
+<dd>
+各成分を配列として返します。
+<ul>
+<li>戻り値: <code>[xx, yx, xy, yy, x0, y0]</code>
+<ul>
+<li>xx: アフィン変換のxx成分。</li>
+<li>yx: アフィン変換のyx成分。</li>
+<li>xy: アフィン変換のxy成分。</li>
+<li>yy: アフィン変換のyy成分。</li>
+<li>x0: アフィン変換のX平行移動成分。</li>
+<li>y0: アフィン変換のY平行移動成分。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-41" id="label-41"><code>to_s</code></a></dt><!-- RDLabel: "to_s" -->
+<dd>
+文字列に変換します。
+<ul>
+<li>戻り値: 文字列表現のCairo::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-42" id="label-42"><code>transform_distance(<var>dx</var>, <var>dy</var>)</code></a></dt><!-- RDLabel: "transform_distance" -->
+<dd>
+<p>距離ベクトル(<var>dx</var>, <var>dy</var>)を<var>self</var>で変換しま
+す。<a href="cairo-matrix.html">Cairo::Matrix#transform_</a>pointと似ていますが、平行移
+動成分を無視するところが違います。返るベクトルは以下の
+ように計算されます。</p>
+<pre>dx2 = dx * a + dy * c;
+dy2 = dx * b + dy * d;</pre>
+<p>アフィン変換は位置不変です。同じベクトルはいつも同じベ
+クトルに変換されます。もし、(x1, y1)が(x2, y2)に変換さ
+れるなら、どんなx1, x2に対しても(x1 + <var>dx</var>, y1 +
+<var>dy</var>)は(x1 + <var>dx2</var>, y1 + <var>dy2</var>)に変換されま
+す。</p>
+<ul>
+<li>dx: 距離ベクトルのX成分。</li>
+<li>dy: 距離ベクトルのY成分。</li>
+<li>戻り値: <code>[dx2, dy2]</code>
+<ul>
+<li>dx2: 変換された距離ベクトルのX成分。</li>
+<li>dy2: 変換された距離ベクトルのY成分。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-43" id="label-43"><code>transform_point(<var>x</var>, <var>y</var>)</code></a></dt><!-- RDLabel: "transform_point" -->
+<dd>
+点(<var>x</var>, <var>y</var>)を<var>self</var>で変換します。
+<ul>
+<li>x: X座標。</li>
+<li>y: Y座標。</li>
+<li>戻り値: <code>[x2, y2]</code>
+<ul>
+<li>x2: 変換されたX座標。</li>
+<li>y2: 変換されたY座標。</li>
+</ul></li>
+</ul></dd>
+<dt><a name="label-44" id="label-44"><code>translate(<var>tx</var>, <var>ty</var>)</code></a></dt><!-- RDLabel: "translate" -->
+<dd>
+X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を返
+します。この結果、最初に<var>tx</var>, <var>ty</var>平行移動し、次
+に<var>self</var>を適用する変換になります。
+<ul>
+<li>tx: X方向の平行移動量。</li>
+<li>ty: Y方向の平行移動量。</li>
+<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+</ul></dd>
+<dt><a name="label-45" id="label-45"><code>translate!(<var>tx</var>, <var>ty</var>)</code></a></dt><!-- RDLabel: "translate!" -->
+<dd>
+<a href="cairo-matrix.html">Cairo::Matrix#</a>translateの破壊的なバージョンです。
+<ul>
+<li>tx: X方向の平行移動量。</li>
+<li>ty: Y方向の平行移動量。</li>
+</ul></dd>
+<dt><a name="label-46" id="label-46"><code>==(<var>other</var>)</code></a></dt><!-- RDLabel: "==" -->
+<dd>
+<p><em>Since 1.7</em>: <var>other</var>がCairo::Matrixオブ
+ジェクトで、xx, yx, xy, yy, x0, y0それぞれが<code>==</code>だっ
+た場合に<code>true</code>を返します。</p>
+<ul>
+<li>other: 比較対象のオブジェクト。</li>
+<li>戻り値: <code>self</code>と<code>other</code>が等しければ</li>
+</ul>
+<p><code>true</code>、そうでなければ<code>false</code>。</p></dd>
+</dl>
+<h2><a name="label-47" id="label-47">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-48" id="label-48">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2008-08-17: kou: rcairo 1.7対応。</li>
+<li>2007-05-21: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

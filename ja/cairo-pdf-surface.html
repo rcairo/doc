@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::PDFSurfaceクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::PDFSurfaceクラス</a></h1><!-- RDLabel: "Cairo::PDFSurfaceクラス" -->
+<p>PDFを生成するサーフェスです。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-surface.html">Cairo::Surface</a>
+<ul>
+<li>Cairo::PDFSurface</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::PDFSurface.new(<var>stream</var>, <var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "Cairo::PDFSurface.new" -->
+<dt><a name="label-4" id="label-4"><code>Cairo::PDFSurface.new(<var>filename</var>, <var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "Cairo::PDFSurface.new" -->
+<dd>
+<p>ポイントで指定されたサイズのPDF用サーフェスを生成します。</p>
+<p>第1引数に<code>write</code>メソッドを持ったオブジェクトを指定
+した場合はPDF形式のデータが順次<code>stream.write</code>で書き
+出されます。</p>
+<p><code>write</code>メソッドを持っていない場合はファイル名として
+扱われます。PDF形式のデータはファイル名<var>filename</var>の
+ファイルに出力されます。</p>
+<ul>
+<li>stream: <code>write</code>メソッドを持つオブジェクト。</li>
+<li>filename: 結果を出力するファイル名。</li>
+<li>width_in_points: ポイントで指定した幅。（1ポイント =
+       1/72.0インチ）</li>
+<li>height_in_points: ポイントで指定した高さ。（1ポイント =
+       1/72.0インチ）</li>
+<li>戻り値: 生成したCairo::PDFSurfaceオブジェクト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-5" id="label-5">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-6" id="label-6"><code>set_size(<var>width_in_points</var>, <var>height_in_points</var>)</code></a></dt><!-- RDLabel: "set_size" -->
+<dd>
+<p>現在（とそれ以降の）ページのサイズを変更します。</p>
+<p>現在のページに何も描画していないときにだけ呼び出せます。
+単純な方法は、サーフェスを作成した直後か、
+<a href="cairo-context.html">Cairo::Context#show_</a>pageかCairo::Context#copy_pageでペー
+ジを完了した直後に呼び出すことです。</p>
+<ul>
+<li>width_in_points: ポイントで指定した新しい幅。（1ポイ
+       ント = 1/72.0インチ）</li>
+<li>height_in_points: ポイントで指定した新しい高さ。（1ポ
+       イント = 1/72.0インチ）</li>
+</ul></dd>
+</dl>
+<h2><a name="label-7" id="label-7">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-8" id="label-8">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-22: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

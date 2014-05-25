@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::LinearPatternクラス</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::LinearPatternクラス</a></h1><!-- RDLabel: "Cairo::LinearPatternクラス" -->
+<p>線形グラデーション用のパターンです。</p>
+<h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
+<ul>
+<li>Object
+<ul>
+<li><a href="cairo-pattern.html">Cairo::Pattern</a>
+<ul>
+<li><a href="cairo-gradient-pattern.html">Cairo::GradientPattern</a>
+<ul>
+<li>Cairo::LinearPattern</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a name="label-2" id="label-2">クラスメソッド</a></h2><!-- RDLabel: "クラスメソッド" -->
+<dl>
+<dt><a name="label-3" id="label-3"><code>Cairo::LinearPattern.new(<var>x0</var>, <var>y0</var>, <var>x1</var>, <var>y1</var>)</code></a></dt><!-- RDLabel: "Cairo::LinearPattern.new" -->
+<dd>
+<p>(<code>x0</code>, <code>y0</code>)と(<code>x1</code>, <code>y1</code>)で定義される
+線に沿った新しい線形グラデーション用のパターンを作りま
+す。グラデーションパターンを使う前に、
+<a href="cairo-gradient-pattern.html">Cairo::GradientPattern#add_color_</a>stopを使ってたくさんの
+カラーストップを定義してください。</p>
+<p>注: 座標はパターン空間になります。新しいパターンはユー
+ザ空間と同じになっていますが、ふたつの空間の関係は
+<a href="cairo-pattern.html">Cairo::Pattern#set_</a>matrixで変更できます。</p>
+<ul>
+<li>x0: 始点のX座標</li>
+<li>y0: 始点のY座標</li>
+<li>x1: 終点のX座標</li>
+<li>y1: 終点のY座標</li>
+<li>戻り値: 新しく作成したCairo::LinearPatternオブジェク
+       ト。</li>
+</ul></dd>
+</dl>
+<h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>points</code></a></dt><!-- RDLabel: "points" -->
+<dd>
+線形グラデーションのグラデーション終点を返します。
+<ul>
+<li>戻り値: <code>[x0, y0, x1, y1]</code>
+<ul>
+<li>x0: 始点のX座標</li>
+<li>y0: 始点のY座標</li>
+<li>x1: 終点のX座標</li>
+<li>y1: 終点のY座標</li>
+</ul></li>
+</ul></dd>
+</dl>
+<h2><a name="label-6" id="label-6">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-7" id="label-7">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-05-21: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>

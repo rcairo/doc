@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>Cairo::Context::Rectangleモジュール</title>
+<link href="../doc.css" type="text/css" rel="stylesheet" />
+</head>
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+<h1><a name="label-0" id="label-0">Cairo::Context::Rectangleモジュール</a></h1><!-- RDLabel: "Cairo::Context::Rectangleモジュール" -->
+<p>四角いパスに関する便利なメソッドをCairo::Contextに提供
+するモジュールです。</p>
+<p>cairoにはないrcairoでの拡張です。</p>
+<h2><a name="label-1" id="label-1">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
+<dl>
+<dt><a name="label-2" id="label-2"><code>rounded_rectangle(<var>x</var>, <var>y</var>, <var>width</var>, <var>height</var>, <var>x_radius</var>, <var>y_radius</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "rounded_rectangle" -->
+<dd>
+角の丸い四角いパスを追加します。角の丸みは
+<var>x_radius</var>と<var>y_radius</var>で決まります。
+<var>x_radius</var>は横方向の角の丸の半径になり、
+<var>y_radius</var>は縦方向の角の丸の半径になります。
+<var>y_radius</var>を省略した場合は<var>x_radius</var>と同じ値を
+用います。
+<ul>
+<li>x: 角が丸くないときの四角の左上の角の点のx座標</li>
+<li>y: 角が丸くないときの四角の左上の角の点のy座標</li>
+<li>width: 四角の幅</li>
+<li>height: 四角の高さ</li>
+<li>x_radius: 角の丸の横方向の半径</li>
+<li>y_radius: 角の丸の縦方向の半径</li>
+</ul></dd>
+</dl>
+<h2><a name="label-3" id="label-3">参考</a></h2><!-- RDLabel: "参考" -->
+<ul>
+<li><a href="cairo-context.html">Cairo::Context</a></li>
+<li><a href="index.html">索引</a></li>
+</ul>
+<h2><a name="label-4" id="label-4">変更履歴</a></h2><!-- RDLabel: "変更履歴" -->
+<ul>
+<li>2007-04-30: kou: スタート。</li>
+</ul>
+
+<div class="footer">
+  <ul>
+    <li><a href="./">索引</a></li>
+  </ul>
+
+</div>
+</body>
+
+</html>
