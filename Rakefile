@@ -19,6 +19,14 @@ dest_title_image = File.join(dest_dir, "rcairo-title.png")
 task(dest_index).instance_variable_get("@actions").clear
 
 namespace :html do
+  desc "Remove generated HTML from #{dest_dir}/"
+  task :clean do
+    langs.each do |lang,|
+      lang_dest_dir = File.join(dest_dir, lang)
+      rm(Dir[File.join(lang_dest_dir, "*.html")])
+    end
+  end
+
   desc "Generate HTML to #{dest_dir}/"
   task :generate => dest_index
 
