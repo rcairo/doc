@@ -18,9 +18,9 @@
 
 <h1><a name="label-0" id="label-0">Cairo::PathDataクラス</a></h1><!-- RDLabel: "Cairo::PathDataクラス" -->
 <p><a href="cairo-path.html">Cairo::Path</a>の中にあるパスデータを表します。実際に使うのはサ
-ブクラスのCairo::PathMoveTo, <a href="cairo-path-line-to.html">Cairo::PathLineTo</a>,
+ブクラスの<a href="cairo-path-move-to.html">Cairo::PathMoveTo</a>, <a href="cairo-path-line-to.html">Cairo::PathLineTo</a>,
 <a href="cairo-path-curve-to.html">Cairo::PathCurveTo</a>, <a href="cairo-path-close-path.html">Cairo::PathClosePath</a>でしょう。</p>
-<p>パスはCairo::PathDataの配列として表現されます。</p>
+<p>パスは<a href="cairo-path-data.html">Cairo::PathData</a>の配列として表現されます。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
 <li>Object
@@ -39,14 +39,14 @@
 <a href="cairo-path-data.html">Cairo::PathData</a>オブジェクトを作成します。通常はサブクラ
 スのオブジェクトを作成します。
 <ul>
-<li>type: :move_toや:line_toなどCairo::PathDataTypeに定義
+<li>type: :move_toや:line_toなど<a href="cairo-path-data-type.html">Cairo::PathDataType</a>に定義
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "move_to"のように指定することもできます。もちろん、
        <a href="cairo-path-data-type.html">Cairo::PathDataType</a>に定義されている定数を指定するこ
        ともできます。</li>
 <li>points: Ciaro::Pointの配列。</li>
-<li>戻り値: 新しく作成したCairo::PathDataオブジェクト。</li>
+<li>戻り値: 新しく作成した<a href="cairo-path-data.html">Cairo::PathData</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-5" id="label-5">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->

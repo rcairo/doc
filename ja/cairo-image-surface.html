@@ -34,7 +34,7 @@ PNG形式の画像を読み込むこともできます。</p>
 <dt><a name="label-3" id="label-3"><code>Cairo::ImageSurface.from_png(<var>stream</var>)</code></a></dt><!-- RDLabel: "Cairo::ImageSurface.from_png" -->
 <dt><a name="label-4" id="label-4"><code>Cairo::ImageSurface.from_png(<var>filename</var>)</code></a></dt><!-- RDLabel: "Cairo::ImageSurface.from_png" -->
 <dd>
-<p>PNG形式のデータから新しいCairo::ImageSurfaceオブジェク
+<p>PNG形式のデータから新しい<a href="cairo-image-surface.html">Cairo::ImageSurface</a>オブジェク
 トを生成します。</p>
 <p>引数がreadメソッドを持っている場合はそのオブジェクトの
 readメソッドを使ってPNG形式のデータを取得します。そうで
@@ -49,7 +49,7 @@ PNG形式のデータを取得します。</p>
 <dt><a name="label-5" id="label-5"><code>Cairo::ImageSurface.new(<var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "Cairo::ImageSurface.new" -->
 <dt><a name="label-6" id="label-6"><code>Cairo::ImageSurface.new(<var>format</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "Cairo::ImageSurface.new" -->
 <dd>
-指定された形式と大きさのCairo::ImageSurfaceオブジェクト
+指定された形式と大きさの<a href="cairo-image-surface.html">Cairo::ImageSurface</a>オブジェクト
 を作ります。全ての色とアルファチャンネルは0になります。
 （ただし、指定された<var>format</var>に関係のないビットに関し
 ては未定義です。）
@@ -57,12 +57,12 @@ PNG形式のデータを取得します。</p>
 <li>width: サーフェスの幅。（ピクセル）</li>
 <li>height: サーフェスの高さ。（ピクセル）</li>
 <li>format: サーフェスのピクセルの形式。（<a href="cairo-format.html">Cairo::Format</a>）</li>
-<li>戻り値: 新しく生成したCairo::ImageSurfaceオブジェク
+<li>戻り値: 新しく生成した<a href="cairo-image-surface.html">Cairo::ImageSurface</a>オブジェク
        ト。</li>
 </ul></dd>
 <dt><a name="label-7" id="label-7"><code>Cairo::ImageSurface.new(<var>data</var>, <var>format</var>, <var>width</var>, <var>height</var>, <var>stride</var>)</code></a></dt><!-- RDLabel: "Cairo::ImageSurface.new" -->
 <dd>
-指定された<var>data</var>でCairo::ImageSurfaceオブジェクトを
+指定された<var>data</var>で<a href="cairo-image-surface.html">Cairo::ImageSurface</a>オブジェクトを
 作ります。各ピクセルはそのピクセルデータで初期化されま
 す。
 <ul>
@@ -73,7 +73,7 @@ PNG形式のデータを取得します。</p>
 <li>stride: <var>data</var>に含まれる画像の各行が何バイト離れ
        ているか。<var>width</var>と別に指定できるため、行の後に詰
        物をいれたり、大きな画像の一部を書き込んだりできます。</li>
-<li>戻り値: 新しく生成したCairo::ImageSurfaceオブジェク
+<li>戻り値: 新しく生成した<a href="cairo-image-surface.html">Cairo::ImageSurface</a>オブジェク
        ト。</li>
 </ul></dd>
 </dl>

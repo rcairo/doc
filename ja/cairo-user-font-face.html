@@ -76,11 +76,11 @@ end</pre>
 間ように準備されています。これは
 <a href="cairo-user-font-face.html#label-6">Cairo::UserFontFace#on_render_glyph</a>で登録するコールバッ
 クに渡される<var>context</var>と同様です。コールバック中では
-このCairo::Contextをフォントの範囲を計算するために使う
+この<a href="cairo-context.html">Cairo::Context</a>をフォントの範囲を計算するために使う
 ことができます。</p>
 <p><var>font_extents</var>には<var>scaled_font</var>用のフォントの範
 囲を設定します。座標はフォント空間です。そのため、多く
-の場合はCairo::FontExtents#ascentと
+の場合は<a href="cairo-font-extents.html#label-5">Cairo::FontExtents#ascent</a>と
 <a href="cairo-font-extents.html#label-8">Cairo::FontExtents#descent</a>に1.0を足す必要があります。
 <var>font_extents</var>は以下のように初期化されています。</p>
 <ul>
@@ -120,7 +120,7 @@ end</pre>
 すべての<var>context</var>に対する操作は許可されていますが、
 もし、<var>context</var>のデフォルトソース以外のソースが使わ
 れた場合の動作は未定義です。つまり、グリフのビットマッ
-プはCairo::Context#paintではなくCairo::Context#maskで描
+プは<a href="cairo-context.html#label-82">Cairo::Context#paint</a>ではなく<a href="cairo-context.html#label-68">Cairo::Context#mask</a>で描
 画するべきだということです。</p>
 <p>他のデフォルトではない<var>context</var>の設定は以下の通り
 です。</p>
@@ -163,7 +163,7 @@ end</pre>
 <dd>
 <p><em>Since 1.7</em>: テキストをグリフに変換するコールバック
 を登録します。このコールバックは省略可能です。</p>
-<p>このコールバックはCairo::Context#show_textのときに使わ
+<p>このコールバックは<a href="cairo-context.html#label-110">Cairo::Context#show_text</a>のときに使わ
 れます。</p>
 <p>このコールバックを使うとき、ユーザフォントはグリフとそ
 の位置をすべて制御できます。つまり、リガチャ、カーニン
@@ -209,11 +209,11 @@ end</pre>
 <dd>
 <p><em>Since 1.7</em>: Unicodeからグリフへ変換するコールバッ
 クを登録します。このコールバックは省略可能です。</p>
-<p>このコールバックはCairo::Context#show_textで使われます。</p>
+<p>このコールバックは<a href="cairo-context.html#label-110">Cairo::Context#show_text</a>で使われます。</p>
 <p>登録したコールバックは<var>unicode</var>で指定されたUnicode
 のコードポイントに対応するグリフのインデックスを返して
 ください。</p>
-<p>このコールバックはCairo::UserFontFace#on_text_to_glyphs
+<p>このコールバックは<a href="cairo-user-font-face.html#label-7">Cairo::UserFontFace#on_text_to_glyphs</a>
 で登録するコールバックと同じ機能を提供します。
 on_text_to_glyphsほど出力を制御できませんが、使いやすい
 です。このコールバックを使うということは、各文字はそれ
@@ -222,7 +222,7 @@ on_text_to_glyphsほど出力を制御できませんが、使いやすい
 フの幅に対応して配置されるという仮定もしています。つま
 り、リガチャやカーニングや複雑な文字体系などはこのコー
 ルバックを使っては実装できないということです。</p>
-<p>このコールバックはCairo::UserFontFace#on_text_to_glyphs
+<p>このコールバックは<a href="cairo-user-font-face.html#label-7">Cairo::UserFontFace#on_text_to_glyphs</a>
 でコールバックを登録していない場合や、登録したコールバッ
 クがグリフを返せなかった場合にだけ呼ばれます。このコー
 ルバックが登録されていない場合はUnicodeのコードポイ

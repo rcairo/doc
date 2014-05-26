@@ -50,28 +50,28 @@
        1/72.0インチ）</li>
 <li>height_in_points: ポイントで指定した高さ。（1ポイント =
        1/72.0インチ）</li>
-<li>戻り値: 生成したCairo::PSSurfaceオブジェクト。</li>
+<li>戻り値: 生成した<a href="cairo-ps-surface.html">Cairo::PSSurface</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-5" id="label-5">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
 <dl>
 <dt><a name="label-6" id="label-6"><code>dsc_begin_page_setup</code></a></dt><!-- RDLabel: "dsc_begin_page_setup" -->
 <dd>
-<p>以降のCairo::PSSurface#dsc_comment呼び出しが直接
+<p>以降の<a href="cairo-ps-surface.html#label-8">Cairo::PSSurface#dsc_comment</a>呼び出しが直接
 PageSetupセクションのコメントになることを示します。</p>
 <p>このメソッドは最初のページにだけ必要です。
-ただし、全てのCairo::PSSurface#dsc_begin_setupの後で、ま
+ただし、全ての<a href="cairo-ps-surface.html#label-7">Cairo::PSSurface#dsc_begin_setup</a>の後で、ま
 だなにも描画されていない場合だけ呼び出してください。</p>
-<p>詳細はCairo::PSSurface#dsc_commentを見てください。</p></dd>
+<p>詳細は<a href="cairo-ps-surface.html#label-8">Cairo::PSSurface#dsc_comment</a>を見てください。</p></dd>
 <dt><a name="label-7" id="label-7"><code>dsc_begin_setup</code></a></dt><!-- RDLabel: "dsc_begin_setup" -->
 <dd>
-<p>以降のCairo::PSSurface#dsc_comment呼び出しが直接
+<p>以降の<a href="cairo-ps-surface.html#label-8">Cairo::PSSurface#dsc_comment</a>呼び出しが直接
 Setupセクションのコメントになることを示します。</p>
 <p>このメソッドは多くても一度だけ呼び出せます。また、全て
-のCairo::PSSurface#dsc_begin_page_setup呼び出しよりも前
+の<a href="cairo-ps-surface.html#label-6">Cairo::PSSurface#dsc_begin_page_setup</a>呼び出しよりも前
 で、さらにまだなにも描画されていない場合でなければいけ
 ません。</p>
-<p>詳細はCairo::PSSurface#dsc_commentを見てください。</p></dd>
+<p>詳細は<a href="cairo-ps-surface.html#label-8">Cairo::PSSurface#dsc_comment</a>を見てください。</p></dd>
 <dt><a name="label-8" id="label-8"><code>dsc_comment(<var>comment</var>)</code></a></dt><!-- RDLabel: "dsc_comment" -->
 <dd>
 <p>PostScriptの出力にコメントを発行します。</p>
@@ -83,7 +83,7 @@ Conventions (DSC)を従う必要があります。利用可能なコメン
 (PPD)ファイルの仕様書も役に立つリファレンスです。</p>
 <p>コメントはパーセント(%)で始まり、最大長が（パーセントを
 含めて）255を越えないようにしなくてはいけません。どちら
-かの条件が破られたらCairo::InvalidDscCommentErrorが発生
+かの条件が破られたら<a href="cairo-invalid-dsc-comment-error.html">Cairo::InvalidDscCommentError</a>が発生
 します。このメソッドはこのふたつの条件以外の詳細なコメ
 ントの仕様については強制しません。</p>
 <p>コメントには改行をつけないでください。</p>
@@ -94,7 +94,7 @@ Conventions (DSC)を従う必要があります。利用可能なコメン
 適用されます。BeginPageSetupセクションに現れたコメント
 はひとつのページにだけ適用されます。</p>
 <p>ヘッダセクションにコメントを入れるには、サーフェスが作
-られてCairo::PSSurface#begin_setupを呼ぶ前にこのメソッ
+られて<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_setup</a>を呼ぶ前にこのメソッ
 ドを使わなければいけません。</p>
 <p>Setupセクションにコメントを入れるには、
 <a href="cairo-ps-surface.html">Cairo::PSSurface#begin_setup</a>を呼んだあとで、
@@ -105,7 +105,7 @@ Conventions (DSC)を従う必要があります。利用可能なコメン
 ドを使わなければいけません。</p>
 <p><a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_setup</a>が必要なのは最初のペー
 ジだけだということに注意してください。
-<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>とCairo::Context#copy_pageの後
+<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>と<a href="cairo-context.html#label-21">Cairo::Context#copy_page</a>の後
 に呼び出すということは、明示的なコメントを現在のページ
 のPageSetupに入れるということです。しかし、呼び出しコー
 ドをシンプルにする一貫性のために、各ページの始めにこの
@@ -146,7 +146,7 @@ surface.dsc_comment("%%IncludeFeature: *PageSize A5")
 <p>現在（とそれ以降の）ページのサイズを変更します。</p>
 <p>現在のページに何も描画していないときにだけ呼び出せます。
 単純な方法は、サーフェスを作成した直後か、
-<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>かCairo::Context#copy_pageでペー
+<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>か<a href="cairo-context.html#label-21">Cairo::Context#copy_page</a>でペー
 ジを完了した直後に呼び出すことです。</p>
 <ul>
 <li>width_in_points: ポイントで指定した新しい幅。（1ポイ

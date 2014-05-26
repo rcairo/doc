@@ -52,24 +52,24 @@
 <li>height: 用紙の高さ</li>
 <li>unit: width/heightの単位</li>
 <li>name: 用紙の名前</li>
-<li>戻り値: 新しいCairo::Paperオブジェクト</li>
+<li>戻り値: 新しい<a href="cairo-paper.html">Cairo::Paper</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-6" id="label-6"><code>Cairo::Paper.parse(<var>paper</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.parse" -->
 <dt><a name="label-7" id="label-7"><code>Cairo::Paper.parse(<var>name</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.parse" -->
 <dt><a name="label-8" id="label-8"><code>Cairo::Paper.parse(<var>description</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.parse" -->
 <dd>
-様々なオブジェクトから対応するCairo::Paperオブジェクト
+様々なオブジェクトから対応する<a href="cairo-paper.html">Cairo::Paper</a>オブジェクト
 を生成します。paperが指定された場合でも、指定された
-paperと同じ内容のCairo::Paperオブジェクトを新しく生成し
+paperと同じ内容の<a href="cairo-paper.html">Cairo::Paper</a>オブジェクトを新しく生成し
 ます。
 <ul>
 <li>paper: <a href="cairo-paper.html">Cairo::Paper</a></li>
 <li>name: 用紙名（例: "a4", :a4, "b0 landscape", "Japanese-postalcard"）</li>
 <li><p>description: 用紙表現: "#{WIDTH}#{UNIT}x#{HEIGHT}#{UNIT}\##{NAME}"
        "#{UNIT}"と最後の"\##{NAME}"は省略可能。"#{UNIT}"を省
-       略した場合はCairo::Paper.default_unitが使われる。</p>
+       略した場合は<a href="cairo-paper.html#label-3">Cairo::Paper.default_unit</a>が使われる。</p>
 <p>例: "100x200", "200mmx4inch", "841mmx1189mm#A0"</p></li>
-<li>戻り値: 対応する新しいCairo::Paperオブジェクト</li>
+<li>戻り値: 対応する新しい<a href="cairo-paper.html">Cairo::Paper</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-9" id="label-9"><code>Cairo::Paper.register_unit_resolver(<var>from_units</var>, <var>to_units</var>, &amp;<var>resolver</var>) {|<var>size</var>| ...}</code></a></dt><!-- RDLabel: "Cairo::Paper.register_unit_resolver" -->
 <dd>

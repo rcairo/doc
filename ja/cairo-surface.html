@@ -54,7 +54,7 @@
 <p>最初はサーフェスの内容はすべて0です。（透明度を持ってい
 れば透明、そうでなければ黒です。）</p>
 <ul>
-<li>content: :colorや:color_alphaなどCairo::Contentに定義
+<li>content: :colorや:color_alphaなど<a href="cairo-content.html">Cairo::Content</a>に定義
        されている定数名と同じもの。大文字小文字は関係ありま
        せん。また、シンボルではなくて文字列で"color"のように
        指定することもできます。もちろん、<a href="cairo-content.html">Cairo::Content</a>に定
@@ -65,7 +65,7 @@
 </ul></dd>
 <dt><a name="label-7" id="label-7"><code>device_offset</code></a></dt><!-- RDLabel: "device_offset" -->
 <dd>
-前にCairo::Surface#set_device_offsetで設定した装置補正
+前に<a href="cairo-surface.html#label-12">Cairo::Surface#set_device_offset</a>で設定した装置補正
 値を返します。
 <ul>
 <li>戻り値: <code>[x_offset, y_offset]</code>
@@ -94,7 +94,7 @@
 <dd>
 サーフェスのデフォルトフォント描画オプションを返します。
 画面サーフェスから正しいサブピクセル並びを取得すること
-もできます。戻り値はCairo::ScaledFont.newの引数に使うこ
+もできます。戻り値は<a href="cairo-scaled-font.html#label-3">Cairo::ScaledFont.new</a>の引数に使うこ
 ともできます。
 <ul>
 <li>戻り値: <a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト。</li>
@@ -114,7 +114,7 @@ cairoにcairo以外の方法でサーフェスへの描画が終わったこ
 送するサーフェスです。ある意味で、これは完全にcairoの
 APIのユーザには見えないところです。
 <a href="cairo-context.html#label-123">Cairo::Context#transform</a>で変換を設定することでは十分で
-はありません。なぜならCairo::Context#device_to_userのよ
+はありません。なぜなら<a href="cairo-context.html#label-28">Cairo::Context#device_to_user</a>のよ
 うなメソッドが隠れた補正値を外に出してしまうからです。</p>
 <p>補正値はソースパターンとしてサーフェスを使ってサーフェ
 スを描画したときにも影響があることに注意してください。</p>
@@ -150,7 +150,7 @@ cairoは画像（<a href="cairo-image-surface.html">Cairo::ImageSurface</a>）�
 解像度を使います。そのため、ラスタ系のバックエンドでは
 このメソッドは意味がありません。</p>
 <p>注: 代替解像度はページを完成させるとき
-（<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>かCairo::Context#copy_page）に
+（<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>か<a href="cairo-context.html#label-21">Cairo::Context#copy_page</a>）に
 使います。そのため、現在は各ページにひとつの代替解像度
 しか使えません。</p>
 <p>代替解像度のデフォルト値は水平・垂直方向とも1インチあた
@@ -180,7 +180,7 @@ writeメソッドを使ってPNG画像を出力します。形式のデータを
 <dd>
 <em>Since 1.6</em>: 複数ページに対応しているバックエンドで
 は現在のページを発行します。発行後に空のページにしたく
-ない場合はCairo::Surface#copy_pageを使ってください。</dd>
+ない場合は<a href="cairo-surface.html#label-17">Cairo::Surface#copy_page</a>を使ってください。</dd>
 <dt><a name="label-19" id="label-19"><code>destroy</code></a></dt><!-- RDLabel: "destroy" -->
 <dd>
 <p><em>Since 1.7</em>: <a href="cairo-surface.html">Cairo::Surface</a>を破棄します。この

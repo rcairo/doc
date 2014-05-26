@@ -20,8 +20,8 @@
 <p>フォントを描画するときに使われる全てのオプションを含んだオブ
 ジェクトです。</p>
 <p><a href="cairo-font-options.html">Cairo::FontOptions</a>のそれぞれの機能は、<a href="cairo-font-options.html#label-5">Cairo::FontOptions#antialias</a>
-やCairo::FontOptions#set_antialiasのようにアクセスできます。</p>
-<p>将来、新しい機能がCairo::FontOptionsに追加されるかもしれませ
+や<a href="cairo-font-options.html#label-7">Cairo::FontOptions#set_antialias</a>のようにアクセスできます。</p>
+<p>将来、新しい機能が<a href="cairo-font-options.html">Cairo::FontOptions</a>に追加されるかもしれませ
 ん。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
@@ -37,7 +37,7 @@
 全てのオプションがデフォルト値に初期化された新しい
 <a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクトを作成します。
 <ul>
-<li>戻り値: 新しく作成したCairo::FontOptionsオブジェクト。</li>
+<li>戻り値: 新しく作成した<a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
@@ -55,7 +55,7 @@
 描画するときに使われるアンチエイリアスの種類を指定しま
 す。
 <ul>
-<li>antialias: :defaultや:noneなどCairo::Antialiasに定義
+<li>antialias: :defaultや:noneなど<a href="cairo-antialias.html">Cairo::Antialias</a>に定義
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
@@ -66,7 +66,7 @@
 <dd>
 コピーします。
 <ul>
-<li>戻り値: コピーされたCairo::FontOptionsオブジェクト。</li>
+<li>戻り値: コピーされた<a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-9" id="label-9"><code>eql?(<var>other</var>)</code></a></dt><!-- RDLabel: "eql?" -->
 <dd>
@@ -94,7 +94,7 @@
 メトリクスのヒントモードを設定します。これはメトリック
 スを装置単位の整数値に量子化するかどうかを制御します。
 <ul>
-<li>hint_metrics: :defaultや:onなどCairo::HintMetricsに定義
+<li>hint_metrics: :defaultや:onなど<a href="cairo-hint-metrics.html">Cairo::HintMetrics</a>に定義
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
@@ -116,7 +116,7 @@
 コントラストを最適化するかどうかなどを制御します。詳細は
 <a href="cairo-hint-style.html">Cairo::HintStyle</a>を見てください。
 <ul>
-<li>hint_style: :defaultや:noneなどCairo::HintStyleに定義
+<li>hint_style: :defaultや:noneなど<a href="cairo-hint-style.html">Cairo::HintStyle</a>に定義
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
@@ -136,7 +136,7 @@
 <dd>
 <var>other</var>のデフォルトではないオプションを<var>self</var>に
 マージします。破壊的な動作になります。この操作は
-<var>other</var>をCairo::Operator::OVERで<var>self</var>の上に合
+<var>other</var>を<a href="cairo-operator.html#label-12">Cairo::Operator::OVER</a>で<var>self</var>の上に合
 成したのと同じように考えることができます。
 <ul>
 <li>戻り値: self</li>

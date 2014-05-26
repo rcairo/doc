@@ -39,7 +39,7 @@ Windowsのウィジェットに描画するために使用します。</p>
 <ul>
 <li>hdc: サーフェスを生成するデバイスコンテキストハンドル。
        （HDC）</li>
-<li>戻り値: 新しく生成したCairo::Win32Surface</li>
+<li>戻り値: 新しく生成した<a href="cairo-win32-surface.html">Cairo::Win32Surface</a></li>
 </ul></dd>
 <dt><a name="label-4" id="label-4"><code>Cairo::Win32Surface.new(<var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "Cairo::Win32Surface.new" -->
 <dt><a name="label-5" id="label-5"><code>Cairo::Win32Surface.new(<var>format</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "Cairo::Win32Surface.new" -->
@@ -48,7 +48,7 @@ Windowsのウィジェットに描画するために使用します。</p>
 <dd>
 幅が<var>width</var>で高さが<var>height</var>のデバイス非依存のビッ
 トマップサーフェスを生成します。<var>format</var>を省略した
-場合はCairo::Format::ARGB32が指定されたものと扱われます。
+場合は<a href="cairo-format.html#label-6">Cairo::Format::ARGB32</a>が指定されたものと扱われます。
 <var>hdc</var>を指定した場合はそのデバイスコンテキストと互換
 性のあるサーフェスを生成します。
 <ul>
@@ -57,7 +57,7 @@ Windowsのウィジェットに描画するために使用します。</p>
 <li>format: サーフェスのピクセルの形式。（<a href="cairo-format.html">Cairo::Format</a>）</li>
 <li>width: サーフェスの幅。（ピクセル）</li>
 <li>height: サーフェスの高さ。（ピクセル）</li>
-<li>戻り値: 新しく生成したCairo::Win32Surface</li>
+<li>戻り値: 新しく生成した<a href="cairo-win32-surface.html">Cairo::Win32Surface</a></li>
 </ul></dd>
 </dl>
 <h2><a name="label-8" id="label-8">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
@@ -73,7 +73,7 @@ Windowsのウィジェットに描画するために使用します。</p>
 <dt><a name="label-10" id="label-10"><code>image</code></a></dt><!-- RDLabel: "image" -->
 <dd>
 サーフェスがデバイス非依存のビットマップ（DIB）の場合は
-そのビットマップを使用しているCairo::ImageSurfaceを返し
+そのビットマップを使用している<a href="cairo-image-surface.html">Cairo::ImageSurface</a>を返し
 ます。そうでない場合はnilを返します。
 <ul>
 <li>戻り値: <a href="cairo-image-surface.html">Cairo::ImageSurface</a>あるいはnil</li>

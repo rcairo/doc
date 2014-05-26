@@ -36,7 +36,7 @@
 <dt><a name="label-3" id="label-3"><code>Cairo::ScaledFont.new(<var>font_face</var>, <var>font_matrix</var>, <var>ctm</var>, <var>options</var>)</code></a></dt><!-- RDLabel: "Cairo::ScaledFont.new" -->
 <dd>
 フォントフェイスと、フォントサイズと使用環境を表現する
-行列からCairo::ScaledFontオブジェクトを生成します。
+行列から<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>オブジェクトを生成します。
 <ul>
 <li>font_face: <a href="cairo-font-face.html">Cairo::FontFace</a>オブジェクト。</li>
 <li>font_matrix: このフォントのためのフォント空間からユー
@@ -48,7 +48,7 @@
 <li>ctm: フォントが使うユーザ空間から装置空間への変換行列です。</li>
 <li>options: フォントのメトリックスを取得したりフォントを
        描画するときに使うオプションです。</li>
-<li>戻り値: 生成したCairo::ScaledFontオブジェクト。</li>
+<li>戻り値: 生成した<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
@@ -93,7 +93,7 @@
 を囲む（ユーザ空間での）四角を示しています。（グリフは
 <a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>で描画できます。）さらに、
 範囲（<a href="cairo-text-extents.html">Cairo::TextExtents</a>）の<var>x_advance</var>と
-<var>y_advance</var>の値はCairo::Context#show_glyphsが進める
+<var>y_advance</var>の値は<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>が進める
 現在の点の合計を示しています。
 （<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>はグリフを描画すると、描画
 した分だけ現在の点を進めます。）</p>
@@ -101,7 +101,7 @@
 extents.height）に貢献しないことに注意してください。</p>
 <ul>
 <li>glyphs: <a href="cairo-glyph.html">Cairo::Glyph</a>の配列</li>
-<li>戻り値: グリフの範囲を示すCairo::TextExtentsオブジェ
+<li>戻り値: グリフの範囲を示す<a href="cairo-text-extents.html">Cairo::TextExtents</a>オブジェ
        クト。</li>
 </ul></dd>
 <dt><a name="label-11" id="label-11"><code>text_extents(<var>utf8</var>)</code></a></dt><!-- RDLabel: "text_extents" -->
@@ -121,13 +121,13 @@ extents.height）に貢献しないことに注意してください。</p>
 響を与えます。</p>
 <ul>
 <li>utf8: UTF-8で符号化されたテキスト。</li>
-<li>戻り値: テキストの範囲を示すCairo::TextExtentsオブジェ
+<li>戻り値: テキストの範囲を示す<a href="cairo-text-extents.html">Cairo::TextExtents</a>オブジェ
        クト。</li>
 </ul></dd>
 <dt><a name="label-12" id="label-12"><code>scale_matrix</code></a></dt><!-- RDLabel: "scale_matrix" -->
 <dd>
 <em>Since 1.7</em>: 拡大・縮小用の行列を返します。拡大・縮
-小用行列は、このCairo::ScaledFontのフォント行列と現在の
+小用行列は、この<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>のフォント行列と現在の
 変換行列（CTM）の積です。つまり、フォント空間から装置空
 間へ変換する（写像する・mapする）行列です。
 <ul>
@@ -136,12 +136,12 @@ extents.height）に貢献しないことに注意してください。</p>
 <dt><a name="label-13" id="label-13"><code>text_to_glyphs(<var>x</var>, <var>y</var>, <var>utf8</var>)</code></a></dt><!-- RDLabel: "text_to_glyphs" -->
 <dd>
 <p><em>Since 1.7</em>: UTF-8のテキストをグリフの配列とクラス
-タ対応に変換します。これらは後でこのCairo::ScaledFontを
+タ対応に変換します。これらは後でこの<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>を
 使って描画するときに使うことができます。</p>
 <p>どのようにクラスタ対応情報が入力のUTF-8のテキストと出力
 のグリフを対応付けるかの詳細については
 <a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>を見てください。</p>
-<p>同じCairo::ScaledFontを使う場合は、戻り値はそのまま
+<p>同じ<a href="cairo-scaled-font.html">Cairo::ScaledFont</a>を使う場合は、戻り値はそのまま
 <a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>や
 <a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>など関連するメソッドで使うこ
 とができます。</p>

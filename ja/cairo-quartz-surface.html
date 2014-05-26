@@ -34,13 +34,13 @@
 <dt><a name="label-4" id="label-4"><code>Cairo::QuartzSurface.new(<var>format</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "Cairo::QuartzSurface.new" -->
 <dd>
 CGBitmapがバックエンドのサーフェスを生成します。
-<var>format</var>を省略した場合はCairo::Format::ARGB32が指定
+<var>format</var>を省略した場合は<a href="cairo-format.html#label-6">Cairo::Format::ARGB32</a>が指定
 されたものと扱われます。
 <ul>
 <li>format: サーフェスのピクセルの形式。（<a href="cairo-format.html">Cairo::Format</a>）</li>
 <li>width: サーフェスの幅。（ピクセル）</li>
 <li>height: サーフェスの高さ。（ピクセル）</li>
-<li>戻り値: 新しく生成したCairo::QuartzSurface</li>
+<li>戻り値: 新しく生成した<a href="cairo-quartz-surface.html">Cairo::QuartzSurface</a></li>
 </ul></dd>
 <dt><a name="label-5" id="label-5"><code>Cairo::QuartzSurface.new(<var>context</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "Cairo::QuartzSurface.new" -->
 <dd>
@@ -54,13 +54,13 @@ CGBitmapがバックエンドのサーフェスを生成します。
 context.scaleCTM(1.0, -1.0)</pre>
 <p>ほんの少しの描画操作は失敗します。もし、それらの操作が
 成功しなければいけないのであれば、OSX::CGContextRefを指
-定せずにCairo::QuartzSurfaceを作成し、その結果を
+定せずに<a href="cairo-quartz-surface.html">Cairo::QuartzSurface</a>を作成し、その結果を
 OSX::CGContextRefにコピーしてください。</p>
 <ul>
 <li>context: OSX::CGContextRef。</li>
 <li>width: サーフェスの幅。（ピクセル）</li>
 <li>height: サーフェスの高さ。（ピクセル）</li>
-<li>戻り値: 新しく生成したCairo::QuartzSurface</li>
+<li>戻り値: 新しく生成した<a href="cairo-quartz-surface.html">Cairo::QuartzSurface</a></li>
 </ul></dd>
 </dl>
 <h2><a name="label-6" id="label-6">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
