@@ -19,7 +19,7 @@
 <h1><a name="label-0" id="label-0">Cairo::Patternクラス</a></h1><!-- RDLabel: "Cairo::Patternクラス" -->
 <p>サーフェス上に描画するときのソースを表します。ソースの種類に
 よっていくつかサブクラスがあります。例えば、
-<a href="cairo.html">Cairo</a>::SolidPatternは単色のパターンを作ります。</p>
+<a href="cairo-solid-pattern.html">Cairo::SolidPattern</a>は単色のパターンを作ります。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
 <li>Object
@@ -43,7 +43,7 @@ Object#extendの別名です。</dd>
 現在の引き延ばしモードを返します。各引き延ばしモードの意
 味の詳細はCairo::Extendを見てください。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Extendに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-extend.html">Cairo::Extend</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-7" id="label-7"><code>extend=(<var>extend</var>)</code></a></dt><!-- RDLabel: "extend=" -->
 <dt><a name="label-8" id="label-8"><code>set_extend(<var>extend</var>)</code></a></dt><!-- RDLabel: "set_extend" -->
@@ -56,13 +56,13 @@ Object#extendの別名です。</dd>
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "none"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::Extendに定義されている定数を指定するこ
+       <a href="cairo-extend.html">Cairo::Extend</a>に定義されている定数を指定するこ
        ともできます。</li>
 </ul></dd>
 <dt><a name="label-9" id="label-9"><code>filter</code></a></dt><!-- RDLabel: "filter" -->
 <dd>
 現在のフィルタを返します。各フィルタの詳細は
-<a href="cairo.html">Cairo</a>::Filterを見てください。
+<a href="cairo-filter.html">Cairo::Filter</a>を見てください。
 <ul>
 <li>戻り値: パターンの大きさを変えるときに使う現在のフィ
        ルタ。</li>
@@ -77,14 +77,14 @@ Object#extendの別名です。</dd>
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "fast"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::Filterに定義されている定数を指定するこ
+       <a href="cairo-filter.html">Cairo::Filter</a>に定義されている定数を指定するこ
        ともできます。</li>
 </ul></dd>
 <dt><a name="label-12" id="label-12"><code>matrix</code></a></dt><!-- RDLabel: "matrix" -->
 <dd>
 パターンの変換行列を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-13" id="label-13"><code>matrix=(<var>matrix</var>)</code></a></dt><!-- RDLabel: "matrix=" -->
 <dt><a name="label-14" id="label-14"><code>set_matrix(<var>matrix</var>)</code></a></dt><!-- RDLabel: "set_matrix" -->
@@ -102,10 +102,10 @@ Object#extendの別名です。</dd>
 <pre>pattern.matrix = Cairo::Matrix.scale(0.5, 0.5)</pre>
 <p>一方、上記のコードで0.5ではなく2.0を使うとパターンは半
 分の大きさになります。</p>
-<p><a href="cairo-context.html">Cairo::Context#set_</a>sourceのユーザ空間ロック動作の議論に
+<p><a href="cairo-context.html#label-104">Cairo::Context#set_source</a>のユーザ空間ロック動作の議論に
 も注意してください。</p>
 <ul>
-<li>matrix: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>matrix: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-15" id="label-15">参考</a></h2><!-- RDLabel: "参考" -->

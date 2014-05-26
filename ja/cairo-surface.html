@@ -19,10 +19,10 @@
 <h1><a name="label-0" id="label-0">Cairo::Surfaceクラス</a></h1><!-- RDLabel: "Cairo::Surfaceクラス" -->
 <p>画像を表します。描画操作の対象となったり他のサーフェス上に描
 画するときのソースになったりします。サーフェスに描画するため
-には、<a href="cairo-context.html">Cairo::Context.</a>newに対象にしたいサーフェスを渡してコン
+には、<a href="cairo-context.html#label-4">Cairo::Context.new</a>に対象にしたいサーフェスを渡してコン
 テキストを作ります。</p>
 <p>サーフェスには異なる描画バックエンドのために異なる種類があり
-ます。例えば、<a href="cairo-image-surface.html">Cairo::ImageSurface.</a>newはメモリ上にビットマッ
+ます。例えば、<a href="cairo-image-surface.html#label-5">Cairo::ImageSurface.new</a>はメモリ上にビットマッ
 プ画像を作ります。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
@@ -40,9 +40,9 @@
 <dt><a name="label-5" id="label-5"><code>content</code></a></dt><!-- RDLabel: "content" -->
 <dd>
 サーフェスが色・アルファ情報を持っているかを示す内容の
-種類を返します。<a href="cairo.html">Cairo</a>::Contentを見てください。
+種類を返します。<a href="cairo-content.html">Cairo::Content</a>を見てください。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Contentに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-content.html">Cairo::Content</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-6" id="label-6"><code>create_similar(<var>content</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "create_similar" -->
 <dd>
@@ -57,7 +57,7 @@
 <li>content: :colorや:color_alphaなどCairo::Contentに定義
        されている定数名と同じもの。大文字小文字は関係ありま
        せん。また、シンボルではなくて文字列で"color"のように
-       指定することもできます。もちろん、<a href="cairo.html">Cairo</a>::Contentに定
+       指定することもできます。もちろん、<a href="cairo-content.html">Cairo::Content</a>に定
        義されている定数を指定することもできます。</li>
 <li>width: 新しいサーフェスの幅（装置空間単位）</li>
 <li>height: 新しいサーフェスの高さ（装置空間単位）</li>
@@ -79,9 +79,9 @@
 <p>サーフェスを終了し、全ての外部資源を開放します。このメ
 ソッドを呼んだ後は、サーフェスに対して何の操作もできま
 せん。描画操作は効果がなく、代わりに例外
-<a href="cairo.html">Cairo</a>::SurfaceFinishedErrorが発生します。</p>
+<a href="cairo-surface-finished-error.html">Cairo::SurfaceFinishedError</a>が発生します。</p>
 <p>rcairoではサーフェスがGCされると自動的に
-<a href="cairo-surface.html">Cairo::Surface#</a>finishが呼ばれます。</p></dd>
+<a href="cairo-surface.html#label-8">Cairo::Surface#finish</a>が呼ばれます。</p></dd>
 <dt><a name="label-9" id="label-9"><code>flush</code></a></dt><!-- RDLabel: "flush" -->
 <dd>
 サーフェスに対する保留中の描画を行い、さらにcairoが持っ
@@ -97,14 +97,14 @@
 もできます。戻り値はCairo::ScaledFont.newの引数に使うこ
 ともできます。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::FontOptionsオブジェクト。</li>
+<li>戻り値: <a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-11" id="label-11"><code>mark_dirty</code></a></dt><!-- RDLabel: "mark_dirty" -->
 <dd>
 cairoにcairo以外の方法でサーフェスへの描画が終わったこ
 とを教えます。また、キャッシュしている範囲を再読み込み
 する必要があることも教えます。事前に
-<a href="cairo-surface.html">Cairo::Surface#</a>flushを呼ぶ必要があります。</dd>
+<a href="cairo-surface.html#label-9">Cairo::Surface#flush</a>を呼ぶ必要があります。</dd>
 <dt><a name="label-12" id="label-12"><code>set_device_offset(<var>x_offset</var>, <var>y_offset</var>)</code></a></dt><!-- RDLabel: "set_device_offset" -->
 <dd>
 <p>サーフェスに描画するときにCTMで決定する装置座標に補正値
@@ -113,7 +113,7 @@ cairoにcairo以外の方法でサーフェスへの描画が終わったこ
 して描かれているものを画面上にはない別のサーフェスに転
 送するサーフェスです。ある意味で、これは完全にcairoの
 APIのユーザには見えないところです。
-<a href="cairo-context.html">Cairo::Context#</a>transformで変換を設定することでは十分で
+<a href="cairo-context.html#label-123">Cairo::Context#transform</a>で変換を設定することでは十分で
 はありません。なぜならCairo::Context#device_to_userのよ
 うなメソッドが隠れた補正値を外に出してしまうからです。</p>
 <p>補正値はソースパターンとしてサーフェスを使ってサーフェ
@@ -150,7 +150,7 @@ cairoは画像（<a href="cairo-image-surface.html">Cairo::ImageSurface</a>）�
 解像度を使います。そのため、ラスタ系のバックエンドでは
 このメソッドは意味がありません。</p>
 <p>注: 代替解像度はページを完成させるとき
-（<a href="cairo-context.html">Cairo::Context#show_</a>pageかCairo::Context#copy_page）に
+（<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>かCairo::Context#copy_page）に
 使います。そのため、現在は各ページにひとつの代替解像度
 しか使えません。</p>
 <p>代替解像度のデフォルト値は水平・垂直方向とも1インチあた
@@ -175,7 +175,7 @@ writeメソッドを使ってPNG画像を出力します。形式のデータを
 は現在のページを発行します。ただし、現在の描画内容は消
 しません。現在のページの内容は次のページでもそのままで
 す。発行後に空のページにしたい場合は
-<a href="cairo-surface.html">Cairo::Surface#show_</a>pageを使ってください。</dd>
+<a href="cairo-surface.html#label-18">Cairo::Surface#show_page</a>を使ってください。</dd>
 <dt><a name="label-18" id="label-18"><code>show_page</code></a></dt><!-- RDLabel: "show_page" -->
 <dd>
 <em>Since 1.6</em>: 複数ページに対応しているバックエンドで
@@ -183,11 +183,11 @@ writeメソッドを使ってPNG画像を出力します。形式のデータを
 ない場合はCairo::Surface#copy_pageを使ってください。</dd>
 <dt><a name="label-19" id="label-19"><code>destroy</code></a></dt><!-- RDLabel: "destroy" -->
 <dd>
-<p><em>Since 1.7</em>: <a href="cairo.html">Cairo</a>::Surfaceを破棄します。この
-<a href="cairo.html">Cairo</a>::Surfaceはもう使えません。</p>
+<p><em>Since 1.7</em>: <a href="cairo-surface.html">Cairo::Surface</a>を破棄します。この
+<a href="cairo-surface.html">Cairo::Surface</a>はもう使えません。</p>
 <p>通常はRubyのGC時に破棄されるので、このメソッドを意識す
 る必要はありません。</p>
-<p>コンストラクタ（<a href="cairo-image-surface.html">Cairo::ImageSurface.</a>newなど）をブロック
+<p>コンストラクタ（<a href="cairo-image-surface.html#label-5">Cairo::ImageSurface.new</a>など）をブロック
 付きで呼ぶことも検討してみてください。</p></dd>
 </dl>
 <h2><a name="label-20" id="label-20">参考</a></h2><!-- RDLabel: "参考" -->

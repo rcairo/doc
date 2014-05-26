@@ -18,7 +18,7 @@
 
 <h1><a name="label-0" id="label-0">Cairo::Colorモジュール</a></h1><!-- RDLabel: "Cairo::Colorモジュール" -->
 <p><em>Since 1.5?</em>: 色をパースする機能と、有名な色の
-<a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクトを提供するモジュールです。</p>
+<a href="cairo-color-rgb.html">Cairo::Color::RGB</a>オブジェクトを提供するモジュールです。</p>
 <p>cairoにはないrcairoでの拡張です。</p>
 <h2><a name="label-1" id="label-1">includeしているモジュール</a></h2><!-- RDLabel: "includeしているモジュール" -->
 <ul>
@@ -32,21 +32,21 @@
 <dd>
 RGB形式の色を生成します。
 <ul>
-<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+<li>戻り値: <a href="cairo-color-rgb.html">Cairo::Color::RGB</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-6" id="label-6"><code>Cairo::Color.parse([:<var>cmyk</var>, <var>c</var>, <var>m</var>, <var>y</var>, <var>k</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dt><a name="label-7" id="label-7"><code>Cairo::Color.parse([:<var>cmyka</var>, <var>c</var>, <var>m</var>, <var>y</var>, <var>k</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dd>
 CMYK形式の色を生成します。
 <ul>
-<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::CMYKオブジェクト</li>
+<li>戻り値: <a href="cairo-color-cmyk.html">Cairo::Color::CMYK</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-8" id="label-8"><code>Cairo::Color.parse([:<var>hsv</var>, <var>h</var>, <var>s</var>, <var>v</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dt><a name="label-9" id="label-9"><code>Cairo::Color.parse([:<var>hsva</var>, <var>h</var>, <var>s</var>, <var>v</var>, <var>a</var>=<var>1</var>.<var>0</var>])</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dd>
 HSV形式の色を生成します。
 <ul>
-<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::HSVオブジェクト</li>
+<li>戻り値: <a href="cairo-color-hsv.html">Cairo::Color::HSV</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-10" id="label-10"><code>Cairo::Color.parse("#<var>RGB</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dt><a name="label-11" id="label-11"><code>Cairo::Color.parse("#<var>RGBA</var>")</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
@@ -59,14 +59,14 @@ HSV形式の色を生成します。
 ます。"#"からはじまるのに、上記以外のフォーマットの場合
 はArgumentErrorが発生します。
 <ul>
-<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+<li>戻り値: <a href="cairo-color-rgb.html">Cairo::Color::RGB</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-16" id="label-16"><code>Cairo::Color.parse(<var>color_name</var>, <var>robust</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dd>
 <p>名前から色を生成します。使える色の名前は
-<a href="cairo.html">Cairo</a>::Colorモジュールに定義されている定数名と対応
+<a href="cairo-color.html">Cairo::Color</a>モジュールに定義されている定数名と対応
 します。大文字小文字、"-"や"_"や空白は区別されません。</p>
-<p>例えば、<a href="cairo-color.html">Cairo::Color</a>::PEACH_YELLOWを使いたい場合は
+<p>例えば、<a href="cairo-color.html#label-143">Cairo::Color::PEACH_YELLOW</a>を使いたい場合は
 以下のどの書き方でも有効です。</p>
 <pre>Cairo::Color.parse(:peach_yellow)
 Cairo::Color.parse("peach-yellow")
@@ -76,14 +76,14 @@ Cairo::Color.parse("PEACH_YELLOW")
 Cairo::Color.parse("PEACH     Yellow")</pre>
 <ul>
 <li>color_name: 色の名前。文字列またはシンボル。</li>
-<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+<li>戻り値: <a href="cairo-color-rgb.html">Cairo::Color::RGB</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-17" id="label-17"><code>Cairo::Color.parse(<var>color</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
 <dd>
-色（<a href="cairo-color.html">Cairo::Color</a>::Baseのサブクラスのオブジェクト）
+色（<a href="cairo-color-base.html">Cairo::Color::Base</a>のサブクラスのオブジェクト）
 を指定した場合は、その色の複製を返します。
 <ul>
-<li>color: <a href="cairo-color.html">Cairo::Color</a>::Baseのサブクラスのオブジェクト</li>
+<li>color: <a href="cairo-color-base.html">Cairo::Color::Base</a>のサブクラスのオブジェクト</li>
 <li>戻り値: colorの複製</li>
 </ul></dd>
 <dt><a name="label-18" id="label-18"><code>Cairo::Color.parse(<var>value</var>, <var>robust</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse" -->
@@ -97,10 +97,10 @@ robustがtrueの場合はArgumentErrorが発生します。そうでな
 <dt><a name="label-19" id="label-19"><code>Cairo::Color.parse_hex_color(<var>value</var>)</code></a></dt><!-- RDLabel: "Cairo::Color.parse_hex_color" -->
 <dd>
 "#..."形式のRGB値から色を生成する。
-<a href="cairo-color.html">Cairo::Color.</a>parseを使ってください。
+<a href="cairo-color.html#label-3">Cairo::Color.parse</a>を使ってください。
 <ul>
 <li>value: "#..."形式の文字列</li>
-<li>戻り値: <a href="cairo-color.html">Cairo::Color</a>::RGBオブジェクト</li>
+<li>戻り値: <a href="cairo-color-rgb.html">Cairo::Color::RGB</a>オブジェクト</li>
 </ul></dd>
 </dl>
 <h2><a name="label-20" id="label-20">定数</a></h2><!-- RDLabel: "定数" -->

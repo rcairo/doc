@@ -42,7 +42,7 @@
 扱われます。PostScript形式のデータはファイル名
 <var>filename</var>のファイルに出力されます。</p>
 <p>各ページのサイズは変更できます。
-<a href="cairo-ps-surface.html">Cairo::PSSurface#set_</a>sizeを見てください。</p>
+<a href="cairo-ps-surface.html#label-9">Cairo::PSSurface#set_size</a>を見てください。</p>
 <ul>
 <li>stream: <code>write</code>メソッドを持つオブジェクト。</li>
 <li>filename: 結果を出力するファイル名。</li>
@@ -97,15 +97,15 @@ Conventions (DSC)を従う必要があります。利用可能なコメン
 られてCairo::PSSurface#begin_setupを呼ぶ前にこのメソッ
 ドを使わなければいけません。</p>
 <p>Setupセクションにコメントを入れるには、
-<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_</a>setupを呼んだあとで、
-<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_</a>setupを呼ぶ前にこのメソッ
+<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_setup</a>を呼んだあとで、
+<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_setup</a>を呼ぶ前にこのメソッ
 ドを使わなければいけません。</p>
 <p>PageSetupセクションにコメントを入れるには、
-<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_</a>setupを呼んだあとでこのメソッ
+<a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_setup</a>を呼んだあとでこのメソッ
 ドを使わなければいけません。</p>
-<p><a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_</a>setupが必要なのは最初のペー
+<p><a href="cairo-ps-surface.html">Cairo::PSSurface#begin_page_setup</a>が必要なのは最初のペー
 ジだけだということに注意してください。
-<a href="cairo-context.html">Cairo::Context#show_</a>pageとCairo::Context#copy_pageの後
+<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>とCairo::Context#copy_pageの後
 に呼び出すということは、明示的なコメントを現在のページ
 のPageSetupに入れるということです。しかし、呼び出しコー
 ドをシンプルにする一貫性のために、各ページの始めにこの
@@ -146,7 +146,7 @@ surface.dsc_comment("%%IncludeFeature: *PageSize A5")
 <p>現在（とそれ以降の）ページのサイズを変更します。</p>
 <p>現在のページに何も描画していないときにだけ呼び出せます。
 単純な方法は、サーフェスを作成した直後か、
-<a href="cairo-context.html">Cairo::Context#show_</a>pageかCairo::Context#copy_pageでペー
+<a href="cairo-context.html#label-109">Cairo::Context#show_page</a>かCairo::Context#copy_pageでペー
 ジを完了した直後に呼び出すことです。</p>
 <ul>
 <li>width_in_points: ポイントで指定した新しい幅。（1ポイ
@@ -183,7 +183,7 @@ PostScriptを出力するかどうかを返します。
 <dd>
 <p><em>Since 1.6</em>: 生成するPostScriptファイルのレベルを制
 限します。ここで使用できるレベルの一覧は
-<a href="cairo-ps-level.html">Cairo::PSLevel#</a>listで得られます。</p>
+<a href="cairo-ps-level.html">Cairo::PSLevel#list</a>で得られます。</p>
 <p>このメソッドはこのサーフェスへ実行するすべての描画操作
 よりも前にだけ呼び出してください。これを実行するもっと
 も簡単な方法はサーフェスを作った直後にこのメソッドを呼

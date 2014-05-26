@@ -45,7 +45,7 @@
 <dt><a name="label-5" id="label-5"><code>Cairo::Paper.new(<var>width</var>, <var>height</var>, <var>unit</var>=<var>nil</var>, <var>name</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "Cairo::Paper.new" -->
 <dd>
 <p>指定した大きさの用紙を作ります。unitがnilの場合は
-<a href="cairo-paper.html">Cairo::Paper.default_</a>unitを使用します。</p>
+<a href="cairo-paper.html#label-3">Cairo::Paper.default_unit</a>を使用します。</p>
 <p>nameは人間のためのものです。省略しても問題ありません。</p>
 <ul>
 <li>width: 用紙の幅</li>
@@ -96,9 +96,9 @@ from_unit単位のsizeをto_unit単位のサイズに変換します。
 <ul>
 <li>size: 変換対象のサイズ</li>
 <li>from_unit: 変換元の単位（文字列。nilを指定した場合は
-       <a href="cairo-paper.html">Cairo::Paper.default_</a>sizeを使用）</li>
+       <a href="cairo-paper.html">Cairo::Paper.default_size</a>を使用）</li>
 <li>to_unit: 変換先の単位（文字列。nilを指定した場合は
-       <a href="cairo-paper.html">Cairo::Paper.default_</a>sizeを使用）</li>
+       <a href="cairo-paper.html">Cairo::Paper.default_size</a>を使用）</li>
 <li>戻り値: 変換後のサイズ</li>
 </ul></dd>
 </dl>
@@ -167,7 +167,7 @@ from_unit単位のsizeをto_unit単位のサイズに変換します。
 <p>以下の形式の用紙の文字列表現を返します。</p>
 <pre>"#{WIDTH}#{UNIT}x#{HEIGHT}#{UNIT}\##{NAME}"</pre>
 <p>"#{UNIT}"および"\##{NAME}"はない場合があります。</p>
-<p><a href="cairo-paper.html">Cairo::Paper.</a>parseの入力にすることができます。</p>
+<p><a href="cairo-paper.html#label-6">Cairo::Paper.parse</a>の入力にすることができます。</p>
 <ul>
 <li>戻り値: 用紙の文字列表現</li>
 </ul></dd>

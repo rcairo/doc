@@ -29,7 +29,7 @@
 data = "\0" * stride * height
 surface = Cairo::ImageSurface.create(data, format, width, height, stride)</pre>
 <p>format: <a href="cairo-format.html">Cairo::Format</a>::*のどれか。
-width: <a href="cairo.html">Cairo</a>::ImageSurfaceの作成に使いたい幅。
+width: <a href="cairo-image-surface.html">Cairo::ImageSurface</a>の作成に使いたい幅。
 Returns: 与えられたformatとwidthに適切なストライド値。
 不正なformatや大きすぎるwidthを与えた場合は-1。</p></dd>
 </dl>

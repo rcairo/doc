@@ -17,29 +17,29 @@
 </body>
 
 <h1><a name="label-0" id="label-0">Cairo::Contextクラス</a></h1><!-- RDLabel: "Cairo::Contextクラス" -->
-<p><a href="cairo.html">Cairo</a>::Contextはrcairoで描画するときに使用する主要なオブジェ
+<p><a href="cairo-context.html">Cairo::Context</a>はrcairoで描画するときに使用する主要なオブジェ
 クトです。rcairoで描画するためには、まず、描画対象となるサー
 フェスを設定したCairo::Contextを作ります。それから、描画オプ
 ションを設定し、<a href="cairo-context.html#label-76">Cairo::Context#move_to</a>、
-<a href="cairo-context.html">Cairo::Context#line_</a>toなどで形を作り、その形を
-<a href="cairo-context.html">Cairo::Context#</a>strokeかCairo::Context#fillで描画
+<a href="cairo-context.html#label-64">Cairo::Context#line_to</a>などで形を作り、その形を
+<a href="cairo-context.html#label-112">Cairo::Context#stroke</a>かCairo::Context#fillで描画
 します。</p>
-<p><a href="cairo.html">Cairo</a>::Contextの持っている描画情報は
-<a href="cairo-context.html">Cairo::Context#</a>saveでスタックに積むことができます。そ
+<p><a href="cairo-context.html">Cairo::Context</a>の持っている描画情報は
+<a href="cairo-context.html#label-96">Cairo::Context#save</a>でスタックに積むことができます。そ
 のため、現在の状態を失うことなく描画情報を安全に変更できます。
-<a href="cairo-context.html">Cairo::Context#</a>restoreを呼べば保存した状態を復元するこ
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>を呼べば保存した状態を復元するこ
 とができます。</p>
 <pre>context.save
 ...
 context.restore</pre>
 <p>よりRubyらしく書くなら、ブロックつきで
-<a href="cairo-context.html">Cairo::Context#</a>saveを使用します。</p>
+<a href="cairo-context.html#label-96">Cairo::Context#save</a>を使用します。</p>
 <pre>context.save do
   ...
 end</pre>
 <p>この場合は、ブロックを抜けた時点で自動的に
-<a href="cairo-context.html">Cairo::Context#</a>restoreが呼び出されます。</p>
-<p><a href="cairo.html">Cairo</a>::Contextには、いくつかrcairoが拡張している機能もありま
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>が呼び出されます。</p>
+<p><a href="cairo-context.html">Cairo::Context</a>には、いくつかrcairoが拡張している機能もありま
 す。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
@@ -65,21 +65,21 @@ end</pre>
 が<var>target</var>に設定された新しいCairo::Contextを作
 成します。描画対象のサーフェスはバックエンド依存の方法で
 作成します。例えば、画像用のサーフェスは
-<a href="cairo-image-surface.html">Cairo::ImageSurface.</a>newで作成し、PDF用のサーフェス
+<a href="cairo-image-surface.html#label-5">Cairo::ImageSurface.new</a>で作成し、PDF用のサーフェス
 はCairo::PDFSurface.newで作成します。
 <ul>
 <li>target: 描画対象のサーフェス
-       （<a href="cairo.html">Cairo</a>::ImageSurfaceなど）</li>
+       （<a href="cairo-image-surface.html">Cairo::ImageSurface</a>など）</li>
 <li>戻り値: <a href="cairo-context.html">Cairo::Context</a></li>
 </ul></dd>
 <dt><a name="label-5" id="label-5"><code>Cairo::Context.new(<var>target</var>) {|<var>context</var>| ...}</code></a></dt><!-- RDLabel: "Cairo::Context.new" -->
 <dd>
 <em>Since 1.7</em>ブロック無しでCairo::Context.newを呼び出
 した場合と異なるのは、ブロックが終了した時点で
-<a href="cairo-context.html">Cairo::Context#</a>destroyが呼ばれることです。
+<a href="cairo-context.html#label-134">Cairo::Context#destroy</a>が呼ばれることです。
 <ul>
 <li>target: 描画対象のサーフェス
-       （<a href="cairo.html">Cairo</a>::ImageSurfaceなど）</li>
+       （<a href="cairo-image-surface.html">Cairo::ImageSurface</a>など）</li>
 <li>context: <a href="cairo-context.html">Cairo::Context</a></li>
 </ul></dd>
 </dl>
@@ -91,7 +91,7 @@ end</pre>
 を返します。これはCairo::Context#antialias=で設定で
 きます。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Antialiasに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-antialias.html">Cairo::Antialias</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-8" id="label-8"><code>antialias=(<var>antialias</var>)</code></a></dt><!-- RDLabel: "antialias=" -->
 <dt><a name="label-9" id="label-9"><code>set_antialias(<var>antialias</var>)</code></a></dt><!-- RDLabel: "set_antialias" -->
@@ -112,17 +112,17 @@ end</pre>
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::Antialiasに定義されている定数を指定するこ
+       <a href="cairo-antialias.html">Cairo::Antialias</a>に定義されている定数を指定するこ
        ともできます。</li>
 </ul></dd>
 <dt><a name="label-10" id="label-10"><code>append_path(<var>path</var>)</code></a></dt><!-- RDLabel: "append_path" -->
 <dd>
 <var>path</var>を現在のパス上に追加します。<var>path</var>は
-<a href="cairo-context.html">Cairo::Context#copy_</a>pathまたは
-<a href="cairo-context.html">Cairo::Context#copy_path_</a>flatで取得します。あるい
-は、<a href="cairo-path.html">Cairo::Path.</a>newで一から作成することもできます。
+<a href="cairo-context.html#label-22">Cairo::Context#copy_path</a>または
+<a href="cairo-context.html#label-23">Cairo::Context#copy_path_flat</a>で取得します。あるい
+は、<a href="cairo-path.html#label-4">Cairo::Path.new</a>で一から作成することもできます。
 <ul>
-<li>path: <a href="cairo.html">Cairo</a>::Pathオブジェクト</li>
+<li>path: <a href="cairo-path.html">Cairo::Path</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-11" id="label-11"><code>arc(<var>center_x</var>, <var>center_y</var>, <var>radius</var>, <var>angle1</var>, <var>angle2</var>)</code></a></dt><!-- RDLabel: "arc" -->
 <dd>
@@ -143,7 +143,7 @@ X軸方向になります。角度<code>Math::PI / 2</code>（90度）は（ユ�
 180)</code>を使ってください。）</p>
 <p>このメソッドは角度が増加する方向の円弧を描きます。角度
 が減少する方向の円弧を描きたい場合は
-<a href="cairo-context.html">Cairo::Context#arc_</a>negativeを見てください。</p>
+<a href="cairo-context.html#label-12">Cairo::Context#arc_negative</a>を見てください。</p>
 <p>円弧はユーザ空間の円になります。楕円を描くためにはX方向
 とY方向の値が異なった変換行列で拡大・縮小してください。
 例えば、<var>x</var>, <var>y</var>, <var>width</var>, <var>height</var>の箱
@@ -179,29 +179,29 @@ end</pre>
 </ul></dd>
 <dt><a name="label-13" id="label-13"><code>circle(<var>center_x</var>, <var>center_y</var>, <var>radius</var>)</code></a></dt><!-- RDLabel: "circle" -->
 <dd>
-<a href="cairo-context-circle.html">Cairo::Context::Circle#</a>circleを見てください。</dd>
+<a href="cairo-context-circle.html#label-2">Cairo::Context::Circle#circle</a>を見てください。</dd>
 <dt><a name="label-14" id="label-14"><code>clip(<var>preserve</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "clip" -->
 <dt><a name="label-15" id="label-15"><code>clip(<var>preserve</var>=<var>false</var>) {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "clip" -->
 <dd>
 <p>現在の切り取り範囲と現在のパスから作る範囲の両方に含まれ
 ている範囲が新しい切り取り範囲になります（intersect、交
 差）。現在のパスの範囲は、現在の塗りつぶし規則
-（<a href="cairo-context.html">Cairo::Context#set_fill_</a>ruleを見てください）にしたがっ
+（<a href="cairo-context.html#label-37">Cairo::Context#set_fill_rule</a>を見てください）にしたがっ
 てCairo::Context#fillで塗りつぶされる箇所になります。</p>
-<p><var>preserve</var>が偽の場合、<a href="cairo-context.html">Cairo::Context#</a>clipのあとは、
+<p><var>preserve</var>が偽の場合、<a href="cairo-context.html#label-14">Cairo::Context#clip</a>のあとは、
 コンテキストから現在のパスは消去されます。</p>
 <p>現在の切り取り範囲は全ての描画操作に影響します。現在の切
 り取り範囲の外にあるサーフェスへの全ての変更は効果的に隠
 されます（マスクされます）。</p>
-<p><a href="cairo-context.html">Cairo::Context#</a>clipは切り取り範囲を小さくすることしかで
+<p><a href="cairo-context.html#label-14">Cairo::Context#clip</a>は切り取り範囲を小さくすることしかで
 きません。決して大きくなりません。しかし、現在の切り取り
-範囲はグラフィック状態の一部なので、<a href="cairo-context.html">Cairo::Context#</a>saveと
-<a href="cairo-context.html">Cairo::Context#</a>restoreの間（あるいはCairo::Context#save
+範囲はグラフィック状態の一部なので、<a href="cairo-context.html#label-96">Cairo::Context#save</a>と
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>の間（あるいはCairo::Context#save
 のブロックの中）でCairo::Context#clipを呼ぶことで一時的
 に切り取り範囲を制限することができます。これ以外の、切り
 取り範囲の領域を増やす唯一の方法は
-<a href="cairo-context.html">Cairo::Context#reset_</a>clipです。</p>
-<p>ブロックを指定した場合は、<a href="cairo-context.html">Cairo::Context#new_</a>pathで新し
+<a href="cairo-context.html#label-93">Cairo::Context#reset_clip</a>です。</p>
+<p>ブロックを指定した場合は、<a href="cairo-context.html#label-77">Cairo::Context#new_path</a>で新し
 いパスをはじめてからブロックを呼び出します。以下のよう
 に使います。</p>
 <pre>context.clip do
@@ -230,7 +230,7 @@ context.clip</pre>
 <dt><a name="label-17" id="label-17"><code>clip_preserve</code></a></dt><!-- RDLabel: "clip_preserve" -->
 <dt><a name="label-18" id="label-18"><code>clip_preserve {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "clip_preserve" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#</a>clipを以下のように呼び出すことと同じです。</p>
+<p><a href="cairo-context.html#label-14">Cairo::Context#clip</a>を以下のように呼び出すことと同じです。</p>
 <pre>context.clip(true)
 context.clip(true) { ... }</pre></dd>
 <dt><a name="label-19" id="label-19"><code>clip_rectangle_list</code></a></dt><!-- RDLabel: "clip_rectangle_list" -->
@@ -241,18 +241,18 @@ context.clip(true) { ... }</pre></dd>
 場合はCairo::ClipNotRepresentableErrorが発生します。</p>
 <ul>
 <li>戻り値: ユーザ座標の四角の配列として表現した現在の切
-       り取り範囲。<a href="cairo.html">Cairo</a>::Rectangleの配列。</li>
+       り取り範囲。<a href="cairo-rectangle.html">Cairo::Rectangle</a>の配列。</li>
 </ul></dd>
 <dt><a name="label-20" id="label-20"><code>close_path</code></a></dt><!-- RDLabel: "close_path" -->
 <dd>
 <p>現在の点から現在のサブパスの最初の点（一番最後に
-<a href="cairo-context.html">Cairo::Context#move_</a>toに渡した点）までの線分を追加し、
-このサブパスを閉じます。<a href="cairo-context.html">Cairo::Context#close_</a>pathの後は
+<a href="cairo-context.html#label-76">Cairo::Context#move_to</a>に渡した点）までの線分を追加し、
+このサブパスを閉じます。<a href="cairo-context.html#label-20">Cairo::Context#close_path</a>の後は
 現在の点はサブパスの結合終点（？FIXME: joined endpoint）
 にあります。</p>
-<p>ストロークの場合、<a href="cairo-context.html">Cairo::Context#close_</a>pathの振舞は単純
+<p>ストロークの場合、<a href="cairo-context.html#label-20">Cairo::Context#close_path</a>の振舞は単純
 に同等の座標（サブパスの最初の点）で
-<a href="cairo-context.html">Cairo::Context#line_</a>toを呼んだときとは異なります。閉じ
+<a href="cairo-context.html#label-64">Cairo::Context#line_to</a>を呼んだときとは異なります。閉じ
 られたサブパスが描かれるときは、サブパスの最後にはキャッ
 プ（ふた、線分の端の点のこと）はありません。代わりに、サ
 ブパスの最初と最後を結ぶ線の結合があります。</p>
@@ -284,11 +284,11 @@ context.clip(true) { ... }</pre></dd>
 <dd>
 <p>平坦にした現在のパスのコピーを作成しCairo::Pathオブジェ
 クトとして返します。</p>
-<p><a href="cairo-context.html">Cairo::Context#copy_</a>pathとほとんど同じです。違いはパス
+<p><a href="cairo-context.html#label-22">Cairo::Context#copy_path</a>とほとんど同じです。違いはパス
 中のすべての曲線が区分的に線形な近似値で近似されること
 です（確実に現在の許容値内にします）。つまり、結果には
 ひとつもCairo::Path::CURVE_TOが無いことが保証されます。
-<a href="cairo-path.html">Cairo::Path</a>::CURVE_TOはCairo::Path::LINE_TOに置き換えられ
+<a href="cairo-path.html#label-27">Cairo::Path::CURVE_TO</a>はCairo::Path::LINE_TOに置き換えられ
 ます。</p>
 <ul>
 <li>戻り値: 平坦にした現在のパスのコピー。</li>
@@ -352,7 +352,7 @@ context.clip(true) { ... }</pre></dd>
 <dd>
 <p>ダッシュの配列の長さを返します。（ダッシュが使われてい
 ない場合は0）</p>
-<p><a href="cairo-context.html">Cairo::Context#set_</a>dashとCairo::Context#dashも見てくだ
+<p><a href="cairo-context.html#label-103">Cairo::Context#set_dash</a>とCairo::Context#dashも見てくだ
 さい。</p>
 <ul>
 <li>戻り値: ダッシュの配列の長さ。ダッシュの配列が設定さ
@@ -391,9 +391,9 @@ context.clip(true) { ... }</pre></dd>
 <p>現在の塗りつぶし規則にしたがって現在のパスを塗りつぶす
 描画操作です。（塗りつぶす前に各サブパスは暗黙のうちに
 閉じられます。）<var>preserve</var>が偽の場合は
-<a href="cairo-context.html">Cairo::Context#</a>fillを呼び出した後、現在のパスがコンテキ
+<a href="cairo-context.html#label-30">Cairo::Context#fill</a>を呼び出した後、現在のパスがコンテキ
 ストから消去されます。</p>
-<p>ブロックを指定した場合は、<a href="cairo-context.html">Cairo::Context#new_</a>pathで新し
+<p>ブロックを指定した場合は、<a href="cairo-context.html#label-77">Cairo::Context#new_path</a>で新し
 いパスをはじめてからブロックを呼び出します。以下のよう
 に使います。</p>
 <pre>context.fill do
@@ -403,7 +403,7 @@ end</pre>
 <pre>context.new_path
 context.rectangle(20, 20, 40, 40)
 context.fill</pre>
-<p><a href="cairo-context.html">Cairo::Context#set_fill_</a>ruleも見てください。</p>
+<p><a href="cairo-context.html#label-37">Cairo::Context#set_fill_rule</a>も見てください。</p>
 <ul>
 <li>preserve: 真の場合はパスを消去しない</li>
 </ul></dd>
@@ -431,15 +431,15 @@ context.fill</pre>
 <dt><a name="label-33" id="label-33"><code>fill_preserve</code></a></dt><!-- RDLabel: "fill_preserve" -->
 <dt><a name="label-34" id="label-34"><code>fill_preserve {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "fill_preserve" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#</a>fillを以下のように呼び出すことと同じです。</p>
+<p><a href="cairo-context.html#label-30">Cairo::Context#fill</a>を以下のように呼び出すことと同じです。</p>
 <pre>context.fill(true)
 context.fill(true) { ... }</pre></dd>
 <dt><a name="label-35" id="label-35"><code>fill_rule</code></a></dt><!-- RDLabel: "fill_rule" -->
 <dd>
 現在の塗りつぶし規則を返します。塗りつぶし規則は
-<a href="cairo-context.html">Cairo::Context#set_fill_</a>ruleで設定します。
+<a href="cairo-context.html#label-37">Cairo::Context#set_fill_rule</a>で設定します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::FillRuleに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-fill-rule.html">Cairo::FillRule</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-36" id="label-36"><code>fill_rule=(<var>fill_rule</var>)</code></a></dt><!-- RDLabel: "fill_rule=" -->
 <dt><a name="label-37" id="label-37"><code>set_fill_rule(<var>fill_rule</var>)</code></a></dt><!-- RDLabel: "set_fill_rule" -->
@@ -448,22 +448,22 @@ context.fill(true) { ... }</pre></dd>
 りつぶし規則は領域が複雑な（自身で交差している可能性のあ
 る）パスの内側にあるか外側にあるかを判断するために使わ
 れます。現在の塗りつぶし規則はCairo::Context#fillと
-<a href="cairo-context.html">Cairo::Context#</a>clipの両方に影響を与えます。有効な塗りつ
+<a href="cairo-context.html#label-14">Cairo::Context#clip</a>の両方に影響を与えます。有効な塗りつ
 ぶし規則のそれぞれの意味の詳細は
-<a href="cairo.html">Cairo</a>::FillRuleを見てください。
+<a href="cairo-fill-rule.html">Cairo::FillRule</a>を見てください。
 <ul>
 <li>fill_rule: :windingや:even_oddなどCairo::FillRuleに定
        義されている定数名と同じもの。大文字小文字は関係あり
        ません。また、シンボルではなくて文字列で"winding"のよ
        うに指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::FillRuleに定義されている定数を指定すること
+       <a href="cairo-fill-rule.html">Cairo::FillRule</a>に定義されている定数を指定すること
        もできます。</li>
 </ul></dd>
 <dt><a name="label-38" id="label-38"><code>font_extents</code></a></dt><!-- RDLabel: "font_extents" -->
 <dd>
 現在選択しているフォントの範囲を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::FontExtentsオブジェクト</li>
+<li>戻り値: <a href="cairo-font-extents.html">Cairo::FontExtents</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-39" id="label-39"><code>font_face</code></a></dt><!-- RDLabel: "font_face" -->
 <dd>
@@ -478,13 +478,13 @@ context.fill(true) { ... }</pre></dd>
 コンテキストの現在のCairo::FontFaceオブジェクトを
 <var>font_face</var>で置き換えます。
 <ul>
-<li>font_face: <a href="cairo.html">Cairo</a>::FontFaceオブジェクト。<code>nil</code>の場
+<li>font_face: <a href="cairo-font-face.html">Cairo::FontFace</a>オブジェクト。<code>nil</code>の場
        合はデフォルトのフォントに戻します。</li>
 </ul></dd>
 <dt><a name="label-42" id="label-42"><code>font_matrix</code></a></dt><!-- RDLabel: "font_matrix" -->
 <dd>
 現在のフォント用行列を返します。
-<a href="cairo-context.html">Cairo::Context#set_font_</a>matrixも見てください。
+<a href="cairo-context.html#label-44">Cairo::Context#set_font_matrix</a>も見てください。
 <ul>
 <li>戻り値: フォント用行列をCairo::Matrixオブジェクトで
        返します。</li>
@@ -496,7 +496,7 @@ context.fill(true) { ... }</pre></dd>
 ト用行列はフォントのデザイン空間（この空間ではemの四角
 は1単位 x 1単位です）からユーザ空間への変換方法になりま
 す。通常は単純な拡大・縮小が使われます
-（<a href="cairo-context.html">Cairo::Context#set_font_</a>sizeを見てください）。しかし、
+（<a href="cairo-context.html#label-49">Cairo::Context#set_font_size</a>を見てください）。しかし、
 フォントを剪断（斜めに傾ける）したり長さの異なる平行な
 ふたつの軸に対して（？FIXME）伸縮させたりなど、複雑なフォ
 ント用行列を使うこともできます。
@@ -505,13 +505,13 @@ context.fill(true) { ... }</pre></dd>
 </ul></dd>
 <dt><a name="label-45" id="label-45"><code>font_options</code></a></dt><!-- RDLabel: "font_options" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#set_font_</a>optionsで設定したフォント描画オ
+<a href="cairo-context.html#label-47">Cairo::Context#set_font_options</a>で設定したフォント描画オ
 プションを返します。返されるオプションにはコンテキスト
 の下にあるサーフェスから得られたオプションは含まれませ
 ん。つまり、このオプションはそのまま
-<a href="cairo-context.html">Cairo::Context#set_font_</a>optionsに渡すことができます。
+<a href="cairo-context.html#label-47">Cairo::Context#set_font_options</a>に渡すことができます。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::FontOptionsオブジェクト</li>
+<li>戻り値: <a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-46" id="label-46"><code>font_options=(<var>options</var>)</code></a></dt><!-- RDLabel: "font_options=" -->
 <dt><a name="label-47" id="label-47"><code>set_font_options(<var>options</var>)</code></a></dt><!-- RDLabel: "set_font_options" -->
@@ -519,17 +519,17 @@ context.fill(true) { ... }</pre></dd>
 コンテキストにフォント描画オプションを設定します。描画
 オプションはコンテキストの下にあるサーフェスから得たオ
 プションとマージされます。つまり、もし、<var>options</var>が
-（<a href="cairo-antialias.html">Cairo::Antialias</a>::DEFAULTのような）デフォルト値を持っ
+（<a href="cairo-antialias.html#label-2">Cairo::Antialias::DEFAULT</a>のような）デフォルト値を持っ
 ている場合は、サーフェスから得た値を使います。
 <ul>
-<li>options: <a href="cairo.html">Cairo</a>::FontOptionsオブジェクト</li>
+<li>options: <a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-48" id="label-48"><code>font_size=(<var>size</var>)</code></a></dt><!-- RDLabel: "font_size=" -->
 <dt><a name="label-49" id="label-49"><code>set_font_size(<var>size</var>)</code></a></dt><!-- RDLabel: "set_font_size" -->
 <dd>
 現在のフォント用行列を<var>size</var>倍に拡大する行列に設定
 します。以前にCairo::Context#set_font_sizeあるいは
-<a href="cairo-context.html">Cairo::Context#set_font_</a>matrixで設定したフォント用行列
+<a href="cairo-context.html#label-44">Cairo::Context#set_font_matrix</a>で設定したフォント用行列
 は置き換えられます。<var>size</var>のフォントサイズはユーザ
 空間の単位になります。（より正確にいうと、この行列はフォ
 ントのem正方形をユーザ空間での<var>size</var> x <var>size</var>の
@@ -541,16 +541,16 @@ context.fill(true) { ... }</pre></dd>
 <dd>
 <p>グリフの範囲を返します。範囲はグリフをインクで塗る部分
 を囲む（ユーザ空間での）四角を示しています。（グリフは
-<a href="cairo-context.html">Cairo::Context#show_</a>glyphsで描画できます。）さらに、
+<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>で描画できます。）さらに、
 範囲（<a href="cairo-text-extents.html">Cairo::TextExtents</a>）の<var>x_advance</var>と
 <var>y_advance</var>の値はCairo::Context#show_glyphsが進める
 現在の点の合計を示しています。
-（<a href="cairo-context.html">Cairo::Context#show_</a>glyphsはグリフを描画すると、描画
+（<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>はグリフを描画すると、描画
 した分だけ現在の点を進めます。）</p>
 <p>空白のグリフは四角のサイズ（extents.widthと
 extents.height）に貢献しないことに注意してください。</p>
 <ul>
-<li>glyphs: <a href="cairo.html">Cairo</a>::Glyphの配列</li>
+<li>glyphs: <a href="cairo-glyph.html">Cairo::Glyph</a>の配列</li>
 <li>戻り値: グリフの範囲を示すCairo::TextExtentsオブジェ
        クト。</li>
 </ul></dd>
@@ -558,19 +558,19 @@ extents.height）に貢献しないことに注意してください。</p>
 <dd>
 現在のパスにグリフの閉じたパスを追加します。
 生成されたパスを塗りつぶすと、
-<a href="cairo-context.html">Cairo::Context#show_</a>glyphsのような効果を実現できます。
+<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>のような効果を実現できます。
 <ul>
 <li>glyphs: 表示するグリフ（<a href="cairo-glyph.html">Cairo::Glyph</a>）の配列</li>
 </ul></dd>
 <dt><a name="label-52" id="label-52"><code>group_target</code></a></dt><!-- RDLabel: "group_target" -->
 <dd>
 <p>一番最後に呼んだCairo::Context#push_groupまたは
-<a href="cairo-context.html">Cairo::Context#push_with_</a>contentではじまった現在のグルー
+<a href="cairo-context.html">Cairo::Context#push_with_content</a>ではじまった現在のグルー
 プ用の対象サーフェスを返します。</p>
 <p>もし全てのグループ描画ブロックの外で呼んだ場合は
 <code>nil</code>を返します。（つまり、最後のつりあった
-<a href="cairo-context.html">Cairo::Context#pop_</a>groupあるいは
-<a href="cairo-context.html">Cairo::Context#pop_group_to_</a>surfaceのあとに<code>nil</code>が
+<a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>あるいは
+<a href="cairo-context.html">Cairo::Context#pop_group_to_surface</a>のあとに<code>nil</code>が
 返ります。（そんなことあるかなぁ））</p>
 <ul>
 <li>戻り値: 対象グループサーフェス。もしなければ
@@ -630,18 +630,18 @@ extents.height）に貢献しないことに注意してください。</p>
 </ul></dd>
 <dt><a name="label-58" id="label-58"><code>line_cap</code></a></dt><!-- RDLabel: "line_cap" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#set_line_</a>capで設定した現在のラインキャッ
+<a href="cairo-context.html#label-60">Cairo::Context#set_line_cap</a>で設定した現在のラインキャッ
 プスタイル（終点を描画する方法）を返します。
 <ul>
 <li>戻り値: 現在のラインキャップスタイル。
-       <a href="cairo.html">Cairo</a>::LineCapに定義されている定数のどれか。</li>
+       <a href="cairo-line-cap.html">Cairo::LineCap</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-59" id="label-59"><code>line_cap=(<var>line_cap</var>)</code></a></dt><!-- RDLabel: "line_cap=" -->
 <dt><a name="label-60" id="label-60"><code>set_line_cap(<var>line_cap</var>)</code></a></dt><!-- RDLabel: "set_line_cap" -->
 <dd>
 <p>コンテキスト中の現在のラインキャップスタイルを設定しま
 す。どのようにラインキャップスタイルが描画されるかは
-<a href="cairo.html">Cairo</a>::LineCapを見てください。</p>
+<a href="cairo-line-cap.html">Cairo::LineCap</a>を見てください。</p>
 <p>他の描きパラメータと同じように、現在のラインキャップスタ
 イルはCairo::Context#stroke,
 <a href="cairo-context.html#label-114">Cairo::Context#stroke_extents</a>
@@ -652,22 +652,22 @@ extents.height）に貢献しないことに注意してください。</p>
        いる定数名と同じもの。大文字小文字は関係ありません。
        また、シンボルではなくて文字列で"round"のように指定す
        ることもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::LineCapに定義されている定数を指定することもできます。</li>
+       <a href="cairo-line-cap.html">Cairo::LineCap</a>に定義されている定数を指定することもできます。</li>
 </ul></dd>
 <dt><a name="label-61" id="label-61"><code>line_join</code></a></dt><!-- RDLabel: "line_join" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#set_line_</a>joinで設定した現在の結合点スタ
+<a href="cairo-context.html#label-63">Cairo::Context#set_line_join</a>で設定した現在の結合点スタ
 イル（線分中の点を描画する方法）を返します。
 <ul>
 <li>戻り値: 現在の結合点スタイル。
-       <a href="cairo.html">Cairo</a>::LineJoinに定義されている定数のどれか。</li>
+       <a href="cairo-line-join.html">Cairo::LineJoin</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-62" id="label-62"><code>line_join=(<var>line_join</var>)</code></a></dt><!-- RDLabel: "line_join=" -->
 <dt><a name="label-63" id="label-63"><code>set_line_join(<var>line_join</var>)</code></a></dt><!-- RDLabel: "set_line_join" -->
 <dd>
 <p>コンテキスト中の現在の結合点スタイルを設定します。どの
 ように結合点スタイルが描画されるかは
-<a href="cairo.html">Cairo</a>::LineJoinを見てください。</p>
+<a href="cairo-line-join.html">Cairo::LineJoin</a>を見てください。</p>
 <p>他の描きパラメータと同じように、現在の結合点スタイルは
 <a href="cairo-context.html#label-112">Cairo::Context#stroke</a>,
 <a href="cairo-context.html#label-114">Cairo::Context#stroke_extents</a>
@@ -678,7 +678,7 @@ extents.height）に貢献しないことに注意してください。</p>
        れている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "round"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::LineJoinに定義されている定数を指定することもで
+       <a href="cairo-line-join.html">Cairo::LineJoin</a>に定義されている定数を指定することもで
        きます。</li>
 </ul></dd>
 <dt><a name="label-64" id="label-64"><code>line_to(<var>x</var>, <var>y</var>)</code></a></dt><!-- RDLabel: "line_to" -->
@@ -694,10 +694,10 @@ extents.height）に貢献しないことに注意してください。</p>
 </ul></dd>
 <dt><a name="label-65" id="label-65"><code>line_width</code></a></dt><!-- RDLabel: "line_width" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#set_line_</a>widthで設定した値と正確に同じ現
+<a href="cairo-context.html#label-67">Cairo::Context#set_line_width</a>で設定した値と正確に同じ現
 在の線幅を返します。この値はたとえ
-<a href="cairo-context.html">Cairo::Context#set_line_</a>widthと
-<a href="cairo-context.html">Cairo::Context#line_</a>widthの呼び出しの間にCTMを変えたと
+<a href="cairo-context.html#label-67">Cairo::Context#set_line_width</a>と
+<a href="cairo-context.html#label-65">Cairo::Context#line_width</a>の呼び出しの間にCTMを変えたと
 しても変わりません。
 <ul>
 <li>戻り値: 現在の線幅。</li>
@@ -711,11 +711,11 @@ extents.height）に貢献しないことに注意してください。</p>
 大・縮小・剪断・回転のためです。）</p>
 <p>注: 上記の説明でユーザ空間とCTMにふれたとき、ユーザ空間
 とCTMは描き操作のときに影響があり、
-<a href="cairo-context.html">Cairo::Context#set_line_</a>widthのときには影響がないといい
+<a href="cairo-context.html#label-67">Cairo::Context#set_line_width</a>のときには影響がないといい
 ました。もっとも単純な使用法はふたつの空間を等しくする
 ことです。つまり、もしCairo::Context#set_line_widthと描
 き操作の間にCTMを変更しなければ、単純にユーザ空間の値を
-<a href="cairo-context.html">Cairo::Context#set_line_</a>widthに渡すことができ、この注は
+<a href="cairo-context.html#label-67">Cairo::Context#set_line_width</a>に渡すことができ、この注は
 無視することができます。</p>
 <p>他の描きパラメータと同じように、現在の線幅は
 <a href="cairo-context.html#label-112">Cairo::Context#stroke</a>,
@@ -736,9 +736,9 @@ extents.height）に貢献しないことに注意してください。</p>
 ます。透明な部分（アルファチャンネルが0の部分）は塗られ
 ません。）
 <ul>
-<li>pattern: <a href="cairo.html">Cairo</a>::Patternをスーパークラスに持つオブジェ
+<li>pattern: <a href="cairo-pattern.html">Cairo::Pattern</a>をスーパークラスに持つオブジェ
        クト</li>
-<li>surface: <a href="cairo.html">Cairo</a>::Surfaceをスーパークラスに持つオブジェ
+<li>surface: <a href="cairo-surface.html">Cairo::Surface</a>をスーパークラスに持つオブジェ
        クト</li>
 <li>x: <var>surface</var>を置く基点のX座標</li>
 <li>y: <var>surface</var>を置く基点のY座標</li>
@@ -747,18 +747,18 @@ extents.height）に貢献しないことに注意してください。</p>
 <dd>
 現在の変換行列（CTM）を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-71" id="label-71"><code>matrix=(<var>matrix</var>)</code></a></dt><!-- RDLabel: "matrix=" -->
 <dt><a name="label-72" id="label-72"><code>set_matrix(<var>matrix</var>)</code></a></dt><!-- RDLabel: "set_matrix" -->
 <dd>
 現在の変換行列（CTM）を<var>matrix</var>に変更します。
 <ul>
-<li>matrix: <a href="cairo.html">Cairo</a>::Matrixオブジェクト</li>
+<li>matrix: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-73" id="label-73"><code>miter_limit</code></a></dt><!-- RDLabel: "miter_limit" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#set_miter_</a>limitで設定した現在の留め継ぎ
+<a href="cairo-context.html#label-75">Cairo::Context#set_miter_limit</a>で設定した現在の留め継ぎ
 限界を返します。
 <ul>
 <li>戻り値: 留め継ぎ限界値</li>
@@ -768,7 +768,7 @@ extents.height）に貢献しないことに注意してください。</p>
 <dd>
 <p>コンテキストの中に現在の留め継ぎ限界を設定します。</p>
 <p>現在の結合点スタイルがCairo::LineJoin::MITERの場合は
-（<a href="cairo-context.html">Cairo::Context#est_line_</a>joinを見てください）、線分を
+（<a href="cairo-context.html">Cairo::Context#est_line_join</a>を見てください）、線分を
 留め継ぎの代わりに斜角で結合するべきかどうかを判断
 するために設定した留め継ぎ限界を使います。</p>
 <pre>留め継ぎ:
@@ -805,15 +805,15 @@ extents.height）に貢献しないことに注意してください。</p>
 <p>多くの場合、この呼び出しは必要ありません。なぜなら新し
 いサブパスの多くはCairo::Context#move_toで始めるからで
 す。</p>
-<p><a href="cairo-context.html">Cairo::Context#new_sub_</a>pathは新しいサブパスを
-<a href="cairo-context.html">Cairo::Context#</a>arcで始める場合に特に役立ちます。これは
+<p><a href="cairo-context.html#label-78">Cairo::Context#new_sub_path</a>は新しいサブパスを
+<a href="cairo-context.html#label-11">Cairo::Context#arc</a>で始める場合に特に役立ちます。これは
 物事を簡単にします。もう手動でCairo::Context#move_toを
 呼び出すための円弧の初期座標を計算する必要がないのです。</p></dd>
 <dt><a name="label-79" id="label-79"><code>operator</code></a></dt><!-- RDLabel: "operator" -->
 <dd>
 現在の合成操作を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Operatorに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-operator.html">Cairo::Operator</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-80" id="label-80"><code>operator=(<var>operator</var>)</code></a></dt><!-- RDLabel: "operator=" -->
 <dt><a name="label-81" id="label-81"><code>set_operator(<var>operator</var>)</code></a></dt><!-- RDLabel: "set_operator" -->
@@ -824,7 +824,7 @@ extents.height）に貢献しないことに注意してください。</p>
 <li>operator: :overや:sourceなどCairo::Operatorに定義され
        ている定数名と同じもの。大文字小文字は関係ありません。
        また、シンボルではなくて文字列で"over"のように指定す
-       ることもできます。もちろん、<a href="cairo.html">Cairo</a>::Operatorに定義され
+       ることもできます。もちろん、<a href="cairo-operator.html">Cairo::Operator</a>に定義され
        ている定数を指定することもできます。</li>
 </ul></dd>
 <dt><a name="label-82" id="label-82"><code>paint</code></a></dt><!-- RDLabel: "paint" -->
@@ -837,12 +837,12 @@ extents.height）に貢献しないことに注意してください。</p>
 </ul></dd>
 <dt><a name="label-84" id="label-84"><code>pop_group(<var>to_source</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "pop_group" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#push_</a>groupではじめた出力先の変更を終了し
+<p><a href="cairo-context.html#label-86">Cairo::Context#push_group</a>ではじめた出力先の変更を終了し
 ます。グループに実行した全ての描画操作の結果を含んだ新
 しいパターンを返します。</p>
-<p><a href="cairo-context.html">Cairo::Context#pop_</a>groupはCairo::Context#restoreを呼び
-出します（<a href="cairo-context.html">Cairo::Context#push_</a>groupが呼び出した
-<a href="cairo-context.html">Cairo::Context#</a>saveに対応します）。グループ内で行ったグ
+<p><a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>はCairo::Context#restoreを呼び
+出します（<a href="cairo-context.html#label-86">Cairo::Context#push_group</a>が呼び出した
+<a href="cairo-context.html#label-96">Cairo::Context#save</a>に対応します）。グループ内で行ったグ
 ラフィックス状態の変更はグループの外側には見えません。</p>
 <p><var>to_source</var>が真の場合は以下と同じ動作になります。</p>
 <pre>group = context.pop_group(false)
@@ -864,8 +864,8 @@ context.set_source(group)</pre>
 <dd>
 <p>一時的にグループとして知られている中間サーフェスに描画
 の出力先を変更します。出力先の変更は
-<a href="cairo-context.html">Cairo::Context#pop_</a>groupでグループを終了するまで続きま
-す。<a href="cairo-context.html">Cairo::Context#pop_</a>groupはグループに対する全ての描
+<a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>でグループを終了するまで続きま
+す。<a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>はグループに対する全ての描
 画の結果をパターンとして返します（パターンオブジェクト
 そのものを返すか、ソースパターンに設定します）。</p>
 <p>グループ機能は中間合成を行うのに便利です。グループの一
@@ -874,18 +874,18 @@ context.set_source(group)</pre>
 ぜ合わせるというものです。</p>
 <p>グループは任意の深さで入れ子にすることができます。この
 ためには釣り合いの取れたCairo::Context#push_groupと
-<a href="cairo-context.html">Cairo::Context#pop_</a>groupのペアを使います。各push/popは
+<a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>のペアを使います。各push/popは
 新しい対象グループをスタックの上に置くあるいは取り除き
 ます。</p>
-<p><a href="cairo-context.html">Cairo::Context#push_</a>groupはCairo:Context#saveを呼ぶので、
+<p><a href="cairo-context.html#label-86">Cairo::Context#push_group</a>はCairo:Context#saveを呼ぶので、
 いかなるグラフィックス状態の変更もグループの外には見え
-ません。（<a href="cairo-context.html">Cairo::Context#pop_</a>groupは
-<a href="cairo-context.html">Cairo::Context#</a>restoreを呼びます。）</p>
+ません。（<a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>は
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>を呼びます。）</p>
 <p>デフォルトでは中間グループの中身の種類は
-<a href="cairo-content.html">Cairo::Content</a>::COLOR_ALPHAになります。他の種類を選ぶに
+<a href="cairo-content.html#label-4">Cairo::Content::COLOR_ALPHA</a>になります。他の種類を選ぶに
 は<var>content</var>を指定します。</p>
 <p>ブロックを指定すると、ブロックを抜けた時点で自動的に
-<a href="cairo-context.html">Cairo::Context#pop_</a>groupを呼び出します。
+<a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>を呼び出します。
 <var>pop_to_group</var>が真または<code>nil</code>の場合は、ポップし
 たときにグループをソースに設定します。</p>
 <p>以下は、描きの下にある塗りを見せることなく、半透明の塗
@@ -903,12 +903,12 @@ context.paint(alpha)</pre>
 <li>context: :colorや:color_alphaなどCairo::Contentに定義
        されている定数名と同じもの。大文字小文字は関係ありま
        せん。また、シンボルではなくて文字列で"color"のように
-       指定することもできます。もちろん、<a href="cairo.html">Cairo</a>::Contentに定
+       指定することもできます。もちろん、<a href="cairo-content.html">Cairo::Content</a>に定
        義されている定数を指定することもできます。</li>
 <li>pop_to_source: 真あるいは<code>nil</code>ならブロックを抜け
        るときに<code>context.pop_group(false)</code>ではなく、
        <code>context.pop_group(true)</code>を使います（違いは
-       <a href="cairo-context.html">Cairo::Context#pop_</a>groupを見てください）。ブロックが指
+       <a href="cairo-context.html#label-84">Cairo::Context#pop_group</a>を見てください）。ブロックが指
        定されていない場合は何の影響もありません。</li>
 </ul></dd>
 <dt><a name="label-88" id="label-88"><code>rectangle(<var>x</var>, <var>y</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "rectangle" -->
@@ -916,7 +916,7 @@ context.paint(alpha)</pre>
 <p>指定された大きさの閉じた四角いサブパスを現在のパスに追
 加します。四角はユーザ空間座標で(<var>x</var>, <var>y</var>)の位
 置に作られます。角を丸くしたい場合は
-<a href="cairo-context.html">Cairo::Context#rounded_</a>rectangleを使ってください。</p>
+<a href="cairo-context.html#label-89">Cairo::Context#rounded_rectangle</a>を使ってください。</p>
 <p>論理的には以下と等しいです。</p>
 <pre>context.move_to(x, y)
 context.rel_line_to(width, 0)
@@ -931,11 +931,11 @@ context.close_path</pre>
 </ul></dd>
 <dt><a name="label-89" id="label-89"><code>rounded_rectangle(<var>x</var>, <var>y</var>, <var>width</var>, <var>height</var>, <var>x_radius</var>, <var>y_radius</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "rounded_rectangle" -->
 <dd>
-<a href="cairo-context-rectangle.html">Cairo::Context::Rectangle#rounded_</a>rectangleを見てくださ
+<a href="cairo-context-rectangle.html#label-2">Cairo::Context::Rectangle#rounded_rectangle</a>を見てくださ
 い。</dd>
 <dt><a name="label-90" id="label-90"><code>rel_curve_to(<var>dx1</var>, <var>dy1</var>, <var>dx2</var>, <var>dy2</var>, <var>dx3</var>, <var>dy3</var>)</code></a></dt><!-- RDLabel: "rel_curve_to" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#curve_</a>toの相対座標版です。全ての
+<p><a href="cairo-context.html#label-25">Cairo::Context#curve_to</a>の相対座標版です。全ての
 値は現在の点からの相対的な値になります。現在の点から相
 対点(<var>dx3</var>, <var>dy3</var>)（(現在の点のX座標 +
 <var>dx3</var>, 現在の点のY座標 + <var>dy3</var>)の点のこと）まで
@@ -961,7 +961,7 @@ context.curve_to(x + dx1, y + dy1,
 </ul></dd>
 <dt><a name="label-91" id="label-91"><code>rel_line_to(<var>dx</var>, <var>dy</var>)</code></a></dt><!-- RDLabel: "rel_line_to" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#line_</a>toの相対座標版です。現在の点から相
+<p><a href="cairo-context.html#label-64">Cairo::Context#line_to</a>の相対座標版です。現在の点から相
 対点(<var>dx</var>, <var>dy</var>)（(現在の点のX座標 +
 <var>dx</var>, 現在の点のY座標 + <var>dy</var>)の点のこと）までの
 線分を追加します。相対点はユーザ空間を用います。呼び出
@@ -1000,11 +1000,11 @@ context.move_to(x + dx, y + dy)</pre>
 ことが難しいなら、切り取り領域を対象サーフェスの境界と
 まったく同じ大きさに設定しなおすと考えても同じことです。</p>
 <p>コードを再利用可能にしたいなら、
-<a href="cairo-context.html">Cairo::Context#reset_</a>clipを呼ばないように注意してくださ
+<a href="cairo-context.html#label-93">Cairo::Context#reset_clip</a>を呼ばないように注意してくださ
 い。そうしないとCairo::Context#clipを呼んでいる高レベル
 なコードが予期しない結果になるでしょう。一時的に切り取
 り領域を制限するより堅牢な方法はCairo::Context#saveと
-<a href="cairo-context.html">Cairo::Context#</a>restoreでCairo::Context#clipを囲むことで
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>でCairo::Context#clipを囲むことで
 す。</p></dd>
 <dt><a name="label-94" id="label-94"><code>restore</code></a></dt><!-- RDLabel: "restore" -->
 <dd>
@@ -1023,13 +1023,13 @@ context.move_to(x + dx, y + dy)</pre>
 <dt><a name="label-97" id="label-97"><code>save {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "save" -->
 <dd>
 <p>現在の状態のコピーを作成し、保存された状態の内部スタッ
-クに保存します。<a href="cairo-context.html">Cairo::Context#</a>restoreが呼ばれたときは、
+クに保存します。<a href="cairo-context.html#label-94">Cairo::Context#restore</a>が呼ばれたときは、
 保存された状態を復元します。複数のCairo::Context#saveと
-<a href="cairo-context.html">Cairo::Context#</a>restoreが入れ子にできます。各
-<a href="cairo-context.html">Cairo::Context#</a>restoreは対応するCairo::Context#saveが保
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>が入れ子にできます。各
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>は対応するCairo::Context#saveが保
 存した状態を復元します。</p>
 <p>ブロックを指定した場合はブロックを抜けるときに自動的に
-<a href="cairo-context.html">Cairo::Context#</a>restoreを呼び出します。</p></dd>
+<a href="cairo-context.html#label-94">Cairo::Context#restore</a>を呼び出します。</p></dd>
 <dt><a name="label-98" id="label-98"><code>scale(<var>sx</var>, <var>sy</var>)</code></a></dt><!-- RDLabel: "scale" -->
 <dd>
 ユーザ空間のX軸とY軸をそれぞれ<var>sx</var>と<var>sy</var>で拡大す
@@ -1054,9 +1054,9 @@ context.move_to(x + dx, y + dy)</pre>
 ンを指定した<var>font</var>の値で置き換えます。いくつかの変
 換をのぞいて、コンテキストの現在のCTMは<var>font</var>のCTM
 と同じであるべきです。<var>font</var>のCTMには
-<a href="cairo-scaled-font.html">Cairo::ScaledFont#</a>ctmでアクセスできます。
+<a href="cairo-scaled-font.html#label-5">Cairo::ScaledFont#ctm</a>でアクセスできます。
 <ul>
-<li>font: <a href="cairo.html">Cairo</a>::ScaledFontオブジェクト</li>
+<li>font: <a href="cairo-scaled-font.html">Cairo::ScaledFont</a>オブジェクト</li>
 </ul></dd>
 <dt><a name="label-102" id="label-102"><code>select_font_face(<var>family</var>=<var>nil</var>, <var>slant</var>=<var>nil</var>, <var>weight</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "select_font_face" -->
 <dd>
@@ -1077,14 +1077,14 @@ context.move_to(x + dx, y + dy)</pre>
 <p>多くのアプリケーションはcairoに加えてより包括的なフォント
 処理とテキスト配置ライブラリを使う必要があるでしょう。
 （例えばPango）</p>
-<p><a href="cairo-context.html">Cairo::Context#select_font_</a>faceまたは
+<p><a href="cairo-context.html#label-102">Cairo::Context#select_font_face</a>または
 <a href="cairo-context.html#label-40">Cairo::Context#font_face=</a>やCairo::Context#scaled_font=
 のような関連するフォント選択APIを呼び出さずにテキストを
 描画した場合は、プラットフォーム依存のデフォルトのフォ
 ントファミリーが使われます。これは本質的には
 "sans-serif"です。デフォルトの傾きは
-<a href="cairo-font-slant.html">Cairo::FontSlant</a>::NORMALで重みは
-<a href="cairo-font-weight.html">Cairo::FontWeight</a>::NORMALです。</p>
+<a href="cairo-font-slant.html#label-3">Cairo::FontSlant::NORMAL</a>で重みは
+<a href="cairo-font-weight.html#label-3">Cairo::FontWeight::NORMAL</a>です。</p>
 <p>このメソッドはCairo::ToyFontFace.newで作成したフォント
 フェイスをCairo::Context#font_face=で設定することと等価
 です。</p>
@@ -1093,23 +1093,23 @@ context.move_to(x + dx, y + dy)</pre>
        ミリー名。<code>nil</code>や空文字列の場合はプラットフォーム
        依存のフォンファミリー名が使われます。</li>
 <li>slant: フォントの傾き。:normalや:italicなど
-       <a href="cairo.html">Cairo</a>::FontSlantに定義されている定数名と同じもの。
+       <a href="cairo-font-slant.html">Cairo::FontSlant</a>に定義されている定数名と同じもの。
        大文字小文字は関係ありません。また、シンボル
        ではなくて文字列で"normal"のように指定することもでき
-       ます。もちろん、<a href="cairo.html">Cairo</a>::FontSlantに定義されている定数
+       ます。もちろん、<a href="cairo-font-slant.html">Cairo::FontSlant</a>に定義されている定数
        を指定することもできます。<code>nil</code>の場合はデフォルト
        値としてCairo::FontSlant::NORMALが使われます。</li>
 <li>weight: フォントの重み。:normalや:boldなど
-       <a href="cairo.html">Cairo</a>::FontWeightに定義されている定数名と同じもの。
+       <a href="cairo-font-weight.html">Cairo::FontWeight</a>に定義されている定数名と同じもの。
        大文字小文字は関係ありません。また、シンボルではなく
        て文字列で"normal"のように指定することもできます。も
-       ちろん、<a href="cairo.html">Cairo</a>::FontWeightを指定することもできます。
+       ちろん、<a href="cairo-font-weight.html">Cairo::FontWeight</a>を指定することもできます。
        <code>nil</code>の場合はデフォルト値として
-       <a href="cairo-font-weight.html">Cairo::FontWeight</a>::NORMALが使われます。</li>
+       <a href="cairo-font-weight.html#label-3">Cairo::FontWeight::NORMAL</a>が使われます。</li>
 </ul></dd>
 <dt><a name="label-103" id="label-103"><code>set_dash(<var>dashes</var>, <var>offset</var>=<var>0</var>)</code></a></dt><!-- RDLabel: "set_dash" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#</a>strokeで使われるダッシュのパターンを設定
+<p><a href="cairo-context.html#label-112">Cairo::Context#stroke</a>で使われるダッシュのパターンを設定
 します。ダッシュのパターンは正の値の配列として
 <var>dashes</var>で指定します。それぞれの値は描かれるときに
 交互にon/offになる部分（線を描く部分と描かない部分）の
@@ -1118,10 +1118,10 @@ context.move_to(x + dx, y + dy)</pre>
 <p>それぞれのonの部分は、その部分がサブパスでわかれて
 いるようにキャップを持つことになります。特に、パスに沿っ
 て丸・四角を分散させるために
-<a href="cairo-line-cap.html#label-3">Cairo::LineCap::ROUND</a>/<a href="cairo-line-cap.html">Cairo::LineCap</a>::SQUAREを設定して
+<a href="cairo-line-cap.html#label-3">Cairo::LineCap::ROUND</a>/<a href="cairo-line-cap.html#label-4">Cairo::LineCap::SQUARE</a>を設定して
 0.0の長さのonを使う場合は有効です。</p>
 <p>注: 長さの値は描きのときに評価されたユーザ空間の単位で
-す。つまり、<a href="cairo-context.html">Cairo::Context#set_</a>dashのときにユーザ空間を
+す。つまり、<a href="cairo-context.html#label-103">Cairo::Context#set_dash</a>のときにユーザ空間を
 合わせる必要はありません。</p>
 <p>もし<var>dashes</var>が<code>nil</code>または空配列ならダッシュは無
 効になります。</p>
@@ -1148,7 +1148,7 @@ context.move_to(x + dx, y + dy)</pre>
 <p>注: パターンの変換行列はCairo::Context#set_sourceを使っ
 た時点のユーザ空間の効果に固定されます。これは、さらに現
 在の変換行列を変更してもソースパターンには影響はないとい
-うことです。<a href="cairo-pattern.html">Cairo::Pattern#set_</a>matrixを見てください。</p>
+うことです。<a href="cairo-pattern.html#label-14">Cairo::Pattern#set_matrix</a>を見てください。</p>
 <ul>
 <li>source: 今後の描画操作で使用するCairo::Patternオブジェ
        クト。</li>
@@ -1163,7 +1163,7 @@ context.move_to(x + dx, y + dy)</pre>
 <p>色とアルファ値は0から1までの浮動小数点です。もし、この範
 囲におさまらなかった場合は強制的にこの範囲におさめます。</p>
 <p>より簡単に色を指定したい場合は
-<a href="cairo-context.html">Cairo::Context#set_source_</a>colorを使ってください。</p>
+<a href="cairo-context.html#label-107">Cairo::Context#set_source_color</a>を使ってください。</p>
 <ul>
 <li>red: 色の赤の部分</li>
 <li>green: 色の緑の部分</li>
@@ -1172,14 +1172,14 @@ context.move_to(x + dx, y + dy)</pre>
 </ul></dd>
 <dt><a name="label-107" id="label-107"><code>set_source_color(<var>color</var>)</code></a></dt><!-- RDLabel: "set_source_color" -->
 <dd>
-<a href="cairo-context-color.html">Cairo::Context::Color#set_source_</a>colorを見てください。</dd>
+<a href="cairo-context-color.html#label-2">Cairo::Context::Color#set_source_color</a>を見てください。</dd>
 <dt><a name="label-108" id="label-108"><code>show_glyphs(<var>glyphs</var>)</code></a></dt><!-- RDLabel: "show_glyphs" -->
 <dd>
 グリフの配列から形を生成する描画操作です。描画には現在の
 フォントフェイス、フォントサイズ（フォント用変換行列）、
 フォントオプションを使います。
 <ul>
-<li>glyphs: <a href="cairo.html">Cairo</a>::Glyphの配列。</li>
+<li>glyphs: <a href="cairo-glyph.html">Cairo::Glyph</a>の配列。</li>
 </ul></dd>
 <dt><a name="label-109" id="label-109"><code>show_page</code></a></dt><!-- RDLabel: "show_page" -->
 <dd>
@@ -1200,8 +1200,8 @@ context.move_to(x + dx, y + dy)</pre>
 ときに基準にする点に移動します。つまり、現在の点は最後
 のグリフが進めた値で相殺された最後のグリフの基準点とな
 ります。（？FIXME）これはひとつの論理的な文字列を複数の
-<a href="cairo-context.html">Cairo::Context#show_</a>textで簡単に表示できるようにします。</p>
-<p>注: <a href="cairo-context.html">Cairo::Context#show_</a>textはcairoの設計者がおもちゃの
+<a href="cairo-context.html#label-110">Cairo::Context#show_text</a>で簡単に表示できるようにします。</p>
+<p>注: <a href="cairo-context.html#label-110">Cairo::Context#show_text</a>はcairoの設計者がおもちゃの
 テキストAPIと呼んでいるものの一部です。短いデモや簡単な
 プログラムには便利ですが、真剣にテキストを使おうとして
 いるアプリケーションには適していないでしょう。cairoの本
@@ -1214,7 +1214,7 @@ context.move_to(x + dx, y + dy)</pre>
 <dd>
 現在のソースパターンを返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Patternオブジェクト。</li>
+<li>戻り値: <a href="cairo-pattern.html">Cairo::Pattern</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-112" id="label-112"><code>stroke(<var>preserve</var>=<var>false</var>)</code></a></dt><!-- RDLabel: "stroke" -->
 <dt><a name="label-113" id="label-113"><code>stroke(<var>preserve</var>=<var>false</var>) {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "stroke" -->
@@ -1229,7 +1229,7 @@ context.move_to(x + dx, y + dy)</pre>
 <li><a href="cairo-context.html#label-60">Cairo::Context#set_line_cap</a></li>
 <li><a href="cairo-context.html#label-103">Cairo::Context#set_dash</a></li>
 </ul>
-<p>ブロックを指定した場合は、<a href="cairo-context.html">Cairo::Context#new_</a>pathで新し
+<p>ブロックを指定した場合は、<a href="cairo-context.html#label-77">Cairo::Context#new_path</a>で新し
 いパスをはじめてからブロックを呼び出します。以下のよう
 に使います。</p>
 <pre>context.stroke do
@@ -1243,23 +1243,23 @@ context.stroke</pre>
 利な結果を提供します。それらはふたつの異なった状況にな
 ります。</p>
 <ol>
-<li><a href="cairo-context.html">Cairo::Context#set_</a>dashで設定された長さ0のon線分。
+<li><a href="cairo-context.html#label-103">Cairo::Context#set_dash</a>で設定された長さ0のon線分。
            もし、キャップスタイルがCairo::LineCap::ROUNDか
-           <a href="cairo-line-cap.html">Cairo::LineCap</a>::SQUAREならそれらの線分はそれぞれ
+           <a href="cairo-line-cap.html#label-4">Cairo::LineCap::SQUARE</a>ならそれらの線分はそれぞれ
            丸い点あるいは四角として描画されます。
-           <a href="cairo-line-cap.html">Cairo::LineCap</a>::SQUAREの場合は四角の方向はその下
+           <a href="cairo-line-cap.html#label-4">Cairo::LineCap::SQUARE</a>の場合は四角の方向はその下
            にあるパスの方向によって決まります。</li>
-<li><a href="cairo-context.html">Cairo::Context#move_</a>toとその後の
-           <a href="cairo-context.html">Cairo::Context#close_</a>pathあるいは最初の
-           <a href="cairo-context.html">Cairo::Context#move_</a>toと同じ座標に対する1回以上の
-           <a href="cairo-context.html">Cairo::Context#line_</a>toで作られたサブパス。キャッ
+<li><a href="cairo-context.html#label-76">Cairo::Context#move_to</a>とその後の
+           <a href="cairo-context.html#label-20">Cairo::Context#close_path</a>あるいは最初の
+           <a href="cairo-context.html#label-76">Cairo::Context#move_to</a>と同じ座標に対する1回以上の
+           <a href="cairo-context.html#label-64">Cairo::Context#line_to</a>で作られたサブパス。キャッ
            プスタイルがCairo::LineCap::ROUNDならサブパスは丸
            い点として描画されるでしょう。
-           <a href="cairo-line-cap.html">Cairo::LineCap</a>::SQUAREの場合は退化したサブパスは
+           <a href="cairo-line-cap.html#label-4">Cairo::LineCap::SQUARE</a>の場合は退化したサブパスは
            全く描画されないことに注意してください。（なぜな
            ら正しい向きが決定できないから。）</li>
 </ol>
-<p><a href="cairo-line-cap.html">Cairo::LineCap</a>::BUTTなら退化した線分やサブパスの場合は
+<p><a href="cairo-line-cap.html#label-2">Cairo::LineCap::BUTT</a>なら退化した線分やサブパスの場合は
 何も描画されません。</p>
 <ul>
 <li>preserve: 真の場合はパスを消去しない</li>
@@ -1291,15 +1291,15 @@ context.stroke</pre>
 <dt><a name="label-115" id="label-115"><code>stroke_preserve</code></a></dt><!-- RDLabel: "stroke_preserve" -->
 <dt><a name="label-116" id="label-116"><code>stroke_preserve {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "stroke_preserve" -->
 <dd>
-<p><a href="cairo-context.html">Cairo::Context#</a>strokeを以下のように呼び出すことと同じです。</p>
+<p><a href="cairo-context.html#label-112">Cairo::Context#stroke</a>を以下のように呼び出すことと同じです。</p>
 <pre>context.stroke(true)
 context.stroke(true) { ... }</pre></dd>
 <dt><a name="label-117" id="label-117"><code>target</code></a></dt><!-- RDLabel: "target" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context.</a>newに渡されたコンテキストの対象とするサー
+<a href="cairo-context.html#label-4">Cairo::Context.new</a>に渡されたコンテキストの対象とするサー
 フェスを返します。
 <ul>
-<li>戻り値: 対象のサーフェス。<a href="cairo.html">Cairo</a>::Surfaceのサブクラス
+<li>戻り値: 対象のサーフェス。<a href="cairo-surface.html">Cairo::Surface</a>のサブクラス
        のオブジェクト。</li>
 </ul></dd>
 <dt><a name="label-118" id="label-118"><code>text_extents(<var>utf8</var>)</code></a></dt><!-- RDLabel: "text_extents" -->
@@ -1308,8 +1308,8 @@ context.stroke(true) { ... }</pre></dd>
 部分（テキストが描画される部分）を囲む（ユーザ空間での）
 示しています。さらに、範囲（<a href="cairo-text-extents.html">Cairo::TextExtents</a>）の
 <var>x_advance</var>と<var>y_advance</var>の値は
-<a href="cairo-context.html">Cairo::Context#show_</a>glyphsが進める現在の点の合計を示し
-ています。（<a href="cairo-context.html">Cairo::Context#show_</a>textはテキストを描画す
+<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>が進める現在の点の合計を示し
+ています。（<a href="cairo-context.html#label-110">Cairo::Context#show_text</a>はテキストを描画す
 ると、描画した分だけ現在の点を進めます。）</p>
 <p>空白文字は四角のサイズ（extents.widthとextents.height）
 に貢献しないことに注意してください。空白文字は非空白文
@@ -1329,14 +1329,14 @@ context.stroke(true) { ... }</pre></dd>
 果が得られます。</p>
 <p>テキストの変換と配置はCairo::Context#show_textと同じよ
 うに行われます。</p>
-<p><a href="cairo-context.html">Cairo::Context#show_</a>textのように、呼び出した後、現在の点
+<p><a href="cairo-context.html#label-110">Cairo::Context#show_text</a>のように、呼び出した後、現在の点
 は同じように次のグリフを配置したときに基準にする点に移
 動します。つまり、現在の点は最後のグリフが進めた値で相殺
 された最後のグリフの基準点となります。（？FIXME）このた
 め、現在の点を設定しないで複数の
-<a href="cairo-context.html">Cairo::Context#text_</a>pathを連続で呼び出せるようになりま
+<a href="cairo-context.html#label-119">Cairo::Context#text_path</a>を連続で呼び出せるようになりま
 す。</p>
-<p>注: <a href="cairo-context.html">Cairo::Context#text_</a>pathはcairoの設計者がおもちゃの
+<p>注: <a href="cairo-context.html#label-119">Cairo::Context#text_path</a>はcairoの設計者がおもちゃの
 テキストAPIと呼んでいるものの一部です。短いデモや簡単な
 プログラムには便利ですが、真剣にテキストを使おうとして
 いるアプリケーションには適していないでしょう。cairoの本
@@ -1347,7 +1347,7 @@ context.stroke(true) { ... }</pre></dd>
 </ul></dd>
 <dt><a name="label-120" id="label-120"><code>tolerance</code></a></dt><!-- RDLabel: "tolerance" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#set_</a>toleranceで設定した現在の許容値を返します。
+<a href="cairo-context.html#label-122">Cairo::Context#set_tolerance</a>で設定した現在の許容値を返します。
 <ul>
 <li>戻り値: 現在の許容値。</li>
 </ul></dd>
@@ -1371,7 +1371,7 @@ context.stroke(true) { ... }</pre></dd>
 存の変換の後に行われます。</dd>
 <dt><a name="label-124" id="label-124"><code>transform_path(<var>path</var>) {|<var>x</var>, <var>y</var>| ...}</code></a></dt><!-- RDLabel: "transform_path" -->
 <dd>
-<a href="cairo-context-path.html">Cairo::Context::Path#transform_</a>pathを見てください。</dd>
+<a href="cairo-context-path.html#label-3">Cairo::Context::Path#transform_path</a>を見てください。</dd>
 <dt><a name="label-125" id="label-125"><code>translate(<var>tx</var>, <var>ty</var>)</code></a></dt><!-- RDLabel: "translate" -->
 <dd>
 ユーザ空間の基準点を(<var>tx</var>, <var>ty</var>)に動かすことに
@@ -1401,7 +1401,7 @@ context.stroke(true) { ... }</pre></dd>
 <dt><a name="label-127" id="label-127"><code>user_to_device_distance(<var>dx</var>, <var>dy</var>)</code></a></dt><!-- RDLabel: "user_to_device_distance" -->
 <dd>
 ユーザ空間から装置空間へ距離ベクトルを変換します。
-<a href="cairo-context.html">Cairo::Context#user_to_</a>deviceに似ていますが、(<var>dx</var>,
+<a href="cairo-context.html#label-126">Cairo::Context#user_to_device</a>に似ていますが、(<var>dx</var>,
 <var>dy</var>)を変換するときにCTMの移動成分は無視されます。
 <ul>
 <li>dx: ユーザ空間の距離ベクトルのX値</li>
@@ -1414,19 +1414,19 @@ context.stroke(true) { ... }</pre></dd>
 </ul></dd>
 <dt><a name="label-128" id="label-128"><code>map_path_onto(<var>path</var>)</code></a></dt><!-- RDLabel: "map_path_onto" -->
 <dd>
-<a href="cairo-context-path.html">Cairo::Context::Path#map_path_</a>ontoを見てください。</dd>
+<a href="cairo-context-path.html#label-2">Cairo::Context::Path#map_path_onto</a>を見てください。</dd>
 <dt><a name="label-129" id="label-129"><code>pseudo_blur(<var>radius</var>=<var>3</var>) {|<var>self</var>| ...}</code></a></dt><!-- RDLabel: "pseudo_blur" -->
 <dd>
-<a href="cairo-context-blur.html">Cairo::Context::Blur#pseudo_</a>blurを見てください。</dd>
+<a href="cairo-context-blur.html#label-2">Cairo::Context::Blur#pseudo_blur</a>を見てください。</dd>
 <dt><a name="label-130" id="label-130"><code>triangle(<var>x1</var>, <var>y1</var>, <var>x2</var>, <var>y2</var>, <var>x3</var>, <var>y3</var>)</code></a></dt><!-- RDLabel: "triangle" -->
 <dd>
-<a href="cairo-context-triangle.html">Cairo::Context::Triangle#</a>triangleを見てください。</dd>
+<a href="cairo-context-triangle.html#label-2">Cairo::Context::Triangle#triangle</a>を見てください。</dd>
 <dt><a name="label-131" id="label-131"><code>has_current_point?</code></a></dt><!-- RDLabel: "has_current_point?" -->
 <dt><a name="label-132" id="label-132"><code>have_current_point?</code></a></dt><!-- RDLabel: "have_current_point?" -->
 <dd>
 <em>Since 1.6</em>: 現在のパス上に現在の点が定義されている
 かを返します。「現在の点」の詳細は
-<a href="cairo-context.html">Cairo::Context#current_</a>pointを見てください。
+<a href="cairo-context.html#label-24">Cairo::Context#current_point</a>を見てください。
 <ul>
 <li>戻り値: 現在の点が定義されているかどうかの真偽値</li>
 </ul></dd>
@@ -1437,22 +1437,22 @@ context.stroke(true) { ... }</pre></dd>
 であれば空の長方形((0,0), (0,0))を返します。ストロー
 クのパラメータ、塗りつぶし規則、サーフェスの大きさ、ク
 リップされた範囲は考慮しません。</p>
-<p><a href="cairo-context.html">Cairo::Context#fill_</a>extentsと
-<a href="cairo-context.html">Cairo::Context#stroke_</a>extentsは、対応
+<p><a href="cairo-context.html#label-32">Cairo::Context#fill_extents</a>と
+<a href="cairo-context.html#label-114">Cairo::Context#stroke_extents</a>は、対応
 する描画操作で「インクが塗られる」範囲だけを返します。</p>
-<p><a href="cairo-context.html">Cairo::Context#path_</a>extentsの結果は
-線の太さがほぼ0.0で、<a href="cairo.html">Cairo</a>::LINE_CAP_ROUNDの時の
-<a href="cairo-context.html">Cairo::Context#stroke_</a>extentsの境界と等しくなるように定
+<p><a href="cairo-context.html#label-133">Cairo::Context#path_extents</a>の結果は
+線の太さがほぼ0.0で、<a href="cairo.html#label-46">Cairo::LINE_CAP_ROUND</a>の時の
+<a href="cairo-context.html#label-114">Cairo::Context#stroke_extents</a>の境界と等しくなるように定
 義されています。（ただし、線の太さが0.0の時に
-<a href="cairo-context.html">Cairo::Context#stroke_</a>extentsが返す空の長方形には決して
+<a href="cairo-context.html#label-114">Cairo::Context#stroke_extents</a>が返す空の長方形には決して
 なりません。）</p>
 <p>厳密に言うと、以下のような領域のないサブパスは結果の範
 囲に影響します。（以下の両方のメソッド呼び出しの座標が
 同じ場合も含む）</p>
 <pre>context.move_to(...)
 context.line_to(...)</pre>
-<p>しかし、<a href="cairo-context.html">Cairo::Context#move_</a>toだけの場合は
-<a href="cairo-context.html">Cairo::Context#path_</a>extentsの結果には影響がありません。</p>
+<p>しかし、<a href="cairo-context.html#label-76">Cairo::Context#move_to</a>だけの場合は
+<a href="cairo-context.html#label-133">Cairo::Context#path_extents</a>の結果には影響がありません。</p>
 <ul>
 <li>戻り値: パスを含むバウンディングボックス。左上の頂点
        が(x1, y1)で右下の頂点が(x2, y2)の長方形を表す配列:
@@ -1460,38 +1460,38 @@ context.line_to(...)</pre>
 </ul></dd>
 <dt><a name="label-134" id="label-134"><code>destroy</code></a></dt><!-- RDLabel: "destroy" -->
 <dd>
-<p><em>Since 1.7</em>: <a href="cairo.html">Cairo</a>::Contextを破棄します。この
-<a href="cairo.html">Cairo</a>::Contextはもう使えません。</p>
+<p><em>Since 1.7</em>: <a href="cairo-context.html">Cairo::Context</a>を破棄します。この
+<a href="cairo-context.html">Cairo::Context</a>はもう使えません。</p>
 <p>通常はRubyのGC時に破棄されるので、このメソッドを意識す
 る必要はありません。Quartzバックエンドを使っているGTK+
 のGtk::Drawable#create_cairo_contextを使っている場合な
-ど、<a href="cairo.html">Cairo</a>::ContextまたはこのCairo::Contextが対象として
+ど、<a href="cairo-context.html">Cairo::Context</a>またはこのCairo::Contextが対象として
 いるCairo::Surfaceを明示的に破棄したい場合に利用します。</p>
-<p><a href="cairo-context.html">Cairo::Context.</a>newをブロック付きで呼ぶことも検討してみ
+<p><a href="cairo-context.html#label-4">Cairo::Context.new</a>をブロック付きで呼ぶことも検討してみ
 てください。</p></dd>
 <dt><a name="label-135" id="label-135"><code>has_show_text_glyphs?</code></a></dt><!-- RDLabel: "has_show_text_glyphs?" -->
 <dt><a name="label-136" id="label-136"><code>have_show_text_glyphs?</code></a></dt><!-- RDLabel: "have_show_text_glyphs?" -->
 <dd>
 <p><em>Since 1.7</em>: 対象のサーフェスが
-<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsをサポートしているかどう
-かを返します。つまり、<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsが
+<a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>をサポートしているかどう
+かを返します。つまり、<a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>が
 指定したテキストとクラスタデータを実際に使うかどうかで
 す。</p>
 <p>注: もし、このメソッドが<code>false</code>を返しても、
-<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsは成功します。単に
-<a href="cairo-context.html">Cairo::Context#show_</a>glyphsと同じように動きます。このメ
+<a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>は成功します。単に
+<a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>と同じように動きます。このメ
 ソッドは対象のサーフェスが
-<a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsをサポートしていない場合
+<a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>をサポートしていない場合
 にUTF-8のテキストとクラスタの対応を計算するコストを避け
 るために利用できます。</p>
 <ul>
 <li>戻り値: 対象のサーフェスが
-       <a href="cairo-context.html">Cairo::Context#show_text_</a>glyphsをサポートしている場合
+       <a href="cairo-context.html#label-137">Cairo::Context#show_text_glyphs</a>をサポートしている場合
        は<code>true</code>。そうでない場合は<code>false</code>。</li>
 </ul></dd>
 <dt><a name="label-137" id="label-137"><code>show_text_glyphs(<var>utf8</var>, <var>glyphs</var>, <var>clusters</var>, <var>backward</var>)</code></a></dt><!-- RDLabel: "show_text_glyphs" -->
 <dd>
-<p><em>Since 1.7</em>: <a href="cairo-context.html">Cairo::Context#show_</a>glyphsのような表示
+<p><em>Since 1.7</em>: <a href="cairo-context.html#label-108">Cairo::Context#show_glyphs</a>のような表示
 効果があります。もし、対象のサーフェスが対応していれば、
 出力に表示するグリフのために、指定されたテキストと埋め
 込まれたテキストへのクラスタ対応を使います。</p>

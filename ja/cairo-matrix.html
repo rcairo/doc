@@ -46,7 +46,7 @@ y_new = yx * x + yy * y + y0</pre>
 <li>yy: アフィン変換のyy成分。</li>
 <li>x0: アフィン変換のX平行移動成分。</li>
 <li>y0: アフィン変換のY平行移動成分。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-5" id="label-5"><code>Cairo::Matrix.rotate(<var>radians</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.rotate" -->
 <dd>
@@ -56,7 +56,7 @@ y_new = yx * x + yy * y + y0</pre>
        のY軸に進む方向に回転します。cairoのデフォルトの軸の
        方向と同じように、正の角度は時計回りに回転します（？
        FIXME: 逆じゃない？）。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-6" id="label-6"><code>Cairo::Matrix.scale(<var>sx</var>, <var>sy</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.scale" -->
 <dd>
@@ -64,7 +64,7 @@ X方向に<var>sx</var>、Y方向に<var>sy</var>拡大する行列を返しま�
 <ul>
 <li>sx: X方向の拡大率。</li>
 <li>sy: Y方向の拡大率。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-7" id="label-7"><code>Cairo::Matrix.translate(<var>tx</var>, <var>ty</var>)</code></a></dt><!-- RDLabel: "Cairo::Matrix.translate" -->
 <dd>
@@ -73,7 +73,7 @@ X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を�
 <ul>
 <li>tx: X方向の平行移動量。</li>
 <li>ty: Y方向の平行移動量。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-8" id="label-8">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
@@ -161,13 +161,13 @@ X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を�
 複製を返します。<var>self</var>が凍結されているオブジェクト
 なら複製されたオブジェクトも凍結されています。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-28" id="label-28"><code>dup</code></a></dt><!-- RDLabel: "dup" -->
 <dd>
 複製を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-29" id="label-29"><code>identity!</code></a></dt><!-- RDLabel: "identity!" -->
 <dd>
@@ -176,30 +176,30 @@ X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を�
 <dd>
 逆行列を返します。全ての変換行列が逆行列を持っているわ
 けではありません。行列が点をつぶすなら（退化という
-（FIXME））逆行列がなく、<a href="cairo.html">Cairo</a>::InvalidMatrixError例外
+（FIXME））逆行列がなく、<a href="cairo-invalid-matrix-error.html">Cairo::InvalidMatrixError</a>例外
 が発生します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-31" id="label-31"><code>invert!</code></a></dt><!-- RDLabel: "invert!" -->
 <dd>
-<a href="cairo-matrix.html">Cairo::Matrix#</a>invertの破壊的なバージョンです。</dd>
+<a href="cairo-matrix.html#label-30">Cairo::Matrix#invert</a>の破壊的なバージョンです。</dd>
 <dt><a name="label-32" id="label-32"><code>*(<var>other</var>)</code></a></dt><!-- RDLabel: "*" -->
 <dt><a name="label-33" id="label-33"><code>multiply(<var>other</var>)</code></a></dt><!-- RDLabel: "multiply" -->
 <dd>
-<a href="cairo-matrix.html">Cairo::Matrix#</a>multiplyの別名です。
+<a href="cairo-matrix.html#label-33">Cairo::Matrix#multiply</a>の別名です。
 <var>self</var>と<var>other</var>の積を返します。結果として最初
 に<var>self</var>の変換を行い、次に<var>other</var>の変換を行う新
 しい変換を返します。
 <ul>
-<li>other: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>other: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-34" id="label-34"><code>multiply!(<var>other</var>)</code></a></dt><!-- RDLabel: "multiply!" -->
 <dd>
-<a href="cairo-matrix.html">Cairo::Matrix#</a>multiplyの破壊的なバージョンです。
+<a href="cairo-matrix.html#label-33">Cairo::Matrix#multiply</a>の破壊的なバージョンです。
 <ul>
-<li>other: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>other: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-35" id="label-35"><code>rotate(<var>radians</var>)</code></a></dt><!-- RDLabel: "rotate" -->
 <dd>
@@ -211,11 +211,11 @@ X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を�
        のY軸に進む方向に回転します。cairoのデフォルトの軸の
        方向と同じように、正の角度は時計回りに回転します（？
        FIXME: 逆じゃない？）。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-36" id="label-36"><code>rotate!(<var>radians</var>)</code></a></dt><!-- RDLabel: "rotate!" -->
 <dd>
-<a href="cairo-matrix.html">Cairo::Matrix#</a>rotateの破壊的なバージョンです。
+<a href="cairo-matrix.html#label-35">Cairo::Matrix#rotate</a>の破壊的なバージョンです。
 <ul>
 <li>radians: 回転する角度（ラジアン）。正の角度は軸から正
        のY軸に進む方向に回転します。cairoのデフォルトの軸の
@@ -231,11 +231,11 @@ X方向に<var>sx</var>、Y方向に<var>sy</var>拡大する変換を適用し�
 <ul>
 <li>sx: X方向の拡大率。</li>
 <li>sy: Y方向の拡大率。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-38" id="label-38"><code>scale!(<var>sx</var>, <var>sy</var>)</code></a></dt><!-- RDLabel: "scale!" -->
 <dd>
-<a href="cairo-matrix.html">Cairo::Matrix#</a>scaleの破壊的なバージョンです。
+<a href="cairo-matrix.html#label-37">Cairo::Matrix#scale</a>の破壊的なバージョンです。
 <ul>
 <li>sx: X方向の拡大率。</li>
 <li>sy: Y方向の拡大率。</li>
@@ -274,7 +274,7 @@ X方向に<var>sx</var>、Y方向に<var>sy</var>拡大する変換を適用し�
 <dt><a name="label-42" id="label-42"><code>transform_distance(<var>dx</var>, <var>dy</var>)</code></a></dt><!-- RDLabel: "transform_distance" -->
 <dd>
 <p>距離ベクトル(<var>dx</var>, <var>dy</var>)を<var>self</var>で変換しま
-す。<a href="cairo-matrix.html">Cairo::Matrix#transform_</a>pointと似ていますが、平行移
+す。<a href="cairo-matrix.html#label-43">Cairo::Matrix#transform_point</a>と似ていますが、平行移
 動成分を無視するところが違います。返るベクトルは以下の
 ように計算されます。</p>
 <pre>dx2 = dx * a + dy * c;
@@ -313,11 +313,11 @@ X方向に<var>tx</var>、Y方向に<var>ty</var>平行移動を行う行列を�
 <ul>
 <li>tx: X方向の平行移動量。</li>
 <li>ty: Y方向の平行移動量。</li>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Matrixオブジェクト。</li>
+<li>戻り値: <a href="cairo-matrix.html">Cairo::Matrix</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-45" id="label-45"><code>translate!(<var>tx</var>, <var>ty</var>)</code></a></dt><!-- RDLabel: "translate!" -->
 <dd>
-<a href="cairo-matrix.html">Cairo::Matrix#</a>translateの破壊的なバージョンです。
+<a href="cairo-matrix.html#label-44">Cairo::Matrix#translate</a>の破壊的なバージョンです。
 <ul>
 <li>tx: X方向の平行移動量。</li>
 <li>ty: Y方向の平行移動量。</li>

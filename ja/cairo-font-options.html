@@ -19,7 +19,7 @@
 <h1><a name="label-0" id="label-0">Cairo::FontOptionsクラス</a></h1><!-- RDLabel: "Cairo::FontOptionsクラス" -->
 <p>フォントを描画するときに使われる全てのオプションを含んだオブ
 ジェクトです。</p>
-<p><a href="cairo.html">Cairo</a>::FontOptionsのそれぞれの機能は、<a href="cairo-font-options.html#label-5">Cairo::FontOptions#antialias</a>
+<p><a href="cairo-font-options.html">Cairo::FontOptions</a>のそれぞれの機能は、<a href="cairo-font-options.html#label-5">Cairo::FontOptions#antialias</a>
 やCairo::FontOptions#set_antialiasのようにアクセスできます。</p>
 <p>将来、新しい機能がCairo::FontOptionsに追加されるかもしれませ
 ん。</p>
@@ -35,7 +35,7 @@
 <dt><a name="label-3" id="label-3"><code>Cairo::FontOptions.new</code></a></dt><!-- RDLabel: "Cairo::FontOptions.new" -->
 <dd>
 全てのオプションがデフォルト値に初期化された新しい
-<a href="cairo.html">Cairo</a>::FontOptionsオブジェクトを作成します。
+<a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクトを作成します。
 <ul>
 <li>戻り値: 新しく作成したCairo::FontOptionsオブジェクト。</li>
 </ul></dd>
@@ -46,7 +46,7 @@
 <dd>
 アンチエイリアスのモードを返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Antialiasに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-antialias.html">Cairo::Antialias</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-6" id="label-6"><code>antialias=(<var>antialias</var>)</code></a></dt><!-- RDLabel: "antialias=" -->
 <dt><a name="label-7" id="label-7"><code>set_antialias(<var>antialias</var>)</code></a></dt><!-- RDLabel: "set_antialias" -->
@@ -59,7 +59,7 @@
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::Antialiasに定義されている定数を指定するこ
+       <a href="cairo-antialias.html">Cairo::Antialias</a>に定義されている定数を指定するこ
        ともできます。</li>
 </ul></dd>
 <dt><a name="label-8" id="label-8"><code>dup</code></a></dt><!-- RDLabel: "dup" -->
@@ -84,9 +84,9 @@
 <dt><a name="label-11" id="label-11"><code>hint_metrics</code></a></dt><!-- RDLabel: "hint_metrics" -->
 <dd>
 メトリクスのヒントモードを返します。詳細は
-<a href="cairo.html">Cairo</a>::HintMetricsを見てください。
+<a href="cairo-hint-metrics.html">Cairo::HintMetrics</a>を見てください。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::HintMetricsに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-hint-metrics.html">Cairo::HintMetrics</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-12" id="label-12"><code>hint_metrics=(<var>hint_metrics</var>)</code></a></dt><!-- RDLabel: "hint_metrics=" -->
 <dt><a name="label-13" id="label-13"><code>set_hint_metrics(<var>hint_metrics</var>)</code></a></dt><!-- RDLabel: "set_hint_metrics" -->
@@ -98,15 +98,15 @@
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::HintMetricsに定義されている定数を指定するこ
+       <a href="cairo-hint-metrics.html">Cairo::HintMetrics</a>に定義されている定数を指定するこ
        ともできます。</li>
 </ul></dd>
 <dt><a name="label-14" id="label-14"><code>hint_style</code></a></dt><!-- RDLabel: "hint_style" -->
 <dd>
 フォントの輪郭のヒントスタイルを返します。詳細は
-<a href="cairo.html">Cairo</a>::HintStyleを見てください。
+<a href="cairo-hint-style.html">Cairo::HintStyle</a>を見てください。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::HintStyleに定義されている定数のどれか。</li>
+<li>戻り値: <a href="cairo-hint-style.html">Cairo::HintStyle</a>に定義されている定数のどれか。</li>
 </ul></dd>
 <dt><a name="label-15" id="label-15"><code>hint_style=(<var>hint_style</var>)</code></a></dt><!-- RDLabel: "hint_style=" -->
 <dt><a name="label-16" id="label-16"><code>set_hint_style(<var>hint_style</var>)</code></a></dt><!-- RDLabel: "set_hint_style" -->
@@ -114,13 +114,13 @@
 フォントの輪郭のヒントスタイルを設定します。これはフォ
 ントの輪郭をピクセルの格子に合わせるかどうか、忠実さや
 コントラストを最適化するかどうかなどを制御します。詳細は
-<a href="cairo.html">Cairo</a>::HintStyleを見てください。
+<a href="cairo-hint-style.html">Cairo::HintStyle</a>を見てください。
 <ul>
 <li>hint_style: :defaultや:noneなどCairo::HintStyleに定義
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "default"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::HintStyleに定義されている定数を指定するこ
+       <a href="cairo-hint-style.html">Cairo::HintStyle</a>に定義されている定数を指定するこ
        ともできます。</li>
 </ul></dd>
 <dt><a name="label-17" id="label-17"><code>merge(<var>other</var>)</code></a></dt><!-- RDLabel: "merge" -->
@@ -129,7 +129,7 @@
 <pre>options.dup.merge!(other)</pre>
 <ul>
 <li>戻り値: <var>self</var>に<var>other</var>をマージした新しい
-       <a href="cairo.html">Cairo</a>::FontOptionsオブジェクト。</li>
+       <a href="cairo-font-options.html">Cairo::FontOptions</a>オブジェクト。</li>
 </ul></dd>
 <dt><a name="label-18" id="label-18"><code>merge!(<var>other</var>)</code></a></dt><!-- RDLabel: "merge!" -->
 <dt><a name="label-19" id="label-19"><code>update(<var>other</var>)</code></a></dt><!-- RDLabel: "update" -->
@@ -144,9 +144,9 @@
 <dt><a name="label-20" id="label-20"><code>subpixel_order</code></a></dt><!-- RDLabel: "subpixel_order" -->
 <dd>
 サブピクセルの並びかたを返します。詳細は
-<a href="cairo.html">Cairo</a>::SubpixelOrderを見てください。
+<a href="cairo-subpixel-order.html">Cairo::SubpixelOrder</a>を見てください。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::SubpixelOrderに定義されている定数のど
+<li>戻り値: <a href="cairo-subpixel-order.html">Cairo::SubpixelOrder</a>に定義されている定数のど
        れか。</li>
 </ul></dd>
 <dt><a name="label-21" id="label-21"><code>subpixel_order=(<var>subpixel_order</var>)</code></a></dt><!-- RDLabel: "subpixel_order=" -->
@@ -154,15 +154,15 @@
 <dd>
 サブピクセルの並びかたを設定します。サブピクセルの並び
 かたは、アンチエイリアスモードを
-<a href="cairo-antialias.html">Cairo::Antialias</a>::SUBPIXELに設定しディスプレイ装置に描
+<a href="cairo-antialias.html#label-5">Cairo::Antialias::SUBPIXEL</a>に設定しディスプレイ装置に描
 画するときの各ピクセルの色要素の順番を指定します。詳細は
-<a href="cairo.html">Cairo</a>::SubpixelOrderを見てください。
+<a href="cairo-subpixel-order.html">Cairo::SubpixelOrder</a>を見てください。
 <ul>
 <li>subpixel_order: :defaultや:rgbなど
-       <a href="cairo.html">Cairo</a>::SubpixelOrderに定義されている定数名と同じもの。
+       <a href="cairo-subpixel-order.html">Cairo::SubpixelOrder</a>に定義されている定数名と同じもの。
        大文字小文字は関係ありません。また、シンボルではなく
        て文字列で"default"のように指定することもできます。も
-       ちろん、<a href="cairo.html">Cairo</a>::SubpixelOrderに定義されている定数を指定
+       ちろん、<a href="cairo-subpixel-order.html">Cairo::SubpixelOrder</a>に定義されている定数を指定
        することもできます。</li>
 </ul></dd>
 </dl>

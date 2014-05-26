@@ -43,7 +43,7 @@ cr.fill</pre></dd>
 <p><var>path</var>の各点をブロックで変換します。Array#collectの
 ようなものです。以下は、パスを縦横それぞれ2倍の大きさに
 する実用的ではない例です。（こういうときは
-<a href="cairo-context.html">Cairo::Context#</a>scaleを使いましょう。）</p>
+<a href="cairo-context.html#label-98">Cairo::Context#scale</a>を使いましょう。）</p>
 <pre>transformed_path = cr.transform_path(cr.copy_path) do |x, y|
   [x * 2, y * 2]
 end

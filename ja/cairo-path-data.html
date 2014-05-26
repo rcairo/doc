@@ -17,9 +17,9 @@
 </body>
 
 <h1><a name="label-0" id="label-0">Cairo::PathDataクラス</a></h1><!-- RDLabel: "Cairo::PathDataクラス" -->
-<p><a href="cairo.html">Cairo</a>::Pathの中にあるパスデータを表します。実際に使うのはサ
+<p><a href="cairo-path.html">Cairo::Path</a>の中にあるパスデータを表します。実際に使うのはサ
 ブクラスのCairo::PathMoveTo, <a href="cairo-path-line-to.html">Cairo::PathLineTo</a>,
-<a href="cairo-path-curve-to.html">Cairo::PathCurveTo</a>, <a href="cairo.html">Cairo</a>::PathClosePathでしょう。</p>
+<a href="cairo-path-curve-to.html">Cairo::PathCurveTo</a>, <a href="cairo-path-close-path.html">Cairo::PathClosePath</a>でしょう。</p>
 <p>パスはCairo::PathDataの配列として表現されます。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
@@ -36,14 +36,14 @@
 <dl>
 <dt><a name="label-4" id="label-4"><code>Cairo::PathData.new(<var>type</var>, <var>points</var>)</code></a></dt><!-- RDLabel: "Cairo::PathData.new" -->
 <dd>
-<a href="cairo.html">Cairo</a>::PathDataオブジェクトを作成します。通常はサブクラ
+<a href="cairo-path-data.html">Cairo::PathData</a>オブジェクトを作成します。通常はサブクラ
 スのオブジェクトを作成します。
 <ul>
 <li>type: :move_toや:line_toなどCairo::PathDataTypeに定義
        されている定数名と同じもの。大文字小文字は関
        係ありません。また、シンボルではなくて文字列で
        "move_to"のように指定することもできます。もちろん、
-       <a href="cairo.html">Cairo</a>::PathDataTypeに定義されている定数を指定するこ
+       <a href="cairo-path-data-type.html">Cairo::PathDataType</a>に定義されている定数を指定するこ
        ともできます。</li>
 <li>points: Ciaro::Pointの配列。</li>
 <li>戻り値: 新しく作成したCairo::PathDataオブジェクト。</li>
@@ -82,7 +82,7 @@
 <dd>
 操作に必要な点を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Pointの配列。</li>
+<li>戻り値: <a href="cairo-point.html">Cairo::Point</a>の配列。</li>
 </ul></dd>
 <dt><a name="label-12" id="label-12"><code>to_a</code></a></dt><!-- RDLabel: "to_a" -->
 <dt><a name="label-13" id="label-13"><code>to_ary</code></a></dt><!-- RDLabel: "to_ary" -->
@@ -92,14 +92,14 @@
 <li>戻り値: <code>[type, points]</code>
 <ul>
 <li>type: 操作の種類。</li>
-<li>points: <a href="cairo.html">Cairo</a>::Pointの配列。</li>
+<li>points: <a href="cairo-point.html">Cairo::Point</a>の配列。</li>
 </ul></li>
 </ul></dd>
 <dt><a name="label-14" id="label-14"><code>type</code></a></dt><!-- RDLabel: "type" -->
 <dd>
 操作の種類を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::PathDataTypeに定義されている定数のど
+<li>戻り値: <a href="cairo-path-data-type.html">Cairo::PathDataType</a>に定義されている定数のど
        れか。あるいはそれの文字列表現。</li>
 </ul></dd>
 </dl>

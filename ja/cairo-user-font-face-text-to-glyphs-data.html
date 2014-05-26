@@ -17,7 +17,7 @@
 </body>
 
 <h1><a name="label-0" id="label-0">Cairo::UserFontFace::TextToGlyphsDataクラス</a></h1><!-- RDLabel: "Cairo::UserFontFace::TextToGlyphsDataクラス" -->
-<p><em>Since 1.7</em>: <a href="cairo-user-font-face.html">Cairo::UserFontFace#on_text_to_</a>glyphsコール
+<p><em>Since 1.7</em>: <a href="cairo-user-font-face.html#label-7">Cairo::UserFontFace#on_text_to_glyphs</a>コール
 バックに渡されるデータです。
 <a href="cairo-user-font-face-text-to-glyphs-data.html#label-12">Cairo::UserFontFace::TextToGlyphsData#glyphs=</a>,
 <a href="cairo-user-font-face-text-to-glyphs-data.html#label-9">Cairo::UserFontFace::TextToGlyphsData#clusters=</a>,
@@ -44,9 +44,9 @@
 <dt><a name="label-3" id="label-3"><code>Cairo::UserFontFace::TextToGlyphsData.new(<var>need_glyphs</var>, <var>need_clusters</var>, <var>need_backward</var>)</code></a></dt><!-- RDLabel: "Cairo::UserFontFace::TextToGlyphsData.new" -->
 <dd>
 <em>Since 1.7</em>: 新しく
-<a href="cairo-user-font-face.html">Cairo::UserFontFace</a>::TextToGlyphsDataオブジェクトを生成
+<a href="cairo-user-font-face-text-to-glyphs-data.html">Cairo::UserFontFace::TextToGlyphsData</a>オブジェクトを生成
 します。このオブジェクトは
-<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_text_to_</a>glyphsコールバック中で生
+<a href="cairo-user-font-face.html#label-7">Cairo::UserFontFace#on_text_to_glyphs</a>コールバック中で生
 成されるため、通常は明示的に生成する必要はありません。
 <ul>
 <li>need_glyphs: グリフを計算する必要があるかどうか。</li>
@@ -55,7 +55,7 @@
 <li>need_backward: クラスタ対応情報が後ろ向きに進むかどう
        かを計算する必要があるかどうか。</li>
 <li>戻り値: 新しく生成した
-       <a href="cairo-user-font-face.html">Cairo::UserFontFace</a>::TextToGlyphsDataオブジェクト。</li>
+       <a href="cairo-user-font-face-text-to-glyphs-data.html">Cairo::UserFontFace::TextToGlyphsData</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-4" id="label-4">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
@@ -87,7 +87,7 @@
 <ul>
 <li>戻り値: <code>[cluster, ...]</code>
 <ul>
-<li>cluster: <a href="cairo.html">Cairo</a>::TextClusterオブジェクト。</li>
+<li>cluster: <a href="cairo-text-cluster.html">Cairo::TextCluster</a>オブジェクト。</li>
 </ul></li>
 </ul></dd>
 <dt><a name="label-9" id="label-9"><code>clusters=(<var>clusters</var>)</code></a></dt><!-- RDLabel: "clusters=" -->
@@ -96,7 +96,7 @@
 <ul>
 <li>clusters: <code>[cluster, ...]</code>
 <ul>
-<li>cluster: <a href="cairo.html">Cairo</a>::TextClusterオブジェクト。</li>
+<li>cluster: <a href="cairo-text-cluster.html">Cairo::TextCluster</a>オブジェクト。</li>
 </ul></li>
 </ul></dd>
 <dt><a name="label-10" id="label-10"><code>need_clusters?</code></a></dt><!-- RDLabel: "need_clusters?" -->
@@ -112,7 +112,7 @@
 <ul>
 <li>戻り値: <code>[glyph, ...]</code>
 <ul>
-<li>glyph: <a href="cairo.html">Cairo</a>::Glyphオブジェクト。</li>
+<li>glyph: <a href="cairo-glyph.html">Cairo::Glyph</a>オブジェクト。</li>
 </ul></li>
 </ul></dd>
 <dt><a name="label-12" id="label-12"><code>glyphs=(<var>glyphs</var>)</code></a></dt><!-- RDLabel: "glyphs=" -->
@@ -121,7 +121,7 @@
 <ul>
 <li>glyphs: <code>[glyph, ...]</code>
 <ul>
-<li>glyph: <a href="cairo.html">Cairo</a>::Glyphオブジェクト。</li>
+<li>glyph: <a href="cairo-glyph.html">Cairo::Glyph</a>オブジェクト。</li>
 </ul></li>
 </ul></dd>
 <dt><a name="label-13" id="label-13"><code>need_glyphs?</code></a></dt><!-- RDLabel: "need_glyphs?" -->

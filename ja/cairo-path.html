@@ -17,9 +17,9 @@
 </body>
 
 <h1><a name="label-0" id="label-0">Cairo::Pathクラス</a></h1><!-- RDLabel: "Cairo::Pathクラス" -->
-<p>パスを持つオブジェクトです。<a href="cairo-context.html">Cairo::Context#copy_</a>pathあるいは
-<a href="cairo-context.html">Cairo::Context#copy_path_</a>flatで取得できます。また、
-<a href="cairo-context.html">Cairo::Context#append_</a>pathの入力値としても使えます。</p>
+<p>パスを持つオブジェクトです。<a href="cairo-context.html#label-22">Cairo::Context#copy_path</a>あるいは
+<a href="cairo-context.html#label-23">Cairo::Context#copy_path_flat</a>で取得できます。また、
+<a href="cairo-context.html#label-10">Cairo::Context#append_path</a>の入力値としても使えます。</p>
 <h2><a name="label-1" id="label-1">オブジェクト階層</a></h2><!-- RDLabel: "オブジェクト階層" -->
 <ul>
 <li>Object
@@ -37,7 +37,7 @@
 <dd>
 新しくパスを生成します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::Pathオブジェクト。</li>
+<li>戻り値: <a href="cairo-path.html">Cairo::Path</a>オブジェクト。</li>
 </ul></dd>
 </dl>
 <h2><a name="label-5" id="label-5">インタンスメソッド</a></h2><!-- RDLabel: "インタンスメソッド" -->
@@ -47,23 +47,23 @@
 <var>index</var>番目のパスデータを返します。<var>index</var>番目
 のパスデータがない場合は<code>nil</code>を返します。
 <ul>
-<li>戻り値: <a href="cairo.html">Cairo</a>::PathDataオブジェクトまたは<code>nil</code>。</li>
+<li>戻り値: <a href="cairo-path-data.html">Cairo::PathData</a>オブジェクトまたは<code>nil</code>。</li>
 </ul></dd>
 <dt><a name="label-7" id="label-7"><code>arc(<var>center_x</var>, <var>center_y</var>, <var>radius</var>, <var>angle1</var>, <var>angle2</var>)</code></a></dt><!-- RDLabel: "arc" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#</a>arcを見てください。</dd>
+<a href="cairo-context.html#label-11">Cairo::Context#arc</a>を見てください。</dd>
 <dt><a name="label-8" id="label-8"><code>arc_negative(<var>center_x</var>, <var>center_y</var>, <var>radius</var>, <var>angle1</var>, <var>angle2</var>)</code></a></dt><!-- RDLabel: "arc_negative" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#arc_</a>negativeを見てください。</dd>
+<a href="cairo-context.html#label-12">Cairo::Context#arc_negative</a>を見てください。</dd>
 <dt><a name="label-9" id="label-9"><code>circle(<var>center_x</var>, <var>center_y</var>, <var>radius</var>)</code></a></dt><!-- RDLabel: "circle" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#</a>circleを見てください。</dd>
+<a href="cairo-context.html#label-13">Cairo::Context#circle</a>を見てください。</dd>
 <dt><a name="label-10" id="label-10"><code>close</code></a></dt><!-- RDLabel: "close" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#close_</a>pathを見てください。</dd>
+<a href="cairo-context.html#label-20">Cairo::Context#close_path</a>を見てください。</dd>
 <dt><a name="label-11" id="label-11"><code>curve_to(<var>x1</var>, <var>y1</var>, <var>x2</var>, <var>y2</var>, <var>x3</var>, <var>y3</var>)</code></a></dt><!-- RDLabel: "curve_to" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#curve_</a>toを見てください。</dd>
+<a href="cairo-context.html#label-25">Cairo::Context#curve_to</a>を見てください。</dd>
 <dt><a name="label-12" id="label-12"><code>each {|<var>data</var>| ...}</code></a></dt><!-- RDLabel: "each" -->
 <dd>
 各パスデータ毎にブロックを呼び出します。</dd>
@@ -76,31 +76,31 @@
 </ul></dd>
 <dt><a name="label-14" id="label-14"><code>line_to(<var>x</var>, <var>y</var>)</code></a></dt><!-- RDLabel: "line_to" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#line_</a>toを見てください。</dd>
+<a href="cairo-context.html#label-64">Cairo::Context#line_to</a>を見てください。</dd>
 <dt><a name="label-15" id="label-15"><code>move_to(<var>x</var>, <var>y</var>)</code></a></dt><!-- RDLabel: "move_to" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#move_</a>toを見てください。</dd>
+<a href="cairo-context.html#label-76">Cairo::Context#move_to</a>を見てください。</dd>
 <dt><a name="label-16" id="label-16"><code>new_path</code></a></dt><!-- RDLabel: "new_path" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#new_</a>pathを見てください。</dd>
+<a href="cairo-context.html#label-77">Cairo::Context#new_path</a>を見てください。</dd>
 <dt><a name="label-17" id="label-17"><code>new_sub_path</code></a></dt><!-- RDLabel: "new_sub_path" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#new_sub_</a>pathを見てください。</dd>
+<a href="cairo-context.html#label-78">Cairo::Context#new_sub_path</a>を見てください。</dd>
 <dt><a name="label-18" id="label-18"><code>rectangle(<var>x</var>, <var>y</var>, <var>width</var>, <var>height</var>)</code></a></dt><!-- RDLabel: "rectangle" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#</a>rectangleを見てください。</dd>
+<a href="cairo-context.html#label-88">Cairo::Context#rectangle</a>を見てください。</dd>
 <dt><a name="label-19" id="label-19"><code>rel_curve_to(<var>dx1</var>, <var>dy1</var>, <var>dx2</var>, <var>dy2</var>, <var>dx3</var>, <var>dy3</var>)</code></a></dt><!-- RDLabel: "rel_curve_to" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#rel_curve_</a>toを見てください。</dd>
+<a href="cairo-context.html#label-90">Cairo::Context#rel_curve_to</a>を見てください。</dd>
 <dt><a name="label-20" id="label-20"><code>rel_line_to(<var>dx</var>, <var>dy</var>)</code></a></dt><!-- RDLabel: "rel_line_to" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#rel_line_</a>toを見てください。</dd>
+<a href="cairo-context.html#label-91">Cairo::Context#rel_line_to</a>を見てください。</dd>
 <dt><a name="label-21" id="label-21"><code>rel_move_to(<var>dx</var>, <var>dy</var>)</code></a></dt><!-- RDLabel: "rel_move_to" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#rel_move_</a>toを見てください。</dd>
+<a href="cairo-context.html#label-92">Cairo::Context#rel_move_to</a>を見てください。</dd>
 <dt><a name="label-22" id="label-22"><code>rounded_rectangle(<var>x</var>, <var>y</var>, <var>width</var>, <var>height</var>, <var>x_radius</var>, <var>y_radius</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "rounded_rectangle" -->
 <dd>
-<a href="cairo-context.html">Cairo::Context#rounded_</a>rectangleを見てください。</dd>
+<a href="cairo-context.html#label-89">Cairo::Context#rounded_rectangle</a>を見てください。</dd>
 <dt><a name="label-23" id="label-23"><code>size</code></a></dt><!-- RDLabel: "size" -->
 <dt><a name="label-24" id="label-24"><code>length</code></a></dt><!-- RDLabel: "length" -->
 <dd>
@@ -113,16 +113,16 @@
 <dl>
 <dt><a name="label-26" id="label-26"><code>CLOSE_PATH</code></a></dt><!-- RDLabel: "CLOSE_PATH" -->
 <dd>
-<a href="cairo-path-data-type.html">Cairo::PathDataType</a>::CLOSE_PATHを見てください。</dd>
+<a href="cairo-path-data-type.html#label-2">Cairo::PathDataType::CLOSE_PATH</a>を見てください。</dd>
 <dt><a name="label-27" id="label-27"><code>CURVE_TO</code></a></dt><!-- RDLabel: "CURVE_TO" -->
 <dd>
-<a href="cairo-path-data-type.html">Cairo::PathDataType</a>::CURVE_TOを見てください。</dd>
+<a href="cairo-path-data-type.html#label-3">Cairo::PathDataType::CURVE_TO</a>を見てください。</dd>
 <dt><a name="label-28" id="label-28"><code>LINE_TO</code></a></dt><!-- RDLabel: "LINE_TO" -->
 <dd>
-<a href="cairo-path-data-type.html">Cairo::PathDataType</a>::LINE_TOを見てください。</dd>
+<a href="cairo-path-data-type.html#label-4">Cairo::PathDataType::LINE_TO</a>を見てください。</dd>
 <dt><a name="label-29" id="label-29"><code>MOVE_TO</code></a></dt><!-- RDLabel: "MOVE_TO" -->
 <dd>
-<a href="cairo-path-data-type.html">Cairo::PathDataType</a>::MOVE_TOを見てください。</dd>
+<a href="cairo-path-data-type.html#label-5">Cairo::PathDataType::MOVE_TO</a>を見てください。</dd>
 </dl>
 <h2><a name="label-30" id="label-30">参考</a></h2><!-- RDLabel: "参考" -->
 <ul>

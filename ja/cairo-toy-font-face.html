@@ -42,25 +42,25 @@
 <p><var>slant</var>が<code>nil</code>の場合はCairo::FontSlant::NORMAL
 が使われます。</p>
 <p><var>weight</var>が<code>nil</code>の場合は
-<a href="cairo-font-weight.html">Cairo::FontWeight</a>::NORMALが使われます。</p>
-<p><a href="cairo.html">Cairo</a>::ToyFontFaceの制限については
-<a href="cairo-context.html">Cairo::Context#select_font_</a>faceの説明を見てください。</p>
+<a href="cairo-font-weight.html#label-3">Cairo::FontWeight::NORMAL</a>が使われます。</p>
+<p><a href="cairo-toy-font-face.html">Cairo::ToyFontFace</a>の制限については
+<a href="cairo-context.html#label-102">Cairo::Context#select_font_face</a>の説明を見てください。</p>
 <ul>
 <li>family: UTF-8で符号化されたフォントファミリー名。</li>
 <li>slant: フォントの傾き。:normalや:italicなど
-       <a href="cairo.html">Cairo</a>::FontSlantに定義されている定数名と同じもの。
+       <a href="cairo-font-slant.html">Cairo::FontSlant</a>に定義されている定数名と同じもの。
        大文字小文字は関係ありません。また、シンボル
        ではなくて文字列で"normal"のように指定することもでき
-       ます。もちろん、<a href="cairo.html">Cairo</a>::FontSlantに定義されている定数
+       ます。もちろん、<a href="cairo-font-slant.html">Cairo::FontSlant</a>に定義されている定数
        を指定することもできます。<code>nil</code>の場合はデフォルト
        値としてCairo::FontSlant::NORMALが使われます。</li>
 <li>weight: フォントの重み。:normalや:boldなど
-       <a href="cairo.html">Cairo</a>::FontWeightに定義されている定数名と同じもの。
+       <a href="cairo-font-weight.html">Cairo::FontWeight</a>に定義されている定数名と同じもの。
        大文字小文字は関係ありません。また、シンボルではなく
        て文字列で"normal"のように指定することもできます。も
-       ちろん、<a href="cairo.html">Cairo</a>::FontWeightを指定することもできます。
+       ちろん、<a href="cairo-font-weight.html">Cairo::FontWeight</a>を指定することもできます。
        <code>nil</code>の場合はデフォルト値として
-       <a href="cairo-font-weight.html">Cairo::FontWeight</a>::NORMALが使われます。</li>
+       <a href="cairo-font-weight.html#label-3">Cairo::FontWeight::NORMAL</a>が使われます。</li>
 <li>戻り値: 新しく生成したCairo::ToyFontFaceオブジェクト。</li>
 </ul></dd>
 </dl>

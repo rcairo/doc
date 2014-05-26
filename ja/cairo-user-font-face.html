@@ -20,7 +20,7 @@
 <p><em>Since 1.7</em>: ユーザが独自のフォントを使うためのフォント
 フェイス。</p>
 <p>on_XXXメソッドでコールバックを登録する方法と
-<a href="cairo.html">Cairo</a>::UserFontFaceを継承して、そのクラスにコールバック用のメ
+<a href="cairo-user-font-face.html">Cairo::UserFontFace</a>を継承して、そのクラスにコールバック用のメ
 ソッドを定義する方法があります。</p>
 <p>継承した場合のコールバック用メソッドの名前はon_XXXメソッドか
 ら「on_」を除いた部分です。例えば、on_initに対応するメソッド
@@ -57,7 +57,7 @@ end</pre>
 を生成します。</p>
 <p>オブジェクトを生成したら、on_XXXメソッドでコールバック
 を登録してください。必須のコールバックは
-<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_render_</a>glyphです。それ以外のコー
+<a href="cairo-user-font-face.html#label-6">Cairo::UserFontFace#on_render_glyph</a>です。それ以外のコー
 ルバックは省略可能です。</p>
 <p>継承して利用する場合、そのクラスのメソッドよりもon_XXX
 メソッドで登録したコールバックの方が優先されます。</p>
@@ -74,14 +74,14 @@ end</pre>
 ルバックを登録します。このコールバックは省略可能です。</p>
 <p><var>context</var>は呼び出し元では使われませんが、フォント空
 間ように準備されています。これは
-<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_render_</a>glyphで登録するコールバッ
+<a href="cairo-user-font-face.html#label-6">Cairo::UserFontFace#on_render_glyph</a>で登録するコールバッ
 クに渡される<var>context</var>と同様です。コールバック中では
 このCairo::Contextをフォントの範囲を計算するために使う
 ことができます。</p>
 <p><var>font_extents</var>には<var>scaled_font</var>用のフォントの範
 囲を設定します。座標はフォント空間です。そのため、多く
 の場合はCairo::FontExtents#ascentと
-<a href="cairo-font-extents.html">Cairo::FontExtents#</a>descentに1.0を足す必要があります。
+<a href="cairo-font-extents.html#label-8">Cairo::FontExtents#descent</a>に1.0を足す必要があります。
 <var>font_extents</var>は以下のように初期化されています。</p>
 <ul>
 <li>ascent: 1.0</li>
@@ -96,7 +96,7 @@ end</pre>
 いません。そのため、コールバック中でテキスト操作を行う
 とデッドロックするでしょう。</p>
 <p>コールバック中で問題が発生した場合は
-<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+<a href="cairo-user-font-error.html">Cairo::UserFontError</a>例外、あるいは問題に対応する例外を
 発生させてください。</p>
 <ul>
 <li>scaled_font: 生成中の拡大・縮小したフォント。
@@ -149,7 +149,7 @@ end</pre>
 で<var>context</var>に描画したものすべてを含むようにしてくだ
 さい。</p>
 <p>コールバック中で問題が発生した場合は
-<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+<a href="cairo-user-font-error.html">Cairo::UserFontError</a>例外、あるいは問題に対応する例外を
 発生させてください。</p>
 <ul>
 <li>scaled_font: ユーザ用の拡大・縮小したフォント。
@@ -185,7 +185,7 @@ end</pre>
 <p>もし、このコールバックが省略されているか
 <a href="cairo-user-font-face-text-to-glyphs-data.html#label-11">data.glyphs</a>
 が<code>nil</code>の場合は
-<a href="cairo-user-font-face.html">Cairo::UserFontFace#on_unicode_to_</a>glyphが呼ばれます。</p>
+<a href="cairo-user-font-face.html#label-8">Cairo::UserFontFace#on_unicode_to_glyph</a>が呼ばれます。</p>
 <p>注: cairoはグリフのインデックス付けには制限を設けていま
 せんが、いくつかのアプリケーションはグリフのインデック
 スは16ビットの符号無し整数に収まると仮定しています。そ
@@ -196,7 +196,7 @@ end</pre>
 番目のグリフをそのような目的として使い、他の目的には使
 わない方がよいでしょう。</p>
 <p>コールバック中で問題が発生した場合は
-<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+<a href="cairo-user-font-error.html">Cairo::UserFontError</a>例外、あるいは問題に対応する例外を
 発生させてください。</p>
 <ul>
 <li>scaled_font: ユーザ用の拡大・縮小したフォント。
@@ -238,7 +238,7 @@ on_text_to_glyphsほど出力を制御できませんが、使いやすい
 番目のグリフをそのような目的として使い、他の目的には使
 わない方がよいでしょう。</p>
 <p>コールバック中で問題が発生した場合は
-<a href="cairo.html">Cairo</a>::UserFontError例外、あるいは問題に対応する例外を
+<a href="cairo-user-font-error.html">Cairo::UserFontError</a>例外、あるいは問題に対応する例外を
 発生させてください。</p>
 <ul>
 <li>scaled_font: ユーザ用の拡大・縮小したフォント。
