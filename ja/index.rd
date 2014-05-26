@@ -880,6 +880,8 @@
   * Cairo::Paper::B8_LANDSCAPE
   * Cairo::Paper::B9
   * Cairo::Paper::B9_LANDSCAPE
+  * Cairo::Paper::ISO_B0
+  * Cairo::Paper::ISO_B0_LANDSCAPE
   * Cairo::Paper::ISO_B1
   * Cairo::Paper::ISO_B10
   * Cairo::Paper::ISO_B10_LANDSCAPE
