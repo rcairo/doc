@@ -880,8 +880,50 @@
   * Cairo::Paper::B8_LANDSCAPE
   * Cairo::Paper::B9
   * Cairo::Paper::B9_LANDSCAPE
+  * Cairo::Paper::ISO_B1
+  * Cairo::Paper::ISO_B10
+  * Cairo::Paper::ISO_B10_LANDSCAPE
+  * Cairo::Paper::ISO_B1_LANDSCAPE
+  * Cairo::Paper::ISO_B2
+  * Cairo::Paper::ISO_B2_LANDSCAPE
+  * Cairo::Paper::ISO_B3
+  * Cairo::Paper::ISO_B3_LANDSCAPE
+  * Cairo::Paper::ISO_B4
+  * Cairo::Paper::ISO_B4_LANDSCAPE
+  * Cairo::Paper::ISO_B5
+  * Cairo::Paper::ISO_B5_LANDSCAPE
+  * Cairo::Paper::ISO_B6
+  * Cairo::Paper::ISO_B6_LANDSCAPE
+  * Cairo::Paper::ISO_B7
+  * Cairo::Paper::ISO_B7_LANDSCAPE
+  * Cairo::Paper::ISO_B8
+  * Cairo::Paper::ISO_B8_LANDSCAPE
+  * Cairo::Paper::ISO_B9
+  * Cairo::Paper::ISO_B9_LANDSCAPE
   * Cairo::Paper::JAPANESE_POSTCARD
   * Cairo::Paper::JAPANESE_POSTCARD_LANDSCAPE
+  * Cairo::Paper::JIS_B0
+  * Cairo::Paper::JIS_B0_LANDSCAPE
+  * Cairo::Paper::JIS_B1
+  * Cairo::Paper::JIS_B10
+  * Cairo::Paper::JIS_B10_LANDSCAPE
+  * Cairo::Paper::JIS_B1_LANDSCAPE
+  * Cairo::Paper::JIS_B2
+  * Cairo::Paper::JIS_B2_LANDSCAPE
+  * Cairo::Paper::JIS_B3
+  * Cairo::Paper::JIS_B3_LANDSCAPE
+  * Cairo::Paper::JIS_B4
+  * Cairo::Paper::JIS_B4_LANDSCAPE
+  * Cairo::Paper::JIS_B5
+  * Cairo::Paper::JIS_B5_LANDSCAPE
+  * Cairo::Paper::JIS_B6
+  * Cairo::Paper::JIS_B6_LANDSCAPE
+  * Cairo::Paper::JIS_B7
+  * Cairo::Paper::JIS_B7_LANDSCAPE
+  * Cairo::Paper::JIS_B8
+  * Cairo::Paper::JIS_B8_LANDSCAPE
+  * Cairo::Paper::JIS_B9
+  * Cairo::Paper::JIS_B9_LANDSCAPE
   * Cairo::Paper::LEGAL
   * Cairo::Paper::LEGAL_LANDSCAPE
   * Cairo::Paper::LETTER
