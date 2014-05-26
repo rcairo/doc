@@ -18,7 +18,7 @@ load_message(lang)
 
 section = nil
 cairo_signature_re =
-  /\bCairo(?:::[A-Z][\w\d_]+)*(?:[#.][\[_@\w\d]*(?:[=?!_*+\-\]]|\b)|\b)/
+  /\b?Cairo(?:::[A-Z][\w\d_]+)*(?:[#.][\[_@\w\d]*(?:[=?!_*+\-\]]|\b)?|\b)?/
 in_pre = false
 auto_linked_rd = File.open(rd).collect do |line|
   case line
