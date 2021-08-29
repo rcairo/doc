@@ -795,7 +795,7 @@ Cairo::Contextには、いくつかrcairoが拡張している機能もありま
      コンテキストの中に現在の留め継ぎ限界を設定します。
 
      現在の結合点スタイルがCairo::LineJoin::MITERの場合は
-     （Cairo::Context#est_line_joinを見てください）、線分を
+     （Cairo::Context#set_line_joinを見てください）、線分を
      留め継ぎの代わりに斜角で結合するべきかどうかを判断
      するために設定した留め継ぎ限界を使います。
 
